@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBA Lite - Gestão Estratégica para Líderes</title>
-    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- Font Imports --- */
@@ -50,7 +49,7 @@
         /* --- Utilitários --- */
         .container {
             max-width: 1140px; /* Slightly wider */
-            margin: auto;
+            margin: 0 auto; /* Centers the container itself */
             padding: 0 20px;
         }
 
@@ -60,9 +59,8 @@
             margin-bottom: 1.2rem;
             font-weight: 700;
         }
-
         h1 { font-size: 2.75rem; line-height: 1.2; }
-        h2 { font-size: 2rem; line-height: 1.3; }
+        h2 { font-size: 2rem; line-height: 1.3; text-align: center; margin-bottom: 50px; }
         h3 { font-size: 1.25rem; font-weight: 600; font-family: var(--font-body); color: var(--primary-color); margin-bottom: 0.8rem;}
 
         p {
@@ -131,7 +129,7 @@
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border-bottom: 1px solid var(--medium-gray);
-            transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Smooth transition if needed later */
+            transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
 
         header .container {
@@ -188,7 +186,7 @@
         }
 
         header nav#main-nav ul li a:hover::after {
-            width: 100%;
+             width: 100%;
         }
          header nav#main-nav ul li a:hover {
             color: var(--primary-color);
@@ -214,46 +212,46 @@
 
          /* Mobile Navigation Container Styles */
          #mobile-nav-container {
-             display: none;
-             flex-direction: column;
-             position: fixed; /* Changed to fixed for consistency */
-             top: 0; /* Start from top */
-             left: 0;
-             width: 100%;
-             height: 100%; /* Full height */
-             background: rgba(255, 255, 255, 0.98); /* Slightly transparent bg */
-             backdrop-filter: blur(5px); /* Optional blur effect */
-             padding-top: 80px; /* Space for header */
-             z-index: 1050; /* Below header toggle */
-             opacity: 0; /* Start hidden */
-             transform: translateY(-20px); /* Start slightly up */
-             transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
-             overflow-y: auto; /* Allow scrolling if content overflows */
+              display: none;
+              flex-direction: column;
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(255, 255, 255, 0.98);
+              backdrop-filter: blur(5px);
+              padding-top: 80px;
+              z-index: 1050;
+              opacity: 0;
+              transform: translateY(-20px);
+              transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+              overflow-y: auto;
          }
          #mobile-nav-container.active {
-             display: flex;
-             opacity: 1;
-             transform: translateY(0);
-          }
+              display: flex;
+              opacity: 1;
+              transform: translateY(0);
+           }
 
          #mobile-nav-container ul {
-             list-style: none;
-             padding: 20px 0;
-             margin: 0;
-             width: 100%;
-             text-align: center;
+              list-style: none;
+              padding: 20px 0;
+              margin: 0;
+              width: 100%;
+              text-align: center;
          }
 
          #mobile-nav-container ul li { margin: 0; width: 100%; }
          #mobile-nav-container ul li a {
-            padding: 15px 20px; /* Larger tap area */
-            display: block;
-             width: 100%;
-             font-weight: 500;
-             color: var(--primary-color);
-             font-size: 1.2rem; /* Larger font */
-             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-             border-bottom: 1px solid var(--medium-gray);
+             padding: 15px 20px;
+             display: block;
+              width: 100%;
+              font-weight: 500;
+              color: var(--primary-color);
+              font-size: 1.2rem;
+              transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+              border-bottom: 1px solid var(--medium-gray);
          }
           #mobile-nav-container ul li a::after { display: none; }
          #mobile-nav-container ul li:last-child a { border-bottom: none; }
@@ -261,19 +259,19 @@
 
         /* Mobile Nav Button specific style */
         #mobile-nav-container .nav-button-mobile {
-             display: block;
-             margin: 25px auto; /* Center button */
-             padding: 12px 30px;
-             text-align: center;
-             background: var(--secondary-color);
-             color: white;
-             border-radius: var(--border-radius);
-             font-weight: 600;
-             max-width: 200px; /* Limit button width */
-             transition: background-color var(--transition-speed) ease;
+              display: block;
+              margin: 25px auto;
+              padding: 12px 30px;
+              text-align: center;
+              background: var(--secondary-color);
+              color: white;
+              border-radius: var(--border-radius);
+              font-weight: 600;
+              max-width: 200px;
+              transition: background-color var(--transition-speed) ease;
         }
          #mobile-nav-container .nav-button-mobile:hover {
-             background: #b8956f;
+              background: #b8956f;
          }
 
         /* --- Hero Section --- */
@@ -293,6 +291,7 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
         }
 
         #hero p {
@@ -302,13 +301,11 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            text-align: center;
         }
 
         /* --- Course Overview / Modules Section --- */
-        #modules h2 {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+        #modules h2 { /* text-align: center; margin-bottom: 50px; */ }
 
         .modules-grid {
             display: grid;
@@ -343,204 +340,70 @@
             height: 45px;
             flex-shrink: 0;
         }
-         .module-card .icon svg {
-            width: 100%;
-            height: 100%;
-         }
+         .module-card .icon svg { width: 100%; height: 100%; }
 
-        .module-card .module-content h3 {
-            font-size: 1.15rem;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        .module-card .module-content p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-             line-height: 1.6;
-        }
+        .module-card .module-content h3 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.5rem; }
+        .module-card .module-content p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; }
 
         /* --- Benefits Section --- */
-        #benefits h2 {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        #benefits .benefits-grid {
-             display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-             gap: 40px;
-        }
-        #benefits .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 25px;
-        }
-
-         #benefits .benefit-icon {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            min-width: 40px;
-            width: 40px;
-            height: 40px;
-            margin-top: 5px;
-             flex-shrink: 0;
-         }
-          #benefits .benefit-icon svg {
-            width: 100%;
-            height: 100%;
-         }
-
-        #benefits h3 {
-            margin-bottom: 0.5rem;
-             font-size: 1.15rem;
-        }
-         #benefits p {
-            font-size: 0.95rem;
-             margin-bottom: 0;
-        }
-
+        #benefits h2 { /* text-align: center; margin-bottom: 50px; */ }
+        #benefits .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        #benefits .benefit-item { display: flex; align-items: flex-start; gap: 25px; }
+         #benefits .benefit-icon { font-size: 1.8rem; color: var(--primary-color); min-width: 40px; width: 40px; height: 40px; margin-top: 5px; flex-shrink: 0; }
+          #benefits .benefit-icon svg { width: 100%; height: 100%; }
+        #benefits h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
+         #benefits p { font-size: 0.95rem; margin-bottom: 0; }
 
         /* --- Target Audience Section --- */
-         #target-audience h2 {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        #target-audience ul {
-            list-style: none;
-            padding-left: 0;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        #target-audience li {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center;
-            background-size: 16px;
-            padding-left: 35px;
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
+         #target-audience h2 { /* text-align: center; margin-bottom: 50px; */ }
+        #target-audience ul { list-style: none; padding-left: 0; max-width: 700px; margin: auto; }
+        #target-audience li { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center; background-size: 16px; padding-left: 35px; margin-bottom: 15px; font-size: 1.05rem; }
 
         /* --- Enrollment / Contact Form Section --- */
         #enroll {
-            /* background-color: var(--primary-color); REMOVED */
-            /* color: var(--white); REMOVED */
-            background-color: var(--white); /* Set to white background */
-            color: var(--text-color); /* Set default text color to dark */
-            text-align: center;
-             /* border-radius: var(--border-radius); REMOVED - let's keep it sharp */
-             margin: 40px auto; /* Keep margin */
-             max-width: 1140px;
-             padding: 80px 40px; /* Adjusted padding */
-             position: relative;
-             overflow: hidden;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            padding: 80px 0; /* Section padding controls vertical space */
+        }
+        #enroll .container { /* Styles for the main container within #enroll */ }
+
+        /* REMOVED: #enroll h2 specific rule */
+        /* REMOVED: #enroll p specific rule */
+
+        /* Wrapper para o Formulário */
+        #enroll .form-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            /* margin-top: 30px; /* REMOVED: No longer needed without text above */
         }
 
-        #enroll .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Style the H2 and P ABOVE the form */
-        #enroll h2 {
-            /* color: var(--white); REMOVED */
-            color: var(--primary-color); /* Make H2 dark */
-             margin-bottom: 1rem;
-        }
-        #enroll p {
-             /* color: rgba(255, 255, 255, 0.8); REMOVED */
-             color: var(--text-color); /* Make P dark */
-             margin-bottom: 40px;
-             max-width: 600px;
-             margin-left: auto;
-             margin-right: auto;
-        }
-
-        /* --- ConvertKit Form Styling Overrides for LIGHT BACKGROUND --- */
+        /* ConvertKit Form Styling Overrides */
         #enroll .ck-form-container {
-             max-width: 500px !important;
-             width: 100%;
-             margin: 0 auto !important;
-             padding: 0 !important;
-             background: none !important;
-             border: none !important;
-             box-shadow: none !important;
-             text-align: left;
-        }
-        /* Hide CK default Title/Description */
-         #enroll .ck-form-container .ck-header,
-         #enroll .ck-form-container .ck-content {
-             display: none !important;
-         }
-         /* Fields wrapper styling */
-         #enroll .ck-form-container .ck-fields {
-            background: none !important;
+            max-width: 500px !important;
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 0;
             padding: 0 !important;
-         }
-         /* Label styling for light background */
-         #enroll .ck-form-container .ck-field label {
-            display: block !important;
-            margin-bottom: 8px !important;
-            font-weight: 500 !important;
-            font-family: var(--font-body) !important;
-            color: var(--text-color) !important; /* Dark label */
-            font-size: 0.9rem !important;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
             text-align: left !important;
-         }
-         /* Input styling for light background */
-         #enroll .ck-form-container .ck-input {
-             width: 100% !important;
-             padding: 14px 16px !important;
-             border: 1px solid var(--medium-gray) !important; /* Standard border */
-             border-radius: var(--border-radius) !important;
-             font-size: 1rem !important;
-             font-family: var(--font-body) !important;
-             background-color: var(--white) !important; /* Standard white input */
-             color: var(--dark-gray) !important; /* Dark text when typing */
-             transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important;
-             margin-bottom: 20px !important;
-         }
-          #enroll .ck-form-container .ck-input::placeholder {
-            color: #999 !important; /* Standard placeholder color */
-         }
-         #enroll .ck-form-container .ck-input:focus {
-              outline: none !important;
-              border-color: var(--secondary-color) !important; /* Accent color border on focus */
-              box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important;
-         }
-         /* Button styling (Keep accent color) */
-          #enroll .ck-form-container .ck-button {
-            width: 100% !important;
-            padding: 15px !important;
-            margin-top: 10px !important;
-            font-size: 1.1rem !important;
-             letter-spacing: 0.8px !important;
-             background-color: var(--secondary-color) !important;
-             color: var(--white) !important;
-             border: none !important;
-             border-radius: var(--border-radius) !important;
-             font-weight: 600 !important;
-             font-family: var(--font-body) !important;
-             cursor: pointer;
-             transition: background-color var(--transition-speed) ease, transform 0.2s ease !important;
-         }
-          #enroll .ck-form-container .ck-button:hover {
-             background-color: #b8956f !important;
-             transform: translateY(-2px);
-          }
-          /* "Powered By" styling for light background */
-          #enroll .ck-form-container .ck-powered-by {
-             color: #aaa !important; /* Lighter gray */
-             font-size: 0.8rem !important;
-             text-align: center !important;
-             margin-top: 20px !important;
-             padding-bottom: 0 !important;
-          }
-          #enroll .ck-form-container .ck-powered-by a {
-              color: #888 !important; /* Slightly darker gray link */
-              text-decoration: underline !important;
-          }
-           #enroll .ck-form-container .ck-powered-by a:hover {
-               color: var(--secondary-color) !important; /* Accent color on hover */
-           }
+        }
+
+        /* Ocultar Header/Content Padrão do CK */
+         #enroll .ck-form-container .ck-header,
+         #enroll .ck-form-container .ck-content { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; }
+         #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
+         #enroll .ck-form-container .ck-field label { display: block !important; margin-bottom: 8px !important; font-weight: 500 !important; font-family: var(--font-body) !important; color: var(--text-color) !important; font-size: 0.9rem !important; text-align: left !important; }
+         #enroll .ck-form-container .ck-input { width: 100% !important; padding: 14px 16px !important; border: 1px solid var(--medium-gray) !important; border-radius: var(--border-radius) !important; font-size: 1rem !important; font-family: var(--font-body) !important; background-color: var(--white) !important; color: var(--dark-gray) !important; transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important; margin-bottom: 20px !important; }
+          #enroll .ck-form-container .ck-input::placeholder { color: #999 !important; }
+         #enroll .ck-form-container .ck-input:focus { outline: none !important; border-color: var(--secondary-color) !important; box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important; }
+          #enroll .ck-form-container .ck-button { width: 100% !important; padding: 15px !important; margin-top: 10px !important; font-size: 1.1rem !important; letter-spacing: 0.8px !important; background-color: var(--secondary-color) !important; color: var(--white) !important; border: none !important; border-radius: var(--border-radius) !important; font-weight: 600 !important; font-family: var(--font-body) !important; cursor: pointer; transition: background-color var(--transition-speed) ease, transform 0.2s ease !important; }
+          #enroll .ck-form-container .ck-button:hover { background-color: #b8956f !important; transform: translateY(-2px); }
+          #enroll .ck-form-container .ck-powered-by { color: #aaa !important; font-size: 0.8rem !important; text-align: center !important; margin-top: 20px !important; padding-bottom: 0 !important; }
+          #enroll .ck-form-container .ck-powered-by a { color: #888 !important; text-decoration: underline !important; }
+           #enroll .ck-form-container .ck-powered-by a:hover { color: var(--secondary-color) !important; }
 
 
         /* --- Footer --- */
@@ -592,17 +455,10 @@
 
 
             #benefits .benefits-grid { grid-template-columns: 1fr; }
-            #benefits .benefit-item {
-                flex-direction: column;
-                text-align: center;
-                align-items: center;
-            }
-             #benefits .benefit-icon {
-                 margin-bottom: 15px;
-                 margin-top: 0;
-             }
-             #enroll { margin: 20px 0; padding: 60px 20px;} /* Adjust padding for mobile */
-             #enroll .ck-form-container { max-width: 100% !important; } /* Allow full width */
+            #benefits .benefit-item { flex-direction: column; text-align: center; align-items: center; }
+             #benefits .benefit-icon { margin-bottom: 15px; margin-top: 0; }
+
+             #enroll { padding: 60px 20px;} /* Adjust padding for mobile */
         }
 
          @media (max-width: 480px) {
@@ -621,13 +477,11 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="container">
             <div id="logo">
                 <h1>MBA Lite</h1>
             </div>
-            <!-- Desktop Navigation -->
             <nav id="main-nav">
                 <ul>
                     <li><a href="#hero">Início</a></li>
@@ -635,180 +489,74 @@
                     <li><a href="#benefits">Benefícios</a></li>
                     <li><a href="#target-audience">Público</a></li>
                 </ul>
-                 <!-- Button moved outside UL for better alignment control -->
                  <a href="#enroll" class="btn btn-secondary nav-button">Inscreva-se</a>
             </nav>
-            <!-- Mobile Menu Toggle Button -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
-         <!-- Mobile Navigation Container (Initially Hidden) -->
          <div id="mobile-nav-container">
-              <ul>
-                  <li><a href="#hero">Início</a></li>
-                  <li><a href="#modules">Módulos</a></li>
-                  <li><a href="#benefits">Benefícios</a></li>
-                  <li><a href="#target-audience">Público</a></li>
-              </ul>
-              <a href="#enroll" class="nav-button-mobile">Inscreva-se</a>
+             <ul>
+                 <li><a href="#hero">Início</a></li>
+                 <li><a href="#modules">Módulos</a></li>
+                 <li><a href="#benefits">Benefícios</a></li>
+                 <li><a href="#target-audience">Público</a></li>
+             </ul>
+             <a href="#enroll" class="nav-button-mobile">Inscreva-se</a>
          </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="hero" data-aos="fade-in" data-aos-duration="1000">
             <div class="container">
                 <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
                 <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
-                <a href="#enroll" class="btn" data-aos="fade-up" data-aos-delay="600">Solicite Mais Informações</a>
+                <a href="#enroll" class="btn" data-aos="fade-up" data-aos-delay="600">Inscreva-se Agora</a>
             </div>
         </section>
 
-        <!-- Modules Section -->
         <section id="modules" class="bg-light">
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
                 <div class="modules-grid">
-                    <!-- Módulo 1: Gestão de Pessoas -->
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        </div>
-                        <div class="module-content">
-                            <h3>Gestão Estratégica de Pessoas</h3>
-                            <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p>
-                        </div>
-                    </div>
-                    <!-- Módulo 2: Gestão de Riscos -->
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                        <div class="icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                        </div>
-                         <div class="module-content">
-                            <h3>Gestão de Riscos Corporativos</h3>
-                            <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
-                        </div>
-                    </div>
-                    <!-- Módulo 3: Gestão da Qualidade -->
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        </div>
-                         <div class="module-content">
-                            <h3>Excelência Operacional e Qualidade</h3>
-                            <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p>
-                         </div>
-                    </div>
-                    <!-- Módulo 4: Gestão de Projetos -->
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <!-- Reset delay for next row feel -->
-                        <div class="icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg>
-                        </div>
-                         <div class="module-content">
-                            <h3>Gestão de Projetos Moderna</h3>
-                            <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p>
-                        </div>
-                    </div>
-                     <!-- Módulo 5: Projetos com ClickUp -->
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                        <div class="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                        </div>
-                         <div class="module-content">
-                            <h3>Ferramentas Digitais: ClickUp</h3>
-                            <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
-                        </div>
-                    </div>
-                     <!-- Módulo 6: Projetos com IA (Gemini) -->
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
-                         <div class="icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> <!-- CPU icon for AI -->
-                         </div>
-                          <div class="module-content">
-                            <h3>Inteligência Artificial em Projetos</h3>
-                            <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
-                         </div>
-                    </div>
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div> <div class="module-content"> <h3>Gestão Estratégica de Pessoas</h3> <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p> </div> </div>
+                     <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div> <div class="module-content"> <h3>Gestão de Riscos Corporativos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p> </div> </div>
+                     <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div> <div class="module-content"> <h3>Excelência Operacional e Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p> </div> </div>
+                     <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg> </div> <div class="module-content"> <h3>Gestão de Projetos Moderna</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p> </div> </div>
+                     <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div> <div class="module-content"> <h3>Ferramentas Digitais: ClickUp</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p> </div> </div>
+                     <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div> <div class="module-content"> <h3>Inteligência Artificial em Projetos</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p> </div> </div>
                 </div>
             </div>
         </section>
 
-        <!-- Benefits Section -->
         <section id="benefits">
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-once="true">Invista no Seu Potencial de Liderança</h2>
                 <div class="benefits-grid">
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
-                         <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                         </div>
-                        <div>
-                            <h3>Desenvolvimento Estratégico</h3>
-                            <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p>
-                        </div>
-                    </div>
-                     <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                         <div class="benefit-icon">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                         </div>
-                        <div>
-                            <h3>Aprendizado Prático e Aplicável</h3>
-                            <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
-                         <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                         </div>
-                        <div>
-                            <h3>Flexibilidade e Conveniência</h3>
-                            <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">
-                         <div class="benefit-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg>
-                         </div>
-                        <div>
-                            <h3>Networking Estratégico</h3>
-                            <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p>
-                        </div>
-                    </div>
+                     <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> </div> <div> <h3>Desenvolvimento Estratégico</h3> <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p> </div> </div> <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> </div> <div> <h3>Aprendizado Prático e Aplicável</h3> <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p> </div> </div> <div class="benefit-item" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> </div> <div> <h3>Flexibilidade e Conveniência</h3> <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p> </div> </div> <div class="benefit-item" data-aos="fade-up" data-aos-delay="400" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg> </div> <div> <h3>Networking Estratégico</h3> <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p> </div> </div>
                 </div>
             </div>
         </section>
 
-         <!-- Target Audience Section -->
-        <section id="target-audience" class="bg-light">
+         <section id="target-audience" class="bg-light">
             <div class="container" data-aos="fade-up" data-aos-once="true">
                 <h2>Ideal Para Profissionais Ambiciosos</h2>
                  <ul>
-                    <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
-                    <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
-                    <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
-                    <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
-                    <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                    <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li> <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li> <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li> <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li> <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
                  </ul>
             </div>
         </section>
 
-        <!-- Enrollment Section -->
-        <section id="enroll" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
+        <section id="enroll" class="bg-light" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
             <div class="container">
-                <h2>Inicie sua Jornada de Transformação</h2>
-                <p>Inscreva-se para receber informações detalhadas sobre o processo seletivo, investimento e próximas turmas do MBA Lite diretamente no seu e-mail.</p>
-
-                 <!-- CONVERTKIT FORM SCRIPT -->
-                 <!-- This script will inject the form elements -->
-                 <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
-                 <!-- The CSS overrides below will style the injected elements -->
+                 <div class="form-wrapper">
+                     <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                 </div>
 
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
@@ -816,7 +564,6 @@
         </div>
     </footer>
 
-    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // --- Initialize AOS ---
@@ -840,9 +587,9 @@
         mobileNavContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (mobileNavContainer.classList.contains('active')) {
-                    mobileNavContainer.classList.remove('active');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    body.style.overflow = ''; // Re-enable scroll
+                     mobileNavContainer.classList.remove('active');
+                     menuToggle.setAttribute('aria-expanded', 'false');
+                     body.style.overflow = ''; // Re-enable scroll
                 }
             });
         });
