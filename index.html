@@ -48,9 +48,11 @@
             padding-top: var(--header-height); /* Usa a variável */
         }
 
-        /* scroll-margin-top pode ser mantido para links internos da index.html */
-        #hero, #modules, #benefits, #target-audience, #enroll {
-           scroll-margin-top: calc(var(--header-height) + 10px);
+        /* scroll-margin-top para todos os alvos de links internos */
+        /* Aumente o valor (ex: + 40px) se quiser que pare MAIS ACIMA do elemento */
+        /* Diminua o valor (ex: + 10px) se quiser que pare MAIS PRÓXIMO do topo do elemento */
+        #hero, #modules, #benefits, #target-audience, #enroll, footer { /* Removido ID do footer aqui, aplicado abaixo se necessário */
+           scroll-margin-top: calc(var(--header-height) + 20px); /* << CONTROLE AQUI A MARGEM ACIMA DO ALVO */
         }
 
 
@@ -382,8 +384,6 @@
             background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
             color: var(--white); /* White text for contrast */
             padding: 80px 0;
-            /* IMPORTANTE: Mova o seu formulário para ficar logo ACIMA do footer */
-            /* ou coloque o footer logo após esta seção */
         }
         #enroll .container { /* Styles for the main container within #enroll */ }
 
@@ -446,7 +446,7 @@
 
 
         /* --- Footer --- */
-        footer { /* Removido o ID, não é mais necessário para scroll */
+        footer { /* Não precisa mais do ID aqui para rolagem */
             background: var(--dark-gray);
             color: var(--medium-gray);
             text-align: center;
@@ -664,24 +664,26 @@
         // Refresh AOS calculations after potentially changing layout
         window.addEventListener('load', AOS.refresh);
 
-        // --- SCRIPT PARA ROLAR ATÉ O FIM DA PÁGINA AO VIR DO FAQ.HTML ---
+        // --- SCRIPT PARA ROLAR PARA #enroll AO VIR DO FAQ.HTML ---
         document.addEventListener('DOMContentLoaded', () => {
             // Verifica se a flag foi setada ao vir do faq.html
-            if (sessionStorage.getItem('scrollToPageBottom') === 'true') {
+            if (sessionStorage.getItem('scrollToEnroll') === 'true') { // <<< Verifica a flag correta
+                const targetElement = document.getElementById('enroll'); // <<< Alvo é #enroll
 
-                 // Usa setTimeout para dar chance à página (e scripts como ConvertKit) de carregar
-                 setTimeout(() => {
-                     // Rola para o fim da página (altura total do corpo do documento)
-                     window.scrollTo({
-                         top: document.body.scrollHeight,
-                         behavior: 'smooth' // Mantém a rolagem suave
-                     });
-                     console.log("Scrolled to bottom triggered by flag."); // Log para depuração
-
-                 }, 200); // Delay de 200ms (ajuste se necessário, pode precisar de mais tempo)
-
-                // Limpa a flag para não executar em recarregamentos normais da página index
-                sessionStorage.removeItem('scrollToPageBottom');
+                if (targetElement) {
+                     // Usa setTimeout para garantir renderização (especialmente do form externo)
+                     setTimeout(() => {
+                         targetElement.scrollIntoView({
+                             behavior: 'smooth',
+                             block: 'start' // Alinha o topo do #enroll com o topo da área visível (respeita scroll-margin-top)
+                         });
+                         console.log("Scrolled to #enroll triggered by flag."); // Log para depuração
+                     }, 300); // Delay de 300ms (ajuste se necessário, pode precisar ser maior se o form demorar)
+                } else {
+                     console.error("Target element with ID 'enroll' not found in index.html");
+                }
+                // Limpa a flag
+                sessionStorage.removeItem('scrollToEnroll'); // <<< Remove a flag correta
             }
         });
 
