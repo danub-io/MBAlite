@@ -98,16 +98,16 @@
         }
 
         .btn-secondary {
-             background: transparent;
-             color: var(--primary-color);
-             border: 2px solid var(--primary-color);
-             padding: 10px 33px;
-             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+           background: transparent;
+           color: var(--primary-color);
+           border: 2px solid var(--primary-color);
+           padding: 10px 33px;
+           transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
         }
          .btn-secondary:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-2px);
+           background: var(--primary-color);
+           color: var(--white);
+           transform: translateY(-2px);
          }
 
         section {
@@ -175,22 +175,22 @@
         }
 
         header nav#main-nav ul li a::after {
-             content: '';
-             position: absolute;
-             width: 0;
-             height: 2px;
-             bottom: 0;
-             left: 0;
-             background-color: var(--secondary-color);
-             transition: width var(--transition-speed) ease;
+           content: '';
+           position: absolute;
+           width: 0;
+           height: 2px;
+           bottom: 0;
+           left: 0;
+           background-color: var(--secondary-color);
+           transition: width var(--transition-speed) ease;
         }
 
         header nav#main-nav ul li a:hover::after {
-             width: 100%;
+           width: 100%;
         }
          header nav#main-nav ul li a:hover {
-            color: var(--primary-color);
-            border-bottom: none;
+           color: var(--primary-color);
+           border-bottom: none;
          }
 
         header nav#main-nav .nav-button {
@@ -210,48 +210,48 @@
             z-index: 1100; /* Ensure it's above mobile nav */
         }
 
-         /* Mobile Navigation Container Styles */
-         #mobile-nav-container {
-              display: none;
-              flex-direction: column;
-              position: fixed;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: rgba(255, 255, 255, 0.98);
-              backdrop-filter: blur(5px);
-              padding-top: 80px;
-              z-index: 1050;
-              opacity: 0;
-              transform: translateY(-20px);
-              transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
-              overflow-y: auto;
+        /* Mobile Navigation Container Styles */
+        #mobile-nav-container {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(5px);
+            padding-top: 80px;
+            z-index: 1050;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+            overflow-y: auto;
          }
          #mobile-nav-container.active {
-              display: flex;
-              opacity: 1;
-              transform: translateY(0);
-           }
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+         }
 
          #mobile-nav-container ul {
-              list-style: none;
-              padding: 20px 0;
-              margin: 0;
-              width: 100%;
-              text-align: center;
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+            width: 100%;
+            text-align: center;
          }
 
          #mobile-nav-container ul li { margin: 0; width: 100%; }
          #mobile-nav-container ul li a {
-             padding: 15px 20px;
-             display: block;
-              width: 100%;
-              font-weight: 500;
-              color: var(--primary-color);
-              font-size: 1.2rem;
-              transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-              border-bottom: 1px solid var(--medium-gray);
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            font-weight: 500;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            border-bottom: 1px solid var(--medium-gray);
          }
           #mobile-nav-container ul li a::after { display: none; }
          #mobile-nav-container ul li:last-child a { border-bottom: none; }
@@ -259,19 +259,19 @@
 
         /* Mobile Nav Button specific style */
         #mobile-nav-container .nav-button-mobile {
-              display: block;
-              margin: 25px auto;
-              padding: 12px 30px;
-              text-align: center;
-              background: var(--secondary-color);
-              color: white;
-              border-radius: var(--border-radius);
-              font-weight: 600;
-              max-width: 200px;
-              transition: background-color var(--transition-speed) ease;
+            display: block;
+            margin: 25px auto;
+            padding: 12px 30px;
+            text-align: center;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            max-width: 200px;
+            transition: background-color var(--transition-speed) ease;
         }
          #mobile-nav-container .nav-button-mobile:hover {
-              background: #b8956f;
+            background: #b8956f;
          }
 
         /* --- Hero Section --- */
@@ -360,22 +360,21 @@
         #target-audience li { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center; background-size: 16px; padding-left: 35px; margin-bottom: 15px; font-size: 1.05rem; }
 
         /* --- Enrollment / Contact Form Section --- */
+        /* MODIFIED SECTION BACKGROUND */
         #enroll {
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            padding: 80px 0; /* Section padding controls vertical space */
+            /* background-color: var(--primary-color); /* Previous solid color */
+            background: linear-gradient(45deg, var(--primary-color), #1a5f9e); /* MODIFIED - Match Hero Background */
+            color: var(--white);                 /* White text for contrast */
+            padding: 80px 0;                     /* Section padding controls vertical space */
         }
         #enroll .container { /* Styles for the main container within #enroll */ }
-
-        /* REMOVED: #enroll h2 specific rule */
-        /* REMOVED: #enroll p specific rule */
 
         /* Wrapper para o Formulário */
         #enroll .form-wrapper {
             display: flex;
             justify-content: center;
             width: 100%;
-            /* margin-top: 30px; /* REMOVED: No longer needed without text above */
+             /* Animation is applied here now, not on the #enroll section */
         }
 
         /* ConvertKit Form Styling Overrides */
@@ -392,18 +391,41 @@
         }
 
         /* Ocultar Header/Content Padrão do CK */
-         #enroll .ck-form-container .ck-header,
-         #enroll .ck-form-container .ck-content { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; }
-         #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
-         #enroll .ck-form-container .ck-field label { display: block !important; margin-bottom: 8px !important; font-weight: 500 !important; font-family: var(--font-body) !important; color: var(--text-color) !important; font-size: 0.9rem !important; text-align: left !important; }
-         #enroll .ck-form-container .ck-input { width: 100% !important; padding: 14px 16px !important; border: 1px solid var(--medium-gray) !important; border-radius: var(--border-radius) !important; font-size: 1rem !important; font-family: var(--font-body) !important; background-color: var(--white) !important; color: var(--dark-gray) !important; transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important; margin-bottom: 20px !important; }
-          #enroll .ck-form-container .ck-input::placeholder { color: #999 !important; }
-         #enroll .ck-form-container .ck-input:focus { outline: none !important; border-color: var(--secondary-color) !important; box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important; }
-          #enroll .ck-form-container .ck-button { width: 100% !important; padding: 15px !important; margin-top: 10px !important; font-size: 1.1rem !important; letter-spacing: 0.8px !important; background-color: var(--secondary-color) !important; color: var(--white) !important; border: none !important; border-radius: var(--border-radius) !important; font-weight: 600 !important; font-family: var(--font-body) !important; cursor: pointer; transition: background-color var(--transition-speed) ease, transform 0.2s ease !important; }
-          #enroll .ck-form-container .ck-button:hover { background-color: #b8956f !important; transform: translateY(-2px); }
-          #enroll .ck-form-container .ck-powered-by { color: #aaa !important; font-size: 0.8rem !important; text-align: center !important; margin-top: 20px !important; padding-bottom: 0 !important; }
-          #enroll .ck-form-container .ck-powered-by a { color: #888 !important; text-decoration: underline !important; }
-           #enroll .ck-form-container .ck-powered-by a:hover { color: var(--secondary-color) !important; }
+        #enroll .ck-form-container .ck-header,
+        #enroll .ck-form-container .ck-content { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; }
+        #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
+
+        /* Ensure Label Contrast (Already set to white previously) */
+        #enroll .ck-form-container .ck-field label {
+             display: block !important;
+             margin-bottom: 8px !important;
+             font-weight: 500 !important;
+             font-family: var(--font-body) !important;
+             color: var(--white) !important; /* White labels for contrast */
+             font-size: 0.9rem !important;
+             text-align: left !important;
+        }
+        #enroll .ck-form-container .ck-input { width: 100% !important; padding: 14px 16px !important; border: 1px solid var(--medium-gray) !important; border-radius: var(--border-radius) !important; font-size: 1rem !important; font-family: var(--font-body) !important; background-color: var(--white) !important; color: var(--dark-gray) !important; transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important; margin-bottom: 20px !important; }
+         #enroll .ck-form-container .ck-input::placeholder { color: #999 !important; }
+        #enroll .ck-form-container .ck-input:focus { outline: none !important; border-color: var(--secondary-color) !important; box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important; }
+        #enroll .ck-form-container .ck-button { width: 100% !important; padding: 15px !important; margin-top: 10px !important; font-size: 1.1rem !important; letter-spacing: 0.8px !important; background-color: var(--secondary-color) !important; color: var(--white) !important; border: none !important; border-radius: var(--border-radius) !important; font-weight: 600 !important; font-family: var(--font-body) !important; cursor: pointer; transition: background-color var(--transition-speed) ease, transform 0.2s ease !important; }
+         #enroll .ck-form-container .ck-button:hover { background-color: #b8956f !important; transform: translateY(-2px); }
+
+        /* Ensure Powered By Link Contrast (Already adjusted previously) */
+        #enroll .ck-form-container .ck-powered-by {
+             color: var(--medium-gray) !important; /* Lighter gray */
+             font-size: 0.8rem !important;
+             text-align: center !important;
+             margin-top: 20px !important;
+             padding-bottom: 0 !important;
+        }
+        #enroll .ck-form-container .ck-powered-by a {
+             color: var(--medium-gray) !important; /* Lighter gray */
+             text-decoration: underline !important;
+        }
+        #enroll .ck-form-container .ck-powered-by a:hover {
+             color: var(--secondary-color) !important; /* Keep hover color */
+        }
 
 
         /* --- Footer --- */
@@ -434,9 +456,9 @@
 
 
         @media (max-width: 768px) {
-            html { font-size: 15px; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.7rem; }
+             html { font-size: 15px; }
+             h1 { font-size: 2.2rem; }
+             h2 { font-size: 1.7rem; }
 
              header { padding: 12px 0; }
              header #logo h1 { font-size: 1.5rem; }
@@ -462,7 +484,7 @@
         }
 
          @media (max-width: 480px) {
-            html { font-size: 14px; }
+             html { font-size: 14px; }
              h1 { font-size: 2rem; }
              h2 { font-size: 1.5rem; }
 
@@ -542,17 +564,16 @@
             <div class="container" data-aos="fade-up" data-aos-once="true">
                 <h2>Ideal Para Profissionais Ambiciosos</h2>
                  <ul>
-                    <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li> <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li> <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li> <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li> <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                     <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li> <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li> <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li> <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li> <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
                  </ul>
             </div>
         </section>
 
-        <section id="enroll" class="bg-light" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
+        <section id="enroll">
             <div class="container">
-                 <div class="form-wrapper">
+                 <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
                      <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
                  </div>
-
             </div>
         </section>
     </main>
