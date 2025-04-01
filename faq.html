@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBA Lite - Perguntas Frequentes (FAQ)</title> {/* Título Atualizado */}
+    <title>MBA Lite - Perguntas Frequentes (FAQ)</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- Font Imports --- */
@@ -23,6 +23,7 @@
             --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             --border-radius: 6px;
             --transition-speed: 0.3s; /* Define transition speed */
+            --header-height: 75px; /* Approximate header height for potential adjustments */
         }
 
         * {
@@ -32,7 +33,7 @@
         }
 
         html {
-            scroll-behavior: smooth;
+            /* scroll-behavior: smooth; REMOVIDO TEMPORARIAMENTE para testar scroll JS */
             font-size: 16px; /* Base font size */
         }
 
@@ -44,7 +45,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden; /* Prevent horizontal scroll often caused by animations */
-            padding-top: 75px; /* Add padding to prevent content from hiding behind fixed header */
+            padding-top: var(--header-height); /* Use variable */
         }
 
         /* --- Utilitários --- */
@@ -131,12 +132,14 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border-bottom: 1px solid var(--medium-gray);
             transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            height: var(--header-height); /* Set header height */
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%; /* Make container fill header height */
         }
 
         header #logo h1 {
@@ -146,7 +149,7 @@
             font-family: var(--font-heading);
         }
 
-        /* Desktop Navigation Styles - Copiado da LP */
+        /* Desktop Navigation Styles */
         header nav#main-nav {
            display: flex;
            align-items: center;
@@ -175,7 +178,7 @@
            display: block;
         }
 
-        header nav#main-nav ul li a::after {
+        header nav#main-nav ul li a:not(.nav-button)::after { /* Apply underline only to non-button links */
            content: '';
            position: absolute;
            width: 0;
@@ -186,24 +189,25 @@
            transition: width var(--transition-speed) ease;
         }
 
-        header nav#main-nav ul li a:hover::after {
+        header nav#main-nav ul li a:not(.nav-button):hover::after { /* Apply underline only to non-button links */
            width: 100%;
         }
          header nav#main-nav ul li a:hover {
-           color: var(--primary-color); /* Mantém a cor primária no hover do texto */
-           border-bottom: none; /* Remove o sublinhado padrão */
+           color: var(--primary-color);
+           border-bottom: none;
          }
-         /* Ajuste específico para link FAQ não ter underline no hover */
+         /* Specific hover for FAQ link */
          header nav#main-nav ul li a[href="faq.html"]:hover::after {
-           width: 0; /* Não mostra underline no hover para FAQ */
+           width: 0;
          }
          header nav#main-nav ul li a[href="faq.html"]:hover {
-           color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
+           color: var(--secondary-color);
          }
 
 
-        header nav#main-nav .nav-button {
+        header nav#main-nav .nav-button { /* Style for the button itself */
            margin-left: 35px;
+           padding: 10px 33px; /* Match btn-secondary */
         }
 
         /* Mobile Menu Toggle Button */
@@ -219,7 +223,7 @@
             z-index: 1100; /* Ensure it's above mobile nav */
         }
 
-        /* Mobile Navigation Container Styles - Copiado da LP */
+        /* Mobile Navigation Container Styles */
         #mobile-nav-container {
            display: none;
            flex-direction: column;
@@ -266,7 +270,7 @@
          #mobile-nav-container ul li:last-child a { border-bottom: none; }
          #mobile-nav-container ul li a:hover { background-color: var(--light-bg); color: var(--secondary-color)}
 
-        /* Mobile Nav Button specific style - Copiado da LP e ajustado */
+        /* Mobile Nav Button specific style */
         #mobile-nav-container .nav-button-mobile {
            display: block;
            margin: 25px auto;
@@ -276,10 +280,10 @@
            color: white;
            border-radius: var(--border-radius);
            font-weight: 600;
-           max-width: 280px; /* Aumentado para caber o texto */
+           max-width: 200px; /* Adjusted */
            transition: background-color var(--transition-speed) ease;
-           font-size: 0.95rem; /* Ajustado para caber melhor */
-           line-height: 1.4; /* Adicionado para melhor espaçamento */
+           font-size: 1rem; /* Adjusted */
+           line-height: 1.4;
          }
          #mobile-nav-container .nav-button-mobile:hover {
            background: #b8956f;
@@ -287,7 +291,7 @@
 
         /* --- FAQ Section Specific Styles --- */
         #faq-section {
-             padding-top: 120px; /* Mantido o padding top */
+             padding-top: calc(var(--header-height) + 40px); /* Adjust based on fixed header */
              padding-bottom: 80px;
         }
         #faq-section h1 {
@@ -371,11 +375,11 @@
             background-color: var(--white); /* Ensure background */
         }
         /* --- Specific FAQ content link update --- */
-        .faq-item p a[href="[Link_Udemy_Curso]"] {
+        .faq-item p a[href*="Udemy"] { /* Target Udemy link */
              color: var(--secondary-color); /* Style the link */
              text-decoration: underline;
         }
-        .faq-item p a[href="[Link_Udemy_Curso]"]:hover {
+        .faq-item p a[href*="Udemy"]:hover {
              color: var(--primary-color);
         }
 
@@ -385,7 +389,7 @@
             color: var(--medium-gray);
             text-align: center;
             padding: 30px 0;
-            margin-top: 0; /* Ajustado pois não há seção #enroll acima */
+            margin-top: 0;
             border-top: 3px solid var(--primary-color);
         }
 
@@ -404,10 +408,13 @@
 
 
         @media (max-width: 768px) {
+             :root {
+                 --header-height: 69px; /* Smaller header height */
+             }
              html { font-size: 15px; }
              h1 { font-size: 2.2rem; }
              h2 { font-size: 1.7rem; }
-             body { padding-top: 69px; } /* Adjust body padding for smaller header */
+             body { padding-top: var(--header-height); } /* Adjust body padding */
 
              header { padding: 12px 0; }
              header #logo h1 { font-size: 1.5rem; }
@@ -415,7 +422,7 @@
 
              .menu-toggle { display: block; } /* Show mobile toggle */
 
-             #faq-section { padding-top: 100px; } /* Adjust padding for smaller fixed header */
+             #faq-section { padding-top: calc(var(--header-height) + 30px); } /* Adjust padding */
              #faq-section h2 { font-size: 1.5rem; }
         }
 
@@ -426,6 +433,7 @@
               #faq-section h1 { margin-bottom: 40px;}
              #faq-section h2 { font-size: 1.4rem; }
              .btn { padding: 10px 25px; font-size: 0.95rem; }
+             #mobile-nav-container .nav-button-mobile { max-width: 180px; font-size: 0.95rem; } /* Further adjust mobile button */
          }
 
     </style>
@@ -437,17 +445,31 @@
             <div id="logo">
                 <h1>MBA Lite</h1>
             </div>
-            <nav id="main-nav"> <ul>
-                     <li><a href="index.html#hero">Início</a></li> <li><a href="index.html#modules">Módulos</a></li> <li><a href="index.html#benefits">Benefícios</a></li> <li><a href="index.html#target-audience">Público</a></li> <li><a href="faq.html">FAQ</a></li> </ul>
-                 <a href="index.html#enroll" class="btn btn-secondary nav-button">Quero ser um(a) gestor(a) de alta performance!</a> </nav>
+            <nav id="main-nav">
+                 <ul>
+                     <li><a href="index.html#hero">Início</a></li>
+                     <li><a href="index.html#modules">Módulos</a></li>
+                     <li><a href="index.html#benefits">Benefícios</a></li>
+                     <li><a href="index.html#target-audience">Público</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                 </ul>
+                 <a href="index.html#enroll" class="btn btn-secondary nav-button" data-scroll-offset="true">Inscreva-se</a>
+             </nav>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
 
-         <div id="mobile-nav-container"> <ul>
-                 <li><a href="index.html#hero">Início</a></li> <li><a href="index.html#modules">Módulos</a></li> <li><a href="index.html#benefits">Benefícios</a></li> <li><a href="index.html#target-audience">Público</a></li> <li><a href="faq.html">FAQ</a></li> </ul>
-             <a href="index.html#enroll" class="nav-button-mobile">Quero ser um(a) gestor(a) de alta performance!</a> </div>
+         <div id="mobile-nav-container">
+             <ul>
+                 <li><a href="index.html#hero">Início</a></li>
+                 <li><a href="index.html#modules">Módulos</a></li>
+                 <li><a href="index.html#benefits">Benefícios</a></li>
+                 <li><a href="index.html#target-audience">Público</a></li>
+                 <li><a href="faq.html">FAQ</a></li>
+             </ul>
+             <a href="index.html#enroll" class="nav-button-mobile" data-scroll-offset="true">Inscreva-se</a>
+         </div>
     </header>
 
     <main>
@@ -527,7 +549,8 @@
                     </details>
                     <details class="faq-item">
                         <summary>Como me inscrevo no curso pela Udemy?</summary>
-                        <p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p> </details>
+                        <p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
+                    </details>
                     <details class="faq-item">
                         <summary>Posso assistir às aulas no meu celular ou tablet?</summary>
                         <p>Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
@@ -537,7 +560,8 @@
                  <div class="faq-cta" data-aos="fade-up" data-aos-delay="400" style="text-align: center; margin-top: 50px;">
                      <h3>Ainda tem dúvidas?</h3>
                      <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
-                     <a href="index.html#enroll" class="btn">Quero ser um(a) gestor(a) de alta performance!</a> </div>
+                     <a href="index.html#enroll" class="btn" data-scroll-offset="true">Quero ser um(a) gestor(a) de alta performance!</a>
+                 </div>
              </div>
          </section>
      </main>
@@ -565,9 +589,8 @@
         menuToggle.addEventListener('click', () => {
             const isActive = mobileNavContainer.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isActive);
-            body.style.overflow = isActive ? 'hidden' : ''; // Prevent body scroll when mobile menu is open
+            body.style.overflow = isActive ? 'hidden' : '';
 
-             // Adjust body padding when mobile menu opens/closes to prevent layout shift due to scrollbar disappearing/appearing
              if (isActive) {
                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
                body.style.paddingRight = `${scrollbarWidth}px`;
@@ -579,20 +602,84 @@
         // Close mobile menu when a link inside it is clicked
         mobileNavContainer.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
+                // Check if it's a link that should close the menu
                 if (mobileNavContainer.classList.contains('active')) {
                      mobileNavContainer.classList.remove('active');
                      menuToggle.setAttribute('aria-expanded', 'false');
-                     body.style.overflow = ''; // Re-enable scroll
-                     body.style.paddingRight = ''; // Remove padding adjustment
+                     body.style.overflow = '';
+                     body.style.paddingRight = '';
                 }
+                // Handle scroll offset logic if it's an internal link with offset attribute
+                handleScrollOffset(link);
             });
         });
+
+        // Add listener for desktop links too
+        document.querySelectorAll('#main-nav a').forEach(link => {
+             link.addEventListener('click', (event) => {
+                 handleScrollOffset(link, event);
+             });
+        });
+        // Add listener for the bottom CTA button
+        document.querySelectorAll('.faq-cta a').forEach(link => {
+             link.addEventListener('click', (event) => {
+                 handleScrollOffset(link, event);
+             });
+        });
+
+        // Function to handle scroll offset
+        function handleScrollOffset(link, event = null) {
+            const href = link.getAttribute('href');
+            // Check if it's a link to the #enroll section on index.html and has the data attribute
+            if (href && href.startsWith('index.html#enroll') && link.hasAttribute('data-scroll-offset')) {
+                if (event) {
+                    event.preventDefault(); // Prevent default jump
+                }
+
+                // Store the target hash in sessionStorage to be read by index.html
+                sessionStorage.setItem('scrollToEnrollOffset', 'true');
+
+                // Navigate to index.html
+                window.location.href = 'index.html';
+            }
+            // Note: If the link was just "#enroll" (meaning already on index.html),
+            // the scrolling logic would need to be on index.html itself.
+            // This script only handles the transition *from* faq.html *to* index.html.
+        }
+
 
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         // Refresh AOS calculations after page load potentially changes layout
         window.addEventListener('load', AOS.refresh);
+
+        // --- !!! IMPORTANT NOTE FOR IMPLEMENTATION !!! ---
+        // The JavaScript added above (handleScrollOffset function and related listeners)
+        // requires complementary JavaScript on the 'index.html' (Landing Page) file.
+        // On 'index.html', you need a script that runs on page load, checks
+        // sessionStorage.getItem('scrollToEnrollOffset'), and if it's 'true',
+        // manually scrolls to the #enroll element with an appropriate offset
+        // (e.g., subtracting the header height). After scrolling, it should remove
+        // the item from sessionStorage.
+        // Example for index.html (place within <script> tags):
+        /*
+        document.addEventListener('DOMContentLoaded', () => {
+            if (sessionStorage.getItem('scrollToEnrollOffset') === 'true') {
+                const targetElement = document.getElementById('enroll');
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 75; // Get actual header height or default
+                    const offsetPosition = targetElement.offsetTop - headerHeight - 20; // Add extra padding (optional)
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                sessionStorage.removeItem('scrollToEnrollOffset'); // Clean up
+            }
+        });
+        */
 
     </script>
 
