@@ -72,7 +72,7 @@
         }
          p:last-of-type { /* Remove margem do último parágrafo da seção */
              margin-bottom: 0;
-         }
+           }
 
         a {
             text-decoration: none;
@@ -80,8 +80,8 @@
             transition: color var(--transition-speed) ease;
         }
          a:hover {
-            color: var(--secondary-color);
-         }
+             color: var(--secondary-color);
+           }
 
         .btn {
             display: inline-block;
@@ -114,7 +114,7 @@
            transform: translateY(-2px);
          }
 
-        /* --- Header Padrão (Igual ao index.html) --- */
+        /* --- Header Padrão --- */
         header {
             background: var(--white);
             padding: 15px 0;
@@ -140,6 +140,16 @@
             color: var(--primary-color);
             font-family: var(--font-heading);
         }
+         /* --- Estilo para o link do logo (Adicionado no sumario.html) --- */
+         header #logo a {
+             text-decoration: none;
+             color: inherit; /* Herda a cor do H1 */
+         }
+          header #logo a:hover {
+              color: inherit; /* Mantém a cor no hover */
+          }
+         /* --- FIM Adição --- */
+
         /* Desktop Navigation Styles */
         header nav#main-nav { display: flex; align-items: center; }
         header nav#main-nav ul { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
@@ -167,7 +177,7 @@
 
 
         /* --- Menu Lateral/Superior (Module Navigation) --- */
-        #module-menu { /* Renomeado de side-menu para clareza */
+        #module-menu {
             position: fixed;
             left: 0;
             top: var(--header-height);
@@ -178,11 +188,11 @@
             padding: 25px 15px;
             overflow-y: auto;
             z-index: 900;
-            transition: all 0.3s ease; /* Transição suave */
+            transition: all 0.3s ease;
         }
 
         #module-menu h3 {
-            font-size: 1rem; /* Menor */
+            font-size: 1rem;
             margin-bottom: 15px;
             color: var(--primary-color);
             text-transform: uppercase;
@@ -198,18 +208,18 @@
         }
 
         #module-menu li {
-            margin-bottom: 3px; /* Menor espaçamento */
+            margin-bottom: 3px;
         }
 
         #module-menu a {
             display: block;
-            padding: 8px 12px; /* Menor padding */
+            padding: 8px 12px;
             color: var(--text-color);
             font-weight: 500;
             border-radius: var(--border-radius);
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-            font-size: 0.9rem; /* Menor */
-            white-space: nowrap; /* Evita quebra de linha */
+            font-size: 0.9rem;
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
@@ -222,19 +232,19 @@
 
         /* --- Área de Conteúdo Principal --- */
         #content-area {
-            margin-left: var(--side-menu-width); /* Empurra o conteúdo para a direita do menu */
+            margin-left: var(--side-menu-width);
             padding: 40px;
-            transition: margin-left 0.3s ease; /* Acompanha transição do menu */
+            transition: margin-left 0.3s ease;
         }
 
         #content-area section {
             margin-bottom: 60px;
-            padding: 35px; /* Mais padding interno */
+            padding: 35px;
             background-color: var(--white);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
-            /* Offset para a rolagem não esconder o título */
-            scroll-margin-top: calc(var(--header-height) + 30px); /* Ajuste conforme necessário */
+            /* Ajuste final scroll-margin-top para DESKTOP */
+            scroll-margin-top: calc(var(--header-height) + 120px); /* <<< AJUSTADO */
         }
 
         /* --- Footer --- */
@@ -244,7 +254,7 @@
             text-align: center;
             padding: 30px 0;
             border-top: 3px solid var(--primary-color);
-             margin-left: var(--side-menu-width); /* Acompanha conteúdo */
+             margin-left: var(--side-menu-width);
              transition: margin-left 0.3s ease;
         }
 
@@ -257,9 +267,9 @@
 
         /* --- Responsividade --- */
          /* Telas Médias - Menu Lateral mais estreito */
-        @media (max-width: 1100px) { /* Ponto de quebra ajustado */
+        @media (max-width: 1100px) {
             :root {
-                --side-menu-width: 220px;
+                 --side-menu-width: 220px;
             }
             #content-area { margin-left: var(--side-menu-width); padding: 30px;}
             footer { margin-left: var(--side-menu-width); }
@@ -270,67 +280,64 @@
              :root {
                  --header-height: 69px; /* Header menor */
              }
-            body { padding-top: var(--header-height); } /* Ajusta padding só para header */
+            body { padding-top: var(--header-height); }
              header { height: var(--header-height); padding: 0 15px; }
-             header .container { padding: 0 15px; } /* Container do header */
+             header .container { padding: 0 15px; }
              header #logo h1 { font-size: 1.5rem; }
-             header nav#main-nav { display: none; } /* Esconde nav principal desktop */
-             .menu-toggle { display: block; } /* Mostra botão hamburguer */
+             header nav#main-nav { display: none; }
+             .menu-toggle { display: block; }
 
 
             #module-menu {
-                position: sticky; /* Fica fixo no topo ao rolar */
-                top: var(--header-height); /* Cola abaixo do header */
+                position: sticky;
+                top: var(--header-height);
                 left: 0;
                 width: 100%;
-                height: auto; /* Altura automática */
+                height: auto;
                 border-right: none;
                 border-bottom: 1px solid var(--medium-gray);
-                padding: 10px 15px; /* Padding menor */
-                overflow-y: hidden; /* Esconde scroll vertical */
-                overflow-x: auto; /* Permite scroll horizontal */
-                white-space: nowrap; /* Impede quebra de linha dos itens */
-                z-index: 950; /* Acima do conteúdo, abaixo do header */
-                background-color: var(--light-bg); /* Fundo para destacar */
+                padding: 10px 15px;
+                overflow-y: hidden;
+                overflow-x: auto;
+                white-space: nowrap;
+                z-index: 950;
+                background-color: var(--light-bg);
                 box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             }
-            #module-menu h3 { display: none; /* Esconde título no mobile */ }
+            #module-menu h3 { display: none; }
             #module-menu ul {
                 list-style: none;
                 padding: 0;
                 margin: 0;
-                display: flex; /* Itens lado a lado */
-                flex-wrap: nowrap; /* Não quebra linha */
-                justify-content: flex-start; /* Alinha à esquerda */
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
                 align-items: center;
             }
             #module-menu li {
-                margin: 0 5px; /* Espaçamento horizontal */
-                 flex-shrink: 0; /* Evita que itens encolham */
+                margin: 0 5px;
+                 flex-shrink: 0;
             }
              #module-menu a {
                  padding: 8px 12px;
-                 font-size: 0.85rem; /* Fonte menor */
-                 border-radius: 15px; /* Mais arredondado */
+                 font-size: 0.85rem;
+                 border-radius: 15px;
             }
 
             #content-area {
-                margin-left: 0; /* Remove margem */
+                margin-left: 0;
                 padding: 25px;
-                /* Adiciona padding-top para compensar o menu sticky, se necessário */
-                /* padding-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 25px); */
-                /* Calculo de padding-top dinâmico é complexo, scroll-margin-top é melhor */
             }
              #content-area section {
-                padding: 25px;
-                margin-bottom: 40px;
-                 /* Garante espaço suficiente abaixo do header E do menu sticky */
-                 scroll-margin-top: calc(var(--header-height) + 60px); /* Valor precisa ser testado */
+                 padding: 25px;
+                 margin-bottom: 40px;
+                 /* Ajuste final scroll-margin-top para TABLET/MOBILE */
+                 scroll-margin-top: calc(var(--header-height) + 180px); /* <<< AJUSTADO */
              }
              h1 { font-size: 2rem; margin-bottom: 30px; }
              h2 { font-size: 1.7rem;}
 
-             footer { margin-left: 0; } /* Footer ocupa largura toda */
+             footer { margin-left: 0; }
         }
 
         @media (max-width: 480px) {
@@ -338,7 +345,11 @@
               h1 { font-size: 1.8rem; }
              h2 { font-size: 1.5rem; }
               #content-area { padding: 1px; }
-              #content-area section { padding: 20px; }
+              #content-area section {
+                  padding: 20px;
+                  /* Ajuste final scroll-margin-top para MOBILE PEQUENO (opcional) */
+                  scroll-margin-top: calc(var(--header-height) + 185px); /* <<< AJUSTADO */
+              }
               #module-menu a { padding: 6px 10px; font-size: 0.8rem; }
         }
 
@@ -349,7 +360,7 @@
     <header>
         <div class="container">
             <div id="logo">
-                <h1>MBA Lite</h1>
+                 <a href="index.html"><h1>MBA Lite</h1></a>
             </div>
             <nav id="main-nav">
                 <ul>
@@ -366,24 +377,25 @@
             </button>
         </div>
         <div id="mobile-nav-container"> <ul>
-                 <li><a href="index.html#hero">Início</a></li>
-                 <li><a href="index.html#modules">Módulos</a></li>
-                 <li><a href="index.html#benefits">Benefícios</a></li>
-                 <li><a href="index.html#target-audience">Público</a></li>
-                 <li><a href="faq.html">FAQ</a></li>
+                <li><a href="index.html#hero">Início</a></li>
+                <li><a href="index.html#modules">Módulos</a></li>
+                <li><a href="index.html#benefits">Benefícios</a></li>
+                <li><a href="index.html#target-audience">Público</a></li>
+                <li><a href="faq.html">FAQ</a></li>
              </ul>
              <a href="index.html#enroll" class="nav-button-mobile">Inscreva-se</a>
-         </div>
+           </div>
     </header>
 
     <aside id="module-menu">
         <h3>Módulos do Curso</h3>
         <ul>
-            <li><a href="#pessoas">Gestão de Pessoas</a></li>
-            <li><a href="#riscos">Gestão de Riscos</a></li>
-            <li><a href="#qualidade">Gestão da Qualidade</a></li>
-            <li><a href="#gestao-projetos">Gestão de Projetos</a></li> <li><a href="#projetos-clickup">Projetos com ClickUp</a></li>
-            <li><a href="#projetos-ia">Projetos com IA</a></li>
+            <li><a href="#gestao-pessoas">Gestão de Pessoas</a></li>
+            <li><a href="#gestao-riscos">Gestão de Riscos</a></li>
+            <li><a href="#gestao-qualidade">Gestão da Qualidade</a></li>
+            <li><a href="#gestao-projetos">Gestão de Projetos</a></li>
+            <li><a href="#gestao-projetos-clickup">Gestão de Projetos com Clickup</a></li>
+            <li><a href="#gestao-projetos-ia">Gestão de Projetos com IA</a></li>
         </ul>
     </aside>
 
@@ -391,35 +403,35 @@
         <div class="container">
             <h1>Sumário do Curso</h1>
 
-            <section id="pessoas" data-aos="fade-up">
+            <section id="gestao-pessoas" data-aos="fade-up">
                 <h2>Gestão de Pessoas</h2>
                  <p>Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e benefícios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
             </section>
 
-            <section id="riscos" data-aos="fade-up">
+            <section id="gestao-riscos" data-aos="fade-up">
                 <h2>Gestão de Riscos</h2>
                 <p>Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
             </section>
 
-            <section id="qualidade" data-aos="fade-up">
+            <section id="gestao-qualidade" data-aos="fade-up">
                 <h2>Gestão da Qualidade</h2>
                  <p>Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
-             </section>
+              </section>
 
             <section id="gestao-projetos" data-aos="fade-up">
                 <h2>Gestão de Projetos</h2>
                 <p>Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
             </section>
 
-            <section id="projetos-clickup" data-aos="fade-up">
-                <h2>Projetos com ClickUp</h2>
+            <section id="gestao-projetos-clickup" data-aos="fade-up">
+                <h2>Gestão de Projetos com Clickup</h2>
                  <p>Aqui, você aprenderá a utilizar o ClickUp como uma ferramenta centralizadora para gerenciar seus projetos de forma prática e eficiente. Começaremos com os fundamentos da ferramenta, entendendo sua interface e hierarquia (Spaces, Folders, Lists, Tasks). Em seguida, focaremos no planejamento: como definir escopo e objetivos SMART, criar a Estrutura Analítica do Projeto (EAP), detalhar tarefas e subtarefas, construir cronogramas com marcos e dependências (usando a visualização Gantt) e gerenciar recursos com a Workload View. Na fase de execução e monitoramento, você aprenderá a usar o ClickUp para comunicação da equipe (comentários, chat, integrações), gerenciamento de status e prioridades, utilização de visualizações avançadas (Board, Calendário, Tabela), criação de automações e monitoramento do progresso através de Dashboards e KPIs. Por fim, abordaremos o controle e encerramento, incluindo gerenciamento de riscos/problemas, controle de mudanças, geração de relatórios e o uso de recursos avançados como Templates, Custom Fields, Forms e Goals.</p>
-             </section>
+              </section>
 
-             <section id="projetos-ia" data-aos="fade-up">
-                <h2>Projetos com IA</h2>
+               <section id="gestao-projetos-ia" data-aos="fade-up">
+                <h2>Gestão de Projetos com IA</h2>
                  <p>Neste módulo final, você descobrirá como aplicar a Inteligência Artificial Generativa, especificamente o Google Gemini, para potencializar sua gestão de projetos. Aprenderá os fundamentos do Gemini, seus diferenciais e como usá-lo para brainstorming e ideação criativa, inclusive com técnicas de Prompt Engineering. Veremos como a IA pode auxiliar no planejamento, ajudando a realizar Análise SWOT, definir escopo e objetivos SMART, estruturar a EAP e analisar viabilidade e riscos. Na execução, você aprenderá a usar o Gemini para gerar rapidamente documentação (relatórios, atas, apresentações), criar e gerenciar listas de tarefas e cronogramas, e aprimorar a comunicação da equipe (inclusive com tradução). O módulo também aborda a análise de dados do projeto com IA para identificar tendências, simular cenários, obter recomendações para tomada de decisão e gerar relatórios customizados. Por fim, discutiremos as melhores práticas éticas e de eficiência no uso da IA, recursos avançados e as tendências futuras da IA na gestão de projetos, refletindo sobre o novo papel do gerente de projetos.</p>
-             </section>
+              </section>
 
          </div>
     </main>
@@ -442,7 +454,7 @@
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- Mobile Menu Toggle Script (do index.html) ---
+        // --- Mobile Menu Toggle Script ---
         const menuToggle = document.getElementById('menu-toggle');
         const mobileNavContainer = document.getElementById('mobile-nav-container');
         const body = document.body;
@@ -475,28 +487,45 @@
              });
         }
 
-        // --- Script para Menu Sticky/Lateral (Opcional: Active State) ---
-        // Adicionar lógica para destacar item ativo no menu de módulos (opcional)
-        // Isso geralmente envolve verificar window.location.hash ou a posição de scroll.
-        // Exemplo simples (pode precisar de ajuste fino):
+        // --- Script para Menu Sticky/Lateral (Active State) ---
         const moduleMenuLinks = document.querySelectorAll('#module-menu a');
+        const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 75;
+        // Ajuste do offset para cálculo do item ativo (pode ser diferente do scroll-margin-top)
+        const activeLinkOffset = headerHeight + 120; // Quanto antes a seção deve estar do topo para marcar o link como ativo
+
         window.addEventListener('scroll', () => {
              let currentSectionId = '';
              document.querySelectorAll('#content-area section').forEach(section => {
-                  const sectionTop = section.offsetTop - (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) + 100); // Ajuste o offset conforme necessário
-                  if (window.pageYOffset >= sectionTop) {
+                  // Calcula o topo da seção considerando a margem de rolagem CSS
+                  const sectionScrollTarget = section.offsetTop - parseFloat(getComputedStyle(section).scrollMarginTop || 0);
+                  const sectionTopForActiveLink = section.offsetTop; // Usar offsetTop real para cálculo de ativo
+
+                  // Condição para marcar link como ativo: quando o topo da seção passa um certo ponto abaixo dos elementos fixos
+                  if (window.pageYOffset >= sectionTopForActiveLink - activeLinkOffset) {
                        currentSectionId = section.getAttribute('id');
                   }
              });
 
              moduleMenuLinks.forEach(link => {
                   link.classList.remove('active');
-                  if (link.getAttribute('href') === `#${currentSectionId}`) {
+                  if (link.getAttribute('href').substring(1) === currentSectionId) {
                        link.classList.add('active');
                   }
              });
         });
 
+        // Adiciona evento de clique para fechar o menu mobile ao clicar em um link de módulo
+        moduleMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Fecha o menu apenas se estiver em modo mobile (menu hamburguer visível) e o menu estiver aberto
+                if (window.getComputedStyle(menuToggle).display !== 'none' && mobileNavContainer && mobileNavContainer.classList.contains('active')) {
+                     mobileNavContainer.classList.remove('active');
+                     menuToggle.setAttribute('aria-expanded', 'false');
+                     body.style.overflow = '';
+                     body.style.paddingRight = '';
+                }
+            });
+        });
 
     </script>
 
