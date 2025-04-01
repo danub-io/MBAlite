@@ -421,87 +421,96 @@
 
         /* --- Enrollment / Contact Form Section --- */
         #enroll {
-            background-color: var(--primary-color);
-            color: var(--white);
+            /* background-color: var(--primary-color); REMOVED */
+            /* color: var(--white); REMOVED */
+            background-color: var(--white); /* Set to white background */
+            color: var(--text-color); /* Set default text color to dark */
             text-align: center;
-             border-radius: var(--border-radius);
-             margin: 40px auto;
+             /* border-radius: var(--border-radius); REMOVED - let's keep it sharp */
+             margin: 40px auto; /* Keep margin */
              max-width: 1140px;
-             padding: 60px 40px;
-             position: relative; /* Needed for potential pseudo-elements */
-             overflow: hidden; /* Contain pseudo-elements */
+             padding: 80px 40px; /* Adjusted padding */
+             position: relative;
+             overflow: hidden;
         }
-        /* Optional: Subtle background pattern/texture for enroll */
-        /* #enroll::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('data:image/svg+xml,...');
-            opacity: 0.05;
-            z-index: 0;
-        } */
+
         #enroll .container {
-            position: relative; /* Ensure content is above pseudo-elements */
+            position: relative;
             z-index: 1;
         }
 
-
+        /* Style the H2 and P ABOVE the form */
         #enroll h2 {
-            color: var(--white);
+            /* color: var(--white); REMOVED */
+            color: var(--primary-color); /* Make H2 dark */
              margin-bottom: 1rem;
         }
-
         #enroll p {
-             color: rgba(255, 255, 255, 0.8);
+             /* color: rgba(255, 255, 255, 0.8); REMOVED */
+             color: var(--text-color); /* Make P dark */
              margin-bottom: 40px;
              max-width: 600px;
              margin-left: auto;
              margin-right: auto;
         }
 
-        /* --- ConvertKit Form Styling --- */
-        /* You might need to add/adjust styles here to make the CK form look good */
-        /* Inspect the CK form elements in your browser to find their classes */
-        /* Example (adjust selectors based on ConvertKit's output): */
+        /* --- ConvertKit Form Styling Overrides for LIGHT BACKGROUND --- */
         #enroll .ck-form-container {
-             max-width: 600px;
-             margin: 0 auto;
-             text-align: left;
-             background: transparent !important; /* Override CK background if needed */
-             padding: 0 !important;
-        }
-         #enroll .ck-field label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85) !important; /* Use !important if needed */
-            font-size: 0.9rem !important;
-            text-align: left;
-         }
-         #enroll .ck-input {
+             max-width: 500px !important;
              width: 100%;
+             margin: 0 auto !important;
+             padding: 0 !important;
+             background: none !important;
+             border: none !important;
+             box-shadow: none !important;
+             text-align: left;
+        }
+        /* Hide CK default Title/Description */
+         #enroll .ck-form-container .ck-header,
+         #enroll .ck-form-container .ck-content {
+             display: none !important;
+         }
+         /* Fields wrapper styling */
+         #enroll .ck-form-container .ck-fields {
+            background: none !important;
+            padding: 0 !important;
+         }
+         /* Label styling for light background */
+         #enroll .ck-form-container .ck-field label {
+            display: block !important;
+            margin-bottom: 8px !important;
+            font-weight: 500 !important;
+            font-family: var(--font-body) !important;
+            color: var(--text-color) !important; /* Dark label */
+            font-size: 0.9rem !important;
+            text-align: left !important;
+         }
+         /* Input styling for light background */
+         #enroll .ck-form-container .ck-input {
+             width: 100% !important;
              padding: 14px 16px !important;
-             border: 1px solid rgba(255, 255, 255, 0.3) !important;
+             border: 1px solid var(--medium-gray) !important; /* Standard border */
              border-radius: var(--border-radius) !important;
              font-size: 1rem !important;
              font-family: var(--font-body) !important;
-             background-color: rgba(255, 255, 255, 0.05) !important;
-             color: var(--white) !important;
-             transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease !important;
-             margin-bottom: 20px !important; /* Add spacing */
+             background-color: var(--white) !important; /* Standard white input */
+             color: var(--dark-gray) !important; /* Dark text when typing */
+             transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important;
+             margin-bottom: 20px !important;
          }
-          #enroll .ck-input::placeholder {
-            color: rgba(255, 255, 255, 0.5) !important;
+          #enroll .ck-form-container .ck-input::placeholder {
+            color: #999 !important; /* Standard placeholder color */
          }
-         #enroll .ck-input:focus {
+         #enroll .ck-form-container .ck-input:focus {
               outline: none !important;
-              border-color: var(--secondary-color) !important;
-              background-color: rgba(255, 255, 255, 0.1) !important;
+              border-color: var(--secondary-color) !important; /* Accent color border on focus */
+              box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important;
          }
-          #enroll .ck-button {
-            width: 100%;
+         /* Button styling (Keep accent color) */
+          #enroll .ck-form-container .ck-button {
+            width: 100% !important;
             padding: 15px !important;
-            margin-top: 15px !important;
+            margin-top: 10px !important;
             font-size: 1.1rem !important;
              letter-spacing: 0.8px !important;
              background-color: var(--secondary-color) !important;
@@ -509,13 +518,29 @@
              border: none !important;
              border-radius: var(--border-radius) !important;
              font-weight: 600 !important;
+             font-family: var(--font-body) !important;
              cursor: pointer;
              transition: background-color var(--transition-speed) ease, transform 0.2s ease !important;
          }
-          #enroll .ck-button:hover {
+          #enroll .ck-form-container .ck-button:hover {
              background-color: #b8956f !important;
              transform: translateY(-2px);
           }
+          /* "Powered By" styling for light background */
+          #enroll .ck-form-container .ck-powered-by {
+             color: #aaa !important; /* Lighter gray */
+             font-size: 0.8rem !important;
+             text-align: center !important;
+             margin-top: 20px !important;
+             padding-bottom: 0 !important;
+          }
+          #enroll .ck-form-container .ck-powered-by a {
+              color: #888 !important; /* Slightly darker gray link */
+              text-decoration: underline !important;
+          }
+           #enroll .ck-form-container .ck-powered-by a:hover {
+               color: var(--secondary-color) !important; /* Accent color on hover */
+           }
 
 
         /* --- Footer --- */
@@ -576,8 +601,8 @@
                  margin-bottom: 15px;
                  margin-top: 0;
              }
-             #enroll { margin: 20px 10px; padding: 40px 20px;}
-             #enroll .ck-form-container { max-width: 100%; } /* Allow CK form to fill width */
+             #enroll { margin: 20px 0; padding: 60px 20px;} /* Adjust padding for mobile */
+             #enroll .ck-form-container { max-width: 100% !important; } /* Allow full width */
         }
 
          @media (max-width: 480px) {
@@ -589,7 +614,7 @@
             #hero h1 { font-size: 2.1rem; }
              #hero p { font-size: 1rem; }
              .btn { padding: 10px 25px; font-size: 0.95rem; }
-             #enroll .ck-button { font-size: 1rem !important; }
+             #enroll .ck-form-container .ck-button { font-size: 1rem !important; }
          }
 
     </style>
@@ -774,10 +799,10 @@
                 <h2>Inicie sua Jornada de Transformação</h2>
                 <p>Inscreva-se para receber informações detalhadas sobre o processo seletivo, investimento e próximas turmas do MBA Lite diretamente no seu e-mail.</p>
 
-                 <!-- REMOVED Old HTML Form -->
-
-                 <!-- INSERT CONVERTKIT FORM SCRIPT HERE -->
+                 <!-- CONVERTKIT FORM SCRIPT -->
+                 <!-- This script will inject the form elements -->
                  <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                 <!-- The CSS overrides below will style the injected elements -->
 
             </div>
         </section>
@@ -786,7 +811,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
+            <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
             <p>Uma iniciativa para capacitar os líderes do futuro.</p>
         </div>
     </footer>
@@ -822,11 +847,8 @@
             });
         });
 
-        // --- Form Submission Placeholder REMOVED ---
-        // const enrollForm = document.getElementById('enroll-form'); NO LONGER EXISTS
-        // enrollForm.addEventListener('submit', ...); REMOVED
-        // function validateEmail(email) { ... } REMOVED (unless needed elsewhere)
-
+        // --- ConvertKit Form Handled by External Script ---
+        // No custom form submission JS needed here
 
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
