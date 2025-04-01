@@ -33,7 +33,7 @@
         }
 
         html {
-            /* scroll-behavior: smooth; REMOVIDO TEMPORARIAMENTE para testar scroll JS */
+            /* scroll-behavior: smooth; Deixe comentado ou remova se estiver usando JS para scroll */
             font-size: 16px; /* Base font size */
         }
 
@@ -599,52 +599,45 @@
              }
         });
 
-        // Close mobile menu when a link inside it is clicked
+        // Close mobile menu when a link inside it is clicked AND handle offset scroll
         mobileNavContainer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Check if it's a link that should close the menu
+            link.addEventListener('click', (event) => { // Pass event to handler
+                // Close the menu first
                 if (mobileNavContainer.classList.contains('active')) {
                      mobileNavContainer.classList.remove('active');
                      menuToggle.setAttribute('aria-expanded', 'false');
                      body.style.overflow = '';
                      body.style.paddingRight = '';
                 }
-                // Handle scroll offset logic if it's an internal link with offset attribute
-                handleScrollOffset(link);
+                // Then handle the scroll offset logic
+                handleScrollOffset(link, event);
             });
         });
 
-        // Add listener for desktop links too
-        document.querySelectorAll('#main-nav a').forEach(link => {
-             link.addEventListener('click', (event) => {
-                 handleScrollOffset(link, event);
-             });
-        });
-        // Add listener for the bottom CTA button
-        document.querySelectorAll('.faq-cta a').forEach(link => {
+        // Add listener for desktop links AND bottom CTA to handle offset scroll
+         document.querySelectorAll('a[data-scroll-offset="true"]').forEach(link => {
              link.addEventListener('click', (event) => {
                  handleScrollOffset(link, event);
              });
         });
 
-        // Function to handle scroll offset
-        function handleScrollOffset(link, event = null) {
+        // Function to handle scroll offset trigger
+        function handleScrollOffset(link, event) { // event parameter is crucial
             const href = link.getAttribute('href');
-            // Check if it's a link to the #enroll section on index.html and has the data attribute
-            if (href && href.startsWith('index.html#enroll') && link.hasAttribute('data-scroll-offset')) {
-                if (event) {
-                    event.preventDefault(); // Prevent default jump
-                }
+            // Check if it's a link to the #enroll section on index.html
+            if (href && href.startsWith('index.html#enroll')) {
+                 // Prevent the default anchor jump *only* if we intend to use JS scrolling on the target page
+                 event.preventDefault();
 
-                // Store the target hash in sessionStorage to be read by index.html
-                sessionStorage.setItem('scrollToEnrollOffset', 'true');
+                 // Store the flag indicating that custom scrolling is needed
+                 sessionStorage.setItem('scrollToEnrollOffset', 'true');
 
-                // Navigate to index.html
-                window.location.href = 'index.html';
-            }
-            // Note: If the link was just "#enroll" (meaning already on index.html),
-            // the scrolling logic would need to be on index.html itself.
-            // This script only handles the transition *from* faq.html *to* index.html.
+                 // Navigate to the original link, including the hash
+                 // The browser will go to index.html and try to jump to #enroll
+                 // The script on index.html needs to correct the position
+                 window.location.href = href;
+             }
+             // If it's not the specific link, let the default behavior happen
         }
 
 
@@ -654,32 +647,38 @@
         // Refresh AOS calculations after page load potentially changes layout
         window.addEventListener('load', AOS.refresh);
 
-        // --- !!! IMPORTANT NOTE FOR IMPLEMENTATION !!! ---
-        // The JavaScript added above (handleScrollOffset function and related listeners)
-        // requires complementary JavaScript on the 'index.html' (Landing Page) file.
-        // On 'index.html', you need a script that runs on page load, checks
-        // sessionStorage.getItem('scrollToEnrollOffset'), and if it's 'true',
-        // manually scrolls to the #enroll element with an appropriate offset
-        // (e.g., subtracting the header height). After scrolling, it should remove
-        // the item from sessionStorage.
-        // Example for index.html (place within <script> tags):
+        // --- !!! IMPORTANTE: SCRIPT NECESSÁRIO EM index.html !!! ---
+        // O JavaScript acima (função handleScrollOffset) apenas *sinaliza*
+        // a necessidade de rolagem ajustada quando navega para 'index.html#enroll'.
+        // A rolagem *efetiva* com o deslocamento para centralizar o formulário
+        // DEVE ser implementada na página 'index.html' (Landing Page).
+        //
+        // Adicione o seguinte script dentro das tags <script> na sua página index.html:
         /*
         document.addEventListener('DOMContentLoaded', () => {
+            // Verifica se a flag foi setada ao vir do faq.html
             if (sessionStorage.getItem('scrollToEnrollOffset') === 'true') {
-                const targetElement = document.getElementById('enroll');
-                if (targetElement) {
-                    const headerHeight = document.querySelector('header')?.offsetHeight || 75; // Get actual header height or default
-                    const offsetPosition = targetElement.offsetTop - headerHeight - 20; // Add extra padding (optional)
+                const targetElement = document.getElementById('enroll'); // O elemento alvo (#enroll)
+                const header = document.querySelector('header'); // O cabeçalho fixo
 
+                if (targetElement && header) {
+                    const headerHeight = header.offsetHeight; // Altura real do cabeçalho
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; // Posição do topo do elemento
+                    const offsetPosition = elementPosition - headerHeight - 20; // Calcula a posição final (20px de margem extra opcional)
+
+                    // Rola suavemente para a posição calculada
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
-                sessionStorage.removeItem('scrollToEnrollOffset'); // Clean up
+                // Limpa a flag para não executar em recarregamentos normais
+                sessionStorage.removeItem('scrollToEnrollOffset');
             }
         });
         */
+        // Sem este script em index.html, a página irá para index.html#enroll,
+        // mas o formulário provavelmente ficará parcialmente escondido sob o cabeçalho.
 
     </script>
 
