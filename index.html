@@ -3,826 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBA Lite</title>
+    <title>MBA Lite - Gestão Estratégica Premium</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- Font Imports --- */
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+        /* --- === DARK THEME V11 - Single Body Gradient === --- */
+        :root {
+            /* Palette & Gradient Steps */
+            --color-step-1: #181B1D;         /* Cinza Superfície ("Mais Claro") - Topo Gradiente Body */
+            --color-step-2: #121416;         /* Cinza Base Escuro */
+            --color-step-3: #0D0F10;         /* Cinza Muito Escuro */
+            --header-footer-bg: #050607;     /* Cor Sólida Header/Footer & Fim Gradiente Body */
+
+            --text-white: #FFFFFF;
+            --text-light-gray: #C5CBD0;
+            --accent-cyan: #00E0FF;
+            --accent-cyan-darker: #00b8d4;
+            --accent-cyan-darkest: #00a3b8;
+            --border-dark-gray: #33373B;
+            --text-on-accent: #101214;
+
+            /* Fonts */
+            --font-heading: 'Raleway', sans-serif;
+            --font-body: 'Raleway', sans-serif;
+
+            /* Layout & Effects */
+            --border-radius-medium: 12px;
+            --border-radius-large: 50px;
+            --transition-speed: 0.3s;
+            --transition-speed-fast: 0.2s;
+            --header-height: 75px;
+            --side-menu-width: 260px;
+            --sticky-menu-height-mobile: 55px;
+            --shadow-default: 0 6px 18px rgba(0, 0, 0, 0.45);
+            --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.65);
+
+             /* Gradiente Padrão para Elementos Internos (Cards, Inputs, etc.) */
+            --gradient-standard-surface: linear-gradient(160deg, #1D2024, var(--color-step-1));
+        }
 
         /* --- Reset Básico & Configurações Globais --- */
-        :root {
-            --primary-color: #0d2c4f; /* Azul Marinho Profundo */
-            --secondary-color: #c5a47e; /* Ouro/Tan Sofisticado */
-            --light-bg: #f8f9fa; /* Cinza muito claro para fundos */
-            --medium-gray: #e9ecef; /* Cinza claro para bordas/elementos */
-            --dark-gray: #343a40; /* Cinza escuro para texto/footer */
-            --text-color: #495057; /* Cinza suave para texto */
-            --white: #ffffff;
-            --font-heading: 'Merriweather', serif;
-            --font-body: 'Poppins', sans-serif;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --border-radius: 6px;
-            --transition-speed: 0.3s;
-            --header-height: 75px; /* Altura do header para cálculo */
-            --side-menu-width: 260px; /* Largura do menu lateral (Content Page) */
-            --sticky-menu-height-mobile: 55px; /* Altura aproximada do menu sticky mobile (ajustar se necessário) */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px; /* Base font size */
+            font-size: 16px;
+            background-color: var(--header-footer-bg); /* Fallback mais escuro */
         }
 
         body {
             font-family: var(--font-body);
             line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--white); /* Default background */
+            color: var(--text-light-gray);
+            /* Gradiente ÚNICO VERTICAL para todo o corpo */
+            background: linear-gradient(to bottom, var(--color-step-1), var(--header-footer-bg));
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-            padding-top: var(--header-height); /* Space for fixed header */
-            display: flex; /* Needed for footer push */
-            flex-direction: column; /* Needed for footer push */
-            min-height: 100vh; /* Needed for footer push */
-            transition: background-color var(--transition-speed) ease; /* Transition background color */
+            overflow-x: hidden;
+            padding-top: var(--header-height);
+            display: flex; flex-direction: column; min-height: 100vh;
+            letter-spacing: 0.4px;
+            position: relative;
+            z-index: 0;
         }
 
-        body.overflow-hidden { /* For mobile menu */
-            overflow: hidden;
-        }
-
-        main {
-            flex-grow: 1; /* Pushes footer down */
-        }
+        body.overflow-hidden { overflow: hidden; }
+        main { flex-grow: 1; }
 
         /* --- Utilitários --- */
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
 
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-        h1 { font-size: 2.75rem; line-height: 1.2; }
-        h2 { font-size: 2rem; line-height: 1.3; text-align: center; margin-bottom: 50px; }
-        h3 { font-size: 1.25rem; font-weight: 600; font-family: var(--font-body); color: var(--primary-color); margin-bottom: 0.8rem; }
+        h1, h2, h3 { font-family: var(--font-heading); color: var(--text-white); margin-bottom: 1.2rem; font-weight: 700; }
+        h1 { font-size: 2.8rem; line-height: 1.25; }
+        h2 { font-size: 2.1rem; line-height: 1.35; text-align: center; margin-bottom: 55px; position: relative; }
+        h3 { font-size: 1.3rem; font-weight: 600; font-family: var(--font-body); color: var(--text-white); margin-bottom: 0.9rem; }
+        p { margin-bottom: 1.3rem; color: var(--text-light-gray); }
+        p:last-of-type { margin-bottom: 0; }
+        a { text-decoration: none; color: var(--text-light-gray); transition: color var(--transition-speed-fast) ease; cursor: pointer; }
+        a:hover { color: var(--accent-cyan); }
 
-        p {
-            margin-bottom: 1.2rem;
-            color: var(--text-color);
-        }
-        p:last-of-type { margin-bottom: 0; } /* Often useful */
+        /* --- Botões --- */
+        .btn { display: inline-block; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan-darker)); color: var(--text-on-accent); padding: 13px 45px; border: none; border-radius: var(--border-radius-large); cursor: pointer; transition: all var(--transition-speed) ease; font-weight: 700; font-size: 1rem; text-align: center; letter-spacing: 0.8px; box-shadow: 0 4px 12px rgba(0, 224, 255, 0.28); }
+        .btn-secondary { background: transparent; color: var(--accent-cyan); border: 2px solid var(--accent-cyan); padding: 11px 43px; font-weight: 600; box-shadow: none; }
+        .btn:hover, .btn-secondary:hover { background: linear-gradient(135deg, var(--accent-cyan-darker), var(--accent-cyan-darkest)); color: var(--text-on-accent); transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 20px rgba(0, 224, 255, 0.4); }
+        .btn-secondary:hover { border-color: transparent; }
 
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            transition: color var(--transition-speed) ease;
-            cursor: pointer; /* Ensure pointer cursor for JS links */
-        }
-        a:hover {
-            color: var(--secondary-color);
-        }
+        /* --- Header & Navigation --- */
+        header { background: var(--header-footer-bg); padding: 15px 0; position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); border-bottom: none; transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; height: var(--header-height); }
+        header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        header #logo a { color: inherit; } header #logo a:hover { color: inherit; }
+        header #logo h1 { margin: 0; font-size: 1.6rem; color: var(--text-white); font-family: var(--font-heading); font-weight: 700; }
+        header nav#main-nav { display: flex; align-items: center; }
+        header nav#main-nav ul { list-style: none; display: flex; align-items: center; margin: 0; padding: 0; }
+        header nav#main-nav ul li { margin-left: 33px; }
+        header nav#main-nav ul li a { color: var(--text-light-gray); font-weight: 500; transition: color var(--transition-speed-fast) ease; padding-bottom: 8px; position: relative; font-size: 0.95rem; letter-spacing: 0.5px; display: block; }
+        header nav#main-nav ul li a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -2px; left: 0; background-color: var(--accent-cyan); transition: width var(--transition-speed) ease; }
+        header nav#main-nav ul li a:not([data-nav-target="page-faq"]):hover::after { width: 100%; }
+        header nav#main-nav ul li a:hover { color: var(--accent-cyan); border-bottom: none; }
+        header nav#main-nav ul li a[data-nav-target="page-faq"]:hover::after { width: 0; }
+        header nav#main-nav ul li a[data-nav-target="page-faq"]:hover { color: var(--accent-cyan); }
+        header nav#main-nav .nav-button { margin-left: 35px; }
 
-        .btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--white);
-            padding: 12px 35px;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: background-color var(--transition-speed) ease, transform 0.2s ease;
-            font-weight: 600;
-            font-size: 1rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        .btn:hover {
-            background-color: #b8956f;
-            transform: translateY(-2px);
-        }
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 10px 33px;
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
-        }
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* Hide pages by default */
-        .page {
-            display: none;
-        }
-        .page.active {
-            display: block;
-        }
-
-        /* --- Header & Navigation (Common Structure) --- */
-        header {
-            background: var(--white);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid var(--medium-gray);
-            transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            height: var(--header-height); /* Define a altura */
-        }
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%; /* Ocupa a altura do header */
-        }
-
-        header #logo a {
-            text-decoration: none;
-            color: inherit; /* Herda a cor do H1 */
-        }
-        header #logo a:hover {
-            color: inherit; /* Mantém a cor no hover */
-        }
-        header #logo h1 {
-            margin: 0;
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            font-family: var(--font-heading);
-        }
-
-        /* Desktop Navigation Styles */
-        header nav#main-nav {
-            display: flex;
-            align-items: center;
-        }
-
-        header nav#main-nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-        }
-        header nav#main-nav ul li {
-            margin-left: 30px;
-        }
-        header nav#main-nav ul li a { /* JS handles navigation */
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: color var(--transition-speed) ease;
-            padding-bottom: 8px;
-            position: relative;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            display: block;
-        }
-        header nav#main-nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: width var(--transition-speed) ease;
-        }
-        /* Underline hover effect for non-FAQ links */
-        header nav#main-nav ul li a:not([data-nav-target="page-faq"]):hover::after {
-            width: 100%;
-        }
-        header nav#main-nav ul li a:hover {
-            color: var(--primary-color); /* Mantém a cor primária no hover do texto */
-            border-bottom: none; /* Remove o sublinhado padrão */
-        }
-        /* Specific hover for FAQ link */
-        header nav#main-nav ul li a[data-nav-target="page-faq"]:hover::after {
-             width: 0; /* Não mostra underline no hover para FAQ */
-        }
-        header nav#main-nav ul li a[data-nav-target="page-faq"]:hover {
-             color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
-        }
-        header nav#main-nav .nav-button {
-            margin-left: 35px;
-        }
-
-        /* Mobile Menu Toggle Button */
-        .menu-toggle {
-            display: none; /* Hidden by default, shown via media query */
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            padding: 5px;
-            line-height: 1;
-            z-index: 1100; /* Ensure it's above mobile nav */
-        }
-
-        /* Mobile Navigation Container Styles */
-        #mobile-nav-container {
-            display: none; /* Hidden by default, shown via JS */
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(5px);
-            padding-top: 80px;
-            z-index: 1050;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
-            overflow-y: auto;
-        }
-        #mobile-nav-container.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        #mobile-nav-container ul {
-            list-style: none;
-            padding: 20px 0;
-            margin: 0;
-            width: 100%;
-            text-align: center;
-        }
+        /* Mobile Menu */
+        .menu-toggle { display: none; cursor: pointer; background: none; border: none; font-size: 1.8rem; color: var(--text-light-gray); padding: 5px; line-height: 1; z-index: 1100; }
+        .menu-toggle:hover { color: var(--accent-cyan); }
+        #mobile-nav-container { display: none; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-dark-surface); /* Usa cor de superfície sólida */ padding-top: 80px; z-index: 1050; opacity: 0; transform: translateY(-20px); transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease; overflow-y: auto; }
+        #mobile-nav-container.active { display: flex; opacity: 1; transform: translateY(0); }
+        #mobile-nav-container ul { list-style: none; padding: 20px 0; margin: 0; width: 100%; text-align: center; }
         #mobile-nav-container ul li { margin: 0; width: 100%; }
-        #mobile-nav-container ul li a { /* JS handles navigation */
-            padding: 15px 20px;
-            display: block;
-            width: 100%;
-            font-weight: 500;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-            border-bottom: 1px solid var(--medium-gray);
-        }
+        #mobile-nav-container ul li a { padding: 16px 20px; display: block; width: 100%; font-weight: 500; color: var(--text-light-gray); font-size: 1.25rem; transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease; border-bottom: 1px solid var(--border-dark-gray); }
         #mobile-nav-container ul li a::after { display: none; }
         #mobile-nav-container ul li:last-child a { border-bottom: none; }
-        #mobile-nav-container ul li a:hover { background-color: var(--light-bg); color: var(--secondary-color)}
-        #mobile-nav-container .nav-button-mobile {
-            display: block;
-            margin: 25px auto;
-            padding: 12px 30px;
-            text-align: center;
-            background: var(--secondary-color);
-            color: white;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            max-width: 200px;
-            transition: background-color var(--transition-speed) ease;
-            font-size: 1rem;
-            line-height: 1.4;
-        }
-        #mobile-nav-container .nav-button-mobile:hover {
-            background: #b8956f;
-        }
+        #mobile-nav-container ul li a:hover { background-color: rgba(0, 224, 255, 0.1); color: var(--accent-cyan); }
+        #mobile-nav-container .nav-button-mobile { display: block; margin: 30px auto; padding: 12px 40px; text-align: center; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan-darker)); color: var(--text-on-accent); border-radius: var(--border-radius-large); font-weight: 700; max-width: 220px; transition: background var(--transition-speed) ease, transform 0.2s ease, box-shadow var(--transition-speed) ease; font-size: 1rem; line-height: 1.4; border: none; box-shadow: 0 3px 8px rgba(0, 224, 255, 0.2); }
+        #mobile-nav-container .nav-button-mobile:hover { background: linear-gradient(135deg, var(--accent-cyan-darker), var(--accent-cyan-darkest)); transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 224, 255, 0.3); }
 
-        /* --- Scroll Margin Top Helper --- */
-        .scroll-target {
-            scroll-margin-top: calc(var(--header-height) + 20px); /* Default for index/faq */
-        }
-        /* Specific scroll margin for content sections based on screen size */
-        #page-content .scroll-target { /* Desktop */
-            scroll-margin-top: calc(var(--header-height) + 30px);
-        }
-        @media (max-width: 992px) { /* Tablet/Mobile */
-            #page-content .scroll-target {
-                 scroll-margin-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 30px);
-            }
-        }
+        /* --- Scroll Margin & Page Hiding --- */
+        .scroll-target { scroll-margin-top: calc(var(--header-height) + 25px); }
+        #page-content .scroll-target { scroll-margin-top: calc(var(--header-height) + 35px); }
+        @media (max-width: 992px) { #page-content .scroll-target { scroll-margin-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 35px); } }
+        .page { display: none; } .page.active { display: block; }
 
-        /* --- Page Specific Styles --- */
-
-        /* == INDEX PAGE STYLES == */
+        /* --- === INDEX PAGE STYLES === --- */
         #page-index section {
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative; /* Necessário para z-index funcionar sobre o body */
+            z-index: 1;
+            background: none !important; /* REMOVER fundos específicos das seções */
         }
-        #page-index section.bg-light {
-            background-color: var(--light-bg);
-        }
-        /* Hero Section (Index) */
-        #page-index #hero {
-            background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
-            color: var(--white);
-            text-align: center;
-            display: flex; /* Habilita Flexbox */
-            align-items: center; /* Centraliza o .container verticalmente */
-            justify-content: center; /* Centraliza o .container horizontalmente */
-            min-height: calc(100vh - var(--header-height)); /* Altura mínima = altura da janela - header */
-            padding: 80px 0; /* Padding geral top/bottom */
-        }
-        #page-index #hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-weight: 700;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        #page-index #hero p {
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
+        /* Remover a classe .bg-surface das sections no HTML ou remover o estilo dela */
+        /* #page-index section.bg-surface { background: none !important; } */
 
-        /* Modules Section (Index) */
-        #page-index #modules h2 { text-align: center; margin-bottom: 50px; }
-        #page-index .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-        }
-        #page-index a.module-link { /* JS handles navigation */
-            text-decoration: none; /* Remove default underline */
-            color: inherit; /* Inherit text color from parent */
-            display: block; /* Make the link occupy the card's space */
-        }
-        #page-index a.module-link:hover {
-            color: inherit; /* Keep inherited color on hover */
-        }
-        #page-index a.module-link h3 { color: var(--primary-color); /* Original h3 color */ }
-        #page-index a.module-link p { color: var(--text-color); /* Original p color */ }
-        #page-index a.module-link .icon { color: var(--secondary-color); /* Original icon color */ }
+        /* Hero Section */
+        #page-index #hero { /* Não precisa mais de background específico */ color: var(--text-white); text-align: center; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - var(--header-height)); padding: 100px 0; overflow: hidden; }
+        #page-index #hero .container { position: relative; z-index: 1; }
+        #page-index #hero h1 { font-size: 3.5rem; margin-bottom: 1.8rem; color: var(--text-white); font-weight: 700; max-width: 900px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        #page-index #hero p { font-size: 1.25rem; margin-bottom: 3.5rem; color: var(--text-light-gray); max-width: 750px; margin-left: auto; margin-right: auto; }
+
+        /* Modules Section */
+        #page-index #modules h2 { color: var(--text-white); text-align: center; margin-bottom: 65px; }
+        #page-index .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 45px; }
+        #page-index a.module-link { text-decoration: none; color: inherit; display: block; }
+        #page-index a.module-link:hover { color: inherit; }
         #page-index .module-card {
-            background: var(--white);
-            padding: 35px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: left;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            border: 1px solid var(--medium-gray);
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-        /* Apply hover effect TO THE CARD when the LINK is hovered */
-        #page-index a.module-link:hover .module-card {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        #page-index .module-card .icon {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            margin-bottom: 0;
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            flex-shrink: 0;
-        }
-        #page-index .module-card .icon svg { width: 100%; height: 100%; }
-        #page-index .module-card .module-content h3 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--primary-color); }
-        #page-index .module-card .module-content p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; color: var(--text-color); }
+             background: var(--gradient-standard-surface); /* Mantém gradiente interno */
+             padding: 40px; border-radius: var(--border-radius-medium); text-align: left;
+             border: 1px solid var(--border-dark-gray); display: flex; gap: 20px; align-items: flex-start;
+             transform: translateY(-5px); box-shadow: var(--shadow-default);
+             transition: transform var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+         }
+        #page-index a.module-link:hover .module-card { transform: translateY(-12px) scale(1.03); border-color: var(--accent-cyan); box-shadow: var(--shadow-hover); }
+        #page-index .module-card .icon { font-size: 2rem; color: var(--accent-cyan); margin-bottom: 0; display: inline-block; width: 50px; height: 50px; flex-shrink: 0; }
+        #page-index .module-card .icon svg { width: 100%; height: 100%; transition: transform 0.3s ease-in-out; }
+        #page-index a.module-link:hover .module-card .icon svg { transform: scale(1.2) rotate(8deg); }
+        #page-index .module-card .module-content { flex-grow: 1; min-width: 0; }
+        #page-index .module-card .module-content h3 { font-size: 1.25rem; margin-top: 0; margin-bottom: 0.7rem; color: var(--text-white); }
+        #page-index .module-card .module-content p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.65; color: var(--text-light-gray); }
 
-        /* Benefits Section (Index) */
-        #page-index #benefits h2 { text-align: center; margin-bottom: 50px; }
-        #page-index #benefits .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        #page-index #benefits .benefit-item { display: flex; align-items: flex-start; gap: 25px; }
-        #page-index #benefits .benefit-icon { font-size: 1.8rem; color: var(--primary-color); min-width: 40px; width: 40px; height: 40px; margin-top: 5px; flex-shrink: 0; }
-        #page-index #benefits .benefit-icon svg { width: 100%; height: 100%; }
-        #page-index #benefits h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
-        #page-index #benefits p { font-size: 0.95rem; margin-bottom: 0; }
+        /* Benefits Section */
+        #page-index #benefits h2 { color: var(--text-white); text-align: center; margin-bottom: 65px; }
+        #page-index #benefits .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 50px; }
+        #page-index #benefits .benefit-item { display: flex; align-items: flex-start; gap: 30px; }
+        #page-index #benefits .benefit-icon { font-size: 2rem; color: var(--accent-cyan); min-width: 45px; width: 45px; height: 45px; margin-top: 5px; flex-shrink: 0; }
+        #page-index #benefits .benefit-icon svg { width: 100%; height: 100%; transition: transform 0.3s ease-in-out; }
+        #page-index #benefits .benefit-item:hover .benefit-icon svg { transform: scale(1.15) rotate(-6deg); }
+        #page-index #benefits h3 { margin-bottom: 0.7rem; font-size: 1.25rem; color: var(--text-white); }
+        #page-index #benefits p { font-size: 1rem; margin-bottom: 0; color: var(--text-light-gray); }
 
-        /* Target Audience Section (Index) */
-        #page-index #target-audience h2 { text-align: center; margin-bottom: 50px; }
-        #page-index #target-audience ul { list-style: none; padding-left: 0; max-width: 700px; margin: auto; }
-        #page-index #target-audience li { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center; background-size: 16px; padding-left: 35px; margin-bottom: 15px; font-size: 1.05rem; }
+        /* Target Audience Section */
+        #page-index #target-audience h2 { color: var(--text-white); text-align: center; margin-bottom: 65px; }
+        #page-index #target-audience ul { list-style: none; padding-left: 0; max-width: 750px; margin: auto; }
+        #page-index #target-audience li { background: none; padding-left: 40px; margin-bottom: 20px; font-size: 1.1rem; position: relative; list-style: none; color: var(--text-light-gray); }
+        #page-index #target-audience li::before { content: '✓'; position: absolute; left: 0; top: 3px; color: var(--accent-cyan); font-weight: 700; font-size: 1.4em; line-height: 1; }
 
-        /* Enrollment / Contact Form Section (Index) */
-        #page-index #enroll {
-            background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
-            color: var(--white); /* White text for contrast */
-            padding: 80px 0;
-        }
-        #page-index #enroll .form-wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-        /* ConvertKit Form Styling */
-        #page-index #enroll .ck-form-container {
-            max-width: 600px !important; /* Aumentado */
-            width: 100%;
-            margin-top: 0; margin-bottom: 0;
-            padding: 0 !important;
-            background: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            text-align: left !important;
-        }
-        /* Ocultar Header/Content Padrão do CK */
-        #page-index #enroll .ck-form-container .ck-header,
-        #page-index #enroll .ck-form-container .ck-content { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; }
+        /* Enrollment / Contact Form Section */
+        #page-index #enroll { color: var(--text-light-gray); padding: 100px 0; }
+        #page-index #enroll .form-wrapper { display: flex; justify-content: center; width: 100%; }
+        #page-index #enroll form.seva-form.formkit-form { border: none !important; background-color: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important; box-shadow: none !important; min-width: auto !important; }
+        #page-index #enroll .ck-form-container { max-width: 600px !important; width: 100%; margin: 0 auto !important; padding: 0 !important; background: none !important; border: none !important; box-shadow: none !important; text-align: left !important; }
+        #page-index #enroll .ck-form-container .ck-header, #page-index #enroll .ck-form-container .ck-content { display: none !important; }
         #page-index #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
-        #page-index #enroll .ck-form-container .ck-field label {
-            display: block !important; margin-bottom: 8px !important;
-            font-weight: 500 !important; font-family: var(--font-body) !important;
-            color: var(--white) !important; /* White labels for contrast */
-            font-size: 0.9rem !important; text-align: left !important;
-        }
-        #page-index #enroll .ck-form-container .ck-input {
-            width: 100% !important; padding: 14px 16px !important;
-            border: 1px solid var(--medium-gray) !important; border-radius: var(--border-radius) !important;
-            font-size: 1rem !important; font-family: var(--font-body) !important;
-            background-color: var(--white) !important; color: var(--dark-gray) !important;
-            transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important;
-            margin-bottom: 20px !important;
-        }
-        #page-index #enroll .ck-form-container .ck-input::placeholder { color: #999 !important; }
-        #page-index #enroll .ck-form-container .ck-input:focus {
-            outline: none !important; border-color: var(--secondary-color) !important;
-            box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important;
-        }
-        #page-index #enroll .ck-form-container .ck-button {
-            width: 100% !important; padding: 15px !important; margin-top: 10px !important;
-            font-size: 1.1rem !important; letter-spacing: 0.8px !important;
-            background-color: var(--secondary-color) !important; color: var(--white) !important;
-            border: none !important; border-radius: var(--border-radius) !important;
-            font-weight: 600 !important; font-family: var(--font-body) !important; cursor: pointer;
-            transition: background-color var(--transition-speed) ease, transform 0.2s ease !important;
-        }
-        #page-index #enroll .ck-form-container .ck-button:hover {
-            background-color: #b8956f !important; transform: translateY(-2px);
-        }
-        /* Powered By Link Color for Dark Background */
-        #page-index #enroll .ck-form-container .ck-powered-by {
-            color: var(--medium-gray) !important; /* Lighter gray */
-            font-size: 0.8rem !important; text-align: center !important;
-            margin-top: 20px !important; padding-bottom: 0 !important;
-        }
-        #page-index #enroll .ck-form-container .ck-powered-by a {
-            color: var(--medium-gray) !important; text-decoration: underline !important;
-        }
-        #page-index #enroll .ck-form-container .ck-powered-by a:hover {
-            color: var(--secondary-color) !important; /* Keep hover color */
-        }
+        #page-index #enroll .ck-form-container .ck-field label { display: block !important; margin-bottom: 9px !important; font-weight: 500 !important; font-family: var(--font-body) !important; color: var(--text-light-gray) !important; font-size: 0.9rem !important; text-align: left !important; }
+        #page-index #enroll .ck-form-container .ck-input { width: 100% !important; padding: 15px 20px !important; border: none !important; border-radius: var(--border-radius-medium) !important; font-size: 1rem !important; font-family: var(--font-body) !important; background: var(--gradient-standard-surface) !important; color: var(--text-white) !important; transition: box-shadow var(--transition-speed) ease !important; margin-bottom: 22px !important; box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5); }
+        #page-index #enroll .ck-form-container .ck-input::placeholder { color: var(--text-light-gray) !important; opacity: 0.5; }
+        #page-index #enroll .ck-form-container .ck-input:focus { outline: none !important; box-shadow: 0 0 0 3px rgba(0, 224, 255, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.5) !important; }
+        #page-index #enroll .ck-form-container .ck-button { width: 100% !important; padding: 15px !important; margin-top: 15px !important; font-size: 1.1rem !important; letter-spacing: 0.8px !important; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan-darker)) !important; color: var(--text-on-accent) !important; border: none !important; border-radius: var(--border-radius-large) !important; font-weight: 700 !important; font-family: var(--font-body) !important; cursor: pointer; transition: background var(--transition-speed) ease, transform var(--transition-speed-fast) ease, box-shadow var(--transition-speed) ease !important; box-shadow: 0 4px 10px rgba(0, 224, 255, 0.25); }
+        #page-index #enroll .ck-form-container .ck-button:hover { background: linear-gradient(135deg, var(--accent-cyan-darker), var(--accent-cyan-darkest)) !important; transform: translateY(-3px); box-shadow: 0 7px 18px rgba(0, 224, 255, 0.35) !important; }
+        #page-index #enroll .ck-form-container .ck-powered-by, #page-index #enroll .ck-form-container .ck-powered-by a { color: var(--border-dark-gray) !important; font-size: 0.8rem !important; text-align: center !important; margin-top: 25px !important; padding-bottom: 0 !important; text-decoration: none !important; opacity: 0.6; }
+        #page-index #enroll .ck-form-container .ck-powered-by a:hover { color: var(--accent-cyan) !important; opacity: 1; text-decoration: underline !important; }
 
-        /* == CONTENT PAGE STYLES == */
-        #page-content .page-container { /* Wrapper for sidebar + content */
-            display: flex;
-            position: relative;
-        }
-        /* Sidebar Menu (Desktop Fixed) */
-        #module-menu {
-            position: fixed;
-            left: 0;
-            top: var(--header-height);
-            width: var(--side-menu-width);
-            height: calc(100vh - var(--header-height));
-            background-color: var(--light-bg);
-            border-right: 1px solid var(--medium-gray);
-            padding: 25px 15px;
-            overflow-y: auto;
-            z-index: 900;
-            transition: transform 0.3s ease, width 0.3s ease, left 0.3s ease;
-            transform: translateX(0); /* Default state */
-            display: none; /* Hidden by default, shown by JS */
-        }
-        body.page-content #module-menu {
-             display: block; /* Show when content page is active */
-        }
-        body.sidebar-hidden #module-menu { /* Hide on desktop */
-             transform: translateX(-100%);
-             /* width: 0; */ /* width change looks abrupt */
-             left: calc(-1 * var(--side-menu-width)); /* Smoother transition */
-             padding: 25px 0;
-             border: none;
-             overflow: hidden;
-        }
-        #module-menu h3 {
-            font-size: 1rem; margin-bottom: 15px; color: var(--primary-color);
-            text-transform: uppercase; letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--medium-gray); padding-bottom: 10px;
-        }
+        /* == CONTENT PAGE == */
+        /* Fundos usarão o gradiente padrão de superfície */
+        #page-content .page-container { display: flex; position: relative; }
+        #module-menu { position: fixed; left: 0; top: var(--header-height); width: var(--side-menu-width); height: calc(100vh - var(--header-height)); background: var(--gradient-standard-surface); border-right: 1px solid var(--border-dark-gray); padding: 30px 15px; overflow-y: auto; z-index: 900; transition: transform 0.3s ease, width 0.3s ease, left 0.3s ease; transform: translateX(0); display: none; }
+        body.page-content #module-menu { display: block; }
+        body.sidebar-hidden #module-menu { transform: translateX(-100%); left: calc(-1 * var(--side-menu-width)); padding: 30px 0; border: none; overflow: hidden; }
+        #module-menu h3 { font-size: 0.9rem; margin-bottom: 18px; color: var(--text-light-gray); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-dark-gray); padding-bottom: 12px; font-weight: 600; }
         #module-menu ul { list-style: none; padding: 0; margin: 0; }
-        #module-menu li { margin-bottom: 3px; }
-        #module-menu a { /* JS handles navigation */
-            display: block; padding: 8px 12px; color: var(--text-color);
-            font-weight: 500; border-radius: var(--border-radius);
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-            font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        }
-        #module-menu a:hover,
-        #module-menu a.active {
-            background-color: var(--secondary-color); color: var(--white);
-        }
-
-        /* Mobile Top Sticky Menu (alternative display for module-menu) */
-        #module-menu-sticky-mobile {
-             display: none; /* Hidden by default, shown via media query + JS */
-             position: sticky;
-             top: var(--header-height);
-             left: 0;
-             width: 100%;
-             background-color: var(--light-bg);
-             border-bottom: 1px solid var(--medium-gray);
-             padding: 10px 15px;
-             overflow-x: auto;
-             white-space: nowrap;
-             z-index: 950;
-             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-             height: var(--sticky-menu-height-mobile); /* Define height */
-             align-items: center; /* Vertically center items */
-        }
-        body.page-content.mobile-view #module-menu-sticky-mobile {
-             display: flex; /* Show on mobile */
-        }
+        #module-menu li { margin-bottom: 4px; }
+        #module-menu a { display: block; padding: 10px 15px; color: var(--text-light-gray); font-weight: 500; border-radius: 8px; transition: all var(--transition-speed-fast) ease; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        #module-menu a:hover { background-color: rgba(0, 224, 255, 0.1); color: var(--accent-cyan); padding-left: 20px; }
+        #module-menu a.active { background-color: var(--accent-cyan); color: var(--text-on-accent); font-weight: 600; padding-left: 15px; }
+        #module-menu-sticky-mobile { display: none; position: sticky; top: var(--header-height); left: 0; width: 100%; background: var(--gradient-standard-surface); border-bottom: 1px solid var(--border-dark-gray); padding: 10px 15px; overflow-x: auto; white-space: nowrap; z-index: 950; box-shadow: 0 3px 12px rgba(0,0,0,0.5); height: var(--sticky-menu-height-mobile); align-items: center; }
+        body.page-content.mobile-view #module-menu-sticky-mobile { display: flex; }
         #module-menu-sticky-mobile h3 { display: none; }
-        #module-menu-sticky-mobile ul {
-             list-style: none; padding: 0; margin: 0;
-             display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: center;
-        }
-        #module-menu-sticky-mobile li { margin: 0 5px; flex-shrink: 0; }
-        #module-menu-sticky-mobile a { /* JS handles navigation */
-             display: block; padding: 8px 12px; color: var(--text-color);
-             font-weight: 500; border-radius: 15px; /* Pill shape */
-             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-             font-size: 0.85rem;
-        }
-        #module-menu-sticky-mobile a:hover,
-        #module-menu-sticky-mobile a.active {
-             background-color: var(--secondary-color); color: var(--white);
-        }
+        #module-menu-sticky-mobile ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: nowrap; justify-content: flex-start; align-items: center; }
+        #module-menu-sticky-mobile li { margin: 0 6px; flex-shrink: 0; }
+        #module-menu-sticky-mobile a { display: block; padding: 8px 18px; color: var(--text-light-gray); font-weight: 500; border-radius: var(--border-radius-large); transition: all var(--transition-speed) ease; font-size: 0.85rem; border: 1px solid transparent; }
+        #module-menu-sticky-mobile a:hover { color: var(--accent-cyan); border-color: rgba(0, 224, 255, 0.3); background-color: transparent; }
+        #module-menu-sticky-mobile a.active { background-color: var(--accent-cyan); color: var(--text-on-accent); font-weight: 600; border-color: var(--accent-cyan); }
 
-        /* Content Area (Content Page) */
-        #page-content #content-area {
-            margin-left: 0; /* Default, adjusted by JS */
-            padding: 40px;
-            transition: margin-left 0.3s ease, width 0.3s ease;
-            width: 100%; /* Default, adjusted by JS */
-        }
-        body.page-content.sidebar-visible #page-content #content-area {
-             margin-left: var(--side-menu-width);
-             width: calc(100% - var(--side-menu-width));
-        }
-        #page-content #content-area h1 {
-            font-size: 2.5rem; text-align: center; margin-bottom: 50px; margin-top: 10px;
-        }
-        #page-content #content-area section {
-            margin-bottom: 60px; padding: 35px; background-color: var(--white);
-            border-radius: var(--border-radius); box-shadow: var(--box-shadow);
-        }
-        #page-content #content-area h2 {
-            font-size: 2rem; line-height: 1.3; margin-bottom: 1.5rem;
-            color: var(--secondary-color); border-bottom: 2px solid var(--medium-gray);
-            padding-bottom: 10px; text-align: left; /* Override default center */
-        }
-        #page-content #content-area h3 { /* Different from global h3 */
-             font-size: 1.1rem; font-weight: 600; font-family: var(--font-body);
-             color: var(--primary-color); margin-bottom: 0.8rem;
-        }
-        #page-content #content-area p:last-of-type {
-             margin-bottom: 0;
-        }
+        /* Content Area (fundo herdado do body) */
+        #page-content #content-area { margin-left: 0; padding: 55px 45px; transition: margin-left 0.3s ease, width 0.3s ease; width: 100%; }
+        body.page-content.sidebar-visible #page-content #content-area { margin-left: var(--side-menu-width); width: calc(100% - var(--side-menu-width)); }
+        #page-content #content-area h1 { font-size: 2.6rem; text-align: center; margin-bottom: 65px; margin-top: 10px; color: var(--text-white); }
+        #page-content #content-area section { margin-bottom: 75px; padding: 50px; background: var(--gradient-standard-surface); border-radius: var(--border-radius-medium); border: 1px solid var(--border-dark-gray); box-shadow: var(--shadow-default); }
+        #page-content #content-area h2 { font-size: 2rem; line-height: 1.4; margin-bottom: 2.2rem; color: var(--accent-cyan); border-bottom: 1px solid var(--border-dark-gray); padding-bottom: 18px; text-align: left; font-weight: 700; }
+        #page-content #content-area h3 { font-size: 1.2rem; font-weight: 600; font-family: var(--font-body); color: var(--text-white); margin-bottom: 1.1rem; margin-top: 2rem; }
+        #page-content #content-area p { color: var(--text-light-gray); line-height: 1.8; }
+        #page-content #content-area p:last-of-type { margin-bottom: 0; }
 
-        /* == FAQ PAGE STYLES == */
-        #page-faq #faq-section {
-             padding-top: 40px; /* Extra space below header */
-             padding-bottom: 80px;
-        }
-        #page-faq #faq-section h1 {
-            text-align: center;
-            margin-bottom: 60px; /* More space after main title */
-        }
-        #page-faq #faq-section h2 { /* Subheadings */
-            text-align: left; /* Align subheadings left */
-            font-size: 1.8rem; /* Slightly smaller than page title */
-            margin-top: 40px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid var(--medium-gray); /* Add a separator */
-            padding-bottom: 10px;
-        }
-        #page-faq .faq-group {
-            margin-bottom: 30px;
-        }
-        #page-faq .faq-item {
-            background-color: var(--white);
-            border: 1px solid var(--medium-gray);
-            border-radius: var(--border-radius);
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: box-shadow var(--transition-speed) ease;
-            overflow: hidden; /* Prevent content overflow before opening */
-        }
-        #page-faq .faq-item:hover {
-             box-shadow: var(--box-shadow);
-        }
-        #page-faq .faq-item summary {
-            padding: 18px 25px;
-            font-weight: 600;
-            cursor: pointer;
-            display: block; /* Changed to block for better control */
-            list-style: none; /* Remove default marker */
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            transition: background-color var(--transition-speed) ease;
-            position: relative; /* For custom arrow */
-            padding-right: 50px; /* Space for custom arrow */
-        }
-        #page-faq .faq-item summary:hover {
-            background-color: var(--light-bg);
-        }
-        /* Custom Arrow */
-        #page-faq .faq-item summary::after {
-            content: '+'; /* Plus sign for closed state */
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--secondary-color);
-            transition: transform 0.2s ease;
-        }
-        #page-faq .faq-item[open] summary::after {
-            content: '−'; /* Minus sign for open state */
-            transform: translateY(-50%);
-        }
-        /* Remove default marker specifically for webkit */
-        #page-faq .faq-item summary::-webkit-details-marker {
-           display: none;
-        }
-        #page-faq .faq-item p {
-            padding: 10px 25px 20px 25px; /* Adjusted padding */
-            margin-bottom: 0;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            border-top: 1px solid var(--medium-gray); /* Separator when open */
-            background-color: var(--white); /* Ensure background */
-        }
-        #page-faq .faq-item p a[href*="Udemy"], /* Specific Udemy Link */
-        #page-faq .faq-item p a[data-external-link="udemy"] { /* Target Udemy link */
-             color: var(--secondary-color);
-             text-decoration: underline;
-             cursor: pointer; /* Ensure pointer */
-        }
-        #page-faq .faq-item p a[href*="Udemy"]:hover,
-        #page-faq .faq-item p a[data-external-link="udemy"]:hover {
-             color: var(--primary-color);
-        }
-        #page-faq .faq-cta {
-            text-align: center;
-            margin-top: 50px;
-        }
-        #page-faq .faq-cta h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-
+        /* == FAQ PAGE == */
+        #page-faq { /* Fundo herdado do body */ }
+        #page-faq #faq-section { padding-top: 60px; padding-bottom: 100px; }
+        #page-faq #faq-section h1 { text-align: center; margin-bottom: 75px; color: var(--text-white); }
+        #page-faq #faq-section h2 { text-align: left; font-size: 1.8rem; margin-top: 50px; margin-bottom: 35px; border-bottom: 1px solid var(--border-dark-gray); padding-bottom: 15px; color: var(--text-light-gray); font-weight: 600; }
+        #page-faq .faq-group { margin-bottom: 40px; }
+        #page-faq .faq-item { background: var(--gradient-standard-surface); border: 1px solid var(--border-dark-gray); border-radius: var(--border-radius-medium); margin-bottom: 20px; box-shadow: var(--shadow-default); transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; overflow: hidden; }
+        #page-faq .faq-item:hover { border-color: var(--accent-cyan); box-shadow: var(--shadow-hover); }
+        #page-faq .faq-item summary { padding: 22px 35px; font-weight: 600; cursor: pointer; display: block; list-style: none; color: var(--text-white); font-size: 1.15rem; transition: background-color var(--transition-speed-fast) ease; position: relative; padding-right: 60px; }
+        #page-faq .faq-item summary:hover { background-color: rgba(0, 224, 255, 0.05); }
+        #page-faq .faq-item summary::after { content: '+'; position: absolute; right: 35px; top: 50%; transform: translateY(-50%); font-size: 1.7rem; font-weight: 400; color: var(--accent-cyan); transition: transform 0.25s ease-in-out; }
+        #page-faq .faq-item[open] summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); }
+        #page-faq .faq-item summary::-webkit-details-marker { display: none; }
+        #page-faq .faq-item p { padding: 20px 35px 35px 35px; margin-bottom: 0; font-size: 1rem; line-height: 1.75; color: var(--text-light-gray); border-top: 1px solid var(--border-dark-gray); }
+        #page-faq .faq-item p a[href*="Udemy"], #page-faq .faq-item p a[data-external-link="udemy"] { color: var(--accent-cyan); text-decoration: underline; font-weight: 500; }
+        #page-faq .faq-item p a[href*="Udemy"]:hover, #page-faq .faq-item p a[data-external-link="udemy"]:hover { color: var(--accent-cyan-darker); text-decoration: none; }
+        #page-faq .faq-cta { text-align: center; margin-top: 70px; }
+        #page-faq .faq-cta h3 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--text-white); }
+        #page-faq .faq-cta p { color: var(--text-light-gray); margin-bottom: 1.8rem;}
 
         /* --- Footer --- */
         footer {
-            background: var(--dark-gray);
-            color: var(--medium-gray);
-            text-align: center;
-            padding: 30px 0;
-            border-top: 3px solid var(--primary-color);
-            flex-shrink: 0; /* Impede que o footer encolha */
-            transition: margin-left 0.3s ease; /* For content page sidebar */
-            margin-left: 0; /* Default */
-            width: 100%; /* Default */
+            background: var(--header-footer-bg); /* Cor SÓLIDA igual ao Header */
+            color: var(--border-dark-gray); text-align: center; padding: 50px 0;
+            border-top: none; /* SEM Borda */ flex-shrink: 0;
+            transition: margin-left 0.3s ease; margin-left: 0; width: 100%;
         }
-        body.page-content.sidebar-visible footer {
-             margin-left: var(--side-menu-width);
-             width: calc(100% - var(--side-menu-width));
-        }
-        footer p {
-            margin: 5px 0;
-            color: var(--medium-gray);
-            font-size: 0.9rem;
-            text-align: center; /* Garante centralização */
-        }
+        body.page-content.sidebar-visible footer { margin-left: var(--side-menu-width); width: calc(100% - var(--side-menu-width)); }
+        footer p { margin: 6px 0; color: var(--border-dark-gray); font-size: 0.9rem; text-align: center; }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 1100px) { /* Sidebar narrower */
-             :root { --side-menu-width: 220px; }
-             /* Adjust content area and footer margin if sidebar is visible */
-             body.page-content.sidebar-visible #page-content #content-area { margin-left: var(--side-menu-width); width: calc(100% - var(--side-menu-width)); }
-             body.page-content.sidebar-visible footer { margin-left: var(--side-menu-width); width: calc(100% - var(--side-menu-width));}
-             body.page-content #module-menu { width: var(--side-menu-width); left: calc(-1 * var(--side-menu-width)); } /* Match variable for hidden state */
-             #page-content #content-area { padding: 30px; }
-        }
-
-        @media (max-width: 992px) { /* Tablet - Header shrinks, Side Menu becomes Top Menu */
-            :root {
-                --header-height: 69px; /* Header menor */
-            }
-            body { padding-top: var(--header-height); }
-            header { height: var(--header-height); padding: 0 15px; }
-            header .container { padding: 0; } /* Adjusted padding */
-            header #logo h1 { font-size: 1.5rem; }
-            header nav#main-nav { display: none; } /* Hide desktop nav */
-            .menu-toggle { display: block; } /* Show mobile toggle */
-
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-
-            /* Index Page Adjustments */
-            #page-index #hero h1 { font-size: 2.8rem; }
-            #page-index .modules-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;}
-            #page-index .module-card { padding: 25px; }
-            #page-index #benefits .benefits-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-
-            /* Content Page Adjustments - Sidebar becomes Top Sticky */
-            body.page-content #module-menu { /* Hide fixed sidebar on mobile */
-                 display: none;
-            }
-            body.page-content.mobile-view #module-menu-sticky-mobile { /* Show sticky top menu on mobile */
-                 display: flex;
-            }
-            body.page-content #page-content #content-area { /* Full width, adjust padding */
-                 margin-left: 0;
-                 padding: 25px;
-                 width: 100%;
-            }
-            #page-content #content-area section {
-                 padding: 25px; margin-bottom: 40px;
-            }
-            #page-content #content-area h1 { font-size: 2rem; margin-bottom: 30px; }
-            #page-content #content-area h2 { font-size: 1.7rem; }
-
-            /* FAQ Page Adjustments */
-            #page-faq #faq-section h1 { font-size: 2.5rem; }
-            #page-faq #faq-section h2 { font-size: 1.6rem; }
-
-            /* Footer Adjustments */
-            body footer { margin-left: 0; width: 100%; } /* Full width */
-        }
-
-        @media (max-width: 768px) { /* Mobile */
-            html { font-size: 15px; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.7rem; }
-
-            /* Index Page Adjustments */
-            #page-index #hero { min-height: calc(80vh - var(--header-height)); padding: 60px 0; }
-            #page-index #hero h1 { font-size: 2.5rem; }
-            #page-index #hero p { font-size: 1.05rem; }
-            #page-index .modules-grid { grid-template-columns: 1fr; }
-            #page-index .module-card { text-align: center; flex-direction: column; align-items: center; }
-            #page-index .module-card .icon { margin-bottom: 15px; }
-            #page-index .module-card .module-content { text-align: center; }
-            #page-index #benefits .benefits-grid { grid-template-columns: 1fr; }
-            #page-index #benefits .benefit-item { flex-direction: column; text-align: center; align-items: center; }
-            #page-index #benefits .benefit-icon { margin-bottom: 15px; margin-top: 0; }
-            #page-index #enroll { padding: 60px 15px;} /* Adjust padding */
-
-             /* FAQ Page Adjustments */
-             #page-faq #faq-section { padding-top: 30px; }
-             #page-faq #faq-section h1 { font-size: 2.2rem; }
-             #page-faq #faq-section h2 { font-size: 1.5rem; }
-        }
-
-        @media (max-width: 480px) { /* Small Mobile */
-            html { font-size: 14px; }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.5rem; }
-
-            /* Index Page Adjustments */
-            #page-index #hero { min-height: calc(70vh - var(--header-height)); padding: 50px 0; }
-            #page-index #hero h1 { font-size: 2.1rem; }
-            #page-index #hero p { font-size: 1rem; }
-            .btn { padding: 10px 25px; font-size: 0.95rem; }
-            #page-index #enroll .ck-form-container .ck-button { font-size: 1rem !important; }
-
-            /* Content Page Adjustments */
-            #page-content #content-area { padding: 15px; }
-            #page-content #content-area section { padding: 20px; }
-            #module-menu-sticky-mobile a { padding: 6px 10px; font-size: 0.8rem; }
-
-            /* FAQ Page Adjustments */
-            #page-faq #faq-section h1 { margin-bottom: 40px; font-size: 2rem; }
-            #page-faq #faq-section h2 { font-size: 1.4rem; }
-            #page-faq .btn { padding: 10px 25px; font-size: 0.95rem; }
-
-            /* Mobile Nav Button */
-            #mobile-nav-container .nav-button-mobile { max-width: 180px; font-size: 0.95rem; }
-        }
+        /* --- Responsive Adjustments --- */
+         @media (max-width: 1100px) { :root { --side-menu-width: 220px; } body.page-content.sidebar-visible #page-content #content-area, body.page-content.sidebar-visible footer { margin-left: var(--side-menu-width); width: calc(100% - var(--side-menu-width)); } body.page-content #module-menu { width: var(--side-menu-width); left: calc(-1 * var(--side-menu-width)); } #page-content #content-area { padding: 45px 30px; } }
+         @media (max-width: 992px) { :root { --header-height: 70px; } body { padding-top: var(--header-height); } header { height: var(--header-height); padding: 0 15px; } header .container { padding: 0; } header #logo h1 { font-size: 1.5rem; } header nav#main-nav { display: none; } .menu-toggle { display: block; } h1 { font-size: 2.5rem; } h2 { font-size: 1.9rem; } #page-index #hero h1 { font-size: 2.9rem; } #page-index .modules-grid { grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 35px;} #page-index .module-card { padding: 35px; } #page-index #benefits .benefits-grid { grid-template-columns: 1fr; gap: 40px; } body.page-content #module-menu { display: none; } body.page-content.mobile-view #module-menu-sticky-mobile { display: flex; } body.page-content #page-content #content-area { margin-left: 0; padding: 40px 25px; width: 100%; } #page-content #content-area section { padding: 40px 25px; margin-bottom: 50px; } #page-content #content-area h1 { font-size: 2.1rem; margin-bottom: 45px; } #page-content #content-area h2 { font-size: 1.8rem; } #page-faq #faq-section h1 { font-size: 2.5rem; margin-bottom: 60px; } #page-faq #faq-section h2 { font-size: 1.6rem; } body footer { margin-left: 0; width: 100%; } }
+         @media (max-width: 768px) { html { font-size: 15px; } h1 { font-size: 2.3rem; } h2 { font-size: 1.8rem; } #page-index section { padding: 80px 0; } #page-index #hero { min-height: calc(80vh - var(--header-height)); padding: 70px 0; } #page-index #hero h1 { font-size: 2.6rem; } #page-index #hero p { font-size: 1.1rem; } #page-index .modules-grid { grid-template-columns: 1fr; gap: 30px; } #page-index .module-card { text-align: center; flex-direction: column; align-items: center; padding: 35px; transform: translateY(0); box-shadow: var(--shadow-default); } #page-index .module-card .icon { margin-bottom: 20px; } #page-index .module-card .module-content { text-align: center; } #page-index a.module-link:hover .module-card { transform: translateY(-8px); box-shadow: var(--shadow-hover); } #page-index #benefits .benefit-item { flex-direction: column; text-align: center; align-items: center; gap: 18px;} #page-index #benefits .benefit-icon { margin-bottom: 15px; margin-top: 0; } #page-index #enroll { padding: 80px 15px;} #page-faq #faq-section { padding-top: 50px; padding-bottom: 80px; } #page-faq #faq-section h1 { font-size: 2.3rem; } #page-faq #faq-section h2 { font-size: 1.5rem; } #page-faq .faq-item summary { font-size: 1.05rem; padding: 20px 55px 20px 25px;} #page-faq .faq-item summary::after { right: 25px; } #page-faq .faq-item p { padding: 18px 25px 25px 25px; font-size: 0.95rem;} }
+         @media (max-width: 480px) { html { font-size: 14px; } h1 { font-size: 2rem; } h2 { font-size: 1.6rem; } #page-index section { padding: 60px 0; } #page-index #hero { min-height: calc(75vh - var(--header-height)); padding: 60px 0; } #page-index #hero h1 { font-size: 2.2rem; } #page-index #hero p { font-size: 1rem; } .btn { padding: 12px 35px; font-size: 0.95rem; } .btn-secondary { padding: 10px 33px; } #page-index #enroll .ck-form-container .ck-button { font-size: 1rem !important; } #page-content #content-area { padding: 35px 15px; } #page-content #content-area section { padding: 35px 20px; margin-bottom: 40px;} #module-menu-sticky-mobile a { padding: 7px 16px; font-size: 0.8rem; } #page-faq #faq-section h1 { margin-bottom: 50px; font-size: 2rem; } #page-faq #faq-section h2 { font-size: 1.4rem; } #page-faq .btn { padding: 12px 35px; font-size: 0.95rem; } #mobile-nav-container .nav-button-mobile { max-width: 200px; font-size: 0.95rem; } }
 
     </style>
 </head>
@@ -886,13 +323,13 @@
         <div id="page-index" class="page">
              <section id="hero" class="scroll-target" data-aos="fade-in" data-aos-duration="1000">
                  <div class="container">
-                      <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
-                      <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
-                      <a href="#" class="btn" data-aos="fade-up" data-aos-delay="600" data-nav-target="page-index" data-scroll-target="enroll">Inscreva-se Agora</a>
+                     <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
+                     <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
+                     <a href="#" class="btn" data-aos="fade-up" data-aos-delay="600" data-nav-target="page-index" data-scroll-target="enroll">Inscreva-se Agora</a>
                  </div>
              </section>
 
-             <section id="modules" class="scroll-target bg-light">
+             <section id="modules" class="scroll-target">
                  <div class="container">
                      <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
                      <div class="modules-grid">
@@ -908,7 +345,7 @@
                               <div class="module-card">
                                   <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div>
                                   <div class="module-content">
-                                     <h3>Gestão de Riscos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
+                                      <h3>Gestão de Riscos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
                                   </div>
                               </div>
                          </a>
@@ -918,7 +355,7 @@
                                  <div class="module-content">
                                      <h3>Gestão da Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p>
                                  </div>
-                              </div>
+                             </div>
                          </a>
                          <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos">
                               <div class="module-card">
@@ -926,7 +363,7 @@
                                  <div class="module-content">
                                      <h3>Gestão de Projetos</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p>
                                  </div>
-                              </div>
+                             </div>
                          </a>
                          <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup">
                               <div class="module-card">
@@ -934,7 +371,7 @@
                                  <div class="module-content">
                                      <h3>Gestão de Projetos com Clickup</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
                                  </div>
-                              </div>
+                             </div>
                          </a>
                          <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia">
                               <div class="module-card">
@@ -942,7 +379,7 @@
                                  <div class="module-content">
                                      <h3>Gestão de Projetos com IA</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
                                  </div>
-                              </div>
+                             </div>
                          </a>
                      </div>
                  </div>
@@ -960,17 +397,17 @@
                  </div>
              </section>
 
-              <section id="target-audience" class="scroll-target bg-light">
+              <section id="target-audience" class="scroll-target">
                   <div class="container" data-aos="fade-up" data-aos-once="true">
                        <h2>Ideal Para Profissionais Ambiciosos</h2>
-                        <ul>
-                             <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
-                             <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
-                             <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
-                             <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
-                             <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
-                        </ul>
-                  </div>
+                       <ul>
+                            <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
+                            <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
+                            <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
+                            <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
+                            <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                       </ul>
+                 </div>
              </section>
 
              <section id="enroll" class="scroll-target">
@@ -979,8 +416,10 @@
                            <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
                          </div>
                   </div>
-              </section>
-        </div> <div id="page-content" class="page">
+             </section>
+        </div>
+
+        <div id="page-content" class="page">
              <div class="page-container">
                  <div id="content-area">
                      <div class="container">
@@ -988,7 +427,7 @@
 
                          <section id="gestao-pessoas" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Pessoas</h2>
-                               <p>Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e benefícios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
+                                <p>Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e benefícios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
                          </section>
 
                          <section id="gestao-riscos" class="scroll-target" data-aos="fade-up">
@@ -998,27 +437,29 @@
 
                          <section id="gestao-qualidade" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão da Qualidade</h2>
-                               <p>Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
-                            </section>
+                                <p>Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
+                             </section>
 
                          <section id="gestao-projetos" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Projetos</h2>
-                               <p>Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
+                                <p>Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
                          </section>
 
                          <section id="gestao-projetos-clickup" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Projetos com Clickup</h2>
-                               <p>Aqui, você aprenderá a utilizar o ClickUp como uma ferramenta centralizadora para gerenciar seus projetos de forma prática e eficiente. Começaremos com os fundamentos da ferramenta, entendendo sua interface e hierarquia (Spaces, Folders, Lists, Tasks). Em seguida, focaremos no planejamento: como definir escopo e objetivos SMART, criar a Estrutura Analítica do Projeto (EAP), detalhar tarefas e subtarefas, construir cronogramas com marcos e dependências (usando a visualização Gantt) e gerenciar recursos com a Workload View. Na fase de execução e monitoramento, você aprenderá a usar o ClickUp para comunicação da equipe (comentários, chat, integrações), gerenciamento de status e prioridades, utilização de visualizações avançadas (Board, Calendário, Tabela), criação de automações e monitoramento do progresso através de Dashboards e KPIs. Por fim, abordaremos o controle e encerramento, incluindo gerenciamento de riscos/problemas, controle de mudanças, geração de relatórios e o uso de recursos avançados como Templates, Custom Fields, Forms e Goals.</p>
-                            </section>
+                                <p>Aqui, você aprenderá a utilizar o ClickUp como uma ferramenta centralizadora para gerenciar seus projetos de forma prática e eficiente. Começaremos com os fundamentos da ferramenta, entendendo sua interface e hierarquia (Spaces, Folders, Lists, Tasks). Em seguida, focaremos no planejamento: como definir escopo e objetivos SMART, criar a Estrutura Analítica do Projeto (EAP), detalhar tarefas e subtarefas, construir cronogramas com marcos e dependências (usando a visualização Gantt) e gerenciar recursos com a Workload View. Na fase de execução e monitoramento, você aprenderá a usar o ClickUp para comunicação da equipe (comentários, chat, integrações), gerenciamento de status e prioridades, utilização de visualizações avançadas (Board, Calendário, Tabela), criação de automações e monitoramento do progresso através de Dashboards e KPIs. Por fim, abordaremos o controle e encerramento, incluindo gerenciamento de riscos/problemas, controle de mudanças, geração de relatórios e o uso de recursos avançados como Templates, Custom Fields, Forms e Goals.</p>
+                             </section>
 
-                              <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up">
-                                  <h2>Gestão de Projetos com IA</h2>
-                                   <p>Neste módulo final, você descobrirá como aplicar a Inteligência Artificial Generativa, especificamente o Google Gemini, para potencializar sua gestão de projetos. Aprenderá os fundamentos do Gemini, seus diferenciais e como usá-lo para brainstorming e ideação criativa, inclusive com técnicas de Prompt Engineering. Veremos como a IA pode auxiliar no planejamento, ajudando a realizar Análise SWOT, definir escopo e objetivos SMART, estruturar a EAP e analisar viabilidade e riscos. Na execução, você aprenderá a usar o Gemini para gerar rapidamente documentação (relatórios, atas, apresentações), criar e gerenciar listas de tarefas e cronogramas, e aprimorar a comunicação da equipe (inclusive com tradução). O módulo também aborda a análise de dados do projeto com IA para identificar tendências, simular cenários, obter recomendações para tomada de decisão e gerar relatórios customizados. Por fim, discutiremos as melhores práticas éticas e de eficiência no uso da IA, recursos avançados e as tendências futuras da IA na gestão de projetos, refletindo sobre o novo papel do gerente de projetos.</p>
-                                </section>
+                               <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up">
+                                   <h2>Gestão de Projetos com IA</h2>
+                                     <p>Neste módulo final, você descobrirá como aplicar a Inteligência Artificial Generativa, especificamente o Google Gemini, para potencializar sua gestão de projetos. Aprenderá os fundamentos do Gemini, seus diferenciais e como usá-lo para brainstorming e ideação criativa, inclusive com técnicas de Prompt Engineering. Veremos como a IA pode auxiliar no planejamento, ajudando a realizar Análise SWOT, definir escopo e objetivos SMART, estruturar a EAP e analisar viabilidade e riscos. Na execução, você aprenderá a usar o Gemini para gerar rapidamente documentação (relatórios, atas, apresentações), criar e gerenciar listas de tarefas e cronogramas, e aprimorar a comunicação da equipe (inclusive com tradução). O módulo também aborda a análise de dados do projeto com IA para identificar tendências, simular cenários, obter recomendações para tomada de decisão e gerar relatórios customizados. Por fim, discutiremos as melhores práticas éticas e de eficiência no uso da IA, recursos avançados e as tendências futuras da IA na gestão de projetos, refletindo sobre o novo papel do gerente de projetos.</p>
+                                 </section>
                      </div>
                  </div>
              </div>
-        </div> <div id="page-faq" class="page">
+        </div>
+
+        <div id="page-faq" class="page">
             <section id="faq-section">
                 <div class="container">
                     <h1 data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
@@ -1057,60 +498,61 @@
                                 <summary>O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
                                 <p>Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
                            </details>
-                          <details class="faq-item">
+                         <details class="faq-item">
                             <summary>Quais ferramentas práticas de gestão serão ensinadas?</summary>
                             <p>O curso tem um forte foco prático. Teremos módulos dedicados ao uso da ferramenta ClickUp para organização e gestão de projetos e tarefas, e do Google Gemini (Inteligência Artificial) aplicado em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
-                          </details>
-                          <details class="faq-item">
+                         </details>
+                         <details class="faq-item">
                             <summary>O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
                             <p>Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
-                          </details>
-                          <details class="faq-item">
+                         </details>
+                         <details class="faq-item">
                             <summary>Como a Inteligência Artificial (Google Gemini) é aplicada na gestão de projetos neste curso?</summary>
                             <p>O módulo dedicado à IA demonstra como utilizar o Google Gemini como um assistente inteligente para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
-                          </details>
-                          <details class="faq-item">
+                         </details>
+                         <details class="faq-item">
                             <summary>O curso ensina a usar a ferramenta ClickUp do zero?</summary>
                             <p>Sim, o módulo de ClickUp é projetado para todos os níveis. Ele começa com os fundamentos da ferramenta, sua interface e estrutura (Spaces, Folders, Lists, Tasks), e avança gradualmente, guiando você desde os primeiros passos até a utilização de recursos mais avançados para planejar, executar e monitorar seus projetos.</p>
-                          </details>
+                         </details>
                        </div>
 
                        <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
                        <div class="faq-group" data-aos="fade-up" data-aos-delay="350">
-                          <details class="faq-item">
+                         <details class="faq-item">
                             <summary>Como o curso é entregue?</summary>
                             <p>O MBA Lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
-                          </details>
+                         </details>
                            <details class="faq-item">
                             <summary>Receberei um certificado ao concluir o curso?</summary>
                             <p>Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
                            </details>
-                          <details class="faq-item">
+                         <details class="faq-item">
                             <summary>Como posso tirar dúvidas durante o curso?</summary>
                             <p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o instrutor ou outros alunos da comunidade poderão respondê-las.</p>
-                          </details>
-                          <details class="faq-item">
+                         </details>
+                         <details class="faq-item">
                             <summary>O curso oferece acesso vitalício?</summary>
-                             <p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o instrutor venha a adicionar.</p>
-                          </details>
-                          <details class="faq-item">
-                             <summary>Como me inscrevo no curso pela Udemy?</summary>
+                              <p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o instrutor venha a adicionar.</p>
+                         </details>
+                         <details class="faq-item">
+                              <summary>Como me inscrevo no curso pela Udemy?</summary>
                             <p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank" data-external-link="udemy">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
-                          </details>
-                          <details class="faq-item">
+                         </details>
+                         <details class="faq-item">
                             <summary>Posso assistir às aulas no meu celular ou tablet?</summary>
                             <p>Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
-                          </details>
+                         </details>
                        </div>
 
-                       <div class="faq-cta" data-aos="fade-up" data-aos-delay="400" style="text-align: center; margin-top: 50px;">
+                       <div class="faq-cta" data-aos="fade-up" data-aos-delay="400">
                            <h3>Ainda tem dúvidas?</h3>
                              <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
                               <a href="#" class="btn" data-nav-target="page-index" data-scroll-target="enroll">Quero ser um(a) gestor(a) de alta performance!</a>
                        </div>
                     </div>
              </section>
-        </div> </main>
+        </div>
+    </main>
 
     <footer>
         <div class="container">
@@ -1121,311 +563,8 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const body = document.body;
-            const header = document.querySelector('header');
-            const mainContent = document.getElementById('main-content');
-            const allPages = document.querySelectorAll('.page');
-            const menuToggle = document.getElementById('menu-toggle');
-            const mobileNavContainer = document.getElementById('mobile-nav-container');
-            const moduleMenu = document.getElementById('module-menu');
-            const moduleMenuSticky = document.getElementById('module-menu-sticky-mobile');
-            const moduleMenuLinks = document.querySelectorAll('#module-menu a, #module-menu-sticky-mobile a');
-            const footer = document.querySelector('footer');
-
-            const pageTitles = {
-                'page-index': 'MBA Lite - Gestão Estratégica para Líderes',
-                'page-content': 'MBA Lite - Sumário do Curso',
-                'page-faq': 'MBA Lite - Perguntas Frequentes (FAQ)'
-                // Removed 'page-ty' and 'page-sub'
-            };
-
-            const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 75;
-            const mobileBreakpoint = 992; // Same as CSS media query
-
-            // --- Core Navigation Logic ---
-            function showPage(targetPageId, scrollTargetId = null, pushState = true) {
-                console.log(`Navigating to: ${targetPageId}, scrollTarget: ${scrollTargetId}`);
-
-                // --- 1. Hide all pages and remove active classes ---
-                allPages.forEach(page => {
-                    page.classList.remove('active');
-                    page.style.display = 'none'; // Ensure hidden
-                });
-                body.className = ''; // Clear previous page classes from body
-
-                // --- 2. Show the target page ---
-                let targetPage = document.getElementById(targetPageId); // Use let to allow modification
-                if (!targetPage) {
-                    console.error(`Target page with ID '${targetPageId}' not found! Defaulting to index.`);
-                    targetPageId = 'page-index'; // Fallback to index
-                    targetPage = document.getElementById(targetPageId);
-                }
-
-                if (targetPage) { // Check again if fallback target exists
-                    targetPage.classList.add('active');
-                    targetPage.style.display = 'block'; // Ensure visible
-                    body.classList.add(targetPageId); // Add current page class to body
-
-                    // --- 3. Update Title ---
-                    document.title = pageTitles[targetPageId] || 'MBA Lite';
-
-                    // --- 4. Handle Page-Specific UI Elements ---
-                    handleUIChanges(targetPageId);
-
-                    // --- 5. Handle Scrolling ---
-                    handleScrolling(scrollTargetId);
-
-                    // --- 6. Update History (Optional, commented out) ---
-                    if (pushState) { // Removed TY/SUB check, condition depends only on pushState flag now
-                        const stateUrl = scrollTargetId ? `#${scrollTargetId}` : `#${targetPageId}`;
-                       // history.pushState({ page: targetPageId, scroll: scrollTargetId }, document.title, stateUrl); // Consider implications
-                    }
-
-                    // --- 7. Close Mobile Menu if Open ---
-                    closeMobileMenu();
-
-                    // --- 8. Refresh AOS ---
-                    AOS.refresh();
-
-                    // --- 9. Re-evaluate active content menu link (if on content page) ---
-                    if (targetPageId === 'page-content') {
-                        setTimeout(updateActiveContentLink, 100); // Delay slightly after scroll
-                    } else {
-                        // Remove active class from content links if not on content page
-                        moduleMenuLinks.forEach(link => link.classList.remove('active'));
-                    }
-                 } else {
-                    console.error(`Fallback page 'page-index' also not found! Cannot navigate.`);
-                 }
-            }
-
-            function handleUIChanges(currentPageId) {
-                 // Sidebar and Sticky Menu Visibility
-                 const isMobile = window.innerWidth <= mobileBreakpoint;
-                 const isContentPage = currentPageId === 'page-content';
-
-                 body.classList.toggle('mobile-view', isMobile); // Add mobile-view class if applicable
-
-                 if (isContentPage) {
-                     if (isMobile) {
-                         body.classList.remove('sidebar-visible');
-                         body.classList.add('mobile-view'); // Explicitly add
-                         if (moduleMenuSticky) moduleMenuSticky.style.display = 'flex';
-                         if (moduleMenu) moduleMenu.style.display = 'none';
-                     } else {
-                         body.classList.add('sidebar-visible');
-                         body.classList.remove('mobile-view');
-                         if (moduleMenuSticky) moduleMenuSticky.style.display = 'none';
-                         if (moduleMenu) moduleMenu.style.display = 'block';
-                     }
-                 } else {
-                     body.classList.remove('sidebar-visible', 'mobile-view');
-                     if (moduleMenuSticky) moduleMenuSticky.style.display = 'none';
-                     if (moduleMenu) moduleMenu.style.display = 'none';
-                 }
-                // Removed the body background handling for TY/SUB pages
-            }
-
-            function handleScrolling(scrollTargetId) {
-                if (scrollTargetId) {
-                    const scrollElement = document.getElementById(scrollTargetId);
-                    if (scrollElement) {
-                        // Use setTimeout to ensure the page is rendered before scrolling
-                        setTimeout(() => {
-                            scrollElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            console.log(`Scrolled to: #${scrollTargetId}`);
-                        }, 150); // Short delay
-                    } else {
-                        console.warn(`Scroll target element with ID '${scrollTargetId}' not found.`);
-                         window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top if target not found
-                    }
-                } else {
-                    // Scroll to top if no specific target
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            }
-
-             function closeMobileMenu() {
-                 if (mobileNavContainer && mobileNavContainer.classList.contains('active')) {
-                     mobileNavContainer.classList.remove('active');
-                     if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-                     body.classList.remove('overflow-hidden');
-                     body.style.paddingRight = '';
-                 }
-             }
-
-            // --- Event Listeners ---
-            document.addEventListener('click', (event) => {
-                const link = event.target.closest('a[data-nav-target]');
-
-                if (link) {
-                    event.preventDefault(); // Prevent default link behavior
-                    const targetPageId = link.dataset.navTarget;
-                    const scrollTargetId = link.dataset.scrollTarget || null;
-
-                    // Special handling for enroll links from other pages
-                    if (link.dataset.triggerEnrollScroll === 'true') {
-                        sessionStorage.setItem('scrollToEnroll', 'true');
-                        showPage('page-index', null); // Go to index, scroll handled on load check
-                    } else {
-                        // Check if current page is index and target is also index section
-                        const currentPageId = document.querySelector('.page.active')?.id || 'page-index';
-                        if (currentPageId === 'page-index' && targetPageId === 'page-index' && scrollTargetId) {
-                             // Already on index, just scroll
-                             handleScrolling(scrollTargetId);
-                             closeMobileMenu(); // Still close menu if open
-                        } else {
-                            // Navigate to the target page (and potentially scroll)
-                            showPage(targetPageId, scrollTargetId);
-                        }
-                    }
-                }
-
-                 // Handle external links (e.g., Udemy)
-                 const externalLink = event.target.closest('a[target="_blank"]');
-                 if (externalLink && !externalLink.hasAttribute('data-nav-target')) {
-                     // Let the browser handle the external link naturally
-                     console.log('Handling external link:', externalLink.href);
-                 }
-            });
-
-            // Mobile Menu Toggle
-            if (menuToggle) {
-                menuToggle.addEventListener('click', () => {
-                   if (mobileNavContainer) {
-                        const isActive = mobileNavContainer.classList.toggle('active');
-                        menuToggle.setAttribute('aria-expanded', isActive);
-                        body.classList.toggle('overflow-hidden', isActive);
-
-                        if (isActive) {
-                            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-                            body.style.paddingRight = `${scrollbarWidth}px`;
-                        } else {
-                            body.style.paddingRight = '';
-                        }
-                    }
-                });
-            }
-
-
-            // --- Content Page Active Link Highlighting ---
-            const stickyMenuHeight = moduleMenuSticky ? parseFloat(getComputedStyle(moduleMenuSticky).height) || 55 : 0;
-            const activeLinkOffset = headerHeight + (window.innerWidth <= mobileBreakpoint ? stickyMenuHeight + 30 : 30);
-
-
-            function updateActiveContentLink() {
-                 if (!body.classList.contains('page-content')) return; // Only run on content page
-
-                 let currentSectionId = '';
-                 let minDistance = Infinity;
-
-                 document.querySelectorAll('#page-content .scroll-target').forEach(section => {
-                     const sectionTop = section.getBoundingClientRect().top;
-                     const distance = Math.abs(sectionTop - activeLinkOffset);
-
-                     // Logic to find the section closest to the activeLinkOffset position
-                     if (sectionTop < activeLinkOffset + 100 && distance < minDistance) { // Consider sections slightly below the offset too
-                         minDistance = distance;
-                         currentSectionId = section.getAttribute('id');
-                     }
-                 });
-
-                 // Fallback if no section is found near the offset (e.g., at the very top/bottom)
-                 if (!currentSectionId && window.scrollY < 200) {
-                      const firstSection = document.querySelector('#page-content .scroll-target');
-                      if(firstSection) currentSectionId = firstSection.id;
-                 } else if (!currentSectionId && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-                     const lastSection = document.querySelector('#page-content .scroll-target:last-of-type');
-                      if(lastSection) currentSectionId = lastSection.id;
-                 }
-
-                 moduleMenuLinks.forEach(link => {
-                     link.classList.remove('active');
-                     if (link.dataset.scrollTarget === currentSectionId) {
-                         link.classList.add('active');
-                         // Scroll the active link into view in the menus if needed
-                         if(link.closest('#module-menu') || link.closest('#module-menu-sticky-mobile')) {
-                              link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
-                         }
-                     }
-                 });
-             }
-
-            window.addEventListener('scroll', updateActiveContentLink);
-            window.addEventListener('resize', () => {
-                // Re-evaluate UI on resize (especially for mobile/desktop switch)
-                const currentPageId = document.querySelector('.page.active')?.id || 'page-index';
-                handleUIChanges(currentPageId);
-                updateActiveContentLink(); // Re-check active link based on new layout
-            });
-
-            // --- Initial Page Load Logic ---
-            function handleInitialLoad() {
-                // const params = new URLSearchParams(window.location.search); // Keep if needed for other params
-                // const requestedPage = params.get('page'); // Keep if needed for other params
-                const hash = window.location.hash.substring(1); // Remove #
-
-                // Removed the check for ?page=ty or ?page=sub
-                if (hash) {
-                    // Check if hash corresponds to a known section ID on any page
-                    const targetElement = document.getElementById(hash);
-                    if (targetElement) {
-                        const parentPage = targetElement.closest('.page');
-                        if (parentPage) {
-                            showPage(parentPage.id, hash); // Show the page containing the hash target and scroll
-                        } else {
-                             showPage('page-index'); // Default to index if hash target page not found
-                        }
-                    } else {
-                         showPage('page-index'); // Default to index if hash invalid
-                    }
-                } else {
-                    showPage('page-index'); // Default to index page
-                }
-
-                // Check for scroll trigger from previous page (FAQ/Content -> Index#enroll)
-                if (sessionStorage.getItem('scrollToEnroll') === 'true') {
-                     const indexPage = document.getElementById('page-index');
-                     if (indexPage && indexPage.classList.contains('active')) {
-                         handleScrolling('enroll'); // Scroll if already on index
-                     } else {
-                         // If not on index yet, the showPage for index should trigger this
-                         // Or potentially set a flag for showPage('page-index') to check
-                         console.log("Scroll to enroll flag set, waiting for index page load.");
-                         // This case should ideally be handled by the initial showPage logic if it defaults to index
-                     }
-                     sessionStorage.removeItem('scrollToEnroll');
-                 }
-            }
-
-            // --- Update Footer Year ---
-            const currentYearSpan = document.getElementById('current-year');
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-
-
-            // --- Initialize AOS ---
-            AOS.init({
-                duration: 600,
-                once: true
-            });
-
-            // --- Execute Initial Load ---
-            handleInitialLoad();
-
-            // --- Back/Forward Navigation (Optional, remains commented) ---
-            // window.addEventListener('popstate', (event) => {
-            //    if (event.state && event.state.page) {
-            //        showPage(event.state.page, event.state.scroll, false); // Don't push state again
-            //    } else {
-            //        // Handle case where state is null (e.g., initial load or external navigation)
-            //        handleInitialLoad(); // Re-evaluate based on URL
-            //    }
-            // });
-
-        });
+        // O JavaScript permanece o mesmo da versão anterior V9
+         document.addEventListener('DOMContentLoaded', () => { const body = document.body; const header = document.querySelector('header'); const mainContent = document.getElementById('main-content'); const allPages = document.querySelectorAll('.page'); const menuToggle = document.getElementById('menu-toggle'); const mobileNavContainer = document.getElementById('mobile-nav-container'); const moduleMenu = document.getElementById('module-menu'); const moduleMenuSticky = document.getElementById('module-menu-sticky-mobile'); const moduleMenuLinks = document.querySelectorAll('#module-menu a, #module-menu-sticky-mobile a'); const footer = document.querySelector('footer'); const pageTitles = { 'page-index': 'MBA Lite - Gestão Estratégica Premium', 'page-content': 'MBA Lite - Sumário Detalhado do Curso', 'page-faq': 'MBA Lite - Perguntas Frequentes (FAQ)' }; const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 75; const mobileBreakpoint = 992; function showPage(targetPageId, scrollTargetId = null, pushState = true) { allPages.forEach(page => { page.classList.remove('active'); page.style.display = 'none'; }); body.className = ''; let targetPage = document.getElementById(targetPageId); if (!targetPage) { targetPageId = 'page-index'; targetPage = document.getElementById(targetPageId); } if (targetPage) { targetPage.classList.add('active'); targetPage.style.display = 'block'; body.classList.add(targetPageId); document.title = pageTitles[targetPageId] || 'MBA Lite'; handleUIChanges(targetPageId); handleScrolling(scrollTargetId); if (pushState && window.history && window.history.pushState) { const stateUrl = scrollTargetId ? `#${scrollTargetId}` : (targetPageId === 'page-index' ? '#' : `#${targetPageId}`); if (window.location.hash !== stateUrl) { /* history.pushState({ page: targetPageId, scroll: scrollTargetId }, document.title, stateUrl); */ } } closeMobileMenu(); if (typeof AOS !== 'undefined') { AOS.refresh(); } if (targetPageId === 'page-content') { setTimeout(updateActiveContentLink, 150); } else { moduleMenuLinks.forEach(link => link.classList.remove('active')); } } else { console.error(`Fallback page 'page-index' also not found! Cannot navigate.`); } } function handleUIChanges(currentPageId) { const isMobile = window.innerWidth <= mobileBreakpoint; const isContentPage = currentPageId === 'page-content'; body.classList.toggle('mobile-view', isMobile); if (isContentPage) { if (isMobile) { body.classList.remove('sidebar-visible'); body.classList.add('mobile-view'); if (moduleMenuSticky) moduleMenuSticky.style.display = 'flex'; if (moduleMenu) moduleMenu.style.display = 'none'; } else { body.classList.add('sidebar-visible'); body.classList.remove('mobile-view'); if (moduleMenuSticky) moduleMenuSticky.style.display = 'none'; if (moduleMenu) moduleMenu.style.display = 'block'; } } else { body.classList.remove('sidebar-visible', 'mobile-view'); if (moduleMenuSticky) moduleMenuSticky.style.display = 'none'; if (moduleMenu) moduleMenu.style.display = 'none'; } } function handleScrolling(scrollTargetId) { if (scrollTargetId) { const scrollElement = document.getElementById(scrollTargetId); if (scrollElement) { setTimeout(() => { scrollElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 150); } else { console.warn(`Scroll target element with ID '${scrollTargetId}' not found.`); window.scrollTo({ top: 0, behavior: 'smooth' }); } } else { window.scrollTo({ top: 0, behavior: 'smooth' }); } } function closeMobileMenu() { if (mobileNavContainer && mobileNavContainer.classList.contains('active')) { mobileNavContainer.classList.remove('active'); if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false'); body.classList.remove('overflow-hidden'); body.style.paddingRight = ''; } } function setupEventListeners() { document.addEventListener('click', (event) => { const link = event.target.closest('a[data-nav-target]'); if (link) { handleNavLinkClick(event, link); } const externalLink = event.target.closest('a[target="_blank"]'); if (externalLink && !externalLink.hasAttribute('data-nav-target')) { /* Handle external */ } }); if (menuToggle) { menuToggle.addEventListener('click', () => { if (mobileNavContainer) { const isActive = mobileNavContainer.classList.toggle('active'); menuToggle.setAttribute('aria-expanded', isActive); body.classList.toggle('overflow-hidden', isActive); if (isActive) { const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth; body.style.paddingRight = `${scrollbarWidth}px`; } else { body.style.paddingRight = ''; } } }); } window.addEventListener('scroll', debounce(updateActiveContentLink, 50)); window.addEventListener('resize', debounce(() => { const currentPageId = document.querySelector('.page.active')?.id || 'page-index'; handleUIChanges(currentPageId); updateActiveContentLink(); }, 100)); } function handleNavLinkClick(event, link) { event.preventDefault(); const targetPageId = link.dataset.navTarget; const scrollTargetId = link.dataset.scrollTarget || null; if (link.dataset.scrollTarget === 'enroll' && targetPageId !== 'page-index') { sessionStorage.setItem('scrollToEnroll', 'true'); showPage('page-index', null); } else { const currentPageId = document.querySelector('.page.active')?.id || 'page-index'; if (currentPageId === targetPageId && scrollTargetId) { handleScrolling(scrollTargetId); closeMobileMenu(); } else { showPage(targetPageId, scrollTargetId); } } } let contentSections = []; function cacheContentSections() { contentSections = Array.from(document.querySelectorAll('#page-content .scroll-target')); } function updateActiveContentLink() { if (!body.classList.contains('page-content') || contentSections.length === 0) return; const scrollY = window.scrollY; const currentHeaderHeight = header ? header.offsetHeight : (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 75); const currentStickyMenuHeight = (window.innerWidth <= mobileBreakpoint && moduleMenuSticky && moduleMenuSticky.style.display !== 'none') ? moduleMenuSticky.offsetHeight : 0; const offset = currentHeaderHeight + currentStickyMenuHeight + 50; let currentSectionId = null; for (let i = contentSections.length - 1; i >= 0; i--) { const section = contentSections[i]; const sectionTop = section.offsetTop; if (scrollY >= sectionTop - offset) { currentSectionId = section.getAttribute('id'); break; } } if (currentSectionId === null && scrollY < (contentSections[0]?.offsetTop ?? 0) - offset && contentSections[0]) { currentSectionId = contentSections[0].id; } let activeLinkFound = false; moduleMenuLinks.forEach(link => { const isActive = link.dataset.scrollTarget === currentSectionId; link.classList.toggle('active', isActive); if(isActive) activeLinkFound = true; }); const nearBottom = (window.innerHeight + scrollY) >= document.body.offsetHeight - 150; if (!activeLinkFound && nearBottom && contentSections.length > 0) { const lastSectionId = contentSections[contentSections.length - 1].id; moduleMenuLinks.forEach(link => { const isLastActive = link.dataset.scrollTarget === lastSectionId; link.classList.toggle('active', isLastActive); if(isLastActive) activeLinkFound = true; }); } if (!activeLinkFound) { if (scrollY < 200 && contentSections.length > 0) { moduleMenuLinks.forEach(link => { link.classList.toggle('active', link.dataset.scrollTarget === contentSections[0].id); }); } else { moduleMenuLinks.forEach(link => link.classList.remove('active')); } } const activeLinkElement = document.querySelector('#module-menu a.active, #module-menu-sticky-mobile a.active'); if (activeLinkElement && (activeLinkElement.closest('#module-menu') || activeLinkElement.closest('#module-menu-sticky-mobile'))) { activeLinkElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' }); } } function handleInitialLoad() { cacheContentSections(); const hash = window.location.hash.substring(1); let initialPage = 'page-index'; let initialScroll = null; if (hash) { const targetElement = document.getElementById(hash); if (targetElement) { const parentPage = targetElement.closest('.page'); if (parentPage) { initialPage = parentPage.id; initialScroll = hash; } } } if (sessionStorage.getItem('scrollToEnroll') === 'true') { initialPage = 'page-index'; initialScroll = 'enroll'; sessionStorage.removeItem('scrollToEnroll'); } showPage(initialPage, initialScroll, false); const currentYearSpan = document.getElementById('current-year'); if (currentYearSpan) { currentYearSpan.textContent = new Date().getFullYear(); } if (typeof AOS !== 'undefined') { AOS.init({ duration: 700, once: true, offset: 80, easing: 'ease-out-cubic' }); } } function debounce(func, wait) { let timeout; return function executedFunction(...args) { const later = () => { clearTimeout(timeout); func(...args); }; clearTimeout(timeout); timeout = setTimeout(later, wait); }; }; handleInitialLoad(); setupEventListeners(); });
     </script>
 </body>
 </html>
