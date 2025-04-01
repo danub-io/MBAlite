@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA Lite - Gestão Estratégica para Líderes</title>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* --- Font Imports --- */
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+        /* --- Reset Básico & Configurações Globais --- */
+        :root {
+            --primary-color: #0d2c4f; /* Azul Marinho Profundo */
+            --secondary-color: #c5a47e; /* Ouro/Tan Sofisticado */
+            --light-bg: #f8f9fa; /* Cinza muito claro para fundos */
+            --medium-gray: #e9ecef; /* Cinza claro para bordas/elementos */
+            --dark-gray: #343a40; /* Cinza escuro para texto/footer */
+            --text-color: #495057; /* Cinza suave para texto */
+            --white: #ffffff;
+            --font-heading: 'Merriweather', serif;
+            --font-body: 'Poppins', sans-serif;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 6px;
+            --transition-speed: 0.3s; /* Define transition speed */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px; /* Base font size */
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Prevent horizontal scroll often caused by animations */
+        }
+
+        /* --- Utilitários --- */
+        .container {
+            max-width: 1140px; /* Slightly wider */
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.75rem; line-height: 1.2; }
+        h2 { font-size: 2rem; line-height: 1.3; }
+        h3 { font-size: 1.25rem; font-weight: 600; font-family: var(--font-body); color: var(--primary-color); margin-bottom: 0.8rem;}
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color var(--transition-speed) ease;
+        }
+         a:hover {
+            color: var(--secondary-color);
+         }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 35px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #b8956f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+             background: transparent;
+             color: var(--primary-color);
+             border: 2px solid var(--primary-color);
+             padding: 10px 33px;
+             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+        }
+         .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+         }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section.bg-light {
+            background-color: var(--light-bg);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--medium-gray);
+            transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Smooth transition if needed later */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header #logo h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+
+        /* Desktop Navigation Styles */
+        header nav#main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav#main-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav#main-nav ul li {
+            margin-left: 30px;
+        }
+
+        header nav#main-nav ul li a {
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color var(--transition-speed) ease;
+            padding-bottom: 8px;
+            position: relative;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            display: block;
+        }
+
+        header nav#main-nav ul li a::after {
+             content: '';
+             position: absolute;
+             width: 0;
+             height: 2px;
+             bottom: 0;
+             left: 0;
+             background-color: var(--secondary-color);
+             transition: width var(--transition-speed) ease;
+        }
+
+        header nav#main-nav ul li a:hover::after {
+            width: 100%;
+        }
+         header nav#main-nav ul li a:hover {
+            color: var(--primary-color);
+            border-bottom: none;
+         }
+
+        header nav#main-nav .nav-button {
+            margin-left: 35px;
+        }
+
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            padding: 5px;
+            line-height: 1;
+            z-index: 1100; /* Ensure it's above mobile nav */
+        }
+
+         /* Mobile Navigation Container Styles */
+         #mobile-nav-container {
+             display: none;
+             flex-direction: column;
+             position: fixed; /* Changed to fixed for consistency */
+             top: 0; /* Start from top */
+             left: 0;
+             width: 100%;
+             height: 100%; /* Full height */
+             background: rgba(255, 255, 255, 0.98); /* Slightly transparent bg */
+             backdrop-filter: blur(5px); /* Optional blur effect */
+             padding-top: 80px; /* Space for header */
+             z-index: 1050; /* Below header toggle */
+             opacity: 0; /* Start hidden */
+             transform: translateY(-20px); /* Start slightly up */
+             transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+             overflow-y: auto; /* Allow scrolling if content overflows */
+         }
+         #mobile-nav-container.active {
+             display: flex;
+             opacity: 1;
+             transform: translateY(0);
+          }
+
+         #mobile-nav-container ul {
+             list-style: none;
+             padding: 20px 0;
+             margin: 0;
+             width: 100%;
+             text-align: center;
+         }
+
+         #mobile-nav-container ul li { margin: 0; width: 100%; }
+         #mobile-nav-container ul li a {
+            padding: 15px 20px; /* Larger tap area */
+            display: block;
+             width: 100%;
+             font-weight: 500;
+             color: var(--primary-color);
+             font-size: 1.2rem; /* Larger font */
+             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+             border-bottom: 1px solid var(--medium-gray);
+         }
+          #mobile-nav-container ul li a::after { display: none; }
+         #mobile-nav-container ul li:last-child a { border-bottom: none; }
+         #mobile-nav-container ul li a:hover { background-color: var(--light-bg); color: var(--secondary-color)}
+
+        /* Mobile Nav Button specific style */
+        #mobile-nav-container .nav-button-mobile {
+             display: block;
+             margin: 25px auto; /* Center button */
+             padding: 12px 30px;
+             text-align: center;
+             background: var(--secondary-color);
+             color: white;
+             border-radius: var(--border-radius);
+             font-weight: 600;
+             max-width: 200px; /* Limit button width */
+             transition: background-color var(--transition-speed) ease;
+        }
+         #mobile-nav-container .nav-button-mobile:hover {
+             background: #b8956f;
+         }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
+            color: var(--white);
+            padding-top: 200px;
+            padding-bottom: 160px;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-weight: 700;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Course Overview / Modules Section --- */
+        #modules h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .module-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .module-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .module-card .icon {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 0;
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+        }
+         .module-card .icon svg {
+            width: 100%;
+            height: 100%;
+         }
+
+        .module-card .module-content h3 {
+            font-size: 1.15rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .module-card .module-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+             line-height: 1.6;
+        }
+
+        /* --- Benefits Section --- */
+        #benefits h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        #benefits .benefits-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+             gap: 40px;
+        }
+        #benefits .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+         #benefits .benefit-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            min-width: 40px;
+            width: 40px;
+            height: 40px;
+            margin-top: 5px;
+             flex-shrink: 0;
+         }
+          #benefits .benefit-icon svg {
+            width: 100%;
+            height: 100%;
+         }
+
+        #benefits h3 {
+            margin-bottom: 0.5rem;
+             font-size: 1.15rem;
+        }
+         #benefits p {
+            font-size: 0.95rem;
+             margin-bottom: 0;
+        }
+
+
+        /* --- Target Audience Section --- */
+         #target-audience h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        #target-audience ul {
+            list-style: none;
+            padding-left: 0;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        #target-audience li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center;
+            background-size: 16px;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* --- Enrollment / Contact Form Section --- */
+        #enroll {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+             border-radius: var(--border-radius);
+             margin: 40px auto;
+             max-width: 1140px;
+             padding: 60px 40px;
+             position: relative; /* Needed for potential pseudo-elements */
+             overflow: hidden; /* Contain pseudo-elements */
+        }
+        /* Optional: Subtle background pattern/texture for enroll */
+        /* #enroll::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml,...');
+            opacity: 0.05;
+            z-index: 0;
+        } */
+        #enroll .container {
+            position: relative; /* Ensure content is above pseudo-elements */
+            z-index: 1;
+        }
+
+
+        #enroll h2 {
+            color: var(--white);
+             margin-bottom: 1rem;
+        }
+
+        #enroll p {
+             color: rgba(255, 255, 255, 0.8);
+             margin-bottom: 40px;
+             max-width: 600px;
+             margin-left: auto;
+             margin-right: auto;
+        }
+
+        #enroll-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-family: var(--font-body);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+        }
+         .form-group input[type="text"]::placeholder,
+         .form-group input[type="email"]::placeholder,
+         .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+         }
+
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+             outline: none;
+             border-color: var(--secondary-color);
+             background-color: rgba(255, 255, 255, 0.1);
+        }
+
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        #enroll-form button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+             letter-spacing: 0.8px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--dark-gray);
+            color: var(--medium-gray);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 0;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        footer p {
+            margin: 5px 0;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+             h1 { font-size: 2.5rem; }
+             h2 { font-size: 1.8rem; }
+             #hero h1 { font-size: 2.8rem; }
+             .modules-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;}
+             .module-card { padding: 25px; }
+             #benefits .benefits-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        }
+
+
+        @media (max-width: 768px) {
+            html { font-size: 15px; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.7rem; }
+
+             header { padding: 12px 0; }
+             header #logo h1 { font-size: 1.5rem; }
+             header nav#main-nav { display: none; } /* Hide desktop nav */
+
+            .menu-toggle { display: block; } /* Show mobile toggle */
+
+            #hero { padding-top: 150px; padding-bottom: 100px; }
+            #hero h1 { font-size: 2.5rem; }
+            #hero p { font-size: 1.05rem; }
+
+            .modules-grid { grid-template-columns: 1fr; }
+            .module-card { text-align: center; flex-direction: column; align-items: center; }
+            .module-card .icon { margin-bottom: 15px; }
+            .module-card .module-content { text-align: center; }
+
+
+            #benefits .benefits-grid { grid-template-columns: 1fr; }
+            #benefits .benefit-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+             #benefits .benefit-icon {
+                 margin-bottom: 15px;
+                 margin-top: 0;
+             }
+             #enroll { margin: 20px 10px; padding: 40px 20px;}
+        }
+
+         @media (max-width: 480px) {
+            html { font-size: 14px; }
+             h1 { font-size: 2rem; }
+             h2 { font-size: 1.5rem; }
+
+            #hero { padding-top: 120px; padding-bottom: 80px; }
+            #hero h1 { font-size: 2.1rem; }
+             #hero p { font-size: 1rem; }
+             .btn { padding: 10px 25px; font-size: 0.95rem; }
+             #enroll-form button { font-size: 1rem; }
+         }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div id="logo">
+                <h1>MBA Lite</h1>
+            </div>
+            <!-- Desktop Navigation -->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#modules">Módulos</a></li>
+                    <li><a href="#benefits">Benefícios</a></li>
+                    <li><a href="#target-audience">Público</a></li>
+                </ul>
+                 <!-- Button moved outside UL for better alignment control -->
+                 <a href="#enroll" class="btn btn-secondary nav-button">Inscreva-se</a>
+            </nav>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+        </div>
+         <!-- Mobile Navigation Container (Initially Hidden) -->
+         <div id="mobile-nav-container">
+              <ul>
+                  <li><a href="#hero">Início</a></li>
+                  <li><a href="#modules">Módulos</a></li>
+                  <li><a href="#benefits">Benefícios</a></li>
+                  <li><a href="#target-audience">Público</a></li>
+              </ul>
+              <a href="#enroll" class="nav-button-mobile">Inscreva-se</a>
+         </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" data-aos="fade-in" data-aos-duration="1000">
+            <div class="container">
+                <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
+                <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
+                <a href="#enroll" class="btn" data-aos="fade-up" data-aos-delay="600">Solicite Mais Informações</a>
+            </div>
+        </section>
+
+        <!-- Modules Section -->
+        <section id="modules" class="bg-light">
+            <div class="container">
+                <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
+                <div class="modules-grid">
+                    <!-- Módulo 1: Gestão de Pessoas -->
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="module-content">
+                            <h3>Gestão Estratégica de Pessoas</h3>
+                            <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p>
+                        </div>
+                    </div>
+                    <!-- Módulo 2: Gestão de Riscos -->
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                        <div class="icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        </div>
+                         <div class="module-content">
+                            <h3>Gestão de Riscos Corporativos</h3>
+                            <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
+                        </div>
+                    </div>
+                    <!-- Módulo 3: Gestão da Qualidade -->
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                         <div class="module-content">
+                            <h3>Excelência Operacional e Qualidade</h3>
+                            <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p>
+                         </div>
+                    </div>
+                    <!-- Módulo 4: Gestão de Projetos -->
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <!-- Reset delay for next row feel -->
+                        <div class="icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg>
+                        </div>
+                         <div class="module-content">
+                            <h3>Gestão de Projetos Moderna</h3>
+                            <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p>
+                        </div>
+                    </div>
+                     <!-- Módulo 5: Projetos com ClickUp -->
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                         <div class="module-content">
+                            <h3>Ferramentas Digitais: ClickUp</h3>
+                            <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
+                        </div>
+                    </div>
+                     <!-- Módulo 6: Projetos com IA (Gemini) -->
+                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                         <div class="icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> <!-- CPU icon for AI -->
+                         </div>
+                          <div class="module-content">
+                            <h3>Inteligência Artificial em Projetos</h3>
+                            <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits">
+            <div class="container">
+                <h2 data-aos="fade-up" data-aos-once="true">Invista no Seu Potencial de Liderança</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                         <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                         </div>
+                        <div>
+                            <h3>Desenvolvimento Estratégico</h3>
+                            <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p>
+                        </div>
+                    </div>
+                     <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                         <div class="benefit-icon">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                         </div>
+                        <div>
+                            <h3>Aprendizado Prático e Aplicável</h3>
+                            <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                         <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                         </div>
+                        <div>
+                            <h3>Flexibilidade e Conveniência</h3>
+                            <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">
+                         <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg>
+                         </div>
+                        <div>
+                            <h3>Networking Estratégico</h3>
+                            <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Target Audience Section -->
+        <section id="target-audience" class="bg-light">
+            <div class="container" data-aos="fade-up" data-aos-once="true">
+                <h2>Ideal Para Profissionais Ambiciosos</h2>
+                 <ul>
+                    <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
+                    <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
+                    <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
+                    <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
+                    <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                 </ul>
+            </div>
+        </section>
+
+        <!-- Enrollment Section -->
+        <section id="enroll" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
+            <div class="container">
+                <h2>Inicie sua Jornada de Transformação</h2>
+                <p>Preencha o formulário abaixo para receber informações detalhadas sobre o processo seletivo, investimento e próximas turmas do MBA Lite.</p>
+
+                <form id="enroll-form">
+                    <div class="form-group" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                    </div>
+                     <div class="form-group" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                        <label for="email">E-mail Profissional</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@empresa.com" required>
+                    </div>
+                     <div class="form-group" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                        <label for="message">Sua Mensagem (Opcional)</label>
+                        <textarea id="message" name="message" placeholder="Deixe sua dúvida ou comentário aqui..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">Receber Informações</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
+            <p>Uma iniciativa para capacitar os líderes do futuro.</p>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- Initialize AOS ---
+        AOS.init({
+            duration: 600, // Animation duration in ms
+            once: true // Whether animation should happen only once - while scrolling down
+        });
+
+        // --- Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNavContainer = document.getElementById('mobile-nav-container');
+        const body = document.body;
+
+        menuToggle.addEventListener('click', () => {
+            const isActive = mobileNavContainer.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive);
+            body.style.overflow = isActive ? 'hidden' : ''; // Prevent body scroll when mobile menu is open
+        });
+
+        // Close mobile menu when a link inside it is clicked
+        mobileNavContainer.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileNavContainer.classList.contains('active')) {
+                    mobileNavContainer.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    body.style.overflow = ''; // Re-enable scroll
+                }
+            });
+        });
+
+        // --- Form Submission Placeholder ---
+        const enrollForm = document.getElementById('enroll-form');
+        enrollForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+
+            if (!name || !email) {
+                alert('Por favor, preencha seu nome e e-mail.');
+                return;
+            }
+             if (!validateEmail(email)) {
+                 alert('Por favor, insira um endereço de e-mail válido.');
+                 return;
+             }
+
+            alert(`Obrigado, ${name}! Sua solicitação foi recebida. Enviaremos mais informações para ${email} em breve.`);
+            enrollForm.reset();
+        });
+
+         function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+         }
+
+
+        // --- Update Footer Year ---
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Refresh AOS calculations after page load potentially changes layout
+        window.addEventListener('load', AOS.refresh);
+
+    </script>
+
+</body>
+</html>
