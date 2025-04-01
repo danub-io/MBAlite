@@ -616,7 +616,7 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
+   <script>
         // --- Initialize AOS ---
         AOS.init({
             duration: 600, // Animation duration in ms
@@ -655,7 +655,6 @@
                     }
                 }
                 // Se for um link externo (para faq.html), deixe o navegador seguir
-                // O fechamento do menu já foi tratado acima se necessário
             });
         });
 
@@ -675,16 +674,24 @@
                 if (targetElement && header) {
                     const headerHeight = header.offsetHeight; // Altura real do cabeçalho
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; // Posição do topo do elemento relativa ao documento
-                    const offsetPosition = elementPosition - headerHeight - 20; // Calcula a posição final (20px de margem extra opcional)
+
+                    // <<< AJUSTE PARA ROLAR MAIS PARA BAIXO >>>
+                    // Define quantos pixels *abaixo* do cabeçalho o topo do elemento #enroll deve ficar.
+                    // Aumente este valor para rolar mais para baixo. Tente valores como 100, 150, 200 etc.
+                    const spaceBelowHeader = 150; // Ajuste este valor (em pixels)
+                    const desiredScrollPosition = elementPosition - headerHeight - spaceBelowHeader;
+
+                    // Garante que a posição calculada não seja negativa
+                    const finalScrollPosition = Math.max(0, desiredScrollPosition);
 
                     // Usa setTimeout para garantir que o layout esteja estável
                     setTimeout(() => {
                         // Rola suavemente para a posição calculada
                         window.scrollTo({
-                            top: offsetPosition,
+                            top: finalScrollPosition,
                             behavior: 'smooth'
                         });
-                    }, 100); // Pequeno delay pode ajudar com animações/renderização
+                    }, 100); // Pequeno delay pode ajudar
 
                 }
                 // Limpa a flag para não executar em recarregamentos normais da página index
