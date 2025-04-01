@@ -459,65 +459,64 @@
              margin-right: auto;
         }
 
-        #enroll-form {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
+        /* --- ConvertKit Form Styling --- */
+        /* You might need to add/adjust styles here to make the CK form look good */
+        /* Inspect the CK form elements in your browser to find their classes */
+        /* Example (adjust selectors based on ConvertKit's output): */
+        #enroll .ck-form-container {
+             max-width: 600px;
+             margin: 0 auto;
+             text-align: left;
+             background: transparent !important; /* Override CK background if needed */
+             padding: 0 !important;
         }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
+         #enroll .ck-field label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.9rem;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-family: var(--font-body);
-            background-color: rgba(255, 255, 255, 0.05);
-            color: var(--white);
-            transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease;
-        }
-         .form-group input[type="text"]::placeholder,
-         .form-group input[type="email"]::placeholder,
-         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.85) !important; /* Use !important if needed */
+            font-size: 0.9rem !important;
+            text-align: left;
          }
-
-
-        .form-group input[type="text"]:focus,
-        .form-group input[type="email"]:focus,
-        .form-group textarea:focus {
-             outline: none;
-             border-color: var(--secondary-color);
-             background-color: rgba(255, 255, 255, 0.1);
-        }
-
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        #enroll-form button {
+         #enroll .ck-input {
+             width: 100%;
+             padding: 14px 16px !important;
+             border: 1px solid rgba(255, 255, 255, 0.3) !important;
+             border-radius: var(--border-radius) !important;
+             font-size: 1rem !important;
+             font-family: var(--font-body) !important;
+             background-color: rgba(255, 255, 255, 0.05) !important;
+             color: var(--white) !important;
+             transition: border-color var(--transition-speed) ease, background-color var(--transition-speed) ease !important;
+             margin-bottom: 20px !important; /* Add spacing */
+         }
+          #enroll .ck-input::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+         }
+         #enroll .ck-input:focus {
+              outline: none !important;
+              border-color: var(--secondary-color) !important;
+              background-color: rgba(255, 255, 255, 0.1) !important;
+         }
+          #enroll .ck-button {
             width: 100%;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 1.1rem;
-             letter-spacing: 0.8px;
-        }
+            padding: 15px !important;
+            margin-top: 15px !important;
+            font-size: 1.1rem !important;
+             letter-spacing: 0.8px !important;
+             background-color: var(--secondary-color) !important;
+             color: var(--white) !important;
+             border: none !important;
+             border-radius: var(--border-radius) !important;
+             font-weight: 600 !important;
+             cursor: pointer;
+             transition: background-color var(--transition-speed) ease, transform 0.2s ease !important;
+         }
+          #enroll .ck-button:hover {
+             background-color: #b8956f !important;
+             transform: translateY(-2px);
+          }
+
 
         /* --- Footer --- */
         footer {
@@ -578,6 +577,7 @@
                  margin-top: 0;
              }
              #enroll { margin: 20px 10px; padding: 40px 20px;}
+             #enroll .ck-form-container { max-width: 100%; } /* Allow CK form to fill width */
         }
 
          @media (max-width: 480px) {
@@ -589,7 +589,7 @@
             #hero h1 { font-size: 2.1rem; }
              #hero p { font-size: 1rem; }
              .btn { padding: 10px 25px; font-size: 0.95rem; }
-             #enroll-form button { font-size: 1rem; }
+             #enroll .ck-button { font-size: 1rem !important; }
          }
 
     </style>
@@ -772,23 +772,13 @@
         <section id="enroll" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
             <div class="container">
                 <h2>Inicie sua Jornada de Transformação</h2>
-                <p>Preencha o formulário abaixo para receber informações detalhadas sobre o processo seletivo, investimento e próximas turmas do MBA Lite.</p>
+                <p>Inscreva-se para receber informações detalhadas sobre o processo seletivo, investimento e próximas turmas do MBA Lite diretamente no seu e-mail.</p>
 
-                <form id="enroll-form">
-                    <div class="form-group" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" placeholder="Seu nome" required>
-                    </div>
-                     <div class="form-group" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
-                        <label for="email">E-mail Profissional</label>
-                        <input type="email" id="email" name="email" placeholder="seu.email@empresa.com" required>
-                    </div>
-                     <div class="form-group" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
-                        <label for="message">Sua Mensagem (Opcional)</label>
-                        <textarea id="message" name="message" placeholder="Deixe sua dúvida ou comentário aqui..."></textarea>
-                    </div>
-                    <button type="submit" class="btn" data-aos="fade-up" data-aos-delay="400" data-aos-once="true">Receber Informações</button>
-                </form>
+                 <!-- REMOVED Old HTML Form -->
+
+                 <!-- INSERT CONVERTKIT FORM SCRIPT HERE -->
+                 <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+
             </div>
         </section>
     </main>
@@ -796,7 +786,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
+            <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
             <p>Uma iniciativa para capacitar os líderes do futuro.</p>
         </div>
     </footer>
@@ -832,33 +822,10 @@
             });
         });
 
-        // --- Form Submission Placeholder ---
-        const enrollForm = document.getElementById('enroll-form');
-        enrollForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const name = nameInput.value.trim();
-            const email = emailInput.value.trim();
-
-            if (!name || !email) {
-                alert('Por favor, preencha seu nome e e-mail.');
-                return;
-            }
-             if (!validateEmail(email)) {
-                 alert('Por favor, insira um endereço de e-mail válido.');
-                 return;
-             }
-
-            alert(`Obrigado, ${name}! Sua solicitação foi recebida. Enviaremos mais informações para ${email} em breve.`);
-            enrollForm.reset();
-        });
-
-         function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(String(email).toLowerCase());
-         }
+        // --- Form Submission Placeholder REMOVED ---
+        // const enrollForm = document.getElementById('enroll-form'); NO LONGER EXISTS
+        // enrollForm.addEventListener('submit', ...); REMOVED
+        // function validateEmail(email) { ... } REMOVED (unless needed elsewhere)
 
 
         // --- Update Footer Year ---
