@@ -44,6 +44,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden; /* Prevent horizontal scroll often caused by animations */
+            padding-top: 75px; /* Add padding to prevent content from hiding behind fixed header */
         }
 
         /* --- Utilitários --- */
@@ -189,9 +190,17 @@
            width: 100%;
         }
          header nav#main-nav ul li a:hover {
-           color: var(--primary-color);
-           border-bottom: none;
+           color: var(--primary-color); /* Mantém a cor primária no hover do texto */
+           border-bottom: none; /* Remove o sublinhado padrão */
          }
+         /* Ajuste específico para link FAQ não ter underline no hover */
+         header nav#main-nav ul li a[href="faq.html"]:hover::after {
+            width: 0; /* Não mostra underline no hover para FAQ */
+         }
+         header nav#main-nav ul li a[href="faq.html"]:hover {
+            color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
+         }
+
 
         header nav#main-nav .nav-button {
             margin-left: 35px;
@@ -278,9 +287,10 @@
         #hero {
             background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
             color: var(--white);
-            padding-top: 200px;
+            padding-top: 200px; /* Ajustado para considerar o padding-top do body */
             padding-bottom: 160px;
             text-align: center;
+            margin-top: -75px; /* Compensa o padding-top do body */
         }
 
         #hero h1 {
@@ -360,12 +370,11 @@
         #target-audience li { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center; background-size: 16px; padding-left: 35px; margin-bottom: 15px; font-size: 1.05rem; }
 
         /* --- Enrollment / Contact Form Section --- */
-        /* MODIFIED SECTION BACKGROUND */
         #enroll {
-            /* background-color: var(--primary-color); /* Previous solid color */
-            background: linear-gradient(45deg, var(--primary-color), #1a5f9e); /* MODIFIED - Match Hero Background */
+            /* background-color: var(--light-bg); */ /* Alterado na versão anterior */
+            background: linear-gradient(45deg, var(--primary-color), #1a5f9e); /* Mantém o fundo gradiente da versão anterior */
             color: var(--white);                 /* White text for contrast */
-            padding: 80px 0;                     /* Section padding controls vertical space */
+            padding: 80px 0;
         }
         #enroll .container { /* Styles for the main container within #enroll */ }
 
@@ -374,7 +383,6 @@
             display: flex;
             justify-content: center;
             width: 100%;
-             /* Animation is applied here now, not on the #enroll section */
         }
 
         /* ConvertKit Form Styling Overrides */
@@ -395,7 +403,7 @@
         #enroll .ck-form-container .ck-content { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; }
         #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
 
-        /* Ensure Label Contrast (Already set to white previously) */
+        /* Label Color for Dark Background */
         #enroll .ck-form-container .ck-field label {
              display: block !important;
              margin-bottom: 8px !important;
@@ -411,7 +419,7 @@
         #enroll .ck-form-container .ck-button { width: 100% !important; padding: 15px !important; margin-top: 10px !important; font-size: 1.1rem !important; letter-spacing: 0.8px !important; background-color: var(--secondary-color) !important; color: var(--white) !important; border: none !important; border-radius: var(--border-radius) !important; font-weight: 600 !important; font-family: var(--font-body) !important; cursor: pointer; transition: background-color var(--transition-speed) ease, transform 0.2s ease !important; }
          #enroll .ck-form-container .ck-button:hover { background-color: #b8956f !important; transform: translateY(-2px); }
 
-        /* Ensure Powered By Link Contrast (Already adjusted previously) */
+        /* Powered By Link Color for Dark Background */
         #enroll .ck-form-container .ck-powered-by {
              color: var(--medium-gray) !important; /* Lighter gray */
              font-size: 0.8rem !important;
@@ -448,6 +456,7 @@
         @media (max-width: 992px) {
              h1 { font-size: 2.5rem; }
              h2 { font-size: 1.8rem; }
+             #hero { padding-top: 180px; margin-top: -75px;} /* Adjust hero padding */
              #hero h1 { font-size: 2.8rem; }
              .modules-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;}
              .module-card { padding: 25px; }
@@ -459,6 +468,7 @@
              html { font-size: 15px; }
              h1 { font-size: 2.2rem; }
              h2 { font-size: 1.7rem; }
+             body { padding-top: 69px; } /* Adjust body padding for smaller header */
 
              header { padding: 12px 0; }
              header #logo h1 { font-size: 1.5rem; }
@@ -466,7 +476,7 @@
 
             .menu-toggle { display: block; } /* Show mobile toggle */
 
-            #hero { padding-top: 150px; padding-bottom: 100px; }
+            #hero { padding-top: 150px; padding-bottom: 100px; margin-top: -69px;} /* Adjust hero padding and margin */
             #hero h1 { font-size: 2.5rem; }
             #hero p { font-size: 1.05rem; }
 
@@ -510,6 +520,8 @@
                     <li><a href="#modules">Módulos</a></li>
                     <li><a href="#benefits">Benefícios</a></li>
                     <li><a href="#target-audience">Público</a></li>
+                    
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
                  <a href="#enroll" class="btn btn-secondary nav-button">Inscreva-se</a>
             </nav>
@@ -523,6 +535,8 @@
                  <li><a href="#modules">Módulos</a></li>
                  <li><a href="#benefits">Benefícios</a></li>
                  <li><a href="#target-audience">Público</a></li>
+                  {/**/}
+                 <li><a href="faq.html">FAQ</a></li>
              </ul>
              <a href="#enroll" class="nav-button-mobile">Inscreva-se</a>
          </div>
@@ -569,13 +583,14 @@
             </div>
         </section>
 
+        {/**/}
         <section id="enroll">
-            <div class="container">
-                 <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
-                     <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
-                 </div>
-            </div>
-        </section>
+             <div class="container">
+                  <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
+                      <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                  </div>
+             </div>
+         </section>
     </main>
 
     <footer>
@@ -602,6 +617,14 @@
             const isActive = mobileNavContainer.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isActive);
             body.style.overflow = isActive ? 'hidden' : ''; // Prevent body scroll when mobile menu is open
+
+             // Adjust body padding when mobile menu opens/closes to prevent layout shift due to scrollbar disappearing/appearing
+             if (isActive) {
+               const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+               body.style.paddingRight = `${scrollbarWidth}px`;
+             } else {
+               body.style.paddingRight = '';
+             }
         });
 
         // Close mobile menu when a link inside it is clicked
@@ -611,12 +634,10 @@
                      mobileNavContainer.classList.remove('active');
                      menuToggle.setAttribute('aria-expanded', 'false');
                      body.style.overflow = ''; // Re-enable scroll
+                     body.style.paddingRight = ''; // Remove padding adjustment
                 }
             });
         });
-
-        // --- ConvertKit Form Handled by External Script ---
-        // No custom form submission JS needed here
 
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
