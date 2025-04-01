@@ -33,7 +33,7 @@
         }
 
         html {
-            /* scroll-behavior: smooth; Deixe comentado ou remova se estiver usando JS para scroll */
+             /* scroll-behavior: smooth; */ /* Desativado para evitar conflito com JS */
             font-size: 16px; /* Base font size */
         }
 
@@ -196,12 +196,12 @@
            color: var(--primary-color);
            border-bottom: none;
          }
-         /* Specific hover for FAQ link */
+         /* Specific hover for FAQ link (if needed) */
          header nav#main-nav ul li a[href="faq.html"]:hover::after {
-           width: 0;
+           width: 0; /* Remove underline on hover for FAQ link itself */
          }
          header nav#main-nav ul li a[href="faq.html"]:hover {
-           color: var(--secondary-color);
+           color: var(--secondary-color); /* Change color on hover */
          }
 
 
@@ -306,6 +306,7 @@
             margin-bottom: 25px;
             border-bottom: 2px solid var(--medium-gray); /* Add a separator */
             padding-bottom: 10px;
+            scroll-margin-top: calc(var(--header-height) + 10px); /* Se tiver links para h2 */
         }
 
         .faq-group {
@@ -384,7 +385,7 @@
         }
 
         /* --- Footer --- */
-        footer {
+        footer { /* Renomeado para não ter ID duplicado se reutilizar */
             background: var(--dark-gray);
             color: var(--medium-gray);
             text-align: center;
@@ -453,7 +454,7 @@
                      <li><a href="index.html#target-audience">Público</a></li>
                     <li><a href="faq.html">FAQ</a></li>
                  </ul>
-                 <a href="index.html#enroll" class="btn btn-secondary nav-button" data-scroll-offset="true">Inscreva-se</a>
+                 <a href="index.html" class="btn btn-secondary nav-button" data-scroll="bottom">Inscreva-se</a>
              </nav>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -468,7 +469,7 @@
                  <li><a href="index.html#target-audience">Público</a></li>
                  <li><a href="faq.html">FAQ</a></li>
              </ul>
-             <a href="index.html#enroll" class="nav-button-mobile" data-scroll-offset="true">Inscreva-se</a>
+              <a href="index.html" class="nav-button-mobile" data-scroll="bottom">Inscreva-se</a>
          </div>
     </header>
 
@@ -560,14 +561,13 @@
                  <div class="faq-cta" data-aos="fade-up" data-aos-delay="400" style="text-align: center; margin-top: 50px;">
                      <h3>Ainda tem dúvidas?</h3>
                      <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
-                     <a href="index.html#enroll" class="btn" data-scroll-offset="true">Quero ser um(a) gestor(a) de alta performance!</a>
+                      <a href="index.html" class="btn" data-scroll="bottom">Quero ser um(a) gestor(a) de alta performance!</a>
                  </div>
              </div>
          </section>
      </main>
 
-    <footer>
-        <div class="container">
+    <footer> <div class="container">
             <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
             <p>Uma iniciativa para capacitar os líderes do futuro.</p>
         </div>
@@ -599,47 +599,43 @@
              }
         });
 
-        // Close mobile menu when a link inside it is clicked AND handle offset scroll
+        // Close mobile menu when a link inside it is clicked
         mobileNavContainer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (event) => { // Pass event to handler
-                // Close the menu first
+            link.addEventListener('click', (event) => {
+                // Fecha o menu ao clicar
                 if (mobileNavContainer.classList.contains('active')) {
                      mobileNavContainer.classList.remove('active');
                      menuToggle.setAttribute('aria-expanded', 'false');
                      body.style.overflow = '';
                      body.style.paddingRight = '';
                 }
-                // Then handle the scroll offset logic
-                handleScrollOffset(link, event);
+                 // Chama a função para lidar com o scroll to bottom se necessário
+                 handleScrollToBottom(link, event);
             });
         });
 
-        // Add listener for desktop links AND bottom CTA to handle offset scroll
-         document.querySelectorAll('a[data-scroll-offset="true"]').forEach(link => {
+         // Add listener for desktop links AND bottom CTA to handle scroll to bottom
+         document.querySelectorAll('a[data-scroll="bottom"]').forEach(link => {
              link.addEventListener('click', (event) => {
-                 handleScrollOffset(link, event);
+                 handleScrollToBottom(link, event);
              });
-        });
+         });
 
-        // Function to handle scroll offset trigger
-        function handleScrollOffset(link, event) { // event parameter is crucial
-            const href = link.getAttribute('href');
-            // Check if it's a link to the #enroll section on index.html
-            if (href && href.startsWith('index.html#enroll')) {
-                 // Prevent the default anchor jump *only* if we intend to use JS scrolling on the target page
-                 event.preventDefault();
+         // Function to handle scroll to bottom trigger
+         function handleScrollToBottom(link, event) {
+             const href = link.getAttribute('href');
+             // Verifica se é um link para index.html e tem o atributo data-scroll="bottom"
+             if (href === 'index.html' && link.getAttribute('data-scroll') === 'bottom') {
+                 event.preventDefault(); // Previne a navegação padrão para index.html (topo)
 
-                 // Store the flag indicating that custom scrolling is needed
-                 sessionStorage.setItem('scrollToEnrollOffset', 'true');
+                 // Define a flag para indicar que queremos rolar até o fim em index.html
+                 sessionStorage.setItem('scrollToPageBottom', 'true');
 
-                 // Navigate to the original link, including the hash
-                 // The browser will go to index.html and try to jump to #enroll
-                 // The script on index.html needs to correct the position
+                 // Navega para index.html (sem hash)
                  window.location.href = href;
              }
-             // If it's not the specific link, let the default behavior happen
-        }
-
+             // Se não for o link específico, deixa o comportamento padrão (ex: link para faq.html)
+         }
 
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -647,38 +643,24 @@
         // Refresh AOS calculations after page load potentially changes layout
         window.addEventListener('load', AOS.refresh);
 
-        // --- !!! IMPORTANTE: SCRIPT NECESSÁRIO EM index.html !!! ---
-        // O JavaScript acima (função handleScrollOffset) apenas *sinaliza*
-        // a necessidade de rolagem ajustada quando navega para 'index.html#enroll'.
-        // A rolagem *efetiva* com o deslocamento para centralizar o formulário
-        // DEVE ser implementada na página 'index.html' (Landing Page).
-        //
-        // Adicione o seguinte script dentro das tags <script> na sua página index.html:
+        // --- IMPORTANTE: Script complementar necessário em index.html ---
+        // Adicione o script abaixo em index.html para ler a flag e rolar até o fim
         /*
         document.addEventListener('DOMContentLoaded', () => {
-            // Verifica se a flag foi setada ao vir do faq.html
-            if (sessionStorage.getItem('scrollToEnrollOffset') === 'true') {
-                const targetElement = document.getElementById('enroll'); // O elemento alvo (#enroll)
-                const header = document.querySelector('header'); // O cabeçalho fixo
+            if (sessionStorage.getItem('scrollToPageBottom') === 'true') {
+                // Rola para o fim da página
+                 setTimeout(() => { // Pequeno delay para garantir renderização
+                     window.scrollTo({
+                         top: document.body.scrollHeight,
+                         behavior: 'smooth'
+                     });
+                 }, 100); // 100ms delay (ajuste se necessário)
 
-                if (targetElement && header) {
-                    const headerHeight = header.offsetHeight; // Altura real do cabeçalho
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; // Posição do topo do elemento
-                    const offsetPosition = elementPosition - headerHeight - 20; // Calcula a posição final (20px de margem extra opcional)
-
-                    // Rola suavemente para a posição calculada
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-                // Limpa a flag para não executar em recarregamentos normais
-                sessionStorage.removeItem('scrollToEnrollOffset');
+                // Limpa a flag
+                sessionStorage.removeItem('scrollToPageBottom');
             }
         });
         */
-        // Sem este script em index.html, a página irá para index.html#enroll,
-        // mas o formulário provavelmente ficará parcialmente escondido sob o cabeçalho.
 
     </script>
 
