@@ -84,8 +84,8 @@
             transition: color var(--transition-speed) ease;
         }
          a:hover {
-            color: var(--secondary-color);
-         }
+             color: var(--secondary-color);
+           }
 
         .btn {
             display: inline-block;
@@ -115,10 +115,10 @@
             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
         }
          .btn-secondary:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-2px);
-         }
+             background: var(--primary-color);
+             color: var(--white);
+             transform: translateY(-2px);
+           }
 
         section {
             padding: 80px 0;
@@ -157,7 +157,7 @@
         }
          header #logo a:hover {
              color: inherit; /* Mantém a cor no hover */
-         }
+           }
         /* --- FIM DA MODIFICAÇÃO --- */
 
         header #logo h1 {
@@ -211,16 +211,16 @@
             width: 100%;
         }
          header nav#main-nav ul li a:hover {
-            color: var(--primary-color); /* Mantém a cor primária no hover do texto */
-            border-bottom: none; /* Remove o sublinhado padrão */
-         }
+             color: var(--primary-color); /* Mantém a cor primária no hover do texto */
+             border-bottom: none; /* Remove o sublinhado padrão */
+           }
          /* Ajuste específico para link FAQ não ter underline no hover */
          header nav#main-nav ul li a[href="faq.html"]:hover::after {
-            width: 0; /* Não mostra underline no hover para FAQ */
-         }
+             width: 0; /* Não mostra underline no hover para FAQ */
+           }
          header nav#main-nav ul li a[href="faq.html"]:hover {
-            color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
-         }
+             color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
+           }
 
 
         header nav#main-nav .nav-button {
@@ -257,32 +257,32 @@
             transform: translateY(-20px);
             transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
             overflow-y: auto;
-         }
+           }
          #mobile-nav-container.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-         }
+             display: flex;
+             opacity: 1;
+             transform: translateY(0);
+           }
 
          #mobile-nav-container ul {
-            list-style: none;
-            padding: 20px 0;
-            margin: 0;
-            width: 100%;
-            text-align: center;
-         }
+             list-style: none;
+             padding: 20px 0;
+             margin: 0;
+             width: 100%;
+             text-align: center;
+           }
 
          #mobile-nav-container ul li { margin: 0; width: 100%; }
          #mobile-nav-container ul li a {
-            padding: 15px 20px;
-            display: block;
-            width: 100%;
-            font-weight: 500;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-            border-bottom: 1px solid var(--medium-gray);
-         }
+             padding: 15px 20px;
+             display: block;
+             width: 100%;
+             font-weight: 500;
+             color: var(--primary-color);
+             font-size: 1.2rem;
+             transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+             border-bottom: 1px solid var(--medium-gray);
+           }
           #mobile-nav-container ul li a::after { display: none; }
          #mobile-nav-container ul li:last-child a { border-bottom: none; }
          #mobile-nav-container ul li a:hover { background-color: var(--light-bg); color: var(--secondary-color)}
@@ -301,8 +301,8 @@
             transition: background-color var(--transition-speed) ease;
         }
          #mobile-nav-container .nav-button-mobile:hover {
-            background: #b8956f;
-         }
+             background: #b8956f;
+           }
 
         /* --- Hero Section --- */
         /* --- MODIFICAÇÃO: Espaçamento e Centralização Vertical --- */
@@ -355,27 +355,43 @@
             gap: 35px;
         }
 
+        /* --- MODIFICAÇÃO: Module Card Link Styles --- */
+        a.module-link {
+            text-decoration: none; /* Remove default underline */
+            color: inherit; /* Inherit text color from parent */
+            display: block; /* Make the link occupy the card's space */
+        }
+        a.module-link:hover {
+            color: inherit; /* Keep inherited color on hover */
+        }
+        /* Ensure nested elements don't get unwanted link styling */
+        a.module-link h3 { color: var(--primary-color); /* Original h3 color */ }
+        a.module-link p { color: var(--text-color); /* Original p color */ }
+        a.module-link .icon { color: var(--secondary-color); /* Original icon color */ }
+         /* --- FIM DA MODIFICAÇÃO --- */
+
         .module-card {
             background: var(--white);
             padding: 35px;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: left;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Moved from hover to base */
             border: 1px solid var(--medium-gray);
             display: flex;
             gap: 20px;
             align-items: flex-start;
         }
 
-        .module-card:hover {
+        /* Apply hover effect TO THE CARD when the LINK is hovered */
+        a.module-link:hover .module-card {
             transform: translateY(-6px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .module-card .icon {
             font-size: 1.8rem;
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* Cor definida no link wrapper */
             margin-bottom: 0;
             display: inline-block;
             width: 45px;
@@ -384,8 +400,8 @@
         }
          .module-card .icon svg { width: 100%; height: 100%; }
 
-        .module-card .module-content h3 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.5rem; }
-        .module-card .module-content p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; }
+        .module-card .module-content h3 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--primary-color); /* Cor definida no link wrapper */ }
+        .module-card .module-content p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; color: var(--text-color); /* Cor definida no link wrapper */ }
 
         /* --- Benefits Section --- */
         #benefits h2 { /* text-align: center; margin-bottom: 50px; */ }
@@ -498,7 +514,7 @@
 
         @media (max-width: 768px) {
              :root {
-                  --header-height: 69px; /* Altura menor para mobile */
+                 --header-height: 69px; /* Altura menor para mobile */
              }
              html { font-size: 15px; }
              h1 { font-size: 2.2rem; }
@@ -513,8 +529,8 @@
 
              /* Ajuste no hero para mobile */
              #hero {
-                min-height: calc(80vh - var(--header-height)); /* Altura menor no mobile se necessário */
-                padding: 60px 0;
+                 min-height: calc(80vh - var(--header-height)); /* Altura menor no mobile se necessário */
+                 padding: 60px 0;
              }
              #hero h1 { font-size: 2.5rem; }
              #hero p { font-size: 1.05rem; }
@@ -529,7 +545,7 @@
              #benefits .benefit-item { flex-direction: column; text-align: center; align-items: center; }
               #benefits .benefit-icon { margin-bottom: 15px; margin-top: 0; }
 
-              #enroll { padding: 60px 1px;} /* Adjust padding for mobile */
+               #enroll { padding: 60px 1px;} /* Adjust padding for mobile */
         }
 
          @media (max-width: 480px) {
@@ -539,14 +555,14 @@
 
              /* Ajuste no hero para mobile pequeno */
              #hero {
-                min-height: calc(70vh - var(--header-height)); /* Ainda menor se precisar */
-                padding: 50px 0;
+                 min-height: calc(70vh - var(--header-height)); /* Ainda menor se precisar */
+                 padding: 50px 0;
              }
              #hero h1 { font-size: 2.1rem; }
               #hero p { font-size: 1rem; }
-              .btn { padding: 10px 25px; font-size: 0.95rem; }
-              #enroll .ck-form-container .ck-button { font-size: 1rem !important; }
-         }
+               .btn { padding: 10px 25px; font-size: 0.95rem; }
+               #enroll .ck-form-container .ck-button { font-size: 1rem !important; }
+           }
 
     </style>
 </head>
@@ -573,14 +589,14 @@
         </div>
          <div id="mobile-nav-container">
              <ul>
-                 <li><a href="#hero">Início</a></li>
-                 <li><a href="#modules">Módulos</a></li>
-                 <li><a href="#benefits">Benefícios</a></li>
-                 <li><a href="#target-audience">Público</a></li>
-                 <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#modules">Módulos</a></li>
+                <li><a href="#benefits">Benefícios</a></li>
+                <li><a href="#target-audience">Público</a></li>
+                <li><a href="faq.html">FAQ</a></li>
              </ul>
              <a href="#enroll" class="nav-button-mobile">Inscreva-se</a>
-         </div>
+           </div>
     </header>
 
     <main>
@@ -595,12 +611,54 @@
             <div class="container">
                 <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
                 <div class="modules-grid">
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div> <div class="module-content"> <h3>Gestão Estratégica de Pessoas</h3> <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div> <div class="module-content"> <h3>Gestão de Riscos Corporativos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div> <div class="module-content"> <h3>Excelência Operacional e Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg> </div> <div class="module-content"> <h3>Gestão de Projetos Moderna</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div> <div class="module-content"> <h3>Ferramentas Digitais: ClickUp</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div> <div class="module-content"> <h3>Inteligência Artificial em Projetos</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p> </div> </div>
+                    <a href="content.html#gestao-pessoas" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                        <div class="module-card">
+                           <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div>
+                           <div class="module-content">
+                              <h3>Gestão de Pessoas</h3> <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p>
+                           </div>
+                        </div>
+                    </a>
+                    <a href="content.html#gestao-riscos" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                        <div class="module-card">
+                           <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div>
+                           <div class="module-content">
+                              <h3>Gestão de Riscos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
+                           </div>
+                        </div>
+                    </a>
+                    <a href="content.html#gestao-qualidade" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                        <div class="module-card">
+                           <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div>
+                           <div class="module-content">
+                              <h3>Gestão da Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p>
+                           </div>
+                        </div>
+                    </a>
+                    <a href="content.html#gestao-projetos" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                        <div class="module-card">
+                           <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg> </div>
+                           <div class="module-content">
+                              <h3>Gestão de Projetos</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p>
+                           </div>
+                        </div>
+                    </a>
+                    <a href="content.html#gestao-projetos-clickup" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                        <div class="module-card">
+                           <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div>
+                           <div class="module-content">
+                              <h3>Gestão de Projetos com Clickup</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
+                           </div>
+                        </div>
+                    </a>
+                    <a href="content.html#gestao-projetos-ia" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                        <div class="module-card">
+                           <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div>
+                           <div class="module-content">
+                              <h3>Gestão de Projetos com IA</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
+                           </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -631,11 +689,11 @@
         </section>
 
         <section id="enroll">
-             <div class="container">
+            <div class="container">
                  <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
                       <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
                  </div>
-             </div>
+            </div>
          </section>
     </main>
 
