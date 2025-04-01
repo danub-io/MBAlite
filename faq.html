@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBA Lite - Gestão Estratégica para Líderes</title>
+    <title>MBA Lite - Perguntas Frequentes (FAQ)</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- Font Imports --- */
@@ -23,7 +23,7 @@
             --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             --border-radius: 6px;
             --transition-speed: 0.3s; /* Define transition speed */
-            --header-height: 75px; /* Altura do header para cálculo */
+            --header-height: 75px; /* Approximate header height for potential adjustments */
         }
 
         * {
@@ -33,7 +33,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Reativado para rolagem suave padrão */
+             scroll-behavior: smooth; /* Reativado */
             font-size: 16px; /* Base font size */
         }
 
@@ -45,16 +45,13 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden; /* Prevent horizontal scroll often caused by animations */
-            padding-top: var(--header-height); /* Usa a variável */
+            padding-top: var(--header-height); /* Use variable */
         }
 
-        /* scroll-margin-top para todos os alvos de links internos */
-        /* Aumente o valor (ex: + 40px) se quiser que pare MAIS ACIMA do elemento */
-        /* Diminua o valor (ex: + 10px) se quiser que pare MAIS PRÓXIMO do topo do elemento */
-        #hero, #modules, #benefits, #target-audience, #enroll, footer { /* Removido ID do footer aqui, aplicado abaixo se necessário */
-           scroll-margin-top: calc(var(--header-height) + 20px); /* << CONTROLE AQUI A MARGEM ACIMA DO ALVO */
-        }
-
+         /* Adicionado para o ajuste de scroll via CSS (Alternativa/Reforço) para targets internos*/
+         #faq-section h2 { /* Exemplo - ajuste se tiver links internos na FAQ */
+           scroll-margin-top: calc(var(--header-height) + 10px);
+         }
 
         /* --- Utilitários --- */
         .container {
@@ -132,7 +129,7 @@
         header {
             background: var(--white);
             padding: 15px 0;
-            position: fixed;
+            position: fixed; /* Mantido fixed */
             width: 100%;
             top: 0;
             left: 0;
@@ -140,14 +137,14 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             border-bottom: 1px solid var(--medium-gray);
             transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            height: var(--header-height); /* Define a altura */
+            height: var(--header-height); /* Set header height */
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%; /* Ocupa a altura do header */
+            height: 100%; /* Make container fill header height */
         }
 
         header #logo h1 {
@@ -159,34 +156,34 @@
 
         /* Desktop Navigation Styles */
         header nav#main-nav {
-            display: flex;
-            align-items: center;
+           display: flex;
+           align-items: center;
         }
 
         header nav#main-nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            margin: 0;
-            padding: 0;
+           list-style: none;
+           display: flex;
+           align-items: center;
+           margin: 0;
+           padding: 0;
         }
 
         header nav#main-nav ul li {
-            margin-left: 30px;
+           margin-left: 30px;
         }
 
         header nav#main-nav ul li a {
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: color var(--transition-speed) ease;
-            padding-bottom: 8px;
-            position: relative;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            display: block;
+           color: var(--primary-color);
+           font-weight: 500;
+           transition: color var(--transition-speed) ease;
+           padding-bottom: 8px;
+           position: relative;
+           font-size: 0.95rem;
+           letter-spacing: 0.3px;
+           display: block;
         }
 
-        header nav#main-nav ul li a::after {
+        header nav#main-nav ul li a:not(.nav-button)::after { /* Apply underline only to non-button links */
            content: '';
            position: absolute;
            width: 0;
@@ -197,24 +194,25 @@
            transition: width var(--transition-speed) ease;
         }
 
-        header nav#main-nav ul li a:hover::after {
+        header nav#main-nav ul li a:not(.nav-button):hover::after { /* Apply underline only to non-button links */
            width: 100%;
         }
          header nav#main-nav ul li a:hover {
-           color: var(--primary-color); /* Mantém a cor primária no hover do texto */
-           border-bottom: none; /* Remove o sublinhado padrão */
+           color: var(--primary-color);
+           border-bottom: none;
          }
-         /* Ajuste específico para link FAQ não ter underline no hover */
+         /* Specific hover for FAQ link (if needed) */
          header nav#main-nav ul li a[href="faq.html"]:hover::after {
-           width: 0; /* Não mostra underline no hover para FAQ */
+           width: 0; /* Remove underline on hover for FAQ link itself */
          }
          header nav#main-nav ul li a[href="faq.html"]:hover {
-           color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
+           color: var(--secondary-color); /* Change color on hover */
          }
 
 
-        header nav#main-nav .nav-button {
-            margin-left: 35px;
+        header nav#main-nav .nav-button { /* Style for the button itself */
+           margin-left: 35px;
+           padding: 10px 33px; /* Match btn-secondary */
         }
 
         /* Mobile Menu Toggle Button */
@@ -232,46 +230,46 @@
 
         /* Mobile Navigation Container Styles */
         #mobile-nav-container {
-            display: none;
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(5px);
-            padding-top: 80px;
-            z-index: 1050;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
-            overflow-y: auto;
+           display: none;
+           flex-direction: column;
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background: rgba(255, 255, 255, 0.98);
+           backdrop-filter: blur(5px);
+           padding-top: 80px;
+           z-index: 1050;
+           opacity: 0;
+           transform: translateY(-20px);
+           transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+           overflow-y: auto;
          }
          #mobile-nav-container.active {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
+           display: flex;
+           opacity: 1;
+           transform: translateY(0);
          }
 
          #mobile-nav-container ul {
-            list-style: none;
-            padding: 20px 0;
-            margin: 0;
-            width: 100%;
-            text-align: center;
+           list-style: none;
+           padding: 20px 0;
+           margin: 0;
+           width: 100%;
+           text-align: center;
          }
 
          #mobile-nav-container ul li { margin: 0; width: 100%; }
          #mobile-nav-container ul li a {
-            padding: 15px 20px;
-            display: block;
-            width: 100%;
-            font-weight: 500;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-            border-bottom: 1px solid var(--medium-gray);
+           padding: 15px 20px;
+           display: block;
+           width: 100%;
+           font-weight: 500;
+           color: var(--primary-color);
+           font-size: 1.2rem;
+           transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+           border-bottom: 1px solid var(--medium-gray);
          }
           #mobile-nav-container ul li a::after { display: none; }
          #mobile-nav-container ul li:last-child a { border-bottom: none; }
@@ -279,174 +277,120 @@
 
         /* Mobile Nav Button specific style */
         #mobile-nav-container .nav-button-mobile {
-            display: block;
-            margin: 25px auto;
-            padding: 12px 30px;
-            text-align: center;
-            background: var(--secondary-color);
-            color: white;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            max-width: 200px;
-            transition: background-color var(--transition-speed) ease;
-        }
+           display: block;
+           margin: 25px auto;
+           padding: 12px 30px;
+           text-align: center;
+           background: var(--secondary-color);
+           color: white;
+           border-radius: var(--border-radius);
+           font-weight: 600;
+           max-width: 200px; /* Adjusted */
+           transition: background-color var(--transition-speed) ease;
+           font-size: 1rem; /* Adjusted */
+           line-height: 1.4;
+         }
          #mobile-nav-container .nav-button-mobile:hover {
-            background: #b8956f;
+           background: #b8956f;
          }
 
-        /* --- Hero Section --- */
-        #hero {
-            background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
-            color: var(--white);
-            padding-top: 80px; /* Reduzido - principal ajuste é scroll-margin */
-            padding-bottom: 160px;
+        /* --- FAQ Section Specific Styles --- */
+        #faq-section {
+             padding-top: calc(var(--header-height) + 40px); /* Adjust based on fixed header */
+             padding-bottom: 80px;
+        }
+        #faq-section h1 {
             text-align: center;
+            margin-bottom: 60px; /* More space after main title */
         }
 
-        #hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-weight: 700;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        #faq-section h2 {
+            text-align: left; /* Align subheadings left */
+            font-size: 1.8rem; /* Slightly smaller than page title */
+            margin-top: 40px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--medium-gray); /* Add a separator */
+            padding-bottom: 10px;
+             scroll-margin-top: calc(var(--header-height) + 10px); /* Se tiver links para h2 */
         }
 
-        #hero p {
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        .faq-group {
+            margin-bottom: 30px;
         }
 
-        /* --- Course Overview / Modules Section --- */
-        #modules h2 { /* text-align: center; margin-bottom: 50px; */ }
-
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-        }
-
-        .module-card {
-            background: var(--white);
-            padding: 35px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: left;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        .faq-item {
+            background-color: var(--white);
             border: 1px solid var(--medium-gray);
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: box-shadow var(--transition-speed) ease;
+            overflow: hidden; /* Prevent content overflow before opening */
+        }
+        .faq-item:hover {
+             box-shadow: var(--box-shadow);
         }
 
-        .module-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .faq-item summary {
+            padding: 18px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block; /* Changed to block for better control */
+            list-style: none; /* Remove default marker */
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            transition: background-color var(--transition-speed) ease;
+            position: relative; /* For custom arrow */
+            padding-right: 50px; /* Space for custom arrow */
         }
 
-        .module-card .icon {
-            font-size: 1.8rem;
+        .faq-item summary:hover {
+            background-color: var(--light-bg);
+        }
+
+        /* Custom Arrow */
+        .faq-item summary::after {
+            content: '+'; /* Plus sign for closed state */
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            font-weight: 400;
             color: var(--secondary-color);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−'; /* Minus sign for open state */
+            transform: translateY(-50%);
+        }
+
+        /* Remove default marker specifically for webkit */
+         .faq-item summary::-webkit-details-marker {
+           display: none;
+         }
+
+        .faq-item p {
+            padding: 10px 25px 20px 25px; /* Adjusted padding */
             margin-bottom: 0;
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            flex-shrink: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            border-top: 1px solid var(--medium-gray); /* Separator when open */
+            background-color: var(--white); /* Ensure background */
         }
-         .module-card .icon svg { width: 100%; height: 100%; }
-
-        .module-card .module-content h3 { font-size: 1.15rem; margin-top: 0; margin-bottom: 0.5rem; }
-        .module-card .module-content p { font-size: 0.95rem; margin-bottom: 0; line-height: 1.6; }
-
-        /* --- Benefits Section --- */
-        #benefits h2 { /* text-align: center; margin-bottom: 50px; */ }
-        #benefits .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        #benefits .benefit-item { display: flex; align-items: flex-start; gap: 25px; }
-         #benefits .benefit-icon { font-size: 1.8rem; color: var(--primary-color); min-width: 40px; width: 40px; height: 40px; margin-top: 5px; flex-shrink: 0; }
-          #benefits .benefit-icon svg { width: 100%; height: 100%; }
-        #benefits h3 { margin-bottom: 0.5rem; font-size: 1.15rem; }
-         #benefits p { font-size: 0.95rem; margin-bottom: 0; }
-
-        /* --- Target Audience Section --- */
-         #target-audience h2 { /* text-align: center; margin-bottom: 50px; */ }
-        #target-audience ul { list-style: none; padding-left: 0; max-width: 700px; margin: auto; }
-        #target-audience li { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%230d2c4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center; background-size: 16px; padding-left: 35px; margin-bottom: 15px; font-size: 1.05rem; }
-
-        /* --- Enrollment / Contact Form Section --- */
-        #enroll {
-            background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
-            color: var(--white); /* White text for contrast */
-            padding: 80px 0;
+        /* --- Specific FAQ content link update --- */
+        .faq-item p a[href*="Udemy"] { /* Target Udemy link */
+             color: var(--secondary-color); /* Style the link */
+             text-decoration: underline;
         }
-        #enroll .container { /* Styles for the main container within #enroll */ }
-
-        /* Wrapper para o Formulário */
-        #enroll .form-wrapper {
-            display: flex;
-            justify-content: center;
-            width: 100%;
+        .faq-item p a[href*="Udemy"]:hover {
+             color: var(--primary-color);
         }
-
-        /* ConvertKit Form Styling Overrides */
-        #enroll .ck-form-container {
-            max-width: 500px !important;
-            width: 100%;
-            margin-top: 0;
-            margin-bottom: 0;
-            padding: 0 !important;
-            background: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            text-align: left !important;
-        }
-
-        /* Ocultar Header/Content Padrão do CK */
-        #enroll .ck-form-container .ck-header,
-        #enroll .ck-form-container .ck-content { display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; margin: 0 !important; padding: 0 !important; line-height: 0 !important; font-size: 0 !important; }
-        #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
-
-        /* Label Color for Dark Background */
-        #enroll .ck-form-container .ck-field label {
-             display: block !important;
-             margin-bottom: 8px !important;
-             font-weight: 500 !important;
-             font-family: var(--font-body) !important;
-             color: var(--white) !important; /* White labels for contrast */
-             font-size: 0.9rem !important;
-             text-align: left !important;
-        }
-        #enroll .ck-form-container .ck-input { width: 100% !important; padding: 14px 16px !important; border: 1px solid var(--medium-gray) !important; border-radius: var(--border-radius) !important; font-size: 1rem !important; font-family: var(--font-body) !important; background-color: var(--white) !important; color: var(--dark-gray) !important; transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease !important; margin-bottom: 20px !important; }
-         #enroll .ck-form-container .ck-input::placeholder { color: #999 !important; }
-        #enroll .ck-form-container .ck-input:focus { outline: none !important; border-color: var(--secondary-color) !important; box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3) !important; }
-        #enroll .ck-form-container .ck-button { width: 100% !important; padding: 15px !important; margin-top: 10px !important; font-size: 1.1rem !important; letter-spacing: 0.8px !important; background-color: var(--secondary-color) !important; color: var(--white) !important; border: none !important; border-radius: var(--border-radius) !important; font-weight: 600 !important; font-family: var(--font-body) !important; cursor: pointer; transition: background-color var(--transition-speed) ease, transform 0.2s ease !important; }
-         #enroll .ck-form-container .ck-button:hover { background-color: #b8956f !important; transform: translateY(-2px); }
-
-        /* Powered By Link Color for Dark Background */
-        #enroll .ck-form-container .ck-powered-by {
-             color: var(--medium-gray) !important; /* Lighter gray */
-             font-size: 0.8rem !important;
-             text-align: center !important;
-             margin-top: 20px !important;
-             padding-bottom: 0 !important;
-        }
-        #enroll .ck-form-container .ck-powered-by a {
-             color: var(--medium-gray) !important; /* Lighter gray */
-             text-decoration: underline !important;
-        }
-        #enroll .ck-form-container .ck-powered-by a:hover {
-             color: var(--secondary-color) !important; /* Keep hover color */
-        }
-
 
         /* --- Footer --- */
-        footer { /* Não precisa mais do ID aqui para rolagem */
+        footer {
             background: var(--dark-gray);
             color: var(--medium-gray);
             text-align: center;
@@ -465,22 +409,18 @@
         @media (max-width: 992px) {
              h1 { font-size: 2.5rem; }
              h2 { font-size: 1.8rem; }
-             #hero { padding-top: 60px; /* Reduzido */ }
-             #hero h1 { font-size: 2.8rem; }
-             .modules-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;}
-             .module-card { padding: 25px; }
-             #benefits .benefits-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+             #faq-section h2 { font-size: 1.6rem; }
         }
 
 
         @media (max-width: 768px) {
              :root {
-                 --header-height: 69px; /* Altura menor para mobile */
+                 --header-height: 69px; /* Smaller header height */
              }
              html { font-size: 15px; }
              h1 { font-size: 2.2rem; }
              h2 { font-size: 1.7rem; }
-             body { padding-top: var(--header-height); } /* Ajusta padding do body */
+             body { padding-top: var(--header-height); } /* Adjust body padding */
 
              header { padding: 12px 0; }
              header #logo h1 { font-size: 1.5rem; }
@@ -488,33 +428,18 @@
 
              .menu-toggle { display: block; } /* Show mobile toggle */
 
-             #hero { padding-top: 50px; padding-bottom: 100px; /* Reduzido */}
-             #hero h1 { font-size: 2.5rem; }
-             #hero p { font-size: 1.05rem; }
-
-             .modules-grid { grid-template-columns: 1fr; }
-             .module-card { text-align: center; flex-direction: column; align-items: center; }
-             .module-card .icon { margin-bottom: 15px; }
-             .module-card .module-content { text-align: center; }
-
-
-             #benefits .benefits-grid { grid-template-columns: 1fr; }
-             #benefits .benefit-item { flex-direction: column; text-align: center; align-items: center; }
-              #benefits .benefit-icon { margin-bottom: 15px; margin-top: 0; }
-
-              #enroll { padding: 60px 20px;} /* Adjust padding for mobile */
+             #faq-section { padding-top: calc(var(--header-height) + 30px); } /* Adjust padding */
+             #faq-section h2 { font-size: 1.5rem; }
         }
 
          @media (max-width: 480px) {
              html { font-size: 14px; }
              h1 { font-size: 2rem; }
              h2 { font-size: 1.5rem; }
-
-             #hero { padding-top: 40px; padding-bottom: 80px; /* Reduzido */ }
-             #hero h1 { font-size: 2.1rem; }
-              #hero p { font-size: 1rem; }
-              .btn { padding: 10px 25px; font-size: 0.95rem; }
-              #enroll .ck-form-container .ck-button { font-size: 1rem !important; }
+              #faq-section h1 { margin-bottom: 40px;}
+             #faq-section h2 { font-size: 1.4rem; }
+             .btn { padding: 10px 25px; font-size: 0.95rem; }
+             #mobile-nav-container .nav-button-mobile { max-width: 180px; font-size: 0.95rem; } /* Further adjust mobile button */
          }
 
     </style>
@@ -527,87 +452,125 @@
                 <h1>MBA Lite</h1>
             </div>
             <nav id="main-nav">
-                <ul>
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#modules">Módulos</a></li>
-                    <li><a href="#benefits">Benefícios</a></li>
-                    <li><a href="#target-audience">Público</a></li>
+                 <ul>
+                     <li><a href="index.html#hero">Início</a></li>
+                     <li><a href="index.html#modules">Módulos</a></li>
+                     <li><a href="index.html#benefits">Benefícios</a></li>
+                     <li><a href="index.html#target-audience">Público</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                </ul>
-                <a href="#enroll" class="btn btn-secondary nav-button">Inscreva-se</a>
-            </nav>
+                 </ul>
+                 <a href="index.html" class="btn btn-secondary nav-button" data-scroll="enroll">Inscreva-se</a>
+             </nav>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
+
          <div id="mobile-nav-container">
              <ul>
-                 <li><a href="#hero">Início</a></li>
-                 <li><a href="#modules">Módulos</a></li>
-                 <li><a href="#benefits">Benefícios</a></li>
-                 <li><a href="#target-audience">Público</a></li>
+                 <li><a href="index.html#hero">Início</a></li>
+                 <li><a href="index.html#modules">Módulos</a></li>
+                 <li><a href="index.html#benefits">Benefícios</a></li>
+                 <li><a href="index.html#target-audience">Público</a></li>
                  <li><a href="faq.html">FAQ</a></li>
              </ul>
-             <a href="#enroll" class="nav-button-mobile">Inscreva-se</a>
+              <a href="index.html" class="nav-button-mobile" data-scroll="enroll">Inscreva-se</a>
          </div>
     </header>
 
     <main>
-        <section id="hero" data-aos="fade-in" data-aos-duration="1000">
+        <section id="faq-section">
             <div class="container">
-                <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
-                <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
-                <a href="#enroll" class="btn" data-aos="fade-up" data-aos-delay="600">Inscreva-se Agora</a>
-            </div>
-        </section>
+                <h1 data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
 
-        <section id="modules" class="bg-light">
-            <div class="container">
-                <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
-                <div class="modules-grid">
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div> <div class="module-content"> <h3>Gestão Estratégica de Pessoas</h3> <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div> <div class="module-content"> <h3>Gestão de Riscos Corporativos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div> <div class="module-content"> <h3>Excelência Operacional e Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg> </div> <div class="module-content"> <h3>Gestão de Projetos Moderna</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div> <div class="module-content"> <h3>Ferramentas Digitais: ClickUp</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p> </div> </div>
-                    <div class="module-card" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div> <div class="module-content"> <h3>Inteligência Artificial em Projetos</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p> </div> </div>
-                </div>
-            </div>
-        </section>
+                <h2 data-aos="fade-up" data-aos-delay="100">Geral</h2>
+                <div class="faq-group" data-aos="fade-up" data-aos-delay="150">
+                    <details class="faq-item">
+                        <summary>O que é o curso MBA Lite?</summary>
+                        <p>O MBA Lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de tecnologias como ClickUp e Inteligência Artificial (Google Gemini), para capacitar líderes e profissionais a impulsionar resultados.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Para quem este curso é recomendado?</summary>
+                        <p>O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Qual a duração total estimada do curso?</summary>
+                        <p>A duração total do curso é de aproximadamente [X] horas de conteúdo em vídeo (informação a ser preenchida com a duração real). Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Precisarei de alguma ferramenta ou software específico?</summary>
+                        <p>O curso aborda ferramentas como ClickUp e Google Gemini. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas, que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+                    </details>
+                     <details class="faq-item">
+                        <summary>Preciso ter experiência prévia em gestão para fazer o curso?</summary>
+                        <p>Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
+                    </details>
+                 </div>
 
-        <section id="benefits">
-            <div class="container">
-                <h2 data-aos="fade-up" data-aos-once="true">Invista no Seu Potencial de Liderança</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> </div> <div> <h3>Desenvolvimento Estratégico</h3> <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p> </div> </div>
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> </div> <div> <h3>Aprendizado Prático e Aplicável</h3> <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p> </div> </div>
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> </div> <div> <h3>Flexibilidade e Conveniência</h3> <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p> </div> </div>
-                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="400" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg> </div> <div> <h3>Networking Estratégico</h3> <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p> </div> </div>
-                </div>
-            </div>
-        </section>
+                 <h2 data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
+                 <div class="faq-group" data-aos="fade-up" data-aos-delay="250">
+                     <details class="faq-item">
+                         <summary>Quais são os principais módulos abordados no MBA Lite?</summary>
+                         <p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Gestão de Projetos com a ferramenta ClickUp e Gestão de Projetos com Inteligência Artificial (usando Google Gemini).</p>
+                     </details>
+                     <details class="faq-item">
+                         <summary>O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
+                         <p>Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
+                     </details>
+                    <details class="faq-item">
+                        <summary>Quais ferramentas práticas de gestão serão ensinadas?</summary>
+                        <p>O curso tem um forte foco prático. Teremos módulos dedicados ao uso da ferramenta ClickUp para organização e gestão de projetos e tarefas, e do Google Gemini (Inteligência Artificial) aplicado em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
+                        <p>Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Como a Inteligência Artificial (Google Gemini) é aplicada na gestão de projetos neste curso?</summary>
+                        <p>O módulo dedicado à IA demonstra como utilizar o Google Gemini como um assistente inteligente para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>O curso ensina a usar a ferramenta ClickUp do zero?</summary>
+                        <p>Sim, o módulo de ClickUp é projetado para todos os níveis. Ele começa com os fundamentos da ferramenta, sua interface e estrutura (Spaces, Folders, Lists, Tasks), e avança gradualmente, guiando você desde os primeiros passos até a utilização de recursos mais avançados para planejar, executar e monitorar seus projetos.</p>
+                    </details>
+                 </div>
 
-         <section id="target-audience" class="bg-light">
-            <div class="container" data-aos="fade-up" data-aos-once="true">
-                <h2>Ideal Para Profissionais Ambiciosos</h2>
-                 <ul>
-                     <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
-                     <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
-                     <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
-                     <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
-                     <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
-                 </ul>
-            </div>
-        </section>
+                 <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
+                 <div class="faq-group" data-aos="fade-up" data-aos-delay="350">
+                    <details class="faq-item">
+                        <summary>Como o curso é entregue?</summary>
+                        <p>O MBA Lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
+                    </details>
+                     <details class="faq-item">
+                        <summary>Receberei um certificado ao concluir o curso?</summary>
+                        <p>Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Como posso tirar dúvidas durante o curso?</summary>
+                        <p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o instrutor ou outros alunos da comunidade poderão respondê-las.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>O curso oferece acesso vitalício?</summary>
+                        <p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o instrutor venha a adicionar.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Como me inscrevo no curso pela Udemy?</summary>
+                        <p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Posso assistir às aulas no meu celular ou tablet?</summary>
+                        <p>Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
+                    </details>
+                 </div>
 
-        <section id="enroll">
-             <div class="container">
-                 <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
-                     <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                 <div class="faq-cta" data-aos="fade-up" data-aos-delay="400" style="text-align: center; margin-top: 50px;">
+                     <h3>Ainda tem dúvidas?</h3>
+                     <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
+                      <a href="index.html" class="btn" data-scroll="enroll">Quero ser um(a) gestor(a) de alta performance!</a>
                  </div>
              </div>
          </section>
-    </main>
+     </main>
 
     <footer> <div class="container">
             <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
@@ -631,61 +594,87 @@
         menuToggle.addEventListener('click', () => {
             const isActive = mobileNavContainer.classList.toggle('active');
             menuToggle.setAttribute('aria-expanded', isActive);
-            body.style.overflow = isActive ? 'hidden' : ''; // Prevent body scroll when mobile menu is open
+            body.style.overflow = isActive ? 'hidden' : '';
 
-            // Adjust body padding when mobile menu opens/closes
-            if (isActive) {
-              const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-              body.style.paddingRight = `${scrollbarWidth}px`;
-            } else {
-              body.style.paddingRight = '';
-            }
+             if (isActive) {
+               const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+               body.style.paddingRight = `${scrollbarWidth}px`;
+             } else {
+               body.style.paddingRight = '';
+             }
         });
 
         // Close mobile menu when a link inside it is clicked
         mobileNavContainer.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (event) => { // Adicionado event
-                // Se for um link interno para a mesma página (#...)
-                if (link.getAttribute('href').startsWith('#')) {
-                    if (mobileNavContainer.classList.contains('active')) {
-                        mobileNavContainer.classList.remove('active');
-                        menuToggle.setAttribute('aria-expanded', 'false');
-                        body.style.overflow = '';
-                        body.style.paddingRight = '';
-                    }
+            link.addEventListener('click', (event) => {
+                // Fecha o menu ao clicar
+                if (mobileNavContainer.classList.contains('active')) {
+                     mobileNavContainer.classList.remove('active');
+                     menuToggle.setAttribute('aria-expanded', 'false');
+                     body.style.overflow = '';
+                     body.style.paddingRight = '';
                 }
-                // Se for um link externo (para faq.html), deixe o navegador seguir
+                 // Chama a função para lidar com o scroll trigger se necessário
+                 handleScrollTrigger(link, event);
             });
         });
+
+         // Add listener for desktop links AND bottom CTA to handle scroll trigger
+         document.querySelectorAll('a[data-scroll="enroll"]').forEach(link => {
+             link.addEventListener('click', (event) => {
+                 handleScrollTrigger(link, event);
+             });
+         });
+
+         // Function to handle scroll trigger (sets flag and navigates)
+         function handleScrollTrigger(link, event) {
+             const href = link.getAttribute('href');
+             const scrollTarget = link.getAttribute('data-scroll'); // 'enroll'
+
+             // Verifica se é um link para index.html e tem o atributo data-scroll="enroll"
+             if (href === 'index.html' && scrollTarget === 'enroll') {
+                 event.preventDefault(); // Previne a navegação padrão para index.html (topo)
+
+                 // Define a flag para indicar que queremos rolar até #enroll em index.html
+                 sessionStorage.setItem('scrollToEnroll', 'true'); // <<< Flag alterada
+
+                 // Navega para index.html (sem hash)
+                 window.location.href = href;
+             }
+             // Se não for o link específico, deixa o comportamento padrão (ex: link para faq.html)
+         }
 
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Refresh AOS calculations after potentially changing layout
+        // Refresh AOS calculations after page load potentially changes layout
         window.addEventListener('load', AOS.refresh);
 
-        // --- SCRIPT PARA ROLAR PARA #enroll AO VIR DO FAQ.HTML ---
+        // --- IMPORTANTE: Script complementar necessário em index.html ---
+        // Adicione o script abaixo em index.html para ler a flag 'scrollToEnroll'
+        // e rolar até o elemento #enroll usando scrollIntoView
+        /*
         document.addEventListener('DOMContentLoaded', () => {
-            // Verifica se a flag foi setada ao vir do faq.html
-            if (sessionStorage.getItem('scrollToEnroll') === 'true') { // <<< Verifica a flag correta
-                const targetElement = document.getElementById('enroll'); // <<< Alvo é #enroll
+            if (sessionStorage.getItem('scrollToEnroll') === 'true') {
+                const targetElement = document.getElementById('enroll');
 
                 if (targetElement) {
                      // Usa setTimeout para garantir renderização (especialmente do form externo)
                      setTimeout(() => {
                          targetElement.scrollIntoView({
                              behavior: 'smooth',
-                             block: 'start' // Alinha o topo do #enroll com o topo da área visível (respeita scroll-margin-top)
+                             block: 'start' // Alinha o topo do elemento com o topo da área visível (respeita scroll-margin-top)
                          });
-                         console.log("Scrolled to #enroll triggered by flag."); // Log para depuração
-                     }, 300); // Delay de 300ms (ajuste se necessário, pode precisar ser maior se o form demorar)
+                         console.log("Scrolled to #enroll triggered by flag.");
+                     }, 300); // Delay de 300ms (ajuste conforme necessário)
                 } else {
                      console.error("Target element with ID 'enroll' not found in index.html");
                 }
                 // Limpa a flag
-                sessionStorage.removeItem('scrollToEnroll'); // <<< Remove a flag correta
+                sessionStorage.removeItem('scrollToEnroll');
             }
         });
+        */
 
     </script>
 
