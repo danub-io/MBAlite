@@ -54,9 +54,6 @@
             transition: background-color var(--transition-speed) ease; /* Transition background color */
         }
 
-        body.bg-light { /* Applied dynamically for TY/SUB pages */
-             background-color: var(--light-bg);
-        }
         body.overflow-hidden { /* For mobile menu */
             overflow: hidden;
         }
@@ -157,11 +154,6 @@
             align-items: center;
             height: 100%; /* Ocupa a altura do header */
         }
-        /* Specific header container justification for TY/SUB */
-        body.page-ty header .container,
-        body.page-sub header .container {
-            justify-content: flex-start; /* Logo only */
-        }
 
         header #logo a {
             text-decoration: none;
@@ -177,14 +169,10 @@
             font-family: var(--font-heading);
         }
 
-        /* Desktop Navigation Styles (Hidden on TY/SUB) */
+        /* Desktop Navigation Styles */
         header nav#main-nav {
             display: flex;
             align-items: center;
-        }
-        body.page-ty header nav#main-nav,
-        body.page-sub header nav#main-nav {
-            display: none;
         }
 
         header nav#main-nav ul {
@@ -236,7 +224,7 @@
             margin-left: 35px;
         }
 
-        /* Mobile Menu Toggle Button (Hidden on TY/SUB) */
+        /* Mobile Menu Toggle Button */
         .menu-toggle {
             display: none; /* Hidden by default, shown via media query */
             cursor: pointer;
@@ -248,12 +236,8 @@
             line-height: 1;
             z-index: 1100; /* Ensure it's above mobile nav */
         }
-        body.page-ty .menu-toggle,
-        body.page-sub .menu-toggle {
-            display: none !important; /* Force hide */
-        }
 
-        /* Mobile Navigation Container Styles (Hidden on TY/SUB) */
+        /* Mobile Navigation Container Styles */
         #mobile-nav-container {
             display: none; /* Hidden by default, shown via JS */
             flex-direction: column;
@@ -275,10 +259,6 @@
             display: flex;
             opacity: 1;
             transform: translateY(0);
-        }
-        body.page-ty #mobile-nav-container,
-        body.page-sub #mobile-nav-container {
-            display: none !important; /* Force hide */
         }
         #mobile-nav-container ul {
             list-style: none;
@@ -715,54 +695,6 @@
         #page-faq .faq-cta h3 { font-size: 1.5rem; margin-bottom: 1rem; }
 
 
-        /* == THANK YOU (TY) and SUB CONFIRMED (SUB) PAGE STYLES == */
-        #page-ty, #page-sub {
-            padding: 60px 0; /* Espaçamento interno */
-            display: none; /* Hidden by default, shown by JS if active */
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1; /* Takes up space */
-            width: 100%;
-         }
-         #page-ty.active, #page-sub.active {
-             display: flex; /* Override default page display: none if active */
-         }
-        .ty-sub-content { /* Common container for TY and SUB */
-            background-color: var(--white);
-            padding: 50px 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            max-width: 650px;
-            width: 100%;
-            text-align: center;
-        }
-        .ty-sub-content .icon {
-             font-size: 3.5rem;
-             color: var(--secondary-color);
-             margin-bottom: 25px;
-             line-height: 1;
-        }
-        .ty-sub-content .icon svg {
-             width: 60px; height: 60px;
-        }
-        .ty-sub-content h1 {
-            font-size: 2.5rem; text-align: center;
-        }
-        .ty-sub-content p {
-            font-size: 1.1rem; /* Texto um pouco maior */
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        .ty-sub-content p.next-steps { /* For secondary text */
-            font-size: 0.95rem;
-            color: var(--text-color);
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-        .ty-sub-content .btn {
-            margin-top: 15px;
-        }
-
         /* --- Footer --- */
         footer {
             background: var(--dark-gray);
@@ -805,7 +737,7 @@
             header .container { padding: 0; } /* Adjusted padding */
             header #logo h1 { font-size: 1.5rem; }
             header nav#main-nav { display: none; } /* Hide desktop nav */
-            .menu-toggle { display: block; } /* Show mobile toggle (except TY/SUB) */
+            .menu-toggle { display: block; } /* Show mobile toggle */
 
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
@@ -824,9 +756,9 @@
                  display: flex;
             }
             body.page-content #page-content #content-area { /* Full width, adjust padding */
-                margin-left: 0;
-                padding: 25px;
-                width: 100%;
+                 margin-left: 0;
+                 padding: 25px;
+                 width: 100%;
             }
             #page-content #content-area section {
                  padding: 25px; margin-bottom: 40px;
@@ -864,13 +796,6 @@
              #page-faq #faq-section { padding-top: 30px; }
              #page-faq #faq-section h1 { font-size: 2.2rem; }
              #page-faq #faq-section h2 { font-size: 1.5rem; }
-
-             /* TY/SUB Page Adjustments */
-             #page-ty h1, #page-sub h1 { font-size: 2rem; }
-             .ty-sub-content { padding: 40px 25px; }
-             .ty-sub-content .icon { font-size: 3rem; }
-             .ty-sub-content .icon svg { width: 50px; height: 50px;}
-             .ty-sub-content p { font-size: 1rem; }
         }
 
         @media (max-width: 480px) { /* Small Mobile */
@@ -897,15 +822,12 @@
 
             /* Mobile Nav Button */
             #mobile-nav-container .nav-button-mobile { max-width: 180px; font-size: 0.95rem; }
-
-            /* TY/SUB Page Adjustments */
-            #page-ty h1, #page-sub h1 { font-size: 1.8rem; }
-            .ty-sub-content { padding: 30px 20px; }
         }
 
     </style>
 </head>
-<body class="page-index"> <header>
+<body class="page-index">
+    <header>
         <div class="container">
             <div id="logo">
                 <a href="#" data-nav-target="page-index"><h1>MBA Lite</h1></a>
@@ -926,17 +848,18 @@
         </div>
         <div id="mobile-nav-container">
              <ul>
-                <li><a href="#" data-nav-target="page-index" data-scroll-target="hero">Início</a></li>
-                <li><a href="#" data-nav-target="page-index" data-scroll-target="modules">Módulos</a></li>
-                <li><a href="#" data-nav-target="page-index" data-scroll-target="benefits">Benefícios</a></li>
-                <li><a href="#" data-nav-target="page-index" data-scroll-target="target-audience">Público</a></li>
-                <li><a href="#" data-nav-target="page-faq">FAQ</a></li>
+                 <li><a href="#" data-nav-target="page-index" data-scroll-target="hero">Início</a></li>
+                 <li><a href="#" data-nav-target="page-index" data-scroll-target="modules">Módulos</a></li>
+                 <li><a href="#" data-nav-target="page-index" data-scroll-target="benefits">Benefícios</a></li>
+                 <li><a href="#" data-nav-target="page-index" data-scroll-target="target-audience">Público</a></li>
+                 <li><a href="#" data-nav-target="page-faq">FAQ</a></li>
              </ul>
              <a href="#" class="nav-button-mobile" data-nav-target="page-index" data-scroll-target="enroll">Inscreva-se</a>
            </div>
     </header>
 
-    <aside id="module-menu"> <h3>Módulos do Curso</h3>
+    <aside id="module-menu">
+        <h3>Módulos do Curso</h3>
         <ul>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-pessoas" class="content-nav-link">Gestão de Pessoas</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-riscos" class="content-nav-link">Gestão de Riscos</a></li>
@@ -947,153 +870,155 @@
         </ul>
     </aside>
 
-    <nav id="module-menu-sticky-mobile"> <ul>
+    <nav id="module-menu-sticky-mobile">
+        <ul>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-pessoas" class="content-nav-link">Gestão de Pessoas</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-riscos" class="content-nav-link">Gestão de Riscos</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-qualidade" class="content-nav-link">Gestão da Qualidade</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos" class="content-nav-link">Gestão de Projetos</a></li>
-            <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup" class="content-nav-link">G. Projetos Clickup</a></li> <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia" class="content-nav-link">G. Projetos IA</a></li> </ul>
+            <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup" class="content-nav-link">G. Projetos Clickup</a></li>
+            <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia" class="content-nav-link">G. Projetos IA</a></li>
+        </ul>
     </nav>
-
 
     <main id="main-content">
 
         <div id="page-index" class="page">
              <section id="hero" class="scroll-target" data-aos="fade-in" data-aos-duration="1000">
-                <div class="container">
-                     <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
-                     <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
-                     <a href="#" class="btn" data-aos="fade-up" data-aos-delay="600" data-nav-target="page-index" data-scroll-target="enroll">Inscreva-se Agora</a>
-                </div>
+                 <div class="container">
+                      <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
+                      <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
+                      <a href="#" class="btn" data-aos="fade-up" data-aos-delay="600" data-nav-target="page-index" data-scroll-target="enroll">Inscreva-se Agora</a>
+                 </div>
              </section>
 
              <section id="modules" class="scroll-target bg-light">
-                <div class="container">
-                    <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
-                    <div class="modules-grid">
-                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-pessoas">
-                           <div class="module-card">
-                               <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div>
-                               <div class="module-content">
-                                  <h3>Gestão de Pessoas</h3> <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p>
-                               </div>
-                           </div>
-                        </a>
-                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-riscos">
-                            <div class="module-card">
-                                <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div>
-                               <div class="module-content">
-                                   <h3>Gestão de Riscos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
-                               </div>
-                            </div>
-                        </a>
-                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-qualidade">
-                            <div class="module-card">
-                               <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div>
-                               <div class="module-content">
-                                  <h3>Gestão da Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p>
-                               </div>
-                            </div>
-                        </a>
-                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos">
-                            <div class="module-card">
-                               <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg> </div>
-                               <div class="module-content">
-                                   <h3>Gestão de Projetos</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p>
-                               </div>
-                            </div>
-                        </a>
-                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup">
-                            <div class="module-card">
-                               <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div>
-                               <div class="module-content">
-                                   <h3>Gestão de Projetos com Clickup</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
-                               </div>
-                            </div>
-                        </a>
-                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia">
-                            <div class="module-card">
-                               <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div>
-                               <div class="module-content">
-                                  <h3>Gestão de Projetos com IA</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
-                               </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                 <div class="container">
+                     <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
+                     <div class="modules-grid">
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-pessoas">
+                             <div class="module-card">
+                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div>
+                                 <div class="module-content">
+                                     <h3>Gestão de Pessoas</h3> <p>Desenvolva habilidades em atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p>
+                                 </div>
+                             </div>
+                         </a>
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-riscos">
+                              <div class="module-card">
+                                  <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> </div>
+                                  <div class="module-content">
+                                     <h3>Gestão de Riscos</h3> <p>Aprenda frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos estratégicos e operacionais.</p>
+                                  </div>
+                              </div>
+                         </a>
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-qualidade">
+                              <div class="module-card">
+                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div>
+                                 <div class="module-content">
+                                     <h3>Gestão da Qualidade</h3> <p>Domine metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir a entrega de valor superior.</p>
+                                 </div>
+                              </div>
+                         </a>
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos">
+                              <div class="module-card">
+                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M19 19L5 5M9 3H3v6"></path><path d="M15 21h6v-6M9 21H3v-6"></path></svg> </div>
+                                 <div class="module-content">
+                                     <h3>Gestão de Projetos</h3> <p>Aplique abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos no prazo e dentro do orçamento.</p>
+                                 </div>
+                              </div>
+                         </a>
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup">
+                              <div class="module-card">
+                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div>
+                                 <div class="module-content">
+                                     <h3>Gestão de Projetos com Clickup</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
+                                 </div>
+                              </div>
+                         </a>
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="300" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia">
+                              <div class="module-card">
+                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div>
+                                 <div class="module-content">
+                                     <h3>Gestão de Projetos com IA</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
+                                 </div>
+                              </div>
+                         </a>
+                     </div>
+                 </div>
              </section>
 
              <section id="benefits" class="scroll-target">
-                <div class="container">
-                    <h2 data-aos="fade-up" data-aos-once="true">Invista no Seu Potencial de Liderança</h2>
-                    <div class="benefits-grid">
-                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> </div> <div> <h3>Desenvolvimento Estratégico</h3> <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p> </div> </div>
-                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> </div> <div> <h3>Aprendizado Prático e Aplicável</h3> <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p> </div> </div>
-                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> </div> <div> <h3>Flexibilidade e Conveniência</h3> <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p> </div> </div>
-                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="400" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg> </div> <div> <h3>Networking Estratégico</h3> <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p> </div> </div>
-                    </div>
-                </div>
+                 <div class="container">
+                     <h2 data-aos="fade-up" data-aos-once="true">Invista no Seu Potencial de Liderança</h2>
+                     <div class="benefits-grid">
+                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> </div> <div> <h3>Desenvolvimento Estratégico</h3> <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p> </div> </div>
+                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> </div> <div> <h3>Aprendizado Prático e Aplicável</h3> <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p> </div> </div>
+                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="300" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> </div> <div> <h3>Flexibilidade e Conveniência</h3> <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p> </div> </div>
+                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="400" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg> </div> <div> <h3>Networking Estratégico</h3> <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p> </div> </div>
+                     </div>
+                 </div>
              </section>
 
               <section id="target-audience" class="scroll-target bg-light">
-                 <div class="container" data-aos="fade-up" data-aos-once="true">
-                     <h2>Ideal Para Profissionais Ambiciosos</h2>
-                      <ul>
-                           <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
-                           <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
-                           <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
-                           <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
-                           <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
-                      </ul>
-                 </div>
+                  <div class="container" data-aos="fade-up" data-aos-once="true">
+                       <h2>Ideal Para Profissionais Ambiciosos</h2>
+                        <ul>
+                             <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
+                             <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
+                             <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
+                             <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
+                             <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                        </ul>
+                  </div>
              </section>
 
              <section id="enroll" class="scroll-target">
-                 <div class="container">
-                      <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
+                  <div class="container">
+                       <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
                            <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
-                       </div>
-                 </div>
+                         </div>
+                  </div>
               </section>
-        </div>
-        <div id="page-content" class="page">
-             <div class="page-container"> <div id="content-area">
-                      <div class="container"> <h1>Sumário do Curso</h1>
+        </div> <div id="page-content" class="page">
+             <div class="page-container">
+                 <div id="content-area">
+                     <div class="container">
+                         <h1>Sumário do Curso</h1>
 
-                          <section id="gestao-pessoas" class="scroll-target" data-aos="fade-up">
+                         <section id="gestao-pessoas" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Pessoas</h2>
                                <p>Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e benefícios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
-                          </section>
+                         </section>
 
-                          <section id="gestao-riscos" class="scroll-target" data-aos="fade-up">
+                         <section id="gestao-riscos" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Riscos</h2>
-                              <p>Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
-                          </section>
+                             <p>Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
+                         </section>
 
-                          <section id="gestao-qualidade" class="scroll-target" data-aos="fade-up">
+                         <section id="gestao-qualidade" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão da Qualidade</h2>
                                <p>Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
-                           </section>
+                            </section>
 
-                          <section id="gestao-projetos" class="scroll-target" data-aos="fade-up">
+                         <section id="gestao-projetos" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Projetos</h2>
                                <p>Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
-                          </section>
+                         </section>
 
-                          <section id="gestao-projetos-clickup" class="scroll-target" data-aos="fade-up">
+                         <section id="gestao-projetos-clickup" class="scroll-target" data-aos="fade-up">
                               <h2>Gestão de Projetos com Clickup</h2>
                                <p>Aqui, você aprenderá a utilizar o ClickUp como uma ferramenta centralizadora para gerenciar seus projetos de forma prática e eficiente. Começaremos com os fundamentos da ferramenta, entendendo sua interface e hierarquia (Spaces, Folders, Lists, Tasks). Em seguida, focaremos no planejamento: como definir escopo e objetivos SMART, criar a Estrutura Analítica do Projeto (EAP), detalhar tarefas e subtarefas, construir cronogramas com marcos e dependências (usando a visualização Gantt) e gerenciar recursos com a Workload View. Na fase de execução e monitoramento, você aprenderá a usar o ClickUp para comunicação da equipe (comentários, chat, integrações), gerenciamento de status e prioridades, utilização de visualizações avançadas (Board, Calendário, Tabela), criação de automações e monitoramento do progresso através de Dashboards e KPIs. Por fim, abordaremos o controle e encerramento, incluindo gerenciamento de riscos/problemas, controle de mudanças, geração de relatórios e o uso de recursos avançados como Templates, Custom Fields, Forms e Goals.</p>
-                           </section>
-
-                            <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up">
-                              <h2>Gestão de Projetos com IA</h2>
-                               <p>Neste módulo final, você descobrirá como aplicar a Inteligência Artificial Generativa, especificamente o Google Gemini, para potencializar sua gestão de projetos. Aprenderá os fundamentos do Gemini, seus diferenciais e como usá-lo para brainstorming e ideação criativa, inclusive com técnicas de Prompt Engineering. Veremos como a IA pode auxiliar no planejamento, ajudando a realizar Análise SWOT, definir escopo e objetivos SMART, estruturar a EAP e analisar viabilidade e riscos. Na execução, você aprenderá a usar o Gemini para gerar rapidamente documentação (relatórios, atas, apresentações), criar e gerenciar listas de tarefas e cronogramas, e aprimorar a comunicação da equipe (inclusive com tradução). O módulo também aborda a análise de dados do projeto com IA para identificar tendências, simular cenários, obter recomendações para tomada de decisão e gerar relatórios customizados. Por fim, discutiremos as melhores práticas éticas e de eficiência no uso da IA, recursos avançados e as tendências futuras da IA na gestão de projetos, refletindo sobre o novo papel do gerente de projetos.</p>
                             </section>
-                      </div>
+
+                              <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up">
+                                  <h2>Gestão de Projetos com IA</h2>
+                                   <p>Neste módulo final, você descobrirá como aplicar a Inteligência Artificial Generativa, especificamente o Google Gemini, para potencializar sua gestão de projetos. Aprenderá os fundamentos do Gemini, seus diferenciais e como usá-lo para brainstorming e ideação criativa, inclusive com técnicas de Prompt Engineering. Veremos como a IA pode auxiliar no planejamento, ajudando a realizar Análise SWOT, definir escopo e objetivos SMART, estruturar a EAP e analisar viabilidade e riscos. Na execução, você aprenderá a usar o Gemini para gerar rapidamente documentação (relatórios, atas, apresentações), criar e gerenciar listas de tarefas e cronogramas, e aprimorar a comunicação da equipe (inclusive com tradução). O módulo também aborda a análise de dados do projeto com IA para identificar tendências, simular cenários, obter recomendações para tomada de decisão e gerar relatórios customizados. Por fim, discutiremos as melhores práticas éticas e de eficiência no uso da IA, recursos avançados e as tendências futuras da IA na gestão de projetos, refletindo sobre o novo papel do gerente de projetos.</p>
+                                </section>
+                     </div>
                  </div>
              </div>
-        </div>
-        <div id="page-faq" class="page">
+        </div> <div id="page-faq" class="page">
             <section id="faq-section">
                 <div class="container">
                     <h1 data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
@@ -1120,103 +1045,72 @@
                             <summary>Preciso ter experiência prévia em gestão para fazer o curso?</summary>
                             <p>Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
                         </details>
-                     </div>
+                       </div>
 
-                     <h2 data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
-                     <div class="faq-group" data-aos="fade-up" data-aos-delay="250">
-                         <details class="faq-item">
-                             <summary>Quais são os principais módulos abordados no MBA Lite?</summary>
-                             <p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Gestão de Projetos com a ferramenta ClickUp e Gestão de Projetos com Inteligência Artificial (usando Google Gemini).</p>
-                         </details>
-                         <details class="faq-item">
-                             <summary>O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
-                             <p>Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
-                         </details>
-                        <details class="faq-item">
+                       <h2 data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
+                       <div class="faq-group" data-aos="fade-up" data-aos-delay="250">
+                           <details class="faq-item">
+                                <summary>Quais são os principais módulos abordados no MBA Lite?</summary>
+                                <p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Gestão de Projetos com a ferramenta ClickUp e Gestão de Projetos com Inteligência Artificial (usando Google Gemini).</p>
+                           </details>
+                           <details class="faq-item">
+                                <summary>O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
+                                <p>Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
+                           </details>
+                          <details class="faq-item">
                             <summary>Quais ferramentas práticas de gestão serão ensinadas?</summary>
                             <p>O curso tem um forte foco prático. Teremos módulos dedicados ao uso da ferramenta ClickUp para organização e gestão de projetos e tarefas, e do Google Gemini (Inteligência Artificial) aplicado em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
-                        </details>
-                        <details class="faq-item">
+                          </details>
+                          <details class="faq-item">
                             <summary>O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
                             <p>Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
-                        </details>
-                        <details class="faq-item">
+                          </details>
+                          <details class="faq-item">
                             <summary>Como a Inteligência Artificial (Google Gemini) é aplicada na gestão de projetos neste curso?</summary>
                             <p>O módulo dedicado à IA demonstra como utilizar o Google Gemini como um assistente inteligente para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
-                        </details>
-                        <details class="faq-item">
+                          </details>
+                          <details class="faq-item">
                             <summary>O curso ensina a usar a ferramenta ClickUp do zero?</summary>
                             <p>Sim, o módulo de ClickUp é projetado para todos os níveis. Ele começa com os fundamentos da ferramenta, sua interface e estrutura (Spaces, Folders, Lists, Tasks), e avança gradualmente, guiando você desde os primeiros passos até a utilização de recursos mais avançados para planejar, executar e monitorar seus projetos.</p>
-                        </details>
-                     </div>
+                          </details>
+                       </div>
 
-                     <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
-                     <div class="faq-group" data-aos="fade-up" data-aos-delay="350">
-                        <details class="faq-item">
+                       <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
+                       <div class="faq-group" data-aos="fade-up" data-aos-delay="350">
+                          <details class="faq-item">
                             <summary>Como o curso é entregue?</summary>
                             <p>O MBA Lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
-                        </details>
-                         <details class="faq-item">
+                          </details>
+                           <details class="faq-item">
                             <summary>Receberei um certificado ao concluir o curso?</summary>
                             <p>Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
-                        </details>
-                        <details class="faq-item">
+                           </details>
+                          <details class="faq-item">
                             <summary>Como posso tirar dúvidas durante o curso?</summary>
                             <p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o instrutor ou outros alunos da comunidade poderão respondê-las.</p>
-                        </details>
-                        <details class="faq-item">
+                          </details>
+                          <details class="faq-item">
                             <summary>O curso oferece acesso vitalício?</summary>
                              <p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o instrutor venha a adicionar.</p>
-                        </details>
-                        <details class="faq-item">
+                          </details>
+                          <details class="faq-item">
                              <summary>Como me inscrevo no curso pela Udemy?</summary>
                             <p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank" data-external-link="udemy">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
-                        </details>
-                        <details class="faq-item">
+                          </details>
+                          <details class="faq-item">
                             <summary>Posso assistir às aulas no meu celular ou tablet?</summary>
                             <p>Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
-                        </details>
-                     </div>
+                          </details>
+                       </div>
 
-                     <div class="faq-cta" data-aos="fade-up" data-aos-delay="400" style="text-align: center; margin-top: 50px;">
-                       <h3>Ainda tem dúvidas?</h3>
-                         <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
-                          <a href="#" class="btn" data-nav-target="page-index" data-scroll-target="enroll">Quero ser um(a) gestor(a) de alta performance!</a>
-                     </div>
-                 </div>
+                       <div class="faq-cta" data-aos="fade-up" data-aos-delay="400" style="text-align: center; margin-top: 50px;">
+                           <h3>Ainda tem dúvidas?</h3>
+                             <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
+                              <a href="#" class="btn" data-nav-target="page-index" data-scroll-target="enroll">Quero ser um(a) gestor(a) de alta performance!</a>
+                       </div>
+                    </div>
              </section>
-        </div>
-        <div id="page-ty" class="page">
-            <div class="container">
-                <div class="ty-sub-content" data-aos="fade-up">
-                     <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                     </div>
-                    <h1>Inscrição Confirmada!</h1>
-                    <p>Obrigado por se inscrever no MBA Lite! Recebemos seus dados com sucesso.</p>
-                    <p class="next-steps">
-                        Enviamos um e-mail de confirmação para você com os próximos passos. Por favor, verifique sua caixa de entrada (e também as pastas de spam ou promoções).
-                    </p>
-                    <a href="#" class="btn" data-nav-target="page-index">Explorar a Página Inicial</a>
-                </div>
-            </div>
-        </div>
-        <div id="page-sub" class="page">
-            <div class="container">
-                <div class="ty-sub-content" data-aos="fade-up">
-                     <div class="icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                     </div>
-                    <h1>E-mail Confirmado!</h1>
-                    <p>Seu endereço de e-mail foi verificado com sucesso. Obrigado por confirmar!</p>
-                    <p class="next-steps">
-                       Tudo pronto! Agora você pode acessar a plataforma do curso e iniciar sua jornada de aprendizado.
-                    </p>
-                     <a href="[LINK_PARA_PLATAFORMA_UDEMY_OU_LOGIN]" target="_blank" class="btn">Acessar o Curso</a>
-                </div>
-            </div>
-        </div>
-        </main>
+        </div> </main>
 
     <footer>
         <div class="container">
@@ -1242,9 +1136,8 @@
             const pageTitles = {
                 'page-index': 'MBA Lite - Gestão Estratégica para Líderes',
                 'page-content': 'MBA Lite - Sumário do Curso',
-                'page-faq': 'MBA Lite - Perguntas Frequentes (FAQ)',
-                'page-ty': 'MBA Lite - Inscrição Confirmada',
-                'page-sub': 'MBA Lite - E-mail Confirmado'
+                'page-faq': 'MBA Lite - Perguntas Frequentes (FAQ)'
+                // Removed 'page-ty' and 'page-sub'
             };
 
             const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 75;
@@ -1262,44 +1155,49 @@
                 body.className = ''; // Clear previous page classes from body
 
                 // --- 2. Show the target page ---
-                const targetPage = document.getElementById(targetPageId);
+                let targetPage = document.getElementById(targetPageId); // Use let to allow modification
                 if (!targetPage) {
                     console.error(`Target page with ID '${targetPageId}' not found! Defaulting to index.`);
                     targetPageId = 'page-index'; // Fallback to index
                     targetPage = document.getElementById(targetPageId);
                 }
 
-                targetPage.classList.add('active');
-                targetPage.style.display = 'block'; // Ensure visible
-                body.classList.add(targetPageId); // Add current page class to body
+                if (targetPage) { // Check again if fallback target exists
+                    targetPage.classList.add('active');
+                    targetPage.style.display = 'block'; // Ensure visible
+                    body.classList.add(targetPageId); // Add current page class to body
 
-                // --- 3. Update Title ---
-                document.title = pageTitles[targetPageId] || 'MBA Lite';
+                    // --- 3. Update Title ---
+                    document.title = pageTitles[targetPageId] || 'MBA Lite';
 
-                // --- 4. Handle Page-Specific UI Elements ---
-                handleUIChanges(targetPageId);
+                    // --- 4. Handle Page-Specific UI Elements ---
+                    handleUIChanges(targetPageId);
 
-                // --- 5. Handle Scrolling ---
-                handleScrolling(scrollTargetId);
+                    // --- 5. Handle Scrolling ---
+                    handleScrolling(scrollTargetId);
 
-                // --- 6. Update History (Optional, skip for TY/SUB?) ---
-                if (pushState && targetPageId !== 'page-ty' && targetPageId !== 'page-sub') {
-                    const stateUrl = scrollTargetId ? `#${scrollTargetId}` : `#${targetPageId}`;
-                   // history.pushState({ page: targetPageId, scroll: scrollTargetId }, document.title, stateUrl); // Consider implications
-                }
+                    // --- 6. Update History (Optional, commented out) ---
+                    if (pushState) { // Removed TY/SUB check, condition depends only on pushState flag now
+                        const stateUrl = scrollTargetId ? `#${scrollTargetId}` : `#${targetPageId}`;
+                       // history.pushState({ page: targetPageId, scroll: scrollTargetId }, document.title, stateUrl); // Consider implications
+                    }
 
-                // --- 7. Close Mobile Menu if Open ---
-                closeMobileMenu();
+                    // --- 7. Close Mobile Menu if Open ---
+                    closeMobileMenu();
 
-                // --- 8. Refresh AOS ---
-                AOS.refresh();
-                 // --- 9. Re-evaluate active content menu link (if on content page) ---
-                if (targetPageId === 'page-content') {
-                   setTimeout(updateActiveContentLink, 100); // Delay slightly after scroll
-                } else {
-                    // Remove active class from content links if not on content page
-                    moduleMenuLinks.forEach(link => link.classList.remove('active'));
-                }
+                    // --- 8. Refresh AOS ---
+                    AOS.refresh();
+
+                    // --- 9. Re-evaluate active content menu link (if on content page) ---
+                    if (targetPageId === 'page-content') {
+                        setTimeout(updateActiveContentLink, 100); // Delay slightly after scroll
+                    } else {
+                        // Remove active class from content links if not on content page
+                        moduleMenuLinks.forEach(link => link.classList.remove('active'));
+                    }
+                 } else {
+                    console.error(`Fallback page 'page-index' also not found! Cannot navigate.`);
+                 }
             }
 
             function handleUIChanges(currentPageId) {
@@ -1313,26 +1211,20 @@
                      if (isMobile) {
                          body.classList.remove('sidebar-visible');
                          body.classList.add('mobile-view'); // Explicitly add
-                         moduleMenuSticky.style.display = 'flex';
-                         moduleMenu.style.display = 'none';
+                         if (moduleMenuSticky) moduleMenuSticky.style.display = 'flex';
+                         if (moduleMenu) moduleMenu.style.display = 'none';
                      } else {
                          body.classList.add('sidebar-visible');
                          body.classList.remove('mobile-view');
-                         moduleMenuSticky.style.display = 'none';
-                         moduleMenu.style.display = 'block';
+                         if (moduleMenuSticky) moduleMenuSticky.style.display = 'none';
+                         if (moduleMenu) moduleMenu.style.display = 'block';
                      }
                  } else {
                      body.classList.remove('sidebar-visible', 'mobile-view');
-                     moduleMenuSticky.style.display = 'none';
-                     moduleMenu.style.display = 'none';
+                     if (moduleMenuSticky) moduleMenuSticky.style.display = 'none';
+                     if (moduleMenu) moduleMenu.style.display = 'none';
                  }
-
-                 // Body Background for TY/SUB
-                 if (currentPageId === 'page-ty' || currentPageId === 'page-sub') {
-                     body.classList.add('bg-light');
-                 } else {
-                     body.classList.remove('bg-light');
-                 }
+                // Removed the body background handling for TY/SUB pages
             }
 
             function handleScrolling(scrollTargetId) {
@@ -1355,9 +1247,9 @@
             }
 
              function closeMobileMenu() {
-                 if (mobileNavContainer.classList.contains('active')) {
+                 if (mobileNavContainer && mobileNavContainer.classList.contains('active')) {
                      mobileNavContainer.classList.remove('active');
-                     menuToggle.setAttribute('aria-expanded', 'false');
+                     if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
                      body.classList.remove('overflow-hidden');
                      body.style.paddingRight = '';
                  }
@@ -1377,12 +1269,12 @@
                         sessionStorage.setItem('scrollToEnroll', 'true');
                         showPage('page-index', null); // Go to index, scroll handled on load check
                     } else {
-                         // Check if current page is index and target is also index section
+                        // Check if current page is index and target is also index section
                         const currentPageId = document.querySelector('.page.active')?.id || 'page-index';
                         if (currentPageId === 'page-index' && targetPageId === 'page-index' && scrollTargetId) {
                              // Already on index, just scroll
                              handleScrolling(scrollTargetId);
-                              closeMobileMenu(); // Still close menu if open
+                             closeMobileMenu(); // Still close menu if open
                         } else {
                             // Navigate to the target page (and potentially scroll)
                             showPage(targetPageId, scrollTargetId);
@@ -1399,21 +1291,28 @@
             });
 
             // Mobile Menu Toggle
-             menuToggle.addEventListener('click', () => {
-                 const isActive = mobileNavContainer.classList.toggle('active');
-                 menuToggle.setAttribute('aria-expanded', isActive);
-                 body.classList.toggle('overflow-hidden', isActive);
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                   if (mobileNavContainer) {
+                        const isActive = mobileNavContainer.classList.toggle('active');
+                        menuToggle.setAttribute('aria-expanded', isActive);
+                        body.classList.toggle('overflow-hidden', isActive);
 
-                 if (isActive) {
-                     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-                     body.style.paddingRight = `${scrollbarWidth}px`;
-                 } else {
-                     body.style.paddingRight = '';
-                 }
-             });
+                        if (isActive) {
+                            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+                            body.style.paddingRight = `${scrollbarWidth}px`;
+                        } else {
+                            body.style.paddingRight = '';
+                        }
+                    }
+                });
+            }
+
 
             // --- Content Page Active Link Highlighting ---
-            const activeLinkOffset = headerHeight + (window.innerWidth <= mobileBreakpoint ? (parseFloat(getComputedStyle(moduleMenuSticky).height) || 55) + 30 : 30);
+            const stickyMenuHeight = moduleMenuSticky ? parseFloat(getComputedStyle(moduleMenuSticky).height) || 55 : 0;
+            const activeLinkOffset = headerHeight + (window.innerWidth <= mobileBreakpoint ? stickyMenuHeight + 30 : 30);
+
 
             function updateActiveContentLink() {
                  if (!body.classList.contains('page-content')) return; // Only run on content page
@@ -1427,8 +1326,8 @@
 
                      // Logic to find the section closest to the activeLinkOffset position
                      if (sectionTop < activeLinkOffset + 100 && distance < minDistance) { // Consider sections slightly below the offset too
-                        minDistance = distance;
-                        currentSectionId = section.getAttribute('id');
+                         minDistance = distance;
+                         currentSectionId = section.getAttribute('id');
                      }
                  });
 
@@ -1454,22 +1353,21 @@
              }
 
             window.addEventListener('scroll', updateActiveContentLink);
-             window.addEventListener('resize', () => {
-                 // Re-evaluate UI on resize (especially for mobile/desktop switch)
-                 const currentPageId = document.querySelector('.page.active')?.id || 'page-index';
-                 handleUIChanges(currentPageId);
-                 updateActiveContentLink(); // Re-check active link based on new layout
-             });
+            window.addEventListener('resize', () => {
+                // Re-evaluate UI on resize (especially for mobile/desktop switch)
+                const currentPageId = document.querySelector('.page.active')?.id || 'page-index';
+                handleUIChanges(currentPageId);
+                updateActiveContentLink(); // Re-check active link based on new layout
+            });
 
             // --- Initial Page Load Logic ---
             function handleInitialLoad() {
-                const params = new URLSearchParams(window.location.search);
-                const requestedPage = params.get('page');
+                // const params = new URLSearchParams(window.location.search); // Keep if needed for other params
+                // const requestedPage = params.get('page'); // Keep if needed for other params
                 const hash = window.location.hash.substring(1); // Remove #
 
-                if (requestedPage === 'ty' || requestedPage === 'sub') {
-                    showPage(`page-${requestedPage}`, null, false); // Show TY/SUB, don't push state
-                } else if (hash) {
+                // Removed the check for ?page=ty or ?page=sub
+                if (hash) {
                     // Check if hash corresponds to a known section ID on any page
                     const targetElement = document.getElementById(hash);
                     if (targetElement) {
@@ -1488,20 +1386,25 @@
 
                 // Check for scroll trigger from previous page (FAQ/Content -> Index#enroll)
                 if (sessionStorage.getItem('scrollToEnroll') === 'true') {
-                     if (document.getElementById('page-index').classList.contains('active')) {
-                        handleScrolling('enroll'); // Scroll if already on index
+                     const indexPage = document.getElementById('page-index');
+                     if (indexPage && indexPage.classList.contains('active')) {
+                         handleScrolling('enroll'); // Scroll if already on index
                      } else {
                          // If not on index yet, the showPage for index should trigger this
                          // Or potentially set a flag for showPage('page-index') to check
                          console.log("Scroll to enroll flag set, waiting for index page load.");
-                          // This case should ideally be handled by the initial showPage logic if it defaults to index
+                         // This case should ideally be handled by the initial showPage logic if it defaults to index
                      }
                      sessionStorage.removeItem('scrollToEnroll');
                  }
             }
 
             // --- Update Footer Year ---
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
 
             // --- Initialize AOS ---
             AOS.init({
@@ -1512,17 +1415,17 @@
             // --- Execute Initial Load ---
             handleInitialLoad();
 
-            // --- Back/Forward Navigation (Optional) ---
+            // --- Back/Forward Navigation (Optional, remains commented) ---
             // window.addEventListener('popstate', (event) => {
-            //     if (event.state && event.state.page) {
-            //         showPage(event.state.page, event.state.scroll, false); // Don't push state again
-            //     } else {
-            //         // Handle case where state is null (e.g., initial load or external navigation)
-            //         handleInitialLoad(); // Re-evaluate based on URL
-            //     }
+            //    if (event.state && event.state.page) {
+            //        showPage(event.state.page, event.state.scroll, false); // Don't push state again
+            //    } else {
+            //        // Handle case where state is null (e.g., initial load or external navigation)
+            //        handleInitialLoad(); // Re-evaluate based on URL
+            //    }
             // });
 
         });
     </script>
-    </body>
+</body>
 </html>
