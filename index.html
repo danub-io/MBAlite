@@ -48,9 +48,9 @@
             padding-top: var(--header-height); /* Usa a variável */
         }
 
-        /* Adicionado para o ajuste de scroll via CSS (Alternativa/Reforço) */
+        /* scroll-margin-top pode ser mantido para links internos da index.html */
         #hero, #modules, #benefits, #target-audience, #enroll {
-           scroll-margin-top: calc(var(--header-height) + 10px); /* Espaço extra acima do target */
+           scroll-margin-top: calc(var(--header-height) + 10px);
         }
 
 
@@ -296,10 +296,9 @@
         #hero {
             background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
             color: var(--white);
-            /* padding-top: 200px; Ajustado via JS ou scroll-margin */
+            padding-top: 80px; /* Reduzido - principal ajuste é scroll-margin */
             padding-bottom: 160px;
             text-align: center;
-            /* margin-top: -75px; Compensado pelo padding-top do body */
         }
 
         #hero h1 {
@@ -383,6 +382,8 @@
             background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
             color: var(--white); /* White text for contrast */
             padding: 80px 0;
+            /* IMPORTANTE: Mova o seu formulário para ficar logo ACIMA do footer */
+            /* ou coloque o footer logo após esta seção */
         }
         #enroll .container { /* Styles for the main container within #enroll */ }
 
@@ -445,7 +446,7 @@
 
 
         /* --- Footer --- */
-        footer {
+        footer { /* Removido o ID, não é mais necessário para scroll */
             background: var(--dark-gray);
             color: var(--medium-gray);
             text-align: center;
@@ -464,7 +465,7 @@
         @media (max-width: 992px) {
              h1 { font-size: 2.5rem; }
              h2 { font-size: 1.8rem; }
-             #hero { padding-top: 180px; /* Ajustado via JS/scroll-margin */ }
+             #hero { padding-top: 60px; /* Reduzido */ }
              #hero h1 { font-size: 2.8rem; }
              .modules-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;}
              .module-card { padding: 25px; }
@@ -487,7 +488,7 @@
 
              .menu-toggle { display: block; } /* Show mobile toggle */
 
-             #hero { padding-top: 150px; padding-bottom: 100px; /* Ajustado via JS/scroll-margin */}
+             #hero { padding-top: 50px; padding-bottom: 100px; /* Reduzido */}
              #hero h1 { font-size: 2.5rem; }
              #hero p { font-size: 1.05rem; }
 
@@ -509,7 +510,7 @@
              h1 { font-size: 2rem; }
              h2 { font-size: 1.5rem; }
 
-             #hero { padding-top: 120px; padding-bottom: 80px; }
+             #hero { padding-top: 40px; padding-bottom: 80px; /* Reduzido */ }
              #hero h1 { font-size: 2.1rem; }
               #hero p { font-size: 1rem; }
               .btn { padding: 10px 25px; font-size: 0.95rem; }
@@ -608,15 +609,14 @@
          </section>
     </main>
 
-    <footer>
-        <div class="container">
+    <footer> <div class="container">
             <p>&copy; <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
             <p>Uma iniciativa para capacitar os líderes do futuro.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-   <script>
+    <script>
         // --- Initialize AOS ---
         AOS.init({
             duration: 600, // Animation duration in ms
@@ -664,38 +664,24 @@
         // Refresh AOS calculations after potentially changing layout
         window.addEventListener('load', AOS.refresh);
 
-        // --- SCRIPT PARA AJUSTE DE SCROLL AO VIR DO FAQ.HTML ---
+        // --- SCRIPT PARA ROLAR ATÉ O FIM DA PÁGINA AO VIR DO FAQ.HTML ---
         document.addEventListener('DOMContentLoaded', () => {
             // Verifica se a flag foi setada ao vir do faq.html
-            if (sessionStorage.getItem('scrollToEnrollOffset') === 'true') {
-                const targetElement = document.getElementById('enroll'); // O elemento alvo (#enroll)
-                const header = document.querySelector('header'); // O cabeçalho fixo
+            if (sessionStorage.getItem('scrollToPageBottom') === 'true') {
 
-                if (targetElement && header) {
-                    const headerHeight = header.offsetHeight; // Altura real do cabeçalho
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; // Posição do topo do elemento relativa ao documento
+                 // Usa setTimeout para dar chance à página (e scripts como ConvertKit) de carregar
+                 setTimeout(() => {
+                     // Rola para o fim da página (altura total do corpo do documento)
+                     window.scrollTo({
+                         top: document.body.scrollHeight,
+                         behavior: 'smooth' // Mantém a rolagem suave
+                     });
+                     console.log("Scrolled to bottom triggered by flag."); // Log para depuração
 
-                    // <<< AJUSTE PARA ROLAR MAIS PARA BAIXO >>>
-                    // Define quantos pixels *abaixo* do cabeçalho o topo do elemento #enroll deve ficar.
-                    // Aumente este valor para rolar mais para baixo. Tente valores como 100, 150, 200 etc.
-                    const spaceBelowHeader = -5000; // Ajuste este valor (em pixels)
-                    const desiredScrollPosition = elementPosition - headerHeight - spaceBelowHeader;
+                 }, 200); // Delay de 200ms (ajuste se necessário, pode precisar de mais tempo)
 
-                    // Garante que a posição calculada não seja negativa
-                    const finalScrollPosition = Math.max(0, desiredScrollPosition);
-
-                    // Usa setTimeout para garantir que o layout esteja estável
-                    setTimeout(() => {
-                        // Rola suavemente para a posição calculada
-                        window.scrollTo({
-                            top: finalScrollPosition,
-                            behavior: 'smooth'
-                        });
-                    }, 100); // Pequeno delay pode ajudar
-
-                }
                 // Limpa a flag para não executar em recarregamentos normais da página index
-                sessionStorage.removeItem('scrollToEnrollOffset');
+                sessionStorage.removeItem('scrollToPageBottom');
             }
         });
 
