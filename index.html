@@ -108,16 +108,16 @@
         }
 
         .btn-secondary {
-           background: transparent;
-           color: var(--primary-color);
-           border: 2px solid var(--primary-color);
-           padding: 10px 33px;
-           transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 33px;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, transform 0.2s ease;
         }
          .btn-secondary:hover {
-           background: var(--primary-color);
-           color: var(--white);
-           transform: translateY(-2px);
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
          }
 
         section {
@@ -149,6 +149,16 @@
             align-items: center;
             height: 100%; /* Ocupa a altura do header */
         }
+
+        /* --- MODIFICAÇÃO: Estilo para o link do logo --- */
+        header #logo a {
+            text-decoration: none;
+            color: inherit; /* Herda a cor do H1 */
+        }
+         header #logo a:hover {
+             color: inherit; /* Mantém a cor no hover */
+         }
+        /* --- FIM DA MODIFICAÇÃO --- */
 
         header #logo h1 {
             margin: 0;
@@ -187,29 +197,29 @@
         }
 
         header nav#main-nav ul li a::after {
-           content: '';
-           position: absolute;
-           width: 0;
-           height: 2px;
-           bottom: 0;
-           left: 0;
-           background-color: var(--secondary-color);
-           transition: width var(--transition-speed) ease;
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width var(--transition-speed) ease;
         }
 
         header nav#main-nav ul li a:hover::after {
-           width: 100%;
+            width: 100%;
         }
          header nav#main-nav ul li a:hover {
-           color: var(--primary-color); /* Mantém a cor primária no hover do texto */
-           border-bottom: none; /* Remove o sublinhado padrão */
+            color: var(--primary-color); /* Mantém a cor primária no hover do texto */
+            border-bottom: none; /* Remove o sublinhado padrão */
          }
          /* Ajuste específico para link FAQ não ter underline no hover */
          header nav#main-nav ul li a[href="faq.html"]:hover::after {
-           width: 0; /* Não mostra underline no hover para FAQ */
+            width: 0; /* Não mostra underline no hover para FAQ */
          }
          header nav#main-nav ul li a[href="faq.html"]:hover {
-           color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
+            color: var(--secondary-color); /* Muda cor do texto para secundária no hover */
          }
 
 
@@ -295,13 +305,25 @@
          }
 
         /* --- Hero Section --- */
+        /* --- MODIFICAÇÃO: Espaçamento e Centralização Vertical --- */
         #hero {
             background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
             color: var(--white);
-            padding-top: 80px; /* Reduzido - principal ajuste é scroll-margin */
-            padding-bottom: 160px;
             text-align: center;
+            display: flex; /* Habilita Flexbox */
+            align-items: center; /* Centraliza o .container verticalmente */
+            justify-content: center; /* Centraliza o .container horizontalmente (bom para flex) */
+            min-height: calc(100vh - var(--header-height)); /* Altura mínima = altura da janela - header */
+            padding: 60px 0; /* Padding geral top/bottom */
         }
+
+        /* Ajustes no container do hero (já estava ok, mas confirmando) */
+        #hero .container {
+             max-width: 1140px; /* Mantém o max-width */
+             margin: 0 auto; /* Mantém a centralização horizontal */
+             padding: 0 20px; /* Mantém o padding horizontal */
+        }
+        /* --- FIM DA MODIFICAÇÃO --- */
 
         #hero h1 {
             font-size: 3.2rem;
@@ -383,7 +405,7 @@
         #enroll {
             background: linear-gradient(45deg, var(--primary-color), #1a5f9e);
             color: var(--white); /* White text for contrast */
-            padding: 80px 20px;
+            padding: 80px 0;
         }
         #enroll .container { /* Styles for the main container within #enroll */ }
 
@@ -394,9 +416,9 @@
             width: 100%;
         }
 
-        /* ConvertKit Form Styling Overrides */
+        /* --- MODIFICAÇÃO: Aumentar largura do formulário --- */
         #enroll .ck-form-container {
-            max-width: 500px !important;
+            max-width: 600px !important; /* Aumentado de 500px */
             width: 100%;
             margin-top: 0;
             margin-bottom: 0;
@@ -406,6 +428,7 @@
             box-shadow: none !important;
             text-align: left !important;
         }
+        /* --- FIM DA MODIFICAÇÃO --- */
 
         /* Ocultar Header/Content Padrão do CK */
         #enroll .ck-form-container .ck-header,
@@ -465,7 +488,7 @@
         @media (max-width: 992px) {
              h1 { font-size: 2.5rem; }
              h2 { font-size: 1.8rem; }
-             #hero { padding-top: 60px; /* Reduzido */ }
+             /* #hero { padding-top: 60px; } */ /* Removido - padding controlado pelo flex agora */
              #hero h1 { font-size: 2.8rem; }
              .modules-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;}
              .module-card { padding: 25px; }
@@ -475,7 +498,7 @@
 
         @media (max-width: 768px) {
              :root {
-                 --header-height: 69px; /* Altura menor para mobile */
+                  --header-height: 69px; /* Altura menor para mobile */
              }
              html { font-size: 15px; }
              h1 { font-size: 2.2rem; }
@@ -488,7 +511,11 @@
 
              .menu-toggle { display: block; } /* Show mobile toggle */
 
-             #hero { padding-top: 50px; padding-bottom: 100px; /* Reduzido */}
+             /* Ajuste no hero para mobile */
+             #hero {
+                min-height: calc(80vh - var(--header-height)); /* Altura menor no mobile se necessário */
+                padding: 40px 0;
+             }
              #hero h1 { font-size: 2.5rem; }
              #hero p { font-size: 1.05rem; }
 
@@ -510,7 +537,11 @@
              h1 { font-size: 2rem; }
              h2 { font-size: 1.5rem; }
 
-             #hero { padding-top: 40px; padding-bottom: 80px; /* Reduzido */ }
+             /* Ajuste no hero para mobile pequeno */
+             #hero {
+                min-height: calc(70vh - var(--header-height)); /* Ainda menor se precisar */
+                padding: 30px 0;
+             }
              #hero h1 { font-size: 2.1rem; }
               #hero p { font-size: 1rem; }
               .btn { padding: 10px 25px; font-size: 0.95rem; }
@@ -524,8 +555,8 @@
     <header>
         <div class="container">
             <div id="logo">
-                <h1>MBA Lite</h1>
-            </div>
+                <a href="index.html"><h1>MBA Lite</h1></a>
+                </div>
             <nav id="main-nav">
                 <ul>
                     <li><a href="#hero">Início</a></li>
@@ -554,8 +585,7 @@
 
     <main>
         <section id="hero" data-aos="fade-in" data-aos-duration="1000">
-            <div class="container">
-                <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
+            <div class="container"> <h1 data-aos="fade-up" data-aos-delay="200">Domine a Gestão Estratégica com o MBA Lite</h1>
                 <p data-aos="fade-up" data-aos-delay="400">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis no cenário de negócios atual.</p>
                 <a href="#enroll" class="btn" data-aos="fade-up" data-aos-delay="600">Inscreva-se Agora</a>
             </div>
@@ -591,11 +621,11 @@
             <div class="container" data-aos="fade-up" data-aos-once="true">
                 <h2>Ideal Para Profissionais Ambiciosos</h2>
                  <ul>
-                     <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
-                     <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
-                     <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
-                     <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
-                     <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                      <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
+                      <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
+                      <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
+                      <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
+                      <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
                  </ul>
             </div>
         </section>
@@ -603,7 +633,7 @@
         <section id="enroll">
              <div class="container">
                  <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true" data-aos-duration="700">
-                     <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                      <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
                  </div>
              </div>
          </section>
@@ -635,10 +665,10 @@
 
             // Adjust body padding when mobile menu opens/closes
             if (isActive) {
-              const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-              body.style.paddingRight = `${scrollbarWidth}px`;
+               const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+               body.style.paddingRight = `${scrollbarWidth}px`;
             } else {
-              body.style.paddingRight = '';
+               body.style.paddingRight = '';
             }
         });
 
