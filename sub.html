@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,48 +7,61 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* --- Font Imports --- */
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+        /* --- === DARK THEME === --- */
+        :root {
+            /* Palette & Gradient Steps */
+            --color-step-1: #181B1D;         /* Cinza Superfície ("Mais Claro") - Topo Gradiente Body */
+            --color-step-2: #121416;         /* Cinza Base Escuro */
+            --color-step-3: #0D0F10;         /* Cinza Muito Escuro */
+            --header-footer-bg: #111315;     /* Cor Sólida Header */
+            --body-gradient-end: #050607;    /* Cor escura para o fim do gradiente e Footer */
+
+            --text-white: #FFFFFF;
+            --text-light-gray: #C5CBD0;
+            --accent-cyan: #00E0FF;
+            --accent-cyan-darker: #00b8d4;
+            --accent-cyan-darkest: #00a3b8;
+            --border-dark-gray: #33373B;
+            --text-on-accent: #101214;
+
+            /* Fonts */
+            --font-heading: 'Raleway', sans-serif;
+            --font-body: 'Raleway', sans-serif;
+
+            /* Layout & Effects */
+            --border-radius-medium: 12px;
+            --border-radius-large: 50px;
+            --transition-speed: 0.3s;
+            --header-height: 75px;
+            --shadow-default: 0 6px 18px rgba(0, 0, 0, 0.45);
+             /* Gradiente Padrão para Elementos Internos */
+            --gradient-standard-surface: linear-gradient(160deg, #1D2024, var(--color-step-1));
+        }
 
         /* --- Reset Básico & Configurações Globais --- */
-        :root {
-            --primary-color: #0d2c4f; /* Azul Marinho Profundo */
-            --secondary-color: #c5a47e; /* Ouro/Tan Sofisticado */
-            --light-bg: #f8f9fa; /* Cinza muito claro para fundos */
-            --medium-gray: #e9ecef; /* Cinza claro para bordas/elementos */
-            --dark-gray: #343a40; /* Cinza escuro para texto/footer */
-            --text-color: #495057; /* Cinza suave para texto */
-            --white: #ffffff;
-            --font-heading: 'Merriweather', serif;
-            --font-body: 'Poppins', sans-serif;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --border-radius: 6px;
-            --transition-speed: 0.3s;
-            --header-height: 75px; /* Altura do header */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px; /* Base font size */
+            font-size: 16px;
+            background-color: var(--body-gradient-end);
         }
 
         body {
             font-family: var(--font-body);
             line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--light-bg); /* Fundo claro */
+            color: var(--text-light-gray);
+            background: linear-gradient(to bottom, var(--color-step-1), var(--body-gradient-end));
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
-            padding-top: var(--header-height); /* Espaço para header fixo */
-            display: flex; /* Para centralizar verticalmente com flexbox */
-            flex-direction: column; /* Para empilhar header, main, footer */
-            min-height: 100vh; /* Garante que o body ocupe pelo menos a altura da tela */
+            padding-top: var(--header-height);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            letter-spacing: 0.4px;
         }
 
         /* --- Utilitários --- */
@@ -61,111 +73,98 @@
 
         h1, h2, h3 {
             font-family: var(--font-heading);
-            color: var(--primary-color);
+            color: var(--text-white);
             margin-bottom: 1.2rem;
             font-weight: 700;
         }
-        h1 { font-size: 2.5rem; line-height: 1.2; text-align: center; } /* Ajustado tamanho */
-        h2 { font-size: 1.8rem; line-height: 1.3; text-align: center; margin-bottom: 40px; }
-        h3 { font-size: 1.15rem; font-weight: 600; font-family: var(--font-body); color: var(--primary-color); margin-bottom: 0.8rem;}
-
+        h1 { font-size: 2.5rem; line-height: 1.2; text-align: center; }
         p {
             margin-bottom: 1.2rem;
-            color: var(--text-color);
+            color: var(--text-light-gray);
             text-align: center;
             font-size: 1.05rem;
         }
-        p:last-of-type { margin-bottom: 0; } /* Remove margem do último parágrafo no container */
-
+         p:last-of-type { margin-bottom: 0; }
 
         a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--accent-cyan); /* Link color */
             transition: color var(--transition-speed) ease;
         }
          a:hover {
-            color: var(--secondary-color);
-         }
+            color: var(--accent-cyan-darker);
+        }
 
         .btn {
             display: inline-block;
-            background: var(--secondary-color);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-cyan-darker));
+            color: var(--text-on-accent);
             padding: 12px 35px;
             border: none;
-            border-radius: var(--border-radius);
+            border-radius: var(--border-radius-large);
             cursor: pointer;
-            transition: background-color var(--transition-speed) ease, transform 0.2s ease;
-            font-weight: 600;
+            transition: all var(--transition-speed) ease;
+            font-weight: 700;
             font-size: 1rem;
             text-align: center;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 12px rgba(0, 224, 255, 0.28);
         }
-
         .btn:hover {
-            background-color: #b8956f;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--accent-cyan-darker), var(--accent-cyan-darkest));
+            transform: translateY(-3px);
+            box-shadow: 0 7px 18px rgba(0, 224, 255, 0.35);
         }
 
-        /* --- Header Simplificado (Apenas Logo) --- */
+        /* --- Header Simplificado --- */
         header {
-            background: var(--white);
+            background: var(--header-footer-bg);
             padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid var(--medium-gray);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
             height: var(--header-height);
         }
-
         header .container {
             display: flex;
-            justify-content: flex-start; /* Alinha o logo à esquerda */
+            justify-content: flex-start; /* Alinha logo à esquerda */
             align-items: center;
             height: 100%;
         }
-
+        header #logo a { text-decoration: none; color: inherit;}
+        header #logo a:hover { color: inherit; }
         header #logo h1 {
             margin: 0;
             font-size: 1.6rem;
-            color: var(--primary-color);
+            color: var(--text-white); /* White logo text */
             font-family: var(--font-heading);
+            font-weight: 700;
         }
-        /* Adicionado link no logo do header */
-        header #logo a {
-             text-decoration: none;
-             color: inherit;
-        }
-         header #logo a:hover {
-              color: inherit;
-         }
-
 
          /* --- Main Content Area --- */
          main {
-            flex-grow: 1; /* Faz o main ocupar o espaço restante */
-            display: flex; /* Habilita flexbox para centralizar o conteúdo */
-            align-items: center; /* Centraliza verticalmente */
-            justify-content: center; /* Centraliza horizontalmente */
-            padding: 60px 0; /* Espaçamento interno */
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
          }
-
-         .confirmation-content { /* Renomeado de thank-you-content */
-            background-color: var(--white);
+         .confirmation-content {
+            background: var(--gradient-standard-surface); /* Dark card background */
             padding: 50px 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius-medium);
+            box-shadow: var(--shadow-default);
             max-width: 650px;
             width: 100%;
             text-align: center;
+            border: 1px solid var(--border-dark-gray); /* Subtle border */
          }
-
          .confirmation-content .icon {
              font-size: 3.5rem;
-             color: var(--secondary-color); /* Pode manter ou mudar para verde, por exemplo: #28a745; */
+             color: var(--accent-cyan); /* Accent color for icon */
              margin-bottom: 25px;
              line-height: 1;
          }
@@ -173,38 +172,39 @@
              width: 60px;
              height: 60px;
           }
-
-         .confirmation-content p {
-            font-size: 1.1rem; /* Texto um pouco maior */
-            margin-bottom: 1.5rem;
+         .confirmation-content h1 {
+             color: var(--text-white); /* White heading */
          }
-         .confirmation-content p.next-steps { /* Reutilizado para texto secundário */
+         .confirmation-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light-gray); /* Light gray paragraph text */
+         }
+         .confirmation-content p.next-steps {
             font-size: 0.95rem;
-            color: var(--text-color);
+            color: var(--text-light-gray);
             margin-top: 20px;
             margin-bottom: 30px;
+            opacity: 0.8;
          }
-
          .confirmation-content .btn {
             margin-top: 15px;
          }
 
-
         /* --- Footer --- */
         footer {
-            background: var(--dark-gray);
-            color: var(--medium-gray);
+            background: var(--body-gradient-end); /* Darkest background */
+            color: var(--border-dark-gray); /* Dark gray text */
             text-align: center;
             padding: 30px 0;
-            border-top: 3px solid var(--primary-color);
-            flex-shrink: 0; /* Impede que o footer encolha */
+            border-top: none; /* No top border needed */
+            flex-shrink: 0;
         }
-
         footer p {
             margin: 5px 0;
-            color: var(--medium-gray);
+            color: var(--border-dark-gray);
             font-size: 0.9rem;
-            text-align: center; /* Garante centralização no footer */
+            text-align: center;
         }
 
          /* --- Responsive Design --- */
@@ -219,13 +219,12 @@
              .confirmation-content .icon svg { width: 50px; height: 50px;}
              .confirmation-content p { font-size: 1rem; }
         }
-
         @media (max-width: 480px) {
              html { font-size: 15px; }
              h1 { font-size: 1.8rem; }
-              .confirmation-content { padding: 30px 20px; }
+             .confirmation-content { padding: 30px 20px; }
+             .btn { padding: 12px 30px; font-size: 0.95rem;}
         }
-
     </style>
 </head>
 <body>
@@ -233,7 +232,7 @@
     <header>
         <div class="container">
             <div id="logo">
-                 <a href="index.html"><h1>MBA Lite</h1></a>
+                <a href="index.html"><h1>MBA Lite</h1></a>
             </div>
         </div>
     </header>
@@ -271,7 +270,6 @@
 
         // --- Update Footer Year ---
         document.getElementById('current-year').textContent = new Date().getFullYear();
-
     </script>
 
 </body>
