@@ -16,7 +16,7 @@
             --color-step-2: #121416;         /* Cinza Base Escuro */
             --color-step-3: #0D0F10;         /* Cinza Muito Escuro */
             --header-footer-bg: #111315;     /* Cor Sólida Header */
-            --body-gradient-end: #050607;    /* Cor escura para o fim do gradiente e Footer */
+            --body-gradient-end: #050607;    /* Cor escura para o fim do gradiente */
 
             --text-white: #FFFFFF;
             --text-light-gray: #C5CBD0;
@@ -191,20 +191,23 @@
             margin-top: 15px;
          }
 
-        /* --- Footer --- */
+        /* --- Footer - AJUSTADO --- */
         footer {
-            background: var(--body-gradient-end); /* Darkest background */
-            color: var(--border-dark-gray); /* Dark gray text */
+            background: transparent; /* MUDANÇA: Fundo transparente */
+            color: var(--text-light-gray); /* Cor base do texto clara */
             text-align: center;
             padding: 30px 0;
-            border-top: none; /* No top border needed */
+            border-top: none;
             flex-shrink: 0;
+            position: relative; /* Para garantir que o conteúdo fique acima do fundo */
+            z-index: 1;
         }
         footer p {
             margin: 5px 0;
-            color: var(--border-dark-gray);
+            color: var(--text-light-gray); /* Cor do texto clara */
             font-size: 0.9rem;
             text-align: center;
+            opacity: 0.8; /* Leve opacidade para diferenciar */
         }
 
          /* --- Responsive Design --- */
@@ -232,7 +235,7 @@
     <header>
         <div class="container">
             <div id="logo">
-                <a href="index.html"><h1>MBA Lite</h1></a>
+                 <a href="index.html"><h1>MBA Lite</h1></a>
             </div>
         </div>
     </header>
