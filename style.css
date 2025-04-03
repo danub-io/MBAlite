@@ -653,7 +653,7 @@ header nav#main-nav .nav-button {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 60px; /* <<< ALTERADO de 50px para 60px */
+    margin-bottom: 50px; /* <<< REVERTIDO para 50px (valor original) */
     color: var(--text-body);
     font-size: 1.1rem;
     line-height: 1.7;
@@ -663,6 +663,7 @@ header nav#main-nav .nav-button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 35px; /* Espaçamento entre as capas */
+    margin-top: 40px;    /* <<< ADICIONADO para criar espaço acima da grade */
     margin-bottom: 50px; /* Espaço entre grid e botão CTA */
     justify-items: center; /* Centraliza itens dentro das células do grid */
 }
@@ -1159,7 +1160,7 @@ footer p {
         padding-right: 25px;
     }
     #page-content #content-area .container {
-        padding: 0 5px; /* Ajuste para container interno */
+        padding: 0 25px; /* Ajuste para container interno */
     }
 }
 
@@ -1319,8 +1320,16 @@ footer p {
     }
 
     .bonus-section { /* Herda o padding de 60px 0 */ }
-    .bonus-subtitle { font-size: 1rem; margin-bottom: 40px; }
-    .ebooks-grid { gap: 30px; }
+    .bonus-subtitle { font-size: 1rem; margin-bottom: 40px; } /* <<< Ajuste responsivo do margin-bottom */
+    .ebooks-grid {
+        gap: 30px;
+        margin-top: 30px; /* <<< Reduzido margin-top da grade para mobile */
+    }
+
+    /* <<< ADICIONADO: Reduz tamanho da imagem do ebook */
+    .ebook-item img {
+        max-width: 85%; /* Reduzido do 100% padrão */
+    }
 
     #page-index #enroll .ck-form-container {
          max-width: 90% !important; /* Limita largura no mobile */
@@ -1393,11 +1402,18 @@ footer p {
      #page-index #benefits .benefit-item { gap: 15px; }
 
      .bonus-section { /* Herda o padding de 50px 0 */ }
-     .bonus-subtitle { font-size: 0.95rem; margin-bottom: 35px; }
+     .bonus-subtitle { font-size: 0.95rem; margin-bottom: 30px; } /* <<< Ajuste responsivo do margin-bottom */
      .ebooks-grid {
          grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
          gap: 25px;
+         margin-top: 25px; /* <<< Reduzido margin-top da grade para mobile menor */
      }
+
+     /* <<< ADICIONADO: Reduz tamanho da imagem do ebook (mantém 85%) */
+     .ebook-item img {
+        max-width: 85%; /* Reduzido do 100% padrão */
+    }
+
 
     #page-content #content-area {
         padding: 35px 0;
