@@ -8,13 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://mbalite.kit.com"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://mbalite.kit.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="icon" type="image/png" href="favicon.png"> </head>
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
 <body class="page-index">
 
     <header>
@@ -55,7 +57,8 @@
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-riscos" class="content-nav-link">Gestão de Riscos</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-qualidade" class="content-nav-link">Gestão da Qualidade</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos" class="content-nav-link">Gestão de Projetos</a></li>
-            <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup" class="content-nav-link">Gestão de Projetos com Clickup</a></li>
+            {/* --- ALTERADO --- */}
+            <li><a href="#" data-nav-target="page-content" data-scroll-target="ferramentas-gestao-projetos" class="content-nav-link">Ferramentas de Gestão de Projetos</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia" class="content-nav-link">Gestão de Projetos com IA</a></li>
         </ul>
     </aside>
@@ -66,7 +69,8 @@
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-riscos" class="content-nav-link">Gestão de Riscos</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-qualidade" class="content-nav-link">Gestão da Qualidade</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos" class="content-nav-link">Gestão de Projetos</a></li>
-            <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup" class="content-nav-link">G. Projetos Clickup</a></li>
+            {/* --- ALTERADO --- */}
+            <li><a href="#" data-nav-target="page-content" data-scroll-target="ferramentas-gestao-projetos" class="content-nav-link">Ferramentas GP</a></li>
             <li><a href="#" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia" class="content-nav-link">G. Projetos IA</a></li>
         </ul>
     </nav>
@@ -86,6 +90,7 @@
                 <div class="container">
                     <h2 data-aos="fade-up" data-aos-once="true">Currículo Essencial para Líderes</h2>
                     <div class="modules-grid">
+                        {/* Módulos Anteriores (Pessoas, Riscos, Qualidade, Projetos) - Sem alterações */}
                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="100" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-pessoas">
                             <div class="module-card">
                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div>
@@ -102,7 +107,7 @@
                                  </div>
                              </div>
                         </a>
-                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-qualidade">
+                        <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-qualidade">
                              <div class="module-card">
                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> </div>
                                 <div class="module-content">
@@ -118,21 +123,27 @@
                                 </div>
                             </div>
                          </a>
-                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="150" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-clickup">
+
+                         {/* --- Módulo Ferramentas de Gestão de Projetos - ALTERADO --- */}
+                         <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="150" data-aos-once="true" data-nav-target="page-content" data-scroll-target="ferramentas-gestao-projetos">
                              <div class="module-card">
                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> </div>
                                 <div class="module-content">
-                                    <h3>Gestão de Projetos com Clickup</h3> <p>Maximize a produtividade da sua equipe dominando o ClickUp para planejamento, execução e monitoramento de projetos.</p>
+                                    <h3>Ferramentas de Gestão de Projetos</h3>
+                                    <p>Domine ferramentas essenciais como ClickUp, Jira, Trello e Monday para planejar, executar e monitorar projetos com eficiência, maximizando a produtividade da sua equipe.</p>
                                 </div>
                             </div>
                          </a>
+
+                         {/* --- Módulo Gestão de Projetos com IA - ALTERADO --- */}
                          <a href="#" class="module-link" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" data-nav-target="page-content" data-scroll-target="gestao-projetos-ia">
                              <div class="module-card">
                                 <div class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg> </div>
                                 <div class="module-content">
-                                    <h3>Gestão de Projetos com IA</h3> <p>Explore o potencial do Google Gemini e outras IAs para otimizar a análise de dados, ideação e tomada de decisão em gestão.</p>
+                                    <h3>Gestão de Projetos com IA</h3>
+                                    <p>Explore o potencial de IAs Generativas como ChatGPT, Gemini e Grok para otimizar a análise de dados, ideação, planejamento e tomada de decisão em seus projetos.</p>
                                 </div>
-                            </div>
+                             </div>
                          </a>
                      </div>
                  </div>
@@ -142,34 +153,34 @@
                  <div class="container">
                      <h2 data-aos="fade-up" data-aos-once="true">Invista no Seu Potencial de Liderança</h2>
                      <div class="benefits-grid">
-                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> </div> <div> <h3>Desenvolvimento Estratégico</h3> <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p> </div> </div>
-                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="150" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> </div> <div> <h3>Aprendizado Prático e Aplicável</h3> <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p> </div> </div>
-                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> </div> <div> <h3>Flexibilidade e Conveniência</h3> <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p> </div> </div>
-                          <div class="benefit-item" data-aos="fade-up" data-aos-delay="250" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg> </div> <div> <h3>Networking Estratégico</h3> <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p> </div> </div>
+                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="100" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> </div> <div> <h3>Desenvolvimento Estratégico</h3> <p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas e gerar impacto real.</p> </div> </div>
+                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="150" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> </div> <div> <h3>Aprendizado Prático e Aplicável</h3> <p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para o seu contexto profissional.</p> </div> </div>
+                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="200" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> </div> <div> <h3>Flexibilidade e Conveniência</h3> <p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina profissional e pessoal.</p> </div> </div>
+                         <div class="benefit-item" data-aos="fade-up" data-aos-delay="250" data-aos-once="true"> <div class="benefit-icon"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M17 11a4 4 0 0 1 0-7.75"></path></svg> </div> <div> <h3>Networking Estratégico</h3> <p>Conecte-se com outros profissionais e líderes, expandindo sua rede de contatos e trocando experiências valiosas.</p> </div> </div>
                      </div>
                  </div>
              </section>
 
-              <section id="target-audience" class="scroll-target">
-                  <div class="container" data-aos="fade-up" data-aos-once="true">
-                      <h2>Ideal Para Profissionais Ambiciosos</h2>
-                      <ul>
-                          <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
-                          <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
-                          <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
-                          <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
-                          <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
-                      </ul>
-                 </div>
-             </section>
+             <section id="target-audience" class="scroll-target">
+                 <div class="container" data-aos="fade-up" data-aos-once="true">
+                     <h2>Ideal Para Profissionais Ambiciosos</h2>
+                     <ul>
+                         <li>Líderes e gestores que buscam aprimorar suas competências estratégicas e operacionais.</li>
+                         <li>Profissionais em transição de carreira para posições de maior responsabilidade gerencial.</li>
+                         <li>Empreendedores e donos de negócios que necessitam de uma base sólida em gestão.</li>
+                         <li>Analistas e especialistas que desejam uma compreensão holística do ambiente de negócios.</li>
+                         <li>Consultores que buscam atualizar e ampliar seus conhecimentos em gestão moderna.</li>
+                     </ul>
+                </div>
+            </section>
 
-             <section id="enroll" class="scroll-target">
-                 <div class="container">
-                     <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true">
-                         <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
-                     </div>
-                 </div>
-             </section>
+            <section id="enroll" class="scroll-target">
+                <div class="container">
+                    <div class="form-wrapper" data-aos="zoom-in" data-aos-once="true">
+                        <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                      </div>
+                </div>
+            </section>
         </div>
 
         <div id="page-content" class="page">
@@ -178,6 +189,7 @@
                     <div class="container">
                         <h1>Sumário do Curso</h1>
 
+                        {/* --- Seções Gestão Pessoas, Riscos, Qualidade, Projetos - Sem alterações --- */}
                         <section id="gestao-pessoas" class="scroll-target" data-aos="fade-up">
                                  <h2>Gestão de Pessoas</h2>
                                      <p>Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
@@ -198,15 +210,17 @@
                                     <p>Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
                         </section>
 
-                        <section id="gestao-projetos-clickup" class="scroll-target" data-aos="fade-up">
-                                <h2>Gestão de Projetos com Clickup</h2>
-                                    <p>Aqui, você aprenderá a utilizar o ClickUp como uma ferramenta centralizadora para gerenciar seus projetos de forma prática e eficiente. Começaremos com os fundamentos da ferramenta, entendendo sua interface e hierarquia (Spaces, Folders, Lists, Tasks). Em seguida, focaremos no planejamento: como definir escopo e objetivos SMART, criar a Estrutura Analítica do Projeto (EAP), detalhar tarefas e subtarefas, construir cronogramas com marcos e dependências (usando a visualização Gantt) e gerenciar recursos com a Workload View. Na fase de execução e monitoramento, você aprenderá a usar o ClickUp para comunicação da equipe (comentários, chat, integrações), gerenciamento de status e prioridades, utilização de visualizações avançadas (Board, Calendário, Tabela), criação de automações e monitoramento do progresso através de Dashboards e KPIs. Por fim, abordaremos o controle e encerramento, incluindo gerenciamento de riscos/problemas, controle de mudanças, geração de relatórios e o uso de recursos avançados como Templates, Custom Fields, Forms e Goals.</p>
-                             </section>
+                        {/* --- Seção Ferramentas de Gestão de Projetos - ALTERADA --- */}
+                        <section id="ferramentas-gestao-projetos" class="scroll-target" data-aos="fade-up">
+                                 <h2>Ferramentas de Gestão de Projetos</h2>
+                                    <p>Aprenda a dominar as funcionalidades essenciais das principais ferramentas de gestão de projetos do mercado. Exploraremos como plataformas como ClickUp, Jira, Trello, Monday e outras podem ser utilizadas para definir escopo, criar cronogramas (Gantt), gerenciar tarefas (Kanban Boards), alocar recursos, facilitar a comunicação e monitorar o progresso através de dashboards, aplicando as melhores práticas para otimizar o fluxo de trabalho da sua equipe.</p>
+                        </section>
 
-                              <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up">
-                                     <h2>Gestão de Projetos com IA</h2>
-                                     <p>Neste módulo final, você descobrirá como aplicar a Inteligência Artificial Generativa, especificamente o Google Gemini, para potencializar sua gestão de projetos. Aprenderá os fundamentos do Gemini, seus diferenciais e como usá-lo para brainstorming e ideação criativa, inclusive com técnicas de Prompt Engineering. Veremos como a IA pode auxiliar no planejamento, ajudando a realizar Análise SWOT, definir escopo e objetivos SMART, estruturar a EAP e analisar viabilidade e riscos. Na execução, você aprenderá a usar o Gemini para gerar rapidamente documentação (relatórios, atas, apresentações), criar e gerenciar listas de tarefas e cronogramas, e aprimorar a comunicação da equipe (inclusive com tradução). O módulo também aborda a análise de dados do projeto com IA para identificar tendências, simular cenários, obter recomendações para tomada de decisão e gerar relatórios customizados. Por fim, discutiremos as melhores práticas éticas e de eficiência no uso da IA, recursos avançados e as tendências futuras da IA na gestão de projetos, refletindo sobre o novo papel do gerente de projetos.</p>
-                             </section>
+                        {/* --- Seção Gestão de Projetos com IA - ALTERADA --- */}
+                         <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up">
+                                <h2>Gestão de Projetos com IA</h2>
+                                     <p>Descubra como a Inteligência Artificial Generativa está revolucionando a gestão de projetos. Aprenda a usar ferramentas como ChatGPT, Google Gemini, Grok e outras para brainstorming, análise SWOT, definição de escopo e objetivos SMART, geração de documentação (atas, relatórios), análise de dados de projetos, identificação de riscos, simulação de cenários e apoio à tomada de decisão. Discutiremos também as melhores práticas de Prompt Engineering, ética e o futuro da IA na área.</p>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -221,19 +235,21 @@
                     <div class="faq-group" data-aos="fade-up" data-aos-delay="150">
                         <details class="faq-item">
                             <summary>O que é o curso MBA Lite?</summary>
-                            <p>O MBA Lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de tecnologias como ClickUp e Inteligência Artificial (Google Gemini), para capacitar líderes e profissionais a impulsionar resultados.</p>
+                            {/* --- ALTERADO --- */}
+                            <p>O MBA Lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
                         </details>
                         <details class="faq-item">
                             <summary>Para quem este curso é recomendado?</summary>
                             <p>O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
-                        </details>
+                         </details>
                         <details class="faq-item">
                             <summary>Qual a duração total estimada do curso?</summary>
                             <p>A duração total do curso é de aproximadamente [X] horas de conteúdo em vídeo (informação a ser preenchida com a duração real). Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
                         </details>
                         <details class="faq-item">
                             <summary>Precisarei de alguma ferramenta ou software específico?</summary>
-                            <p>O curso aborda ferramentas como ClickUp e Google Gemini. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas, que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+                            {/* --- ALTERADO --- */}
+                            <p>O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
                         </details>
                          <details class="faq-item">
                             <summary>Preciso ter experiência prévia em gestão para fazer o curso?</summary>
@@ -241,35 +257,41 @@
                          </details>
                        </div>
 
-                        <h2 data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
+                       <h2 data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
                         <div class="faq-group" data-aos="fade-up" data-aos-delay="250">
                                 <details class="faq-item">
                                     <summary>Quais são os principais módulos abordados no MBA Lite?</summary>
-                                    <p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Gestão de Projetos com a ferramenta ClickUp e Gestão de Projetos com Inteligência Artificial (usando Google Gemini).</p>
-                                </details>
+                                    {/* --- ALTERADO --- */}
+                                    <p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
+                                 </details>
                                 <details class="faq-item">
                                     <summary>O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
                                     <p>Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
                                 </details>
                                <details class="faq-item">
-                                   <summary>Quais ferramentas práticas de gestão serão ensinadas?</summary>
-                                   <p>O curso tem um forte foco prático. Teremos módulos dedicados ao uso da ferramenta ClickUp para organização e gestão de projetos e tarefas, e do Google Gemini (Inteligência Artificial) aplicado em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
+                                    <summary>Quais ferramentas práticas de gestão serão ensinadas?</summary>
+                                    {/* --- ALTERADO --- */}
+                                   <p>O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
                                </details>
                                <details class="faq-item">
                                    <summary>O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
                                    <p>Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
                                </details>
                                <details class="faq-item">
-                                   <summary>Como a Inteligência Artificial (Google Gemini) é aplicada na gestão de projetos neste curso?</summary>
-                                   <p>O módulo dedicado à IA demonstra como utilizar o Google Gemini como um assistente inteligente para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
+                                   {/* --- ALTERADO --- */}
+                                   <summary>Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
+                                   {/* --- ALTERADO --- */}
+                                   <p>O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
                                </details>
                                <details class="faq-item">
-                                   <summary>O curso ensina a usar a ferramenta ClickUp do zero?</summary>
-                                   <p>Sim, o módulo de ClickUp é projetado para todos os níveis. Ele começa com os fundamentos da ferramenta, sua interface e estrutura (Spaces, Folders, Lists, Tasks), e avança gradualmente, guiando você desde os primeiros passos até a utilização de recursos mais avançados para planejar, executar e monitorar seus projetos.</p>
+                                   {/* --- ALTERADO --- */}
+                                   <summary>O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
+                                   {/* --- ALTERADO --- */}
+                                   <p>Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
                                </details>
                              </div>
 
-                             <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
+                           <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
                              <div class="faq-group" data-aos="fade-up" data-aos-delay="350">
                                 <details class="faq-item">
                                     <summary>Como o curso é entregue?</summary>
@@ -280,13 +302,13 @@
                                     <p>Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
                                    </details>
                                 <details class="faq-item">
-                                    <summary>Como posso tirar dúvidas durante o curso?</summary>
+                                   <summary>Como posso tirar dúvidas durante o curso?</summary>
                                     <p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o instrutor ou outros alunos da comunidade poderão respondê-las.</p>
                                 </details>
                                 <details class="faq-item">
-                                    <summary>O curso oferece acesso vitalício?</summary>
+                                       <summary>O curso oferece acesso vitalício?</summary>
                                        <p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o instrutor venha a adicionar.</p>
-                                </details>
+                               </details>
                                 <details class="faq-item">
                                     <summary>Como me inscrevo no curso pela Udemy?</summary>
                                     <p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank" data-external-link="udemy">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
@@ -297,12 +319,12 @@
                                 </details>
                               </div>
 
-                               <div class="faq-cta" data-aos="fade-up" data-aos-delay="400">
+                              <div class="faq-cta" data-aos="fade-up" data-aos-delay="400">
                                    <h3>Ainda tem dúvidas?</h3>
                                       <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
                                        <a href="#" class="btn" data-nav-target="page-index" data-scroll-target="enroll">Quero ser um(a) gestor(a) de alta performance!</a>
                                </div>
-                          </div>
+                   </div>
             </section>
         </div>
 
@@ -316,7 +338,6 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script src="script.js" defer></script>
 
 </body>
