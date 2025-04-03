@@ -873,7 +873,7 @@ body.page-content.sidebar-visible #page-content #content-area {
 }
 #page-content #content-area .container {
     /* Container já definido globalmente */
-    padding: 0 30px; /* Aumenta padding lateral no conteúdo */
+    padding: 0 3px; /* Aumenta padding lateral no conteúdo */
 }
 #page-content #content-area h1 {
      font-size: 2.6rem;
