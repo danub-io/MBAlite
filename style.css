@@ -653,7 +653,7 @@ header nav#main-nav .nav-button {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px; /* <<< REVERTIDO para 50px (valor original) */
+    margin-bottom: 80px; /* <<< REVERTIDO para 50px (valor original) */
     color: var(--text-body);
     font-size: 1.1rem;
     line-height: 1.7;
@@ -663,8 +663,7 @@ header nav#main-nav .nav-button {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 35px; /* Espaçamento entre as capas */
-    margin-top: 40px;    /* <<< ADICIONADO para criar espaço acima da grade */
-    margin-bottom: 50px; /* Espaço entre grid e botão CTA */
+    margin: 40px 25px 50px 25px;
     justify-items: center; /* Centraliza itens dentro das células do grid */
 }
 
