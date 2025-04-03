@@ -410,15 +410,15 @@ header nav#main-nav .nav-button {
 
 /* --- Scroll Margin & Page Hiding --- */
 .scroll-target {
-    scroll-margin-top: calc(var(--header-height) + 25px); /* Offset base */
+    scroll-margin-top: calc(var(--header-height) + 1px); /* Offset base */
 }
 #page-content .scroll-target {
-    scroll-margin-top: calc(var(--header-height) + 35px); /* Offset maior para página de conteúdo */
+    scroll-margin-top: calc(var(--header-height) + 1px); /* Offset maior para página de conteúdo */
 }
 @media (max-width: 992px) {
     #page-content .scroll-target {
         /* Considera header + menu sticky mobile */
-        scroll-margin-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 335px);
+        scroll-margin-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 1px);
     }
 }
 
