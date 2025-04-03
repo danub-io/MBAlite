@@ -634,7 +634,7 @@ header nav#main-nav .nav-button {
 /* Seção Enroll / Formulário ConvertKit */
 #page-index #enroll {
     color: var(--text-body); /* Cor de texto padrão da seção */
-    padding: 100px 0;
+    padding: 1px 0 100px 0;
 }
 #page-index #enroll .form-wrapper {
     display: flex; /* Usado para centralizar? Verificar se necessário */
