@@ -1208,7 +1208,7 @@ footer p {
         margin-top: 0;
     }
     #page-index #enroll {
-        padding: 60px 15px 80px 15px; /* Ajuste padding */
+        padding: 60px 1px 80px 1px; /* Ajuste padding */
     }
     #page-index #enroll .ck-form-container {
          max-width: 90% !important; /* Limita largura no mobile */
