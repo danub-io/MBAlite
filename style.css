@@ -20,9 +20,9 @@
 
     /* Cores de Texto */
     --text-title: #FFFFFF; /* Cor dos títulos principais (H1, H2, H3 etc.) */
-    --text-body: #C5CBD0; /* Cor do texto principal (Parágrafos, etc.) */
-    --text-body-medium: #a0a7ad; /* (Opcional) Tom intermediário, se necessário */
-    --text-footer: #5f6368; /* Cor do texto no rodapé (ajustado para melhor contraste) */
+    --text-body: #a5a5a5; /* Cor do texto principal (Parágrafos, etc.) */
+    --text-body-medium: #a5a5a5; /* (Opcional) Tom intermediário, se necessário */
+    --text-footer: #a5a5a5; /* Cor do texto no rodapé (ajustado para melhor contraste) */
 
     /* Cores de Bordas e Linhas */
     --border-color: #33373B; /* Cor padrão para bordas e divisores */
