@@ -1292,4 +1292,85 @@ footer p {
     #page-faq .faq-cta h3 { font-size: 1.4rem; }
     #page-faq .faq-cta p { font-size: 0.95rem; }
     /* Botão FAQ usa .btn, já ajustado */
+
+    /* === Estilos para Seção Bônus Ebooks === */
+.bonus-section {
+    padding: 80px 0;
+    background-color: var(--bg-main); /* Ou var(--bg-surface) para contraste */
+    /* border-top: 1px solid var(--border-color); Opcional */
+    /* border-bottom: 1px solid var(--border-color); Opcional */
+    text-align: center; /* Centraliza títulos por padrão */
+}
+
+.bonus-section h2 {
+    margin-bottom: 15px;
+    color: var(--text-title);
+    /* Herda tamanho global ou define um específico */
+    /* font-size: 2rem; */
+}
+
+.bonus-subtitle {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    color: var(--text-body);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.ebooks-grid {
+    display: grid;
+    /* Cria colunas flexíveis, mínimo 140px, máximo 1fr (igual) */
+    /* Ajuste minmax(140px, ...) para controlar tamanho mínimo das capas */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 35px; /* Espaçamento entre as capas */
+    margin-bottom: 50px;
+    justify-items: center; /* Centraliza itens dentro das células do grid */
+}
+
+.ebook-item {
+    text-align: center;
+}
+
+.ebook-item img {
+    max-width: 100%; /* Garante responsividade */
+    height: auto; /* Mantém proporção */
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Remove espaço extra abaixo da imagem */
+    margin: 0 auto; /* Centraliza se a célula do grid for maior */
+}
+
+.ebook-item img:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Opcional: Estilo para legenda abaixo da imagem */
+/*
+.ebook-item p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-body-medium);
+    font-weight: 500;
+}
+*/
+
+.bonus-cta {
+    margin-top: 30px; /* Espaço acima do botão final */
+}
+
+/* Ajustes Responsivos para Grid de Ebooks */
+@media (max-width: 480px) {
+    .ebooks-grid {
+        /* Pode querer 2 ou 3 colunas no máximo em mobile */
+        grid-template-columns: repeat(2, 1fr); /* Exemplo: 2 colunas */
+        gap: 25px;
+    }
+     .bonus-subtitle {
+         font-size: 1rem;
+     }
+}
 }
