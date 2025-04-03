@@ -9,23 +9,23 @@
     /* Altere estas variáveis para mudar o tema do site */
 
     /* Cor Principal de Destaque (Botões, Links Ativos, Ícones) */
-    --accent-main: #00E0FF;          /* Azul Ciano Principal */
-    --accent-darker: #00b8d4;        /* Tom mais escuro para hover/gradiente */
-    --accent-darkest: #00a3b8;       /* Tom ainda mais escuro para hover/gradiente */
-    --text-on-accent: #101214;       /* Cor do texto sobre a cor de destaque */
+    --accent-main: #00E0FF; /* Azul Ciano Principal */
+    --accent-darker: #00b8d4; /* Tom mais escuro para hover/gradiente */
+    --accent-darkest: #00a3b8; /* Tom ainda mais escuro para hover/gradiente */
+    --text-on-accent: #101214; /* Cor do texto sobre a cor de destaque */
 
     /* Cores de Fundo */
-    --bg-main: #131313;              /* Fundo principal escuro do site */
-    --bg-surface: #181B1D;           /* Fundo mais claro (Cards, Seções, Menus) */
+    --bg-main: #131313; /* Fundo principal escuro do site */
+    --bg-surface: #181B1D; /* Fundo mais claro (Cards, Seções, Menus) */
 
     /* Cores de Texto */
-    --text-title: #FFFFFF;           /* Cor dos títulos principais (H1, H2, H3 etc.) */
-    --text-body: #C5CBD0;            /* Cor do texto principal (Parágrafos, etc.) */
-    --text-body-medium: #a0a7ad;     /* (Opcional) Tom intermediário, se necessário */
-    --text-footer: #33373B;          /* Cor do texto no rodapé */
+    --text-title: #FFFFFF; /* Cor dos títulos principais (H1, H2, H3 etc.) */
+    --text-body: #C5CBD0; /* Cor do texto principal (Parágrafos, etc.) */
+    --text-body-medium: #a0a7ad; /* (Opcional) Tom intermediário, se necessário */
+    --text-footer: #5f6368; /* Cor do texto no rodapé (ajustado para melhor contraste) */
 
     /* Cores de Bordas e Linhas */
-    --border-color: #33373B;         /* Cor padrão para bordas e divisores */
+    --border-color: #33373B; /* Cor padrão para bordas e divisores */
     --border-accent-focus: rgba(0, 224, 255, 0.3); /* Glow de foco */
 
     /* === FIM DA PALETA CUSTOMIZÁVEL === */
@@ -36,21 +36,20 @@
     --font-body: 'Inter', sans-serif;
 
     /* --- Layout & Efeitos --- */
-    --border-radius-medium: 12px;    /* Raio para cards, seções */
-    --border-radius-button: 5px;     /* Raio para botões */
-    --border-radius-input: 8px;     /* Raio para inputs (pode ser igual ao button ou medium) */
-    --border-radius-large: 50px;     /* Raio maior (uso menos comum) */
+    --border-radius-medium: 12px; /* Raio para cards, seções */
+    --border-radius-button: 5px; /* Raio para botões */
+    --border-radius-input: 8px; /* Raio para inputs (pode ser igual ao button ou medium) */
+    --border-radius-large: 50px; /* Raio maior (uso menos comum) */
 
-    --transition-speed: 0.3s;        /* Duração padrão de transição */
-    --transition-speed-fast: 0.2s;   /* Duração rápida de transição */
+    --transition-speed: 0.3s; /* Duração padrão de transição */
+    --transition-speed-fast: 0.2s; /* Duração rápida de transição */
 
     --header-height: 75px;
     --side-menu-width: 260px;
     --sticky-menu-height-mobile: 55px;
-
     --shadow-default: 0 6px 18px rgba(0, 0, 0, 0.45); /* Sombra padrão (cards, etc) */
     --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.65); /* Sombra hover (cards, etc) */
-    --shadow-header: 0 4px 15px rgba(0, 0, 0, 0.7);   /* Sombra do header */
+    --shadow-header: 0 4px 15px rgba(0, 0, 0, 0.7); /* Sombra do header */
     --shadow-sticky-menu: 0 3px 12px rgba(0,0,0,0.5); /* Sombra menu sticky mobile */
     --shadow-input-inset: inset 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra interna input */
 }
@@ -273,6 +272,7 @@ header .container {
 
 header #logo a {
     color: inherit; /* Evita que a cor do link padrão seja aplicada */
+    text-decoration: none;
 }
 header #logo a:hover {
     color: inherit;
@@ -310,6 +310,7 @@ header nav#main-nav ul li a {
     letter-spacing: 0.3px;
     display: block; /* Garante que padding funcione */
     font-family: var(--font-body);
+    text-decoration: none;
 }
 header nav#main-nav ul li a::after {
     content: '';
@@ -402,6 +403,7 @@ header nav#main-nav .nav-button {
     font-size: 1.25rem;
     transition: background-color var(--transition-speed-fast) ease, color var(--transition-speed-fast) ease;
     font-family: var(--font-body);
+    text-decoration: none;
 }
 #mobile-nav-container ul li a:hover {
     background-color: rgba(0, 224, 255, 0.1); /* Cor de fundo suave no hover */
@@ -434,7 +436,6 @@ header nav#main-nav .nav-button {
     padding: 100px 0;
     position: relative;
     z-index: 1;
-    /* background: none !important; Removido, não parece necessário */
 }
 
 #page-index #hero {
@@ -631,13 +632,68 @@ header nav#main-nav .nav-button {
     line-height: 1;
 }
 
+/* === Estilos para Seção Bônus Ebooks === */
+.bonus-section {
+    padding: 80px 0;
+    background-color: var(--bg-main); /* Ou var(--bg-surface) para contraste */
+    text-align: center; /* Centraliza títulos e o container do botão */
+}
+
+.bonus-section h2 {
+    margin-bottom: 15px;
+    color: var(--text-title);
+}
+
+.bonus-subtitle {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    color: var(--text-body);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.ebooks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 35px; /* Espaçamento entre as capas */
+    margin-bottom: 50px;
+    justify-items: center; /* Centraliza itens dentro das células do grid */
+}
+
+.ebook-item {
+    text-align: center;
+}
+
+.ebook-item img {
+    max-width: 100%; /* Garante responsividade da imagem */
+    height: auto; /* Mantém proporção da imagem */
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Remove espaço extra abaixo da imagem */
+    margin: 0 auto; /* Centraliza imagem se a célula do grid for maior */
+}
+
+.ebook-item img:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.bonus-cta {
+    margin-top: 30px; /* Espaço acima do botão final */
+    text-align: center; /* Garante que o conteúdo (o botão) seja centralizado */
+}
+
+
 /* Seção Enroll / Formulário ConvertKit */
 #page-index #enroll {
     color: var(--text-body); /* Cor de texto padrão da seção */
-    padding: 1px 0 100px 0;
+    padding: 80px 0 100px 0; /* Ajustado padding top para combinar com outras seções */
 }
 #page-index #enroll .form-wrapper {
-    display: flex; /* Usado para centralizar? Verificar se necessário */
+    display: flex;
     justify-content: center;
     width: 100%;
 }
@@ -784,6 +840,7 @@ body.sidebar-hidden #module-menu {
      overflow: hidden; /* Esconde texto que transborda */
      text-overflow: ellipsis; /* Adiciona "..." */
      font-family: var(--font-body);
+     text-decoration: none;
 }
 #module-menu a:hover {
     background-color: rgba(0, 224, 255, 0.1); /* Fundo suave no hover */
@@ -844,6 +901,7 @@ body.page-content.mobile-view #module-menu-sticky-mobile {
     font-size: 0.85rem;
     border: 1px solid transparent; /* Borda transparente para manter espaço */
     font-family: var(--font-body);
+    text-decoration: none;
 }
 #module-menu-sticky-mobile a:hover {
     color: var(--accent-main);
@@ -873,7 +931,7 @@ body.page-content.sidebar-visible #page-content #content-area {
 }
 #page-content #content-area .container {
     /* Container já definido globalmente */
-    padding: 0 3px; /* Aumenta padding lateral no conteúdo */
+    padding: 0 30px; /* Aumenta padding lateral no conteúdo */
 }
 #page-content #content-area h1 {
      font-size: 2.6rem;
@@ -992,7 +1050,7 @@ body.page-content.sidebar-visible #page-content #content-area {
 }
 #page-faq .faq-item[open] summary::after {
     content: '−'; /* Muda para menos quando aberto */
-    transform: translateY(-50%) /* Mantem centralizado */ rotate(180deg); /* Remove rotação */
+    transform: translateY(-50%); /* Mantem centralizado */
 }
 /* Esconde marcador padrão do <summary> */
 #page-faq .faq-item summary::-webkit-details-marker,
@@ -1009,6 +1067,11 @@ body.page-content.sidebar-visible #page-content #content-area {
       border-top: 1px solid var(--border-color); /* Linha separadora */
       font-family: var(--font-body);
       font-weight: 400; /* Regular */
+}
+#page-faq .faq-item p strong,
+#page-faq .faq-item p b {
+    color: var(--text-title); /* Destaca texto em negrito */
+    font-weight: 600; /* SemiBold */
 }
 /* Links externos na FAQ (ex: Udemy) */
 #page-faq .faq-item p a[href*="Udemy"],
@@ -1063,6 +1126,7 @@ footer p {
      text-align: center;
      font-family: var(--font-body);
      font-weight: 400; /* Regular */
+     opacity: 0.8; /* Leve opacidade no footer */
 }
 
 
@@ -1087,6 +1151,9 @@ footer p {
         padding: 45px 0; /* Padding ligeiramente menor */
         padding-left: 25px; /* Padding lateral menor */
         padding-right: 25px;
+    }
+    #page-content #content-area .container {
+        padding: 0 25px; /* Ajuste para container interno */
     }
 }
 
@@ -1128,6 +1195,9 @@ footer p {
         grid-template-columns: 1fr; /* Uma coluna */
         gap: 40px;
     }
+    #page-index #target-audience ul {
+         max-width: 90%; /* Ajuste para telas menores */
+    }
 
     /* Layout da Página de Conteúdo no Mobile */
     body.page-content #module-menu {
@@ -1138,10 +1208,13 @@ footer p {
     }
     body.page-content #page-content #content-area {
         margin-left: 0 !important; /* Garante sem margem */
-        width: 100% !important;    /* Garante largura total */
+        width: 100% !important; /* Garante largura total */
         padding: 40px 0; /* Ajuste padding */
         padding-left: 20px;
         padding-right: 20px;
+    }
+     #page-content #content-area .container {
+        padding: 0 20px; /* Ajuste para container interno */
     }
     #page-content #content-area section {
         padding: 30px 25px;
@@ -1207,8 +1280,23 @@ footer p {
         margin-bottom: 15px;
         margin-top: 0;
     }
+
+    #page-index #target-audience li {
+        font-size: 1rem;
+        padding-left: 35px;
+        margin-bottom: 18px;
+    }
+     #page-index #target-audience li::before {
+        font-size: 1.3em;
+        top: 4px;
+    }
+
+    .bonus-section { padding: 70px 0; }
+    .bonus-subtitle { font-size: 1rem; margin-bottom: 40px; }
+    .ebooks-grid { gap: 30px; }
+
     #page-index #enroll {
-        padding: 60px 1px 1px 1px; /* Ajuste padding */
+        padding: 70px 0 80px 0; /* Ajuste padding */
     }
     #page-index #enroll .ck-form-container {
          max-width: 90% !important; /* Limita largura no mobile */
@@ -1265,10 +1353,28 @@ footer p {
         font-size: 0.95rem;
     }
 
+     #page-index .modules-grid { gap: 25px; }
+     #page-index .module-card { padding: 30px 25px; }
+
+     #page-index #benefits .benefits-grid { gap: 30px; }
+     #page-index #benefits .benefit-item { gap: 15px; }
+
+     .bonus-section { padding: 60px 0; }
+     .bonus-subtitle { font-size: 0.95rem; margin-bottom: 35px; }
+     .ebooks-grid {
+         grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
+         gap: 25px;
+     }
+
+    #page-index #enroll { padding: 60px 0 70px 0; }
+
     #page-content #content-area {
         padding: 35px 0;
         padding-left: 15px;
         padding-right: 15px;
+    }
+    #page-content #content-area .container {
+        padding: 0 15px; /* Ajuste para container interno */
     }
     #page-content #content-area section {
         padding: 30px 20px;
@@ -1293,84 +1399,6 @@ footer p {
     #page-faq .faq-cta p { font-size: 0.95rem; }
     /* Botão FAQ usa .btn, já ajustado */
 
-    /* === Estilos para Seção Bônus Ebooks === */
-.bonus-section {
-    padding: 80px 0;
-    background-color: var(--bg-main); /* Ou var(--bg-surface) para contraste */
-    /* border-top: 1px solid var(--border-color); Opcional */
-    /* border-bottom: 1px solid var(--border-color); Opcional */
-    text-align: center; /* Centraliza títulos por padrão */
-}
-
-.bonus-section h2 {
-    margin-bottom: 15px;
-    color: var(--text-title);
-    /* Herda tamanho global ou define um específico */
-    /* font-size: 2rem; */
-}
-
-.bonus-subtitle {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    color: var(--text-body);
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-.ebooks-grid {
-    display: grid;
-    /* Cria colunas flexíveis, mínimo 140px, máximo 1fr (igual) */
-    /* Ajuste minmax(140px, ...) para controlar tamanho mínimo das capas */
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 35px; /* Espaçamento entre as capas */
-    margin-bottom: 50px;
-    justify-items: center; /* Centraliza itens dentro das células do grid */
-}
-
-.ebook-item {
-    text-align: center;
-}
-
-.ebook-item img {
-    max-width: 100%; /* Garante responsividade */
-    height: auto; /* Mantém proporção */
-    border-radius: 8px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: block; /* Remove espaço extra abaixo da imagem */
-    margin: 0 auto; /* Centraliza se a célula do grid for maior */
-}
-
-.ebook-item img:hover {
-    transform: translateY(-8px) scale(1.04);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-/* Opcional: Estilo para legenda abaixo da imagem */
-/*
-.ebook-item p {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: var(--text-body-medium);
-    font-weight: 500;
-}
-*/
-
-.bonus-cta {
-    margin-top: 30px; /* Espaço acima do botão final */
-}
-
-/* Ajustes Responsivos para Grid de Ebooks */
-@media (max-width: 480px) {
-    .ebooks-grid {
-        /* Pode querer 2 ou 3 colunas no máximo em mobile */
-        grid-template-columns: repeat(2, 1fr); /* Exemplo: 2 colunas */
-        gap: 25px;
-    }
-     .bonus-subtitle {
-         font-size: 1rem;
-     }
-}
+    footer { padding: 40px 0 30px 0; }
+    footer p { font-size: 0.85rem; }
 }
