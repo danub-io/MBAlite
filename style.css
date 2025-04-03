@@ -1322,7 +1322,7 @@ footer p {
     .bonus-subtitle { font-size: 1rem; margin-bottom: 40px; } /* <<< Ajuste responsivo do margin-bottom */
     .ebooks-grid {
         gap: 30px;
-        margin-top: 30px; /* <<< Reduzido margin-top da grade para mobile */
+        margin-top: 50px; /* <<< Reduzido margin-top da grade para mobile */
     }
 
     /* <<< ADICIONADO: Reduz tamanho da imagem do ebook */
@@ -1405,7 +1405,7 @@ footer p {
      .ebooks-grid {
          grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas */
          gap: 25px;
-         margin-top: 25px; /* <<< Reduzido margin-top da grade para mobile menor */
+         margin-top: 50px; /* <<< Reduzido margin-top da grade para mobile menor */
      }
 
      /* <<< ADICIONADO: Reduz tamanho da imagem do ebook (mantém 85%) */
