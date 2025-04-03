@@ -418,7 +418,7 @@ header nav#main-nav .nav-button {
 @media (max-width: 992px) {
     #page-content .scroll-target {
         /* Considera header + menu sticky mobile */
-        scroll-margin-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 35px);
+        scroll-margin-top: calc(var(--header-height) + var(--sticky-menu-height-mobile) + 335px);
     }
 }
 
