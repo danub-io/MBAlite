@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Encontre respostas para as perguntas frequentes sobre o MBA Lite: conteúdo, duração, pré-requisitos, ferramentas, plataforma Udemy, certificado e mais.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - MBA Lite</title>
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
@@ -16,8 +17,10 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <link rel="stylesheet" href="style.css">
+
     <style>
-        /* Custom Tailwind Configuration - Based on Danubio Coelho Site (Indigo Theme) */
+        /* Custom Tailwind Configuration MUST stay inline when using CDN */
         tailwind.config = {
             theme: {
                 extend: {
@@ -56,181 +59,7 @@
                 }
             }
         }
-
-        /* Additional Custom Styles - Based on Danubio Coelho Site */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f9fafb; /* bg-main */
-            color: #374151; /* text-body */
-            padding-top: 75px; /* Header height from Danubio site */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        main {
-            flex-grow: 1;
-        }
-        /* Header height variable */
-        :root {
-            --header-height: 75px;
-        }
-        /* Offset for fixed header */
-        .scroll-target {
-            scroll-margin-top: calc(var(--header-height) + 30px); /* Adjusted offset */
-        }
-
-        /* Header Styles */
-        #main-header {
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
-            height: var(--header-height);
-            background-color: #ffffff; /* Start with white background */
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* shadow-header */
-        }
-        /* Style for the header when scrolled */
-        #main-header.header-scrolled {
-             background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
-             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); /* shadow-header-scrolled */
-             backdrop-filter: blur(5px); /* Optional: blur effect */
-             -webkit-backdrop-filter: blur(5px); /* Safari support */
-        }
-        #main-header a.logo-link { color: #111827; /* text-header */ }
-        #main-header nav a.nav-link { color: #374151; /* text-body */ font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; } /* Add transitions */
-        #main-header nav a.nav-link:hover,
-        #main-header nav a.nav-link.active { /* Active state for current page */
-            color: #4f46e5; /* primary */
-            border-bottom-color: #4f46e5; /* primary */
-        }
-        /* Ensure button in nav aligns vertically and inherits transitions */
-        #main-nav .btn { margin-bottom: 5px; }
-
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            background-color: #ffffff; /* bg-surface */
-            border-right: 1px solid #e5e7eb; /* border-color */
-        }
-        #mobile-menu.hidden {
-             transform: translateX(-100%);
-        }
-        #mobile-menu nav a { color: #374151; transition: color 0.2s ease, background-color 0.2s ease; }
-        #mobile-menu nav a:hover,
-        #mobile-menu nav a.active { color: #4f46e5; background-color: #f0f0f8; } /* primary and light primary bg */
-        #mobile-menu .mobile-enroll-btn { background-color: #4f46e5; color: #FFFFFF; }
-        #mobile-menu .mobile-enroll-btn:hover { background-color: #4338ca; }
-
-
-        /* Button Styles (From Danubio Site) */
-        .btn { transition: all 0.25s ease; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.9rem; padding: 10px 24px; border-radius: 6px; /* border-radius-btn */ border: 2px solid transparent; /* Base border */ display: inline-block; text-align: center; }
-        .btn-primary { background-color: #4f46e5; color: #FFFFFF; border-color: #4f46e5; box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2); }
-        .btn-primary:hover { background-color: #4338ca; border-color: #4338ca; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
-        .btn-secondary { border-color: #4f46e5; color: #4f46e5; background-color: transparent; border-width: 2px; }
-        .btn-secondary:hover { background-color: #4f46e5; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2); }
-
-
-        /* Section Title Style (From Danubio Site) */
-        h2.section-title { font-weight: 700; letter-spacing: -0.5px; color: #111827; }
-        h3.section-subtitle { font-size: 1rem; font-weight: 700; color: #9ca3af; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-        p.section-description { font-size: 1.1rem; color: #6b7280; max-width: 700px; /* Increased max-width slightly */ margin-left: auto; margin-right: auto; line-height: 1.7; }
-        h2.section-title::after { content: ''; display: block; width: 50px; height: 3px; background-color: #4f46e5; margin-top: 15px; }
-        h2.section-title.text-center::after { margin-left: auto; margin-right: auto; }
-        h2.section-title.text-left::after { margin-left: 0; margin-right: auto; }
-
-        /* FAQ Page Styles */
-        /* Use #page-faq or a more specific container if needed */
-        h1 { color: #111827; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px; text-align: center;} /* Style for the main H1 */
-        h2 { color: #111827; font-size: 1.5rem; font-weight: 600; margin-top: 40px; margin-bottom: 25px; border-bottom: 1px solid #d1d5db; padding-bottom: 10px;} /* Style for FAQ section titles */
-        .faq-item { background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; margin-bottom: 15px; transition: box-shadow 0.2s ease; }
-        .faq-item:hover { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); }
-        .faq-item summary { padding: 18px 20px; font-weight: 600; cursor: pointer; color: #111827; font-size: 1.1rem; position: relative; list-style: none; }
-        .faq-item summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; font-weight: 300; color: #4f46e5; transition: transform 0.2s ease;}
-        .faq-item[open] summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); } /* Rotate minus sign */
-        .faq-item summary::-webkit-details-marker, .faq-item summary::marker { display: none; }
-        .faq-item div { padding: 5px 20px 20px 20px; border-top: 1px solid #e5e7eb; }
-        .faq-item p { font-size: 1rem; line-height: 1.7; color: #374151; margin-bottom: 10px; text-align: left;}
-        .faq-cta { margin-top: 60px; text-align: center; }
-        .faq-cta h3 { color: #111827; font-size: 1.5rem; margin-bottom: 15px;}
-        .faq-cta p { color: #6b7280; margin-bottom: 25px;}
-        /* Ensure links inside FAQ answers are styled */
-        .faq-item a { color: #4f46e5; text-decoration: underline; }
-        .faq-item a:hover { color: #4338ca; }
-
-
-        /* Footer Styles (From Danubio Site) */
-        footer { background-color: #ffffff; border-top: 1px solid #e5e7eb; } /* White background, light border */
-        footer p { color: #6b7280; }
-        .footer-social-icons a { color: #6b7280; transition: color 0.3s ease; font-size: 1.5rem; }
-        .footer-social-icons a:hover { color: #4f46e5; }
-
-        /* Scroll-to-Top Button (From Danubio Site) */
-        #scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #4f46e5; /* primary */
-            color: #ffffff; /* text-on-primary */
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            border: none;
-        }
-        #scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-         #scroll-to-top:hover {
-           background-color: #4338ca; /* primary-dark */
-           transform: translateY(-3px);
-         }
-
-        /* Preloader Styles (From Danubio Site) */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f9fafb; /* bg-main */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease 0.5s; /* Fade out after delay */
-        }
-        #preloader.hidden {
-            opacity: 0;
-            pointer-events: none; /* Allow interaction with page below */
-        }
-        /* Simple CSS Spinner */
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #4f46e5; /* primary */
-            animation: spin 1s ease infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+        /* Any absolutely essential minor overrides could go here, but prefer style.css */
     </style>
 </head>
 <body class="bg-bg-main text-text-body">
@@ -247,10 +76,10 @@
 
             <nav id="main-nav" class="hidden lg:flex space-x-6 items-center">
                 <a href="index.html" class="nav-link transition duration-300">Início</a>
-                <a href="index.html#modules" class="nav-link transition duration-300">Módulos</a>
+                 <a href="index.html#modules" class="nav-link transition duration-300">Módulos</a>
                 <a href="publicacoes.html" class="nav-link transition duration-300">Publicações</a>
                 <a href="instructor.html" class="nav-link transition duration-300">Sobre o Instrutor</a>
-                <a href="faq.html" class="nav-link transition duration-300 active">FAQ</a>
+                 <a href="faq.html" class="nav-link transition duration-300 active">FAQ</a>
                 <a href="index.html#enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
             </nav>
 
@@ -272,7 +101,7 @@
              <a href="index.html#modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
              <a href="publicacoes.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
              <a href="instructor.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
-             <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">FAQ</a>
+              <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">FAQ</a>
              <a href="index.html#enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
          </nav>
     </div>
@@ -281,7 +110,8 @@
 
     <main id="main-content">
 
-        <div id="page-faq"> <section id="faq-section" class="py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+        <div id="page-faq">
+            <section id="faq-section" class="py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto max-w-4xl">
                     <h1 data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
 
@@ -394,115 +224,27 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script>
+    <script src="script.js" defer></script>
+
+    <script defer>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Elements ---
-            const preloader = document.getElementById('preloader');
-            const header = document.getElementById('main-header');
-            const scrollToTopBtn = document.getElementById('scroll-to-top');
-            const menuBtn = document.getElementById('menu-btn');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuOverlay = document.getElementById('menu-overlay');
-            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a'); // Select all links for closing
-            const currentYearSpan = document.getElementById('current-year');
-            const headerHeight = 75; // Match CSS variable
-
-            // --- Preloader ---
-            window.addEventListener('load', () => {
-                if(preloader) {
-                    preloader.classList.add('hidden');
-                }
-                // Initialize AOS after preloader is hidden
-                AOS.init({
-                    duration: 600,
-                    once: true,
-                    offset: 80,
-                    easing: 'ease-out-quad',
-                });
-                // Initial scroll handling for header/scroll-top button
-                handleScroll();
-            });
-
-            // --- Mobile Menu Toggle ---
-            const openMenu = () => {
-                if (!mobileMenu || !menuOverlay) return;
-                mobileMenu.classList.remove('hidden', '-translate-x-full');
-                mobileMenu.classList.add('translate-x-0');
-                menuOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            };
-            const closeMenu = () => {
-                if (!mobileMenu || !menuOverlay) return;
-                mobileMenu.classList.remove('translate-x-0');
-                mobileMenu.classList.add('-translate-x-full');
-                menuOverlay.classList.add('hidden');
-                setTimeout(() => {
-                    // Ensure menu is fully hidden after transition
-                    if (mobileMenu.classList.contains('-translate-x-full')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }, 300); // Match transition duration
-                document.body.style.overflow = ''; // Restore body scroll
-            };
-
-            if (menuBtn) menuBtn.addEventListener('click', openMenu);
-            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
-            if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-            // Close menu when any mobile link is clicked
-            mobileMenuLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-            // --- Footer Year ---
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-
-            // --- Sticky Header & Scroll-to-Top Button ---
-            const handleScroll = () => {
-                const scrollY = window.scrollY;
-                if (header) {
-                    if (scrollY > 50) {
-                        header.classList.add('header-scrolled');
-                    } else {
-                        header.classList.remove('header-scrolled');
-                    }
-                }
-                if (scrollToTopBtn) {
-                    if (scrollY > 300) {
-                        scrollToTopBtn.classList.add('visible');
-                    } else {
-                        scrollToTopBtn.classList.remove('visible');
-                    }
-                }
-            };
-            window.addEventListener('scroll', handleScroll);
-
-            // --- Scroll-to-Top Click Handler ---
-            if (scrollToTopBtn) {
-                scrollToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
             // --- FAQ Details Toggle ---
             // Optional: Add logic if you want only one FAQ item open at a time
             const detailsElements = document.querySelectorAll('.faq-item');
             detailsElements.forEach(details => {
                 details.addEventListener('toggle', event => {
-                    if (details.open) {
-                        // Optional: Close others when one opens
-                        // detailsElements.forEach(otherDetails => {
-                        //     if (otherDetails !== details && otherDetails.open) {
-                        //         otherDetails.open = false;
-                        //     }
-                        // });
-                    }
+                    // Example: Close others when one opens (optional)
+                    // if (details.open) {
+                    //     detailsElements.forEach(otherDetails => {
+                    //         if (otherDetails !== details && otherDetails.open) {
+                    //             otherDetails.open = false;
+                    //         }
+                    //     });
+                    // }
                 });
             });
-
         });
     </script>
 
 </body>
 </html>
-
