@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Domine a gestão estratégica com o MBA Lite: um programa online intensivo com módulos sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA. Inscreva-se agora!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBA Lite - Gestão Estratégica Premium & Publicações</title>
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
@@ -18,47 +19,48 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <script>
-      tailwind.config = {
-          theme: {
-              extend: {
-                  colors: {
-                      'primary': '#4f46e5',     // Professional Indigo (Tailwind Indigo 600)
-                      'primary-dark': '#4338ca',    // Darker Indigo (Tailwind Indigo 700)
-                      'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
-                      'text-on-primary': '#FFFFFF', // White text on primary
-                      'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
-                      'bg-surface': '#ffffff',      // White (Cards, Alt Sections)
-                      'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
-                      'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
-                      'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
-                      'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
-                      'text-muted': '#6b7280',      // Muted Gray (Tailwind Gray 500)
-                      'border-color': '#e5e7eb',    // Light Gray Border (Tailwind Gray 200)
-                      'border-dark': '#d1d5db',     // Slightly Darker Border (Tailwind Gray 300)
-                  },
-                  fontFamily: {
-                      sans: ['Open Sans', 'sans-serif'],
-                      heading: ['Open Sans', 'sans-serif'],
-                  },
-                  boxShadow: {
-                      'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
-                      'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
-                      'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
-                      'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
-                      'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
-                      'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover (now publications cover)
-                      'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
-                  },
-                  borderRadius: {
-                      'card': '8px',
-                      'btn': '6px', // From Danubio site
-                  }
-              }
-          }
-      }
-    </script>
-
+    <style>
+        /* Custom Tailwind Configuration MUST stay inline when using CDN */
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4f46e5',      // Professional Indigo (Tailwind Indigo 600)
+                        'primary-dark': '#4338ca',   // Darker Indigo (Tailwind Indigo 700)
+                        'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
+                        'text-on-primary': '#FFFFFF', // White text on primary
+                        'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
+                        'bg-surface': '#ffffff',     // White (Cards, Alt Sections)
+                        'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
+                        'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
+                        'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
+                        'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
+                        'text-muted': '#6b7280',     // Muted Gray (Tailwind Gray 500)
+                        'border-color': '#e5e7eb',   // Light Gray Border (Tailwind Gray 200)
+                        'border-dark': '#d1d5db',    // Slightly Darker Border (Tailwind Gray 300)
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Open Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
+                        'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
+                        'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
+                        'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
+                        'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
+                        'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover (now publications cover)
+                        'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
+                    },
+                    borderRadius: {
+                        'card': '8px',
+                        'btn': '6px', // From Danubio site
+                    }
+                }
+            }
+        }
+        /* Any absolutely essential minor overrides could go here, but prefer style.css */
+    </style>
 </head>
 <body class="bg-bg-main text-text-body">
 
@@ -68,17 +70,17 @@
 
     <header id="main-header" class="fixed top-0 left-0 w-full z-50">
         <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-            <a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-2xl font-bold logo-link hover:text-primary transition duration-300">
+            <a href="index.html" class="text-2xl font-bold logo-link hover:text-primary transition duration-300">
                 MBA Lite
             </a>
 
             <nav id="main-nav" class="hidden lg:flex space-x-6 items-center">
-                <a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link transition duration-300">Início</a>
-                <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link transition duration-300">Módulos</a>
-                <a href="/publicacoes" data-page-id="page-publications" class="nav-link transition duration-300">Publicações</a>
-                <a href="/instructor" data-page-id="page-instructor" class="nav-link transition duration-300">Sobre o Instrutor</a>
-                <a href="/faq" data-page-id="page-faq" class="nav-link transition duration-300">FAQ</a>
-                <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
+                <a href="index.html" class="nav-link transition duration-300 active">Início</a>
+                <a href="#modules" class="nav-link transition duration-300">Módulos</a>
+                <a href="publicacoes.html" class="nav-link transition duration-300">Publicações</a>
+                <a href="instructor.html" class="nav-link transition duration-300">Sobre o Instrutor</a>
+                <a href="faq.html" class="nav-link transition duration-300">FAQ</a>
+                <a href="#enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
             </nav>
 
             <button id="menu-btn" class="lg:hidden focus:outline-none text-text-body hover:text-primary">
@@ -87,7 +89,7 @@
         </div>
     </header>
 
-    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-64 h-full shadow-lg p-6 z-40 transform -translate-x-full hidden bg-bg-surface border-r border-border-color">
+    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-64 h-full shadow-lg p-6 z-40 transform -translate-x-full hidden">
          <div class="flex justify-between items-center mb-8">
              <span class="text-xl font-semibold text-text-title">Menu</span>
              <button id="close-menu-btn" class="text-text-muted hover:text-primary focus:outline-none">
@@ -95,12 +97,12 @@
              </button>
          </div>
          <nav class="flex flex-col space-y-2">
-             <a href="/" data-page-id="page-index" data-scroll-target="hero" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
-             <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
-             <a href="/publicacoes" data-page-id="page-publications" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
-             <a href="/instructor" data-page-id="page-instructor" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
-             <a href="/faq" data-page-id="page-faq" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
-             <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
+             <a href="index.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">Início</a>
+             <a href="#modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
+             <a href="publicacoes.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
+             <a href="instructor.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
+             <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
+             <a href="#enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
          </nav>
     </div>
     <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
@@ -108,8 +110,7 @@
 
     <main id="main-content">
 
-        <div id="page-index" class="page">
-
+        <div id="page-index">
             <section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
                 <div class="max-w-4xl mx-auto relative z-10">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">Domine a Gestão Estratégica com o MBA Lite</h1>
@@ -117,8 +118,8 @@
                         Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.
                     </p>
                     <div class="space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="300">
-                        <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="btn btn-primary py-3 px-10 rounded-btn text-lg inline-block w-full sm:w-auto">Inscreva-se Agora</a>
-                        <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="btn btn-secondary py-3 px-10 rounded-btn text-lg inline-block w-full sm:w-auto">Ver Módulos</a>
+                        <a href="#enroll" class="btn btn-primary py-3 px-10 rounded-btn text-lg inline-block w-full sm:w-auto">Inscreva-se Agora</a>
+                        <a href="#modules" class="btn btn-secondary py-3 px-10 rounded-btn text-lg inline-block w-full sm:w-auto">Ver Módulos</a>
                     </div>
                 </div>
             </section>
@@ -130,43 +131,44 @@
                         <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center">Currículo Essencial para Líderes</h2>
                         <p class="section-description">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
                     </div>
+
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <a href="#" class="icon-block-card module-link" data-aos="fade-up" data-internal-target="page-content" data-scroll-target="gestao-pessoas">
+                        <a href="modulos.html#gestao-pessoas" class="icon-block-card" data-aos="fade-up">
                             <div class="icon"><i class="fas fa-users fa-fw"></i></div>
                             <div>
                                 <h4>Gestão de Pessoas</h4>
                                 <p>Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional de alta performance.</p>
                             </div>
                         </a>
-                        <a href="#" class="icon-block-card module-link" data-aos="fade-up" data-aos-delay="100" data-internal-target="page-content" data-scroll-target="gestao-riscos">
+                        <a href="modulos.html#gestao-riscos" class="icon-block-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon"><i class="fas fa-exclamation-triangle fa-fw"></i></div>
                             <div>
                                 <h4>Gestão de Riscos</h4>
                                 <p>Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar, analisar e mitigar riscos.</p>
                             </div>
                         </a>
-                        <a href="#" class="icon-block-card module-link" data-aos="fade-up" data-aos-delay="200" data-internal-target="page-content" data-scroll-target="gestao-qualidade">
+                        <a href="modulos.html#gestao-qualidade" class="icon-block-card" data-aos="fade-up" data-aos-delay="200">
                             <div class="icon"><i class="fas fa-star fa-fw"></i></div>
                             <div>
                                 <h4>Gestão da Qualidade</h4>
                                 <p>Metodologias como PDCA, Seis Sigma, Lean e ISO 9001 para otimizar processos e garantir valor superior.</p>
                             </div>
                         </a>
-                        <a href="#" class="icon-block-card module-link" data-aos="fade-up" data-aos-delay="300" data-internal-target="page-content" data-scroll-target="gestao-projetos">
+                        <a href="modulos.html#gestao-projetos" class="icon-block-card" data-aos="fade-up" data-aos-delay="300">
                             <div class="icon"><i class="fas fa-tasks fa-fw"></i></div>
                             <div>
                                 <h4>Gestão de Projetos</h4>
                                 <p>Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos com sucesso.</p>
                             </div>
                         </a>
-                        <a href="#" class="icon-block-card module-link" data-aos="fade-up" data-aos-delay="400" data-internal-target="page-content" data-scroll-target="ferramentas-gestao-projetos">
+                        <a href="modulos.html#ferramentas-gestao-projetos" class="icon-block-card" data-aos="fade-up" data-aos-delay="400">
                             <div class="icon"><i class="fas fa-toolbox fa-fw"></i></div>
                             <div>
                                 <h4>Ferramentas de Gestão</h4>
                                 <p>Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos com eficiência.</p>
                             </div>
                         </a>
-                        <a href="#" class="icon-block-card module-link" data-aos="fade-up" data-aos-delay="500" data-internal-target="page-content" data-scroll-target="gestao-projetos-ia">
+                        <a href="modulos.html#gestao-projetos-ia" class="icon-block-card" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon"><i class="fas fa-robot fa-fw"></i></div>
                             <div>
                                 <h4>Gestão com IA</h4>
@@ -177,7 +179,7 @@
                 </div>
               </section>
 
-              <section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+               <section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto">
                     <div class="text-center mb-16" data-aos="fade-up">
                         <h3 class="section-subtitle">VANTAGENS</h3>
@@ -217,7 +219,7 @@
                 </div>
               </section>
 
-              <section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+               <section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
                 <div class="container mx-auto max-w-4xl" data-aos="fade-up">
                     <div class="text-center mb-12">
                         <h3 class="section-subtitle">PARA QUEM</h3>
@@ -233,17 +235,144 @@
                 </div>
               </section>
 
-              <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+               <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto text-center">
                     <h3 class="section-subtitle" data-aos="fade-up">BÔNUS EXCLUSIVO</h3>
                     <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center" data-aos="fade-up" data-aos-delay="100">Receba 6 Ebooks Exclusivos!</h2>
                     <p class="section-description mb-12" data-aos="fade-up" data-aos-delay="200">Aprofunde seu conhecimento com um ebook dedicado para cada módulo do MBA Lite, cobrindo os tópicos essenciais de forma prática e direta.</p>
+
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
                         <div class="ebook-item transform transition hover:scale-105 duration-300">
-                            <img src="/img/gestao-de-pessoas.webp" alt="Ebook MBA Lite - Gestão de Pessoas" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Pessoas';">
+                            <img src="/img/gestao-de-pessoas.webp" alt="Capa do Ebook MBA Lite sobre Gestão de Pessoas" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Pessoas';">
                         </div>
                         <div class="ebook-item transform transition hover:scale-105 duration-300">
-                            <img src="/img/gestao-de-riscos.webp" alt="Ebook MBA Lite - Gestão de Riscos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Riscos';">
+                            <img src="/img/gestao-de-riscos.webp" alt="Capa do Ebook MBA Lite sobre Gestão de Riscos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Riscos';">
                         </div>
                         <div class="ebook-item transform transition hover:scale-105 duration-300">
-                            <img src="/img/gestao-da-qualidade.webp" alt="Ebook MBA Lite - Gestão da Qualidade" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.sr
+                            <img src="/img/gestao-da-qualidade.webp" alt="Capa do Ebook MBA Lite sobre Gestão da Qualidade" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Qualidade';">
+                        </div>
+                        <div class="ebook-item transform transition hover:scale-105 duration-300">
+                            <img src="/img/gestao-de-projetos.webp" alt="Capa do Ebook MBA Lite sobre Gestão de Projetos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Projetos';">
+                        </div>
+                        <div class="ebook-item transform transition hover:scale-105 duration-300">
+                            <img src="/img/ferramentas-de-gestao.webp" alt="Capa do Ebook MBA Lite sobre Ferramentas de Gestão" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Ferramentas';">
+                        </div>
+                        <div class="ebook-item transform transition hover:scale-105 duration-300">
+                            <img src="/img/gestao-com-ia.webp" alt="Capa do Ebook MBA Lite sobre Gestão com Inteligência Artificial" loading="lazy" class="rounded-md shadow-md w-full border border-border-color" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=IA';">
+                        </div>
+                    </div>
+
+                    <div class="mt-12" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#enroll" class="btn btn-primary py-3 px-10 rounded-btn text-lg">Garantir meus Ebooks e Vaga!</a>
+                    </div>
+                </div>
+              </section>
+
+               <section id="enroll" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface-dark">
+                <div class="container mx-auto px-4 md:px-6 lg:px-8">
+                    <div class="text-center mb-12 max-w-2xl mx-auto" data-aos="fade-up">
+                        <h3 class="section-subtitle">INSCRIÇÃO</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center">Garanta Sua Vaga no MBA Lite</h2>
+                        <p class="section-description">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
+                    </div>
+                    <div class="form-wrapper bg-white p-6 rounded-lg shadow-card mx-auto max-w-xl" data-aos="fade-up" data-aos-delay="100">
+                        <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                        <noscript>
+                            <p class="text-center text-red-600">JavaScript é necessário para exibir o formulário de inscrição.</p>
+                        </noscript>
+                    </div>
+                </div>
+              </section>
+        </div>
+
+    </main>
+
+    <footer class="bg-bg-surface py-12 border-t border-border-color mt-16">
+        <div class="container mx-auto text-center text-text-muted px-4 md:px-6 lg:px-8">
+             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
+                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+             </div>
+             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
+             <p class="text-sm mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
+             <p class="text-sm mt-2">Brasília - DF, Brasil</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="script.js" defer></script>
+
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure this runs after the main script might have defined elements, or redefine safely.
+            const headerHeight = 75; // Define again or ensure global scope from script.js
+            const mainNavLinks = document.querySelectorAll('#main-nav a.nav-link');
+            const mobileMenuLinks = document.querySelectorAll('#mobile-menu a.mobile-menu-link'); // More specific selector
+
+            // --- Active Nav Link Highlighting on Scroll (INDEX PAGE ONLY) ---
+            function updateActiveNavLink() {
+                // Only proceed if we are truly on the index page (basic check)
+                if (!document.getElementById('page-index')) return;
+
+                let currentSectionId = 'hero'; // Default to hero on index
+                const scrollY = window.scrollY;
+                const offset = headerHeight + 50; // Activation offset from top
+
+                // Find the section currently in view on the index page
+                document.querySelectorAll('#page-index .scroll-target').forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    // Check if the section top is within the viewport offset
+                    if (scrollY >= sectionTop - offset && scrollY < sectionTop + sectionHeight - offset) {
+                        currentSectionId = section.id;
+                    }
+                });
+
+                 // Update Desktop Links
+                mainNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkHref = link.getAttribute('href');
+                    // Highlight 'Início' if hero is current section
+                    if ((linkHref === 'index.html' || linkHref === '/') && currentSectionId === 'hero') {
+                        link.classList.add('active');
+                    }
+                    // Highlight section links (#modules, #enroll, etc.)
+                    else if (linkHref === `#${currentSectionId}`) {
+                         link.classList.add('active');
+                    }
+                });
+
+                 // Update Mobile Links
+                mobileMenuLinks.forEach(link => {
+                     link.classList.remove('active');
+                     const linkHref = link.getAttribute('href');
+                     if ((linkHref === 'index.html' || linkHref === '/') && currentSectionId === 'hero') {
+                         link.classList.add('active');
+                     } else if (linkHref === `#${currentSectionId}`) {
+                         link.classList.add('active');
+                     }
+                 });
+
+                 // Ensure 'Início' is active when scrolled to the top (hero section)
+                 if (currentSectionId === 'hero') {
+                     document.querySelector('#main-nav a[href="index.html"]')?.classList.add('active');
+                     document.querySelector('#mobile-menu a[href="index.html"]')?.classList.add('active');
+                 }
+            }
+
+            // Add scroll listener specifically for index page highlighting
+             if (document.getElementById('page-index')) {
+                window.addEventListener('scroll', updateActiveNavLink);
+                // Initial call after load
+                 window.addEventListener('load', updateActiveNavLink);
+            }
+        });
+    </script>
+
+</body>
+</html>
