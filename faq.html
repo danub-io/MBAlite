@@ -2,123 +2,59 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>FAQ - MBA Lite | Perguntas Frequentes</title>
     <meta name="description" content="Encontre respostas para as perguntas frequentes sobre o MBA Lite: conteúdo, duração, pré-requisitos, ferramentas, plataforma Udemy, certificado e mais.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - MBA Lite</title>
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%234f46e5%22></rect><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2250%22 fill=%22%23FFFFFF%22 font-family=%22sans-serif%22>MBA</text></svg>">
 
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* Custom Tailwind Configuration MUST stay inline when using CDN */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#4f46e5',      // Professional Indigo (Tailwind Indigo 600)
-                        'primary-dark': '#4338ca',   // Darker Indigo (Tailwind Indigo 700)
-                        'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
-                        'text-on-primary': '#FFFFFF', // White text on primary
-                        'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
-                        'bg-surface': '#ffffff',     // White (Cards, Alt Sections)
-                        'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
-                        'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
-                        'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
-                        'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
-                        'text-muted': '#6b7280',     // Muted Gray (Tailwind Gray 500)
-                        'border-color': '#e5e7eb',   // Light Gray Border (Tailwind Gray 200)
-                        'border-dark': '#d1d5db',    // Slightly Darker Border (Tailwind Gray 300)
-                    },
-                    fontFamily: {
-                        sans: ['Open Sans', 'sans-serif'],
-                        heading: ['Open Sans', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
-                        'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
-                        'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
-                        'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
-                        'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
-                        'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover (now publications cover)
-                        'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
-                    },
-                    borderRadius: {
-                        'card': '8px',
-                        'btn': '6px', // From Danubio site
-                    }
-                }
-            }
-        }
-        /* Any absolutely essential minor overrides could go here, but prefer style.css */
-    </style>
-</head>
-<body class="bg-bg-main text-text-body">
-
-    <div id="preloader">
+    </head>
+<body> <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold logo-link hover:text-primary transition duration-300">
+    <header id="main-header"> <div class="container">
+            <a href="index.html" class="logo-link">
                 MBA Lite
             </a>
-
-            <nav id="main-nav" class="hidden lg:flex space-x-6 items-center">
-                <a href="index.html" class="nav-link transition duration-300">Início</a>
-                 <a href="index.html#modules" class="nav-link transition duration-300">Módulos</a>
-                <a href="publicacoes.html" class="nav-link transition duration-300">Publicações</a>
-                <a href="instructor.html" class="nav-link transition duration-300">Sobre o Instrutor</a>
-                 <a href="faq.html" class="nav-link transition duration-300 active">FAQ</a>
-                <a href="index.html#enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
-            </nav>
-
-            <button id="menu-btn" class="lg:hidden focus:outline-none text-text-body hover:text-primary">
-                <i class="fas fa-bars text-xl"></i>
+            <nav id="main-nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index.html#modules" class="nav-link">Módulos</a> <a href="publicacoes.html" class="nav-link">Publicações</a>
+                <a href="instructor.html" class="nav-link">Sobre o Instrutor</a>
+                <a href="faq.html" class="nav-link active">FAQ</a> <a href="index.html#enroll" class="btn btn-primary">Inscreva-se</a> </nav>
+            <button id="menu-btn" aria-label="Abrir menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-64 h-full shadow-lg p-6 z-40 transform -translate-x-full hidden">
-         <div class="flex justify-between items-center mb-8">
-             <span class="text-xl font-semibold text-text-title">Menu</span>
-             <button id="close-menu-btn" class="text-text-muted hover:text-primary focus:outline-none">
-                 <i class="fas fa-times text-xl"></i>
+    <div id="mobile-menu">
+         <div class="menu-header">
+             <span class="menu-title">Menu</span>
+             <button id="close-menu-btn" aria-label="Fechar menu">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
              </button>
          </div>
-         <nav class="flex flex-col space-y-2">
-             <a href="index.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
-             <a href="index.html#modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
-             <a href="publicacoes.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
-             <a href="instructor.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
-              <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">FAQ</a>
-             <a href="index.html#enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
+         <nav>
+             <a href="index.html" class="mobile-menu-link">Início</a>
+             <a href="index.html#modules" class="mobile-menu-link">Módulos</a>
+             <a href="publicacoes.html" class="mobile-menu-link">Publicações</a>
+             <a href="instructor.html" class="mobile-menu-link">Sobre o Instrutor</a>
+             <a href="faq.html" class="mobile-menu-link active">FAQ</a> <a href="index.html#enroll" class="mobile-enroll-btn">Inscreva-se</a>
          </nav>
     </div>
-    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+    <div id="menu-overlay"></div>
 
 
     <main id="main-content">
 
         <div id="page-faq">
-            <section id="faq-section" class="py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto max-w-4xl">
-                    <h1 data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
+            <section id="faq-section" class="section-bg-main"> <div class="container faq-container"> <h1>Perguntas Frequentes (FAQ)</h1>
 
-                    <h2 data-aos="fade-up" data-aos-delay="100">Geral</h2>
-                    <div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="150">
-                        <details class="faq-item">
-                            <summary>O que é o curso MBA Lite?</summary>
+                    <h2>Geral</h2>
+                    <div class="faq-group"> <details class="faq-item"> <summary>O que é o curso MBA Lite?</summary>
                             <div><p>O MBA Lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p></div>
                         </details>
                         <details class="faq-item">
@@ -139,8 +75,8 @@
                          </details>
                        </div>
 
-                       <h2 data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
-                       <div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="250">
+                       <h2>Conteúdo do Curso</h2>
+                       <div class="faq-group">
                            <details class="faq-item">
                                <summary>Quais são os principais módulos abordados no MBA Lite?</summary>
                                <div><p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p></div>
@@ -167,8 +103,8 @@
                           </details>
                         </div>
 
-                        <h2 data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
-                        <div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="350">
+                        <h2>Plataforma e Acesso</h2>
+                        <div class="faq-group">
                             <details class="faq-item">
                                 <summary>Como o curso é entregue?</summary>
                                 <div><p>O MBA Lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p></div>
@@ -187,7 +123,7 @@
                             </details>
                             <details class="faq-item">
                                 <summary>Como me inscrevo no curso pela Udemy?</summary>
-                                <div><p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p></div>
+                                <div><p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA Lite" na barra de busca da Udemy ou acessar através do link direto <a href="[Link_Udemy_Curso]" target="_blank" rel="noopener noreferrer">[Link_Udemy_Curso]</a>. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p></div>
                             </details>
                             <details class="faq-item">
                                 <summary>Posso assistir às aulas no meu celular ou tablet?</summary>
@@ -195,56 +131,33 @@
                             </details>
                           </div>
 
-                          <div class="faq-cta" data-aos="fade-up" data-aos-delay="400">
-                                <h3>Ainda tem dúvidas?</h3>
+                          <div class="faq-cta"> <h3>Ainda tem dúvidas?</h3>
                                  <p>Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
-                                 <a href="index.html#enroll" class="btn btn-primary py-3 px-8 rounded-btn text-lg">Quero ser um(a) gestor(a) de alta performance!</a>
+                                 <a href="index.html#enroll" class="btn btn-primary">Quero ser um(a) gestor(a) de alta performance!</a>
                           </div>
                   </div>
             </section>
-        </div>
+        </div> </main>
 
-    </main>
-
-    <footer class="bg-bg-surface py-12 border-t border-border-color mt-16">
-        <div class="container mx-auto text-center text-text-muted px-4 md:px-6 lg:px-8">
-             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
-                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <footer> <div class="container">
+             <div class="footer-social-icons">
+                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
+                 </a>
+                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                 </a>
              </div>
-             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
-             <p class="text-sm mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
-             <p class="text-sm mt-2">Brasília - DF, Brasil</p>
+             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p> <p class="footer-subtitle">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
+             <p class="footer-location">Brasília - DF, Brasil</p>
         </div>
     </footer>
 
     <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js" defer></script>
 
-    <script defer>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- FAQ Details Toggle ---
-            // Optional: Add logic if you want only one FAQ item open at a time
-            const detailsElements = document.querySelectorAll('.faq-item');
-            detailsElements.forEach(details => {
-                details.addEventListener('toggle', event => {
-                    // Example: Close others when one opens (optional)
-                    // if (details.open) {
-                    //     detailsElements.forEach(otherDetails => {
-                    //         if (otherDetails !== details && otherDetails.open) {
-                    //             otherDetails.open = false;
-                    //         }
-                    //     });
-                    // }
-                });
-            });
-        });
-    </script>
-
-</body>
+    </body>
 </html>
