@@ -369,6 +369,13 @@
         #book-author-section img {
             border: 4px solid #4f46e5; /* primary border */
         }
+        /* Ensure ebook images fit well */
+        #bonus-ebooks .ebook-item img {
+            aspect-ratio: 2 / 3; /* Maintain typical book cover ratio */
+            object-fit: cover; /* Cover the area without distorting */
+            width: 100%;
+            height: auto;
+        }
 
     </style>
 </head>
@@ -554,22 +561,22 @@
 
                      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
                          <div class="ebook-item transform transition hover:scale-105 duration-300">
-                             <img src="https://placehold.co/200x300/ffffff/111827?text=Pessoas" alt="Ebook MBA Lite - Gestão de Pessoas" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
+                             <img src="/img/gestao-de-pessoas.webp" alt="Ebook MBA Lite - Gestão de Pessoas" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
                          </div>
                          <div class="ebook-item transform transition hover:scale-105 duration-300">
-                             <img src="https://placehold.co/200x300/ffffff/111827?text=Riscos" alt="Ebook MBA Lite - Gestão de Riscos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
+                             <img src="/img/gestao-de-riscos.webp" alt="Ebook MBA Lite - Gestão de Riscos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
                          </div>
                          <div class="ebook-item transform transition hover:scale-105 duration-300">
-                             <img src="https://placehold.co/200x300/ffffff/111827?text=Qualidade" alt="Ebook MBA Lite - Gestão da Qualidade" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
+                             <img src="/img/gestao-da-qualidade.webp" alt="Ebook MBA Lite - Gestão da Qualidade" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
                          </div>
                          <div class="ebook-item transform transition hover:scale-105 duration-300">
-                             <img src="https://placehold.co/200x300/ffffff/111827?text=Projetos" alt="Ebook MBA Lite - Gestão de Projetos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
+                             <img src="/img/gestao-de-projetos.webp" alt="Ebook MBA Lite - Gestão de Projetos" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
                          </div>
                          <div class="ebook-item transform transition hover:scale-105 duration-300">
-                             <img src="https://placehold.co/200x300/ffffff/111827?text=Ferramentas" alt="Ebook MBA Lite - Ferramentas de Gestão" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
+                             <img src="/img/ferramentas-de-gestao.webp" alt="Ebook MBA Lite - Ferramentas de Gestão" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
                          </div>
                          <div class="ebook-item transform transition hover:scale-105 duration-300">
-                             <img src="https://placehold.co/200x300/ffffff/111827?text=IA" alt="Ebook MBA Lite - Gestão com IA" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
+                             <img src="/img/gestao-com-ia.webp" alt="Ebook MBA Lite - Gestão com IA" loading="lazy" class="rounded-md shadow-md w-full border border-border-color">
                          </div>
                      </div>
 
@@ -1265,6 +1272,7 @@
                     if (foundSection) return;
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
+                    // Check if the top of the section is within the activation offset
                     if (scrollY >= sectionTop - offset && scrollY < sectionTop + sectionHeight - offset) {
                         currentSectionId = section.id;
                         foundSection = true;
@@ -1289,21 +1297,20 @@
                     const linkScrollTarget = link.dataset.scrollTarget;
 
                     if (linkTargetPage === activePage.id) {
+                        // Link points to the current page
                         if (linkScrollTarget && linkScrollTarget === currentSectionId) {
                             link.classList.add('active');
                         } else if (!linkScrollTarget && linkTargetPage === 'page-index' && currentSectionId === 'hero') {
                              link.classList.add('active');
                         } else if (!linkScrollTarget && linkTargetPage === 'page-book' && currentSectionId === 'book-hero') {
-                             // Activate 'Livro' link if at the top of the book page
                              link.classList.add('active');
+                        } else if (!linkScrollTarget && linkTargetPage === 'page-instructor' && currentSectionId === 'home') {
+                             // Activate 'Sobre o Instrutor' if at the top of that page
+                             link.classList.add('active');
+                        } else if (!linkScrollTarget && linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
+                            // Activate FAQ if no specific section logic needed for FAQ page top
+                            link.classList.add('active');
                         }
-                    } else if (linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
-                        link.classList.add('active');
-                    } else if (linkTargetPage === 'page-instructor' && activePage.id === 'page-instructor') {
-                         link.classList.add('active');
-                    } else if (linkTargetPage === 'page-book' && activePage.id === 'page-book') {
-                         // Activate 'Livro' link if book page is active, even if scrolled down
-                         link.classList.add('active');
                     }
                 });
 
@@ -1320,13 +1327,11 @@
                               link.classList.add('active');
                          } else if (!linkScrollTarget && linkTargetPage === 'page-book' && currentSectionId === 'book-hero') {
                               link.classList.add('active');
+                         } else if (!linkScrollTarget && linkTargetPage === 'page-instructor' && currentSectionId === 'home') {
+                              link.classList.add('active');
+                         } else if (!linkScrollTarget && linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
+                             link.classList.add('active');
                          }
-                     } else if (linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
-                         link.classList.add('active');
-                     } else if (linkTargetPage === 'page-instructor' && activePage.id === 'page-instructor') {
-                          link.classList.add('active');
-                     } else if (linkTargetPage === 'page-book' && activePage.id === 'page-book') {
-                          link.classList.add('active');
                      }
                  });
             }
