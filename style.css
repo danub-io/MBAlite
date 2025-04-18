@@ -97,15 +97,6 @@ ul, ol {
     font-display: swap;
 }
 /* Adicione outros pesos/estilos se tiver os arquivos .ttf correspondentes */
-/* Exemplo:
-@font-face {
-    font-family: 'Open Sans';
-    src: url('/fonts/OpenSans-SemiBold.ttf') format('truetype');
-    font-weight: 600; // SemiBold
-    font-style: normal;
-    font-display: swap;
-}
-*/
 
 /* ==========================================================================
    3. Variáveis CSS (Cores, Espaçamentos, Sombras, etc.)
@@ -157,7 +148,7 @@ ul, ol {
     /* Breakpoints Responsivos (Valores comuns) */
     --breakpoint-sm: 640px;
     --breakpoint-md: 768px;
-    --breakpoint-lg: 1024px;
+    --breakpoint-lg: 1024px; /* Breakpoint para troca do menu */
     --breakpoint-xl: 1280px;
 }
 
@@ -189,7 +180,6 @@ ul, ol {
 }
 
 /* Sistema de Grid Simples (Exemplos) */
-/* Adapte conforme necessário para cada seção */
 .grid {
     display: grid;
     gap: var(--gap-large); /* Espaçamento padrão do grid */
@@ -247,7 +237,6 @@ ul, ol {
     }
 }
 
-
 /* ==========================================================================
    5. Cabeçalho e Navegação
    ========================================================================== */
@@ -275,7 +264,6 @@ ul, ol {
 #main-header.header-scrolled {
     background-color: rgba(255, 255, 255, 0.95); /* Branco levemente transparente */
     box-shadow: var(--header-scrolled-shadow); /* Sombra mais pronunciada */
-    /* Efeito de desfoque (opcional) */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px); /* Suporte para Safari */
 }
@@ -294,13 +282,13 @@ ul, ol {
 
 /* Navegação Principal (Desktop) */
 #main-nav {
-    display: none; /* Oculta por padrão em telas pequenas */
+    display: none; /* OCULTA por padrão em telas pequenas */
     align-items: center;
     gap: var(--gap-default); /* Espaçamento entre links */
 }
-@media (min-width: var(--breakpoint-lg)) {
+@media (min-width: var(--breakpoint-lg)) { /* A partir de 1024px */
     #main-nav {
-        display: flex; /* Mostra em telas grandes */
+        display: flex; /* MOSTRA a navegação desktop */
     }
 }
 
@@ -324,7 +312,7 @@ ul, ol {
 
 /* Botão do Menu Mobile (Hamburguer) */
 #menu-btn {
-    display: block; /* Visível por padrão em telas pequenas */
+    display: block; /* MOSTRA por padrão em telas pequenas */
     background: none;
     border: none;
     cursor: pointer;
@@ -340,9 +328,9 @@ ul, ol {
 #menu-btn:hover {
     color: var(--primary-color);
 }
-@media (min-width: var(--breakpoint-lg)) {
+@media (min-width: var(--breakpoint-lg)) { /* A partir de 1024px */
     #menu-btn {
-        display: none; /* Oculta em telas grandes */
+        display: none; /* OCULTA o botão hamburguer em telas grandes */
     }
 }
 
@@ -405,7 +393,8 @@ ul, ol {
     display: flex;
     flex-direction: column;
     gap: 0.5rem; /* Espaçamento entre links */
-    flex-grow: 1; /* Ocupa o espaço restante */
+    flex-grow: 1; /* Ocupa o espaço vertical disponível para os links */
+    margin-bottom: 1rem; /* Adiciona espaço antes do botão Inscreva-se */
 }
 #mobile-menu .mobile-menu-link {
     display: block;
@@ -426,13 +415,14 @@ ul, ol {
     display: block;
     text-align: center;
     font-weight: 600; /* Semibold */
-    margin-top: auto; /* Empurra para o final */
+    /* margin-top: auto; */ /* REMOVIDO: Para não empurrar para o fundo absoluto */
     padding: 0.75rem 1rem;
     border-radius: var(--btn-border-radius);
     text-decoration: none;
     background-color: var(--primary-color);
     color: var(--text-on-primary-color);
     transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Impede que o botão encolha */
 }
 #mobile-menu .mobile-enroll-btn:hover {
     background-color: var(--primary-dark-color);
@@ -520,6 +510,7 @@ ul, ol {
     flex-direction: column; /* Empilha em telas pequenas */
     gap: 1rem; /* Espaçamento entre botões */
     align-items: center; /* Centraliza na coluna */
+    margin-top: 2rem; /* Espaço acima do grupo */
 }
 @media (min-width: var(--breakpoint-sm)) {
     .button-group {
@@ -606,8 +597,6 @@ section {
     left: 0;
     transform: translateX(0);
 }
-/* Hover opcional na linha */
-/* .section-title:hover::after { width: 70px; } */
 
 /* Subtítulo da Seção */
 .section-subtitle {
@@ -743,7 +732,6 @@ section {
     margin: 0; /* Remove margem do título */
 }
 
-
 /* ==========================================================================
    9. Estilos Específicos das Páginas
    ========================================================================== */
@@ -792,11 +780,21 @@ section {
     font-size: 1.125rem; /* ~text-lg */
     text-align: center;
     color: var(--text-body-color);
+    max-width: 600px; /* Limita largura da lista */
+    margin: auto; /* Centraliza a lista */
 }
 #page-index #target-audience .target-audience-list li {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza conteúdo do item */
+    justify-content: flex-start; /* Alinha texto à esquerda */
+    text-align: left; /* Garante alinhamento do texto */
+    width: 100%; /* Ocupa largura do container */
+}
+@media (min-width: var(--breakpoint-sm)) {
+    #page-index #target-audience .target-audience-list li {
+        justify-content: center; /* Centraliza em telas maiores */
+        text-align: center;
+    }
 }
 #page-index #target-audience .target-audience-list svg {
     width: 20px;
@@ -805,7 +803,6 @@ section {
     margin-right: 0.75rem; /* Espaço entre ícone e texto */
     flex-shrink: 0; /* Impede que o ícone encolha */
 }
-
 
 /* --- Página Módulos --- */
 #page-modulos .page-content-container {
@@ -852,6 +849,7 @@ section {
 }
 
 /* --- Página Publicações --- */
+/* Garante padding e espaçamento consistentes com outras seções */
 #page-publications #publications-hero {
     padding-top: 5rem;
     padding-bottom: 5rem;
@@ -866,6 +864,7 @@ section {
     #page-publications .publication-hero-container {
         flex-direction: row; /* Lado a lado em desktop */
         gap: 3rem; /* Maior espaçamento */
+        align-items: flex-start; /* Alinha no topo */
     }
 }
 #page-publications .publication-image-wrapper {
@@ -954,7 +953,7 @@ section {
 }
 /* Seção Autor na página Publicações */
 #page-publications #publication-author {
-    background-color: var(--bg-surface-color); /* Fundo branco para contraste */
+    /* Mantém o fundo padrão da seção (section-bg-main) */
 }
 #page-publications .author-container {
     display: flex;
@@ -963,11 +962,13 @@ section {
     gap: var(--gap-large);
     max-width: 900px; /* Limita largura */
     margin: auto;
+    text-align: center; /* Centraliza texto em mobile */
 }
 @media (min-width: var(--breakpoint-md)) {
     #page-publications .author-container {
         flex-direction: row; /* Lado a lado em desktop */
         text-align: left;
+        align-items: flex-start; /* Alinha no topo */
     }
 }
 #page-publications .author-image-wrapper {
@@ -1018,10 +1019,11 @@ section {
     margin-right: auto;
 }
 
-
-/* --- Página Instructor (Autor) --- */
-#page-instructor .instructor-hero-section {
+/* --- Página Autor (Renomeada de Instructor) --- */
+/* Usa ID #page-autor */
+#page-autor .autor-hero-section { /* Renomeado de .instructor-hero-section */
     display: flex;
+    flex-direction: column; /* Garante empilhamento e centralização */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -1029,7 +1031,7 @@ section {
     padding-bottom: 5rem;
     min-height: calc(90vh - var(--header-height));
 }
-#page-instructor #instructor-profile-pic {
+#page-autor #autor-profile-pic { /* Renomeado de #instructor-profile-pic */
     width: 176px;
     height: 176px;
     border-radius: 50%;
@@ -1037,17 +1039,17 @@ section {
     border: 4px solid var(--primary-color);
     box-shadow: var(--profile-pic-shadow);
 }
-#page-instructor .instructor-hero-section h1 {
+#page-autor .autor-hero-section h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
-#page-instructor .instructor-subtitle {
+#page-autor .autor-subtitle { /* Renomeado de .instructor-subtitle */
     font-size: 1.25rem;
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 1.5rem;
 }
-#page-instructor .instructor-description {
+#page-autor .autor-description { /* Renomeado de .instructor-description */
     font-size: 1.125rem;
     color: var(--text-body-color);
     max-width: 700px;
@@ -1055,648 +1057,36 @@ section {
     line-height: 1.7;
 }
 @media (min-width: var(--breakpoint-md)) {
-    #page-instructor .instructor-hero-section h1 { font-size: 3rem; }
-    #page-instructor .instructor-subtitle { font-size: 1.5rem; }
-    #page-instructor .instructor-description { font-size: 1.25rem; }
+    #page-autor .autor-hero-section h1 { font-size: 3rem; }
+    #page-autor .autor-subtitle { font-size: 1.5rem; }
+    #page-autor .autor-description { font-size: 1.25rem; }
 }
 
-#page-instructor #about .about-container {
+#page-autor #about .about-container {
     max-width: 800px; /* Limita largura */
     margin: auto;
     text-align: center;
 }
-#page-instructor #about p {
+#page-autor #about p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1.5rem;
     text-align: left; /* Alinha texto à esquerda */
 }
-#page-instructor .inline-link { /* Estilo para links no meio do texto */
+#page-autor .inline-link { /* Estilo para links no meio do texto */
     color: var(--primary-color);
     font-weight: 600;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
 }
-#page-instructor .inline-link:hover {
+#page-autor .inline-link:hover {
     color: var(--primary-dark-color);
 }
 
-#page-instructor #skills .skills-grid {
+#page-autor #skills .skills-grid {
     gap: var(--gap-default);
 }
-#page-instructor #skills .icon-block { /* Estilo do bloco de ícone na pág. instrutor */
+#page-autor #skills .icon-block { /* Estilo do bloco de ícone na pág. autor */
     text-align: center;
-    padding: 1.5rem 1rem;
-    /* background-color: var(--bg-surface-color); */ /* Opcional: fundo branco */
-    /* border-radius: var(--card-border-radius); */
-    /* box-shadow: var(--card-shadow); */
-}
-#page-instructor #skills .icon-block .icon {
-    margin-bottom: 1.25rem;
-}
-#page-instructor #skills .icon-block .icon svg {
-    width: 40px;
-    height: 40px;
-    color: var(--primary-color);
-    margin: auto;
-    transition: transform 0.3s ease;
-}
-#page-instructor #skills .icon-block:hover .icon svg {
-    transform: translateY(-5px) scale(1.05);
-}
-#page-instructor #skills .icon-block h4 {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--text-title-color);
-    margin-bottom: 0.5rem;
-}
-#page-instructor #skills .icon-block p {
-    font-size: 0.9rem;
-    color: var(--text-body-color);
-    line-height: 1.6;
-}
-
-#page-instructor #experience .experience-timeline {
-    position: relative;
-    padding-left: 1.5rem; /* Espaço para a linha */
-}
-/* Linha vertical da timeline */
-#page-instructor .experience-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px; /* Ajuste inicial */
-    bottom: 10px; /* Ajuste final */
-    width: 2px;
-    background-color: var(--border-dark-color);
-}
-#page-instructor .experience-item {
-    position: relative;
-    margin-bottom: 2.5rem;
-    padding-left: 2rem; /* Espaço do conteúdo em relação à linha */
-}
-/* Círculo na linha da timeline */
-#page-instructor .experience-item::before {
-    content: '';
-    position: absolute;
-    left: -7px; /* Posiciona sobre a linha */
-    top: 8px; /* Alinha com o início do texto */
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    border: 3px solid var(--bg-surface-color); /* Cria efeito de contorno */
-}
-#page-instructor .experience-header h4 {
-    font-size: 1.25rem;
-    color: var(--primary-color);
-    margin-bottom: 0.25rem;
-}
-#page-instructor .experience-header .company {
-    font-weight: 600;
-    color: var(--text-body-color);
-    font-size: 1rem;
-}
-#page-instructor .experience-header .period {
-    font-size: 0.9rem;
-    color: var(--text-muted-color);
-    margin-bottom: 0.75rem;
-}
-#page-instructor .experience-details p {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin-bottom: 0;
-}
-
-#page-instructor #publications .content-card { /* Estilo do card na pág. instrutor */
-    background-color: var(--bg-surface-color);
-    border-radius: var(--card-border-radius);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--card-shadow);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column; /* Empilha em mobile */
-    align-items: center;
-    gap: 1.5rem;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-@media (min-width: var(--breakpoint-lg)) {
-    #page-instructor #publications .content-card {
-        flex-direction: row; /* Lado a lado em desktop */
-        align-items: flex-start;
-        gap: 2rem;
-    }
-}
-#page-instructor #publications .content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--card-hover-shadow);
-}
-#page-instructor #publications .publication-image {
-    flex-shrink: 0;
-    width: 150px; /* Largura da imagem da capa */
-}
-@media (min-width: var(--breakpoint-lg)) {
-    #page-instructor #publications .publication-image {
-        width: 200px;
-    }
-}
-#page-instructor #publications .publication-image img {
-    border-radius: var(--img-border-radius);
-    box-shadow: var(--book-cover-shadow);
-}
-#page-instructor #publications .publication-content {
-    text-align: center; /* Centraliza em mobile */
-}
-@media (min-width: var(--breakpoint-lg)) {
-    #page-instructor #publications .publication-content {
-        text-align: left; /* Alinha à esquerda em desktop */
-    }
-}
-#page-instructor #publications .publication-content h4 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-#page-instructor #publications .publication-content .publication-subtitle {
-    font-weight: 600;
-    color: var(--text-body-color);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-#page-instructor #publications .publication-content p {
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-#page-instructor #publications .publication-link .inline-link-arrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-weight: 600;
-    color: var(--primary-color);
-}
-#page-instructor #publications .publication-link .inline-link-arrow svg {
-    transition: transform 0.2s ease;
-}
-#page-instructor #publications .publication-link .inline-link-arrow:hover svg {
-    transform: translateX(3px);
-}
-
-#page-instructor #contact .contact-container {
-    max-width: 700px; /* Limita largura */
-    margin: auto;
-    text-align: center;
-}
-#page-instructor #contact .contact-description {
-    font-size: 1.125rem;
-    color: var(--text-body-color);
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-}
-#page-instructor #contact .contact-methods {
-    display: flex;
-    flex-direction: column; /* Empilha em mobile */
-    align-items: center;
-    gap: 1.5rem;
-}
-@media (min-width: var(--breakpoint-sm)) {
-    #page-instructor #contact .contact-methods {
-        flex-direction: row; /* Lado a lado */
-        justify-content: center;
-        gap: 2.5rem;
-    }
-}
-#page-instructor #contact .contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.1rem;
-    color: var(--text-body-color);
-    transition: color 0.3s ease;
-}
-#page-instructor #contact .contact-link svg {
-    width: 24px;
-    height: 24px;
-    color: var(--primary-color);
-    transition: transform 0.3s ease;
-}
-#page-instructor #contact .contact-link:hover {
-    color: var(--primary-color);
-}
-#page-instructor #contact .contact-link:hover svg {
-    transform: scale(1.1);
-}
-
-
-/* --- Página FAQ --- */
-#page-faq .faq-container {
-    max-width: 850px; /* Limita largura do conteúdo FAQ */
-    margin: auto;
-}
-#page-faq h1 {
-    color: var(--text-title-color);
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-#page-faq h2 { /* Título de cada grupo de FAQ */
-    color: var(--text-title-color);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border-dark-color);
-    padding-bottom: 0.75rem;
-}
-#page-faq .faq-group {
-    margin-bottom: 2rem;
-}
-#page-faq .faq-item { /* Estilo do <details> */
-    background-color: var(--bg-surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--btn-border-radius); /* Usar mesmo raio dos botões */
-    margin-bottom: 1rem;
-    transition: box-shadow 0.2s ease;
-    overflow: hidden; /* Garante que o conteúdo não vaze antes de abrir */
-}
-#page-faq .faq-item:hover {
-    box-shadow: var(--card-shadow);
-}
-#page-faq .faq-item summary { /* Estilo do <summary> (pergunta clicável) */
-    padding: 1rem 1.25rem;
-    font-weight: 600;
-    cursor: pointer;
-    color: var(--text-title-color);
-    font-size: 1.1rem;
-    position: relative; /* Para o ícone +/- */
-    list-style: none; /* Remove marcador padrão */
-    display: block; /* Garante comportamento de bloco */
-    transition: background-color 0.2s ease;
-}
-#page-faq .faq-item summary:hover {
-    background-color: #f7f7fa; /* Fundo leve no hover */
-}
-#page-faq .faq-item summary::-webkit-details-marker,
-#page-faq .faq-item summary::marker {
-    display: none; /* Remove marcador padrão em todos navegadores */
-}
-/* Ícone +/- */
-#page-faq .faq-item summary::after {
-    content: '+';
-    position: absolute;
-    right: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    font-weight: 400; /* Mais leve */
-    color: var(--primary-color);
-    transition: transform 0.2s ease;
-}
-#page-faq .faq-item[open] > summary { /* Estilo do summary quando aberto */
-    background-color: #f0f0f8; /* Fundo mais destacado */
-    border-bottom: 1px solid var(--border-color); /* Linha separadora */
-}
-#page-faq .faq-item[open] > summary::after {
-    content: '−'; /* Muda para sinal de menos */
-    /* transform: translateY(-50%) rotate(180deg); */ /* Rotação não necessária para '−' */
-}
-#page-faq .faq-item div { /* Conteúdo da resposta (dentro do details) */
-    padding: 1.25rem;
-    /* Animação de abertura (opcional, pode causar CLS) */
-    /* transition: max-height 0.3s ease-out, padding 0.3s ease-out; */
-    /* max-height: 0; */
-    /* overflow: hidden; */
-}
-/* #page-faq .faq-item[open] div { */
-    /* max-height: 500px; */ /* Altura máxima estimada */
-/* } */
-#page-faq .faq-item p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-body-color);
-    margin-bottom: 1rem;
-    text-align: left;
-}
-#page-faq .faq-item p:last-child {
-    margin-bottom: 0;
-}
-#page-faq .faq-item a { /* Estilo para links dentro do FAQ */
-    font-weight: 600;
-    text-decoration: underline;
-}
-/* CTA no final da página FAQ */
-#page-faq .faq-cta {
-    margin-top: 4rem;
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--bg-surface-dark-color);
-    border-radius: var(--card-border-radius);
-}
-#page-faq .faq-cta h3 {
-    color: var(--text-title-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-#page-faq .faq-cta p {
-    color: var(--text-muted-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-}
-
-
-/* ==========================================================================
-   10. Formulário (ConvertKit Overrides)
-   ========================================================================== */
-
-#enroll .form-wrapper {
-    background-color: var(--bg-surface-color); /* Fundo branco para o form */
-    padding: 2rem 1.5rem; /* Padding interno */
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--card-shadow);
-    max-width: 600px; /* Largura máxima */
-    margin: auto; /* Centraliza */
-}
-@media (min-width: var(--breakpoint-md)) {
-    #enroll .form-wrapper {
-        padding: 2.5rem 2rem;
-    }
-}
-
-/* Seletores mais específicos para garantir override */
-#enroll form.seva-form.formkit-form,
-#enroll .ck-form {
-    border: none !important;
-    background-color: transparent !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    max-width: 100% !important; /* Ocupa o wrapper */
-}
-#enroll .ck-form-container {
-    max-width: 100% !important;
-    width: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    text-align: left !important;
-}
-/* Esconde header/content padrão do ConvertKit se não forem necessários */
-#enroll .ck-header, #enroll .ck-content {
-    display: none !important;
-}
-#enroll .ck-fields {
-    background: none !important;
-    padding: 0 !important;
-}
-#enroll .formkit-field,
-#enroll .ck-field {
-    margin-bottom: 1.25rem !important; /* Espaço entre campos */
-}
-#enroll .formkit-label,
-#enroll .ck-field label {
-    display: block !important;
-    margin-bottom: 0.5rem !important;
-    font-weight: 600 !important;
-    font-family: 'Open Sans', sans-serif !important;
-    color: var(--text-body-color) !important; /* Cor do label */
-    font-size: 0.9rem !important;
-}
-#enroll .formkit-input,
-#enroll .ck-input {
-    width: 100% !important;
-    padding: 12px 15px !important;
-    border: 1px solid var(--border-dark-color) !important;
-    border-radius: var(--input-border-radius) !important;
-    font-size: 1rem !important;
-    font-family: 'Open Sans', sans-serif !important;
-    background-color: var(--bg-surface-color) !important; /* Fundo do input */
-    color: var(--text-title-color) !important; /* Cor do texto digitado */
-    transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
-    line-height: 1.5; /* Garante altura consistente */
-}
-#enroll .formkit-input::placeholder,
-#enroll .ck-input::placeholder {
-    color: var(--text-muted-color) !important;
-    opacity: 1;
-}
-#enroll .formkit-input:focus,
-#enroll .ck-input:focus {
-    outline: none !important;
-    border-color: var(--primary-color) !important;
-    box-shadow: var(--glow-primary-focus) !important; /* Efeito de foco */
-}
-/* Estilo do botão de envio (usando classes .btn) */
-#enroll .formkit-submit button,
-#enroll .ck-button {
-    /* Aplica estilos base do .btn */
-    display: inline-block !important;
-    padding: 12px 28px !important;
-    border-radius: var(--btn-border-radius) !important;
-    font-weight: 700 !important; /* Mais forte para CTA */
-    letter-spacing: 0.5px !important;
-    text-transform: uppercase !important;
-    font-size: 1rem !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    border: 2px solid transparent !important;
-    transition: all 0.25s ease !important;
-    white-space: nowrap !important;
-    line-height: 1.5 !important;
-    width: 100% !important; /* Ocupa largura total */
-    margin-top: 0.5rem !important; /* Espaço acima do botão */
-
-    /* Aplica estilos do .btn-primary */
-    background-color: var(--primary-color) !important;
-    color: var(--text-on-primary-color) !important;
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2) !important;
-}
-#enroll .formkit-submit button:hover,
-#enroll .ck-button:hover {
-    background-color: var(--primary-dark-color) !important;
-    border-color: var(--primary-dark-color) !important;
-    color: var(--text-on-primary-color) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
-}
-/* Powered by ConvertKit */
-#enroll .ck-powered-by,
-#enroll .ck-powered-by a {
-    color: var(--text-muted-color) !important;
-    font-size: 0.8rem !important;
-    text-align: center !important;
-    margin-top: 1.5rem !important;
-    padding-bottom: 0 !important;
-    text-decoration: none !important;
-    opacity: 0.8;
-}
-#enroll .ck-powered-by a:hover {
-    color: var(--primary-color) !important;
-    opacity: 1;
-    text-decoration: underline !important;
-}
-/* Mensagens de erro/sucesso (estilo básico) */
-#enroll .formkit-message,
-#enroll .ck-message {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    padding: 0.75rem 1rem;
-    border-radius: var(--input-border-radius);
-}
-#enroll .formkit-message-error,
-#enroll .ck-error {
-    color: #dc2626; /* Red */
-    background-color: #fee2e2; /* Light Red */
-    border: 1px solid #fecaca; /* Lighter Red */
-}
-#enroll .ck-success {
-    color: #166534; /* Green */
-    background-color: #dcfce7; /* Light Green */
-    border: 1px solid #bbf7d0; /* Lighter Green */
-}
-
-
-/* ==========================================================================
-   11. Rodapé
-   ========================================================================== */
-
-footer {
-    background-color: var(--bg-surface-color); /* Fundo branco */
-    padding: 2.5rem var(--container-padding); /* Padding vertical e horizontal */
-    border-top: 1px solid var(--border-color); /* Linha separadora */
-    margin-top: 4rem; /* Espaço acima do rodapé */
-    text-align: center; /* Centraliza conteúdo */
-    color: var(--text-muted-color); /* Cor do texto padrão */
-    flex-shrink: 0; /* Impede que encolha se o conteúdo for curto */
-}
-
-.footer-social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem; /* Espaço entre ícones */
-    margin-bottom: 1.5rem;
-}
-.footer-social-icons a {
-    color: var(--text-muted-color);
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-.footer-social-icons a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px); /* Efeito de levantar */
-}
-.footer-social-icons svg {
-    width: 24px; /* Tamanho dos ícones sociais */
-    height: 24px;
-}
-
-footer p {
-    margin-bottom: 0.25rem; /* Menos espaço entre parágrafos */
-    font-size: 0.9rem; /* Tamanho do texto do rodapé */
-    line-height: 1.5;
-}
-footer .footer-subtitle,
-footer .footer-location {
-    font-size: 0.85rem; /* Texto menor para detalhes */
-}
-
-
-/* ==========================================================================
-   12. Utilitários (Preloader, Scroll-to-Top)
-   ========================================================================== */
-
-/* Preloader */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-main-color); /* Mesma cor de fundo da página */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Acima de tudo */
-    opacity: 1;
-    transition: opacity 0.5s ease 0.3s; /* Fade out após 0.3s de delay */
-    pointer-events: auto; /* Permite interação enquanto visível */
-}
-#preloader.hidden {
-    opacity: 0;
-    pointer-events: none; /* Impede interação após escondido */
-}
-
-/* Spinner (Animação de carregamento) */
-.spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1); /* Borda cinza clara */
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border-left-color: var(--primary-color); /* Cor primária na borda esquerda */
-    animation: spin 1s ease infinite; /* Animação de rotação */
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Botão Voltar ao Topo */
-#scroll-to-top {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: var(--primary-color);
-    color: var(--text-on-primary-color);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0; /* Começa invisível */
-    visibility: hidden;
-    transform: translateY(10px); /* Começa um pouco abaixo */
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
-    z-index: 1000; /* Acima de outros elementos */
-    border: none; /* Remove borda padrão de botão */
-}
-#scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0); /* Move para a posição final */
-}
-#scroll-to-top:hover {
-   background-color: var(--primary-dark-color);
-   transform: translateY(-2px); /* Efeito de levantar no hover */
-}
-#scroll-to-top svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* ==========================================================================
-   13. Media Queries Adicionais (Ajustes Finos)
-   ========================================================================== */
-
-/* Exemplo: Ajustar tamanho da fonte base em telas menores */
-@media (max-width: var(--breakpoint-sm)) {
-    html {
-        /* font-size: 15px; */ /* Opcional: reduzir fonte base */
-    }
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    section { padding-top: 3rem; padding-bottom: 3rem; }
-}
-
-/* Exemplo: Ajustar espaçamento do grid em telas menores */
-@media (max-width: var(--breakpoint-md)) {
-    .grid {
-        gap: var(--gap-default); /* Reduzir gap em telas menores */
-    }
-}
+    padding: 1.5rem 1
