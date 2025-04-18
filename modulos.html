@@ -2,173 +2,133 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>Módulos do Curso - MBA Lite</title>
     <meta name="description" content="Explore o currículo detalhado do MBA Lite. Conheça os módulos de Gestão de Pessoas, Riscos, Qualidade, Projetos (Tradicional e Ágil), Ferramentas de Gestão e IA.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulos - MBA Lite</title>
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%234f46e5%22></rect><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2250%22 fill=%22%23FFFFFF%22 font-family=%22sans-serif%22>MBA</text></svg>">
 
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* Custom Tailwind Configuration MUST stay inline when using CDN */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#4f46e5',      // Professional Indigo (Tailwind Indigo 600)
-                        'primary-dark': '#4338ca',   // Darker Indigo (Tailwind Indigo 700)
-                        'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
-                        'text-on-primary': '#FFFFFF', // White text on primary
-                        'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
-                        'bg-surface': '#ffffff',     // White (Cards, Alt Sections)
-                        'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
-                        'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
-                        'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
-                        'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
-                        'text-muted': '#6b7280',     // Muted Gray (Tailwind Gray 500)
-                        'border-color': '#e5e7eb',   // Light Gray Border (Tailwind Gray 200)
-                        'border-dark': '#d1d5db',    // Slightly Darker Border (Tailwind Gray 300)
-                    },
-                    fontFamily: {
-                        sans: ['Open Sans', 'sans-serif'],
-                        heading: ['Open Sans', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
-                        'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
-                        'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
-                        'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
-                        'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
-                        'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover (now publications cover)
-                        'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
-                    },
-                    borderRadius: {
-                        'card': '8px',
-                        'btn': '6px', // From Danubio site
-                    }
-                }
-            }
-        }
-        /* Any absolutely essential minor overrides could go here, but prefer style.css */
-    </style>
-</head>
-<body class="bg-bg-main text-text-body">
-
-    <div id="preloader">
+    </head>
+<body> <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold logo-link hover:text-primary transition duration-300">
+    <header id="main-header"> <div class="container">
+            <a href="index.html" class="logo-link">
                 MBA Lite
             </a>
-
-            <nav id="main-nav" class="hidden lg:flex space-x-6 items-center">
-                <a href="index.html" class="nav-link transition duration-300">Início</a>
-                <a href="modulos.html" class="nav-link transition duration-300 active">Módulos</a>
-                <a href="publicacoes.html" class="nav-link transition duration-300">Publicações</a>
-                <a href="instructor.html" class="nav-link transition duration-300">Sobre o Instrutor</a>
-                <a href="faq.html" class="nav-link transition duration-300">FAQ</a>
-                <a href="index.html#enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
+            <nav id="main-nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="modulos.html" class="nav-link active">Módulos</a> <a href="publicacoes.html" class="nav-link">Publicações</a>
+                <a href="instructor.html" class="nav-link">Sobre o Instrutor</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="index.html#enroll" class="btn btn-primary">Inscreva-se</a>
             </nav>
-
-            <button id="menu-btn" class="lg:hidden focus:outline-none text-text-body hover:text-primary">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="menu-btn" aria-label="Abrir menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-64 h-full shadow-lg p-6 z-40 transform -translate-x-full hidden">
-         <div class="flex justify-between items-center mb-8">
-             <span class="text-xl font-semibold text-text-title">Menu</span>
-             <button id="close-menu-btn" class="text-text-muted hover:text-primary focus:outline-none">
-                 <i class="fas fa-times text-xl"></i>
+    <div id="mobile-menu">
+         <div class="menu-header">
+             <span class="menu-title">Menu</span>
+             <button id="close-menu-btn" aria-label="Fechar menu">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
              </button>
          </div>
-         <nav class="flex flex-col space-y-2">
-             <a href="index.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
-              <a href="modulos.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">Módulos</a>
-             <a href="publicacoes.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
-             <a href="instructor.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
-             <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
-             <a href="index.html#enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
+         <nav>
+             <a href="index.html" class="mobile-menu-link">Início</a>
+             <a href="modulos.html" class="mobile-menu-link active">Módulos</a> <a href="publicacoes.html" class="mobile-menu-link">Publicações</a>
+             <a href="instructor.html" class="mobile-menu-link">Sobre o Instrutor</a>
+             <a href="faq.html" class="mobile-menu-link">FAQ</a>
+             <a href="index.html#enroll" class="mobile-enroll-btn">Inscreva-se</a>
          </nav>
     </div>
-    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+    <div id="menu-overlay"></div>
 
 
     <main id="main-content">
 
         <div id="page-modulos">
-            <div class="page-content-container container mx-auto py-16 px-4 md:px-6 lg:px-8">
-                <div id="content-area">
-                    <h1 data-aos="fade-up">Sumário Detalhado do Curso</h1>
+            <div class="page-content-container container"> <div id="content-area"> <h1>Sumário Detalhado do Curso</h1>
 
-                    <section id="gestao-pessoas" class="scroll-target" data-aos="fade-up">
-                        <h2><i class="fas fa-users mr-3 text-primary"></i>Gestão de Pessoas</h2>
+                    <section id="gestao-pessoas" class="scroll-target module-section"> <h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="module-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            Gestão de Pessoas
+                        </h2>
                         <p>Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
                     </section>
 
-                    <section id="gestao-riscos" class="scroll-target" data-aos="fade-up" data-aos-delay="50">
-                        <h2><i class="fas fa-exclamation-triangle mr-3 text-primary"></i>Gestão de Riscos</h2>
+                    <section id="gestao-riscos" class="scroll-target module-section">
+                        <h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="module-icon"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            Gestão de Riscos
+                        </h2>
                         <p>Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
                     </section>
 
-                    <section id="gestao-qualidade" class="scroll-target" data-aos="fade-up" data-aos-delay="100">
-                        <h2><i class="fas fa-star mr-3 text-primary"></i>Gestão da Qualidade</h2>
+                    <section id="gestao-qualidade" class="scroll-target module-section">
+                        <h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="module-icon"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Gestão da Qualidade
+                        </h2>
                         <p>Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
                     </section>
 
-                    <section id="gestao-projetos" class="scroll-target" data-aos="fade-up" data-aos-delay="150">
-                        <h2><i class="fas fa-tasks mr-3 text-primary"></i>Gestão de Projetos</h2>
+                    <section id="gestao-projetos" class="scroll-target module-section">
+                        <h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="module-icon"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
+                            Gestão de Projetos
+                        </h2>
                         <p>Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
                     </section>
 
-                    <section id="ferramentas-gestao-projetos" class="scroll-target" data-aos="fade-up" data-aos-delay="200">
-                        <h2><i class="fas fa-toolbox mr-3 text-primary"></i>Ferramentas de Gestão</h2>
+                    <section id="ferramentas-gestao-projetos" class="scroll-target module-section">
+                        <h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="module-icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            Ferramentas de Gestão
+                        </h2>
                         <p>Aprenda a dominar as funcionalidades essenciais das principais ferramentas de gestão de projetos do mercado. Exploraremos como plataformas como ClickUp, Jira, Trello, Monday e outras podem ser utilizadas para definir escopo, criar cronogramas (Gantt), gerenciar tarefas (Kanban Boards), alocar recursos, facilitar a comunicação e monitorar o progresso através de dashboards, aplicando as melhores práticas para otimizar o fluxo de trabalho da sua equipe.</p>
                     </section>
 
-                    <section id="gestao-projetos-ia" class="scroll-target" data-aos="fade-up" data-aos-delay="250">
-                        <h2><i class="fas fa-robot mr-3 text-primary"></i>Gestão com IA</h2>
+                    <section id="gestao-projetos-ia" class="scroll-target module-section">
+                        <h2>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="module-icon"><path d="M12 5a3 3 0 1 0-5.997.142 3 3 0 1 0-2.53 4.98 3 3 0 1 0 .188 5.716 3 3 0 1 0 4.98 2.53 3 3 0 1 0 5.716-.188 3 3 0 1 0 2.53-4.98 3 3 0 1 0-.188-5.716A3 3 0 1 0 12 5Z"></path><path d="M12 12a3 3 0 1 0 4.98 2.53 3 3 0 1 0 2.86 2.86"></path><path d="M12 12a3 3 0 1 0-4.98 2.53 3 3 0 1 0-2.86 2.86"></path><path d="M12 12a3 3 0 1 0-4.98-2.53 3 3 0 1 0-2.86-2.86"></path><path d="M12 12a3 3 0 1 0 4.98-2.53 3 3 0 1 0 2.86-2.86"></path><path d="M15 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path><path d="M9 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"></path><path d="M15 14.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"></path><path d="M9 14.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"></path></svg>
+                            Gestão com IA
+                        </h2>
                         <p>Descubra como a Inteligência Artificial Generativa está revolucionando a gestão de projetos. Aprenda a usar ferramentas como ChatGPT, Google Gemini, Grok e outras para brainstorming, análise SWOT, definição de escopo e objetivos SMART, geração de documentação (atas, relatórios), análise de dados de projetos, identificação de riscos, simulação de cenários e apoio à tomada de decisão. Discutiremos também as melhores práticas de Prompt Engineering, ética e o futuro da IA na área.</p>
                     </section>
                 </div>
             </div>
-        </div>
+        </div> </main>
 
-    </main>
-
-    <footer class="bg-bg-surface py-12 border-t border-border-color mt-16">
-        <div class="container mx-auto text-center text-text-muted px-4 md:px-6 lg:px-8">
-             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
-                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <footer> <div class="container">
+             <div class="footer-social-icons">
+                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
+                 </a>
+                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                 </a>
              </div>
-             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
-             <p class="text-sm mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
-             <p class="text-sm mt-2">Brasília - DF, Brasil</p>
+             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p> <p class="footer-subtitle">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
+             <p class="footer-location">Brasília - DF, Brasil</p>
         </div>
     </footer>
 
     <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js" defer></script>
 
-    </body>
+</body>
 </html>
+```
+
+A página `modulos.html` está agora otimizada, com o código HTML limpo e referenciando os arquivos `style.css` e `script.js` para estilo e funcionalidade.
+
+Qual página devemos otimizar a segu
