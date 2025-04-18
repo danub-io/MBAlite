@@ -92,21 +92,25 @@
             scroll-margin-top: var(--scroll-offset); /* Use variable */
         }
 
-        /* Header Styles */
-       #main-header {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
-    height: var(--header-height);
-    /* ESTA LINHA É CRUCIAL */
-    background-color: theme('colors.bg-surface'); /* Garante fundo branco (#ffffff) */
-    box-shadow: theme('boxShadow.header');
-}
+/* Header Styles */
+     #main-header {
+         transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+         height: var(--header-height);
+         /* ===== MODIFICAÇÃO AQUI ===== */
+         background-color: #ffffff; /* Define o fundo branco diretamente */
+         box-shadow: theme('boxShadow.header');
+     }
 
-/* Esta regra aplica o fundo branco também após rolar (o que parece estar funcionando) */
-#main-header.header-scrolled {
-     background-color: theme('colors.bg-surface'); /* Fundo branco sólido */
-     box-shadow: theme('boxShadow.header-scrolled');
-}
-        }
+     /* Regra para quando rolar (mantida igual, mas usando valor direto também por consistência) */
+     #main-header.header-scrolled {
+          background-color: #ffffff; /* Fundo branco sólido */
+          box-shadow: theme('boxShadow.header-scrolled');
+     }
+     /* ===== CERTIFIQUE-SE QUE O '}' EXTRA FOI REMOVIDO DAQUI ===== */
+
+     /* A regra do logo-link continua igual abaixo, sem alterações nela */
+     #main-header a.logo-link { color: theme('colors.text-header'); }
+        
         #main-header a.logo-link { color: theme('colors.text-header'); }
         #main-header nav a.nav-link { color: theme('colors.text-body'); font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; } /* Add transitions */
         #main-header nav a.nav-link:hover,
