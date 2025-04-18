@@ -2,138 +2,74 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>Publicações - Gestão de Pessoas para Alta Performance | MBA Lite</title>
     <meta name="description" content="Conheça o livro 'Gestão de Pessoas para Alta Performance' de Danúbio Coelho. Um guia prático para líderes e RH sobre talento, liderança e cultura organizacional.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicações - MBA Lite</title>
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%234f46e5%22></rect><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2250%22 fill=%22%23FFFFFF%22 font-family=%22sans-serif%22>MBA</text></svg>">
 
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* Custom Tailwind Configuration MUST stay inline when using CDN */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#4f46e5',      // Professional Indigo (Tailwind Indigo 600)
-                        'primary-dark': '#4338ca',   // Darker Indigo (Tailwind Indigo 700)
-                        'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
-                        'text-on-primary': '#FFFFFF', // White text on primary
-                        'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
-                        'bg-surface': '#ffffff',     // White (Cards, Alt Sections)
-                        'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
-                        'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
-                        'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
-                        'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
-                        'text-muted': '#6b7280',     // Muted Gray (Tailwind Gray 500)
-                        'border-color': '#e5e7eb',   // Light Gray Border (Tailwind Gray 200)
-                        'border-dark': '#d1d5db',    // Slightly Darker Border (Tailwind Gray 300)
-                    },
-                    fontFamily: {
-                        sans: ['Open Sans', 'sans-serif'],
-                        heading: ['Open Sans', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
-                        'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
-                        'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
-                        'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
-                        'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
-                        'book-cover': '0 10px 30px rgba(0, 0, 0, 0.1)', /* Softer, larger shadow */
-                        'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
-                    },
-                    borderRadius: {
-                        'card': '8px',
-                        'btn': '6px', // From Danubio site
-                    }
-                }
-            }
-        }
-        /* Any absolutely essential minor overrides could go here, but prefer style.css */
-    </style>
-</head>
-<body class="bg-bg-main text-text-body">
-
-    <div id="preloader">
+    </head>
+<body> <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-             <a href="index.html" class="text-2xl font-bold logo-link hover:text-primary transition duration-300">
+    <header id="main-header"> <div class="container">
+             <a href="index.html" class="logo-link">
                 MBA Lite
             </a>
-
-            <nav id="main-nav" class="hidden lg:flex space-x-6 items-center">
-                <a href="index.html" class="nav-link transition duration-300">Início</a>
-                 <a href="index.html#modules" class="nav-link transition duration-300">Módulos</a>
-                 <a href="publicacoes.html" class="nav-link transition duration-300 active">Publicações</a>
-                <a href="instructor.html" class="nav-link transition duration-300">Sobre o Instrutor</a>
-                <a href="faq.html" class="nav-link transition duration-300">FAQ</a>
-                <a href="index.html#enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
+            <nav id="main-nav">
+                <a href="index.html" class="nav-link">Início</a>
+                 <a href="index.html#modules" class="nav-link">Módulos</a>
+                 <a href="publicacoes.html" class="nav-link active">Publicações</a> <a href="instructor.html" class="nav-link">Sobre o Instrutor</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="index.html#enroll" class="btn btn-primary">Inscreva-se</a>
             </nav>
-
-            <button id="menu-btn" class="lg:hidden focus:outline-none text-text-body hover:text-primary">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="menu-btn" aria-label="Abrir menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-64 h-full shadow-lg p-6 z-40 transform -translate-x-full hidden">
-         <div class="flex justify-between items-center mb-8">
-             <span class="text-xl font-semibold text-text-title">Menu</span>
-             <button id="close-menu-btn" class="text-text-muted hover:text-primary focus:outline-none">
-                 <i class="fas fa-times text-xl"></i>
+    <div id="mobile-menu">
+         <div class="menu-header">
+             <span class="menu-title">Menu</span>
+             <button id="close-menu-btn" aria-label="Fechar menu">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
              </button>
          </div>
-         <nav class="flex flex-col space-y-2">
-             <a href="index.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
-             <a href="index.html#modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
-              <a href="publicacoes.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">Publicações</a>
-             <a href="instructor.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
-             <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
-             <a href="index.html#enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
+         <nav>
+             <a href="index.html" class="mobile-menu-link">Início</a>
+             <a href="index.html#modules" class="mobile-menu-link">Módulos</a>
+              <a href="publicacoes.html" class="mobile-menu-link active">Publicações</a> <a href="instructor.html" class="mobile-menu-link">Sobre o Instrutor</a>
+             <a href="faq.html" class="mobile-menu-link">FAQ</a>
+             <a href="index.html#enroll" class="mobile-enroll-btn">Inscreva-se</a>
          </nav>
     </div>
-    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+    <div id="menu-overlay"></div>
 
 
     <main id="main-content">
 
         <div id="page-publications">
-            <section id="publications-hero" class="scroll-target py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-bg-surface">
-                <div class="container mx-auto">
-                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                        <div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right">
-                            <img id="publication-cover-image" src="/img/gestao-de-pessoas-alta-performance.webp" alt="Capa do livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" class="w-full max-w-xs mx-auto lg:max-w-sm rounded-lg shadow-book-cover"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa+Indispon%C3%ADvel';">
-                        </div>
-                        <div class="lg:w-2/3 text-center lg:text-left" data-aos="fade-left" data-aos-delay="100">
-                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-title mb-4 leading-tight">
+
+            <section id="publications-hero" class="scroll-target section-bg-surface"> <div class="container publication-hero-container"> <div class="publication-hero-content"> <div class="publication-image-wrapper"> <img id="publication-cover-image" src="/img/gestao-de-pessoas-alta-performance.webp" alt="Capa do livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';"> </div>
+                        <div class="publication-text-wrapper"> <h1>
                                 Gestão de Pessoas para Alta Performance
                             </h1>
-                            <p class="text-xl lg:text-2xl publication-subtitle mb-4"> Desvendando o Potencial Humano para Resultados Extraordinários
+                            <p class="publication-subtitle"> Desvendando o Potencial Humano para Resultados Extraordinários
                             </p>
-                            <p class="text-lg publication-author mb-8"> por Danúbio Coelho
+                            <p class="publication-author"> por Danúbio Coelho
                             </p>
-                            <p class="text-lg text-text-body mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                            <p class="publication-description">
                                 Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade, construindo equipes engajadas e resultados excepcionais.
                             </p>
-                            <div class="space-y-4 sm:space-y-0 sm:space-x-4">
-                                <a href="#amazon-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-3 px-8 rounded-btn text-lg inline-block w-full sm:w-auto">
-                                    <i class="fab fa-amazon mr-2"></i> Comprar na Amazon
+                            <div class="button-group"> <a href="#amazon-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-amazon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,18.33a.89.89,0,0,0,.89-.89V10.3a.89.89,0,0,0-.89-.89H17.87a.89.89,0,0,0-.89.89v7.14a.89.89,0,0,0,.89.89ZM12,18.33a.89.89,0,0,0,.89-.89V5.56a.89.89,0,0,0-.89-.89H10.73a.89.89,0,0,0-.89.89V17.44a.89.89,0,0,0,.89.89ZM4.86,18.33a.89.89,0,0,0,.89-.89V10.3a.89.89,0,0,0-.89-.89H3.59a.89.89,0,0,0-.89.89v7.14a.89.89,0,0,0,.89.89Z"/></svg>
+                                    Comprar na Amazon
                                 </a>
-                                <a href="#publications-about" class="btn btn-secondary py-3 px-8 rounded-btn text-lg inline-block w-full sm:w-auto">
+                                <a href="#publications-about" class="btn btn-secondary">
                                     Saiba Mais
                                 </a>
                             </div>
@@ -142,12 +78,12 @@
                 </div>
             </section>
 
-            <section id="publications-about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto max-w-4xl text-center" data-aos="fade-up">
-                    <h3 class="section-subtitle">O LIVRO</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-12 section-title text-center">Desvende o Potencial Humano</h2>
-                    <div class="text-lg text-text-body space-y-6 text-left leading-relaxed">
-                        <p>
+            <section id="publications-about" class="scroll-target section-bg-main">
+                <div class="container about-container"> <div class="section-header">
+                        <h3 class="section-subtitle">O LIVRO</h3>
+                        <h2 class="section-title">Desvende o Potencial Humano</h2>
+                    </div>
+                    <div class="about-text"> <p>
                             No dinâmico e desafiador cenário do século XXI, o verdadeiro diferencial competitivo de qualquer organização reside no seu capital humano. Mas como transformar esse potencial latente em resultados extraordinários? Como construir ambientes onde os indivíduos floresçam, inovem e se sintam conectados a um propósito maior?
                         </p>
                         <p>
@@ -160,116 +96,110 @@
                 </div>
             </section>
 
-            <section id="publication-topics" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-                <div class="container mx-auto">
-                    <div class="text-center mb-16" data-aos="fade-up">
+            <section id="publication-topics" class="scroll-target section-bg-surface">
+                <div class="container">
+                    <div class="section-header">
                         <h3 class="section-subtitle">PRINCIPAIS TÓPICOS</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center">O Que Você Vai Aprender</h2>
+                        <h2 class="section-title">O Que Você Vai Aprender</h2>
                         <p class="section-description">Uma visão geral dos temas essenciais abordados no livro para transformar sua gestão.</p>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                        <div class="topic-item" data-aos="fade-up" data-aos-delay="100">
-                            <div class="topic-icon"><i class="fas fa-users-cog"></i></div>
+                    <div class="grid grid-cols-4 topics-grid"> <div class="topic-item"> <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><circle cx="19.5" cy="19.5" r="2.5"></circle><path d="m17 17 5 5"></path></svg>
+                            </div>
                             <h4 class="topic-title">R&S Estratégico</h4>
                         </div>
-                        <div class="topic-item" data-aos="fade-up" data-aos-delay="150">
-                            <div class="topic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3z"></path><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M8 12l2-2 4 4 4-4 2 2"></path></svg>
+                            </div>
                             <h4 class="topic-title">Liderança e Desenvolvimento</h4>
                         </div>
-                        <div class="topic-item" data-aos="fade-up" data-aos-delay="200">
-                            <div class="topic-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                            </div>
                             <h4 class="topic-title">Perfis Comportamentais (DISC)</h4>
                         </div>
-                         <div class="topic-item" data-aos="fade-up" data-aos-delay="250">
-                            <div class="topic-icon"><i class="fas fa-clipboard-check"></i></div>
+                         <div class="topic-item">
+                            <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg>
+                            </div>
                             <h4 class="topic-title">Avaliação de Desempenho</h4>
                         </div>
-                         <div class="topic-item" data-aos="fade-up" data-aos-delay="300">
-                            <div class="topic-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                            </div>
+                            <h4 class="topic-title">Treinamento e Desenvolvimento</h4>
+                        </div>
+                        <div class="topic-item">
+                             <div class="topic-icon">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            </div>
+                            <h4 class="topic-title">Clima e Cultura Org.</h4>
+                        </div>
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line><circle cx="12" cy="12" r="4"></circle></svg>
+                            </div>
                             <h4 class="topic-title">Remuneração e Benefícios</h4>
                         </div>
-                         <div class="topic-item" data-aos="fade-up" data-aos-delay="350">
-                            <div class="topic-icon"><i class="fas fa-building"></i></div>
-                            <h4 class="topic-title">Cultura e Clima Organizacional</h4>
-                        </div>
-                         <div class="topic-item" data-aos="fade-up" data-aos-delay="400">
-                            <div class="topic-icon"><i class="fas fa-brain"></i></div>
-                            <h4 class="topic-title">Mindset de Crescimento</h4>
-                        </div>
-                         <div class="topic-item" data-aos="fade-up" data-aos-delay="450">
-                            <div class="topic-icon"><i class="fas fa-balance-scale"></i></div>
-                            <h4 class="topic-title">Legislação e Ética</h4>
-                        </div>
-                       </div>
-                </div>
-            </section>
-
-            <section id="publication-author-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto max-w-4xl">
-                    <div class="text-center mb-12" data-aos="fade-up">
-                        <h3 class="section-subtitle">O AUTOR</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center">Conheça Danúbio Coelho</h2>
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center gap-10" data-aos="fade-up" data-aos-delay="100">
-                        <div class="md:w-1/3 flex-shrink-0">
-                             <img src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do livro e instrutor do MBA Lite" class="mx-auto"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/192x192/e0e7ff/4f46e5?text=DC';">
-                        </div>
-                        <div class="md:w-2/3 text-lg text-text-body space-y-4 text-left leading-relaxed">
-                            <p>
-                                Minha trajetória começou na engenharia química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes.
-                            </p>
-                            <p>
-                                Ao longo de mais de uma década, atuei em processos financeiros, suprimentos, qualidade e mais, aprendendo que as melhores metodologias (Lean, Six Sigma, Agile, PMBOK) só atingem seu potencial máximo quando capacitam pessoas. Hoje, continuo essa busca implementando ferramentas e aplicando princípios Kaizen, vendo-os como catalisadores para desbloquear o potencial das equipes.
-                            </p>
-                            <p>
-                                Essa jornada prática me inspirou a compartilhar esses aprendizados através do MBA Lite e deste livro, buscando ajudar outros profissionais a conectar tecnologia, processos e, acima de tudo, pessoas, para construir algo que faça a diferença.
-                            </p>
-                            <div class="mt-6">
-                                <a href="instructor.html" class="text-primary hover:text-primary-dark font-semibold transition duration-300">
-                                    Saiba mais sobre o instrutor <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                             </div>
+                             <h4 class="topic-title">Legislação e Mindset</h4>
                         </div>
                     </div>
                 </div>
             </section>
 
-             <section id="publication-cta" class="py-20 px-4 md:px-6 lg:px-8 bg-primary text-text-on-primary">
-                <div class="container mx-auto max-w-3xl text-center" data-aos="fade-up">
-                    <h2 class="text-3xl font-bold mb-6">Transforme Sua Gestão Agora</h2>
-                    <p class="text-xl mb-10 opacity-90">
-                        Adquira seu exemplar de "Gestão de Pessoas para Alta Performance" e comece a construir equipes extraordinárias hoje mesmo.
-                    </p>
-                    <a href="#amazon-link" target="_blank" rel="noopener noreferrer" class="btn bg-white text-primary border-white hover:bg-gray-100 hover:text-primary-dark py-3 px-8 rounded-btn text-lg">
-                        <i class="fab fa-amazon mr-2"></i> Comprar na Amazon
+            <section id="publication-author" class="scroll-target section-bg-main">
+                <div class="container author-container"> <div class="author-image-wrapper"> <a href="instructor.html"><img id="author-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do livro" onerror="this.onerror=null; this.src='https://placehold.co/176x176/f3f4f6/6b7280?text=Foto';"></a> </div>
+                    <div class="author-content">
+                        <h3>Sobre o Autor</h3>
+                        <h4>Danúbio Coelho</h4>
+                        <p>
+                            Engenheiro Químico e Gestor de Projetos com vasta experiência em otimização de processos, liderança de equipes e implementação de estratégias de gestão. Fundador do <a href="index.html" class="inline-link">MBA Lite</a>, Danúbio é apaixonado por compartilhar conhecimento prático para capacitar líderes e organizações a alcançar resultados extraordinários.
+                        </p>
+                        <a href="instructor.html" class="btn btn-secondary">
+                            Conheça o Instrutor
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="amazon-link" class="scroll-target section-bg-surface-dark cta-section">
+                <div class="container text-center">
+                    <h2>Adquira seu exemplar!</h2>
+                    <p>Transforme sua gestão de pessoas e impulsione os resultados da sua equipe e organização.</p>
+                     <a href="#amazon-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-amazon btn-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,18.33a.89.89,0,0,0,.89-.89V10.3a.89.89,0,0,0-.89-.89H17.87a.89.89,0,0,0-.89.89v7.14a.89.89,0,0,0,.89.89ZM12,18.33a.89.89,0,0,0,.89-.89V5.56a.89.89,0,0,0-.89-.89H10.73a.89.89,0,0,0-.89.89V17.44a.89.89,0,0,0,.89.89ZM4.86,18.33a.89.89,0,0,0,.89-.89V10.3a.89.89,0,0,0-.89-.89H3.59a.89.89,0,0,0-.89.89v7.14a.89.89,0,0,0,.89.89Z"/></svg>
+                        Comprar na Amazon
                     </a>
                 </div>
             </section>
+        </div> </main>
 
-        </div>
-
-    </main>
-
-    <footer class="bg-bg-surface py-12 border-t border-border-color mt-16">
-        <div class="container mx-auto text-center text-text-muted px-4 md:px-6 lg:px-8">
-             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
-                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <footer> <div class="container">
+             <div class="footer-social-icons">
+                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
+                 </a>
+                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                 </a>
              </div>
-             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
-             <p class="text-sm mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
-             <p class="text-sm mt-2">Brasília - DF, Brasil</p>
+             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p> <p class="footer-subtitle">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
+             <p class="footer-location">Brasília - DF, Brasil</p>
         </div>
     </footer>
 
     <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js" defer></script>
 
-     </body>
+</body>
 </html>
