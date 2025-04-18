@@ -2,184 +2,130 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>Sobre o Instrutor - Danúbio Coelho | MBA Lite</title>
     <meta name="description" content="Conheça Danúbio Coelho, Engenheiro Químico, Gestor de Projetos e fundador do MBA Lite. Saiba mais sobre sua experiência, habilidades e publicações.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre o Instrutor - MBA Lite</title>
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%234f46e5%22></rect><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2250%22 fill=%22%23FFFFFF%22 font-family=%22sans-serif%22>MBA</text></svg>">
 
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* Custom Tailwind Configuration MUST stay inline when using CDN */
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#4f46e5',      // Professional Indigo (Tailwind Indigo 600)
-                        'primary-dark': '#4338ca',   // Darker Indigo (Tailwind Indigo 700)
-                        'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
-                        'text-on-primary': '#FFFFFF', // White text on primary
-                        'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
-                        'bg-surface': '#ffffff',     // White (Cards, Alt Sections)
-                        'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
-                        'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
-                        'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
-                        'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
-                        'text-muted': '#6b7280',     // Muted Gray (Tailwind Gray 500)
-                        'border-color': '#e5e7eb',   // Light Gray Border (Tailwind Gray 200)
-                        'border-dark': '#d1d5db',    // Slightly Darker Border (Tailwind Gray 300)
-                    },
-                    fontFamily: {
-                        sans: ['Open Sans', 'sans-serif'],
-                        heading: ['Open Sans', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
-                        'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
-                        'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
-                        'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
-                        'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
-                        'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover (now publications cover)
-                        'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
-                    },
-                    borderRadius: {
-                        'card': '8px',
-                        'btn': '6px', // From Danubio site
-                    }
-                }
-            }
-        }
-        /* Any absolutely essential minor overrides could go here, but prefer style.css */
-    </style>
-</head>
-<body class="bg-bg-main text-text-body">
-
-    <div id="preloader">
+    </head>
+<body> <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <header id="main-header" class="fixed top-0 left-0 w-full z-50">
-        <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-             <a href="index.html" class="text-2xl font-bold logo-link hover:text-primary transition duration-300">
+    <header id="main-header"> <div class="container">
+            <a href="index.html" class="logo-link">
                 MBA Lite
             </a>
-
-            <nav id="main-nav" class="hidden lg:flex space-x-6 items-center">
-                <a href="index.html" class="nav-link transition duration-300">Início</a>
-                 <a href="index.html#modules" class="nav-link transition duration-300">Módulos</a>
-                <a href="publicacoes.html" class="nav-link transition duration-300">Publicações</a>
-                 <a href="instructor.html" class="nav-link transition duration-300 active">Sobre o Instrutor</a>
-                <a href="faq.html" class="nav-link transition duration-300">FAQ</a>
-                <a href="index.html#enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
+            <nav id="main-nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="index.html#modules" class="nav-link">Módulos</a>
+                <a href="publicacoes.html" class="nav-link">Publicações</a>
+                <a href="instructor.html" class="nav-link active">Sobre o Instrutor</a> <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="index.html#enroll" class="btn btn-primary">Inscreva-se</a>
             </nav>
-
-            <button id="menu-btn" class="lg:hidden focus:outline-none text-text-body hover:text-primary">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="menu-btn" aria-label="Abrir menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="lg:hidden fixed top-0 left-0 w-64 h-full shadow-lg p-6 z-40 transform -translate-x-full hidden">
-         <div class="flex justify-between items-center mb-8">
-             <span class="text-xl font-semibold text-text-title">Menu</span>
-             <button id="close-menu-btn" class="text-text-muted hover:text-primary focus:outline-none">
-                 <i class="fas fa-times text-xl"></i>
+    <div id="mobile-menu">
+         <div class="menu-header">
+             <span class="menu-title">Menu</span>
+             <button id="close-menu-btn" aria-label="Fechar menu">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
              </button>
          </div>
-         <nav class="flex flex-col space-y-2">
-             <a href="index.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
-             <a href="index.html#modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
-             <a href="publicacoes.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
-             <a href="instructor.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link active">Sobre o Instrutor</a>
-             <a href="faq.html" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
-             <a href="index.html#enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
+         <nav>
+             <a href="index.html" class="mobile-menu-link">Início</a>
+             <a href="index.html#modules" class="mobile-menu-link">Módulos</a>
+             <a href="publicacoes.html" class="mobile-menu-link">Publicações</a>
+             <a href="instructor.html" class="mobile-menu-link active">Sobre o Instrutor</a> <a href="faq.html" class="mobile-menu-link">FAQ</a>
+             <a href="index.html#enroll" class="mobile-enroll-btn">Inscreva-se</a>
          </nav>
     </div>
-    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+    <div id="menu-overlay"></div>
 
 
     <main id="main-content">
 
         <div id="page-instructor">
-            <section id="home" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
-                <div class="max-w-4xl mx-auto relative z-10">
-                     <img id="instructor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, instrutor do MBA Lite" data-aos="zoom-in" data-aos-delay="100" onerror="this.onerror=null; this.src='https://placehold.co/176x176/f3f4f6/6b7280?text=Foto+Indispon%C3%ADvel';">
 
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-5" data-aos="fade-up" data-aos-delay="200">Danúbio Coelho</h1>
-                    <p class="text-xl md:text-2xl text-primary font-semibold mb-10" data-aos="fade-up" data-aos-delay="300">Engenheiro Químico | Gestor de Projetos | Founder MBA Lite</p>
-                    <p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-12 leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+            <section id="instructor-hero" class="scroll-target section-bg-main instructor-hero-section"> <div class="container instructor-hero-container"> <img id="instructor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, instrutor do MBA Lite" onerror="this.onerror=null; this.src='https://placehold.co/176x176/f3f4f6/6b7280?text=Foto';"> <h1>Danúbio Coelho</h1>
+                    <p class="instructor-subtitle">Engenheiro Químico | Gestor de Projetos | Founder MBA Lite</p> <p class="instructor-description">
                         Apaixonado por otimização de processos, gestão estratégica e desenvolvimento humano para alcançar resultados de alto impacto.
                     </p>
-                    <div class="space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="500">
-                        <a href="#contact" class="btn btn-primary py-3 px-8 rounded-btn text-lg inline-block w-full sm:w-auto">Entre em Contato</a>
-                         </div>
+                    <div class="button-group">
+                        <a href="#contact" class="btn btn-primary">Entre em Contato</a>
+                    </div>
                 </div>
             </section>
 
-            <section id="about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface" data-aos="fade-up">
-                <div class="container mx-auto max-w-4xl text-center">
-                    <h3 class="section-subtitle">QUEM SOU</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-16 section-title text-center">Sobre Mim</h2>
-                    <p class="text-lg text-text-body mb-8 leading-relaxed">
+            <section id="about" class="scroll-target section-bg-surface"> <div class="container about-container"> <div class="section-header">
+                        <h3 class="section-subtitle">QUEM SOU</h3>
+                        <h2 class="section-title">Sobre Mim</h2>
+                    </div>
+                    <p>
                         Minha jornada profissional começou na Engenharia Química, onde aprendi a importância da análise, dos processos e da busca pela eficiência. Complementei essa base com um MBA em Gestão de Projetos e, ao longo dos anos, atuei em diversas frentes: planejamento, operações, suprimentos, consultoria e liderança de equipes em projetos desafiadores.
                     </p>
-                    <p class="text-lg text-text-body mb-8 leading-relaxed">
+                    <p>
                         Acredito firmemente que o verdadeiro diferencial competitivo está nas pessoas. Essa convicção, somada à paixão por compartilhar conhecimento prático, me motivou a criar o
-                        <a href="index.html" class="text-primary hover:text-primary-dark underline font-medium">MBA Lite</a>,
-                        focado em gestão moderna, e a escrever o livro "Gestão de Pessoas para Alta Performance".
+                        <a href="index.html" class="inline-link">MBA Lite</a>, focado em gestão moderna, e a escrever o livro "Gestão de Pessoas para Alta Performance".
                     </p>
-                     <p class="text-lg text-text-body leading-relaxed">
+                     <p>
                         Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.
                     </p>
                 </div>
             </section>
 
-            <section id="skills" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto">
-                    <div class="max-w-2xl mb-16" data-aos="fade-right">
-                        <h3 class="section-subtitle text-left">COMPETÊNCIAS</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-left">Habilidades Principais</h2>
-                        <p class="text-lg text-text-body leading-relaxed">Combinação de expertise técnica, ferramentas modernas e foco em liderança para entregar resultados.</p>
+            <section id="skills" class="scroll-target section-bg-main">
+                <div class="container">
+                    <div class="section-header text-left"> <h3 class="section-subtitle">COMPETÊNCIAS</h3>
+                        <h2 class="section-title">Habilidades Principais</h2>
+                        <p class="section-description">Combinação de expertise técnica, ferramentas modernas e foco em liderança para entregar resultados.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <div class="icon-block" data-aos="fade-up">
-                            <div class="icon"><i class="fas fa-cogs"></i></div>
+                    <div class="grid grid-cols-3 skills-grid"> <div class="icon-block"> <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            </div>
                             <h4>Gestão de Projetos & Processos</h4>
                             <p>PMBOK, Scrum, Kanban, Lean, Six Sigma Green Belt, Otimização de Processos (PCP), Análise de Riscos, Gestão da Qualidade (ISO 9001).</p>
                         </div>
-                         <div class="icon-block" data-aos="fade-up" data-aos-delay="100">
-                            <div class="icon"><i class="fas fa-tools"></i></div>
+                         <div class="icon-block">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                            </div>
                             <h4>Ferramentas de Gestão</h4>
                             <p>ClickUp, Jira, Trello, Monday, Asana, MS Project, Primavera, Excel Avançado, Miro, Zapier, Integrately, SAP MM, Totvs, Sankhya.</p>
                         </div>
-                         <div class="icon-block" data-aos="fade-up" data-aos-delay="200">
-                            <div class="icon"><i class="fas fa-users"></i></div>
+                         <div class="icon-block">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
                             <h4>Liderança & Desenvolvimento</h4>
                             <p>Gestão de Pessoas, Liderança Situacional/Servidora, Comunicação, Oratória, Recrutamento e Seleção, IA para Gestores.</p>
                         </div>
-                         <div class="icon-block" data-aos="fade-up" data-aos-delay="300">
-                            <div class="icon"><i class="fas fa-code"></i></div>
+                         <div class="icon-block">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
                             <h4>Tecnologias Web</h4>
                             <p>HTML, CSS, JavaScript, Git, Github. Desenvolvimento e manutenção de sites e aplicações web.</p>
                         </div>
-                         <div class="icon-block" data-aos="fade-up" data-aos-delay="400">
-                            <div class="icon"><i class="fas fa-language"></i></div>
+                         <div class="icon-block">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            </div>
                             <h4>Idiomas</h4>
                             <p>Português (Nativo), Inglês (Fluente - TOEFL).</p>
                         </div>
-                         <div class="icon-block" data-aos="fade-up" data-aos-delay="500">
-                            <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                         <div class="icon-block">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 12 3 12 0v-5"></path></svg>
+                            </div>
                             <h4>Formação Principal</h4>
                             <p>Engenharia Química (FURG), MBA em Gestão de Projetos PMI (UNOPAR).</p>
                         </div>
@@ -187,126 +133,125 @@
                 </div>
             </section>
 
-            <section id="experience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-                <div class="container mx-auto">
-                    <div class="max-w-2xl mb-16" data-aos="fade-right">
-                        <h3 class="section-subtitle text-left">CARREIRA</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-left">Experiência Profissional</h2>
-                        <p class="text-lg text-text-body leading-relaxed">Trajetória focada em gestão, otimização e entrega de valor em diversos setores.</p>
+            <section id="experience" class="scroll-target section-bg-surface">
+                <div class="container">
+                    <div class="section-header text-left">
+                        <h3 class="section-subtitle">CARREIRA</h3>
+                        <h2 class="section-title">Experiência Profissional</h2>
+                        <p class="section-description">Trajetória focada em gestão, otimização e entrega de valor em diversos setores.</p>
                     </div>
-                    <div class="space-y-16">
-                        <div class="experience-item flex flex-col md:flex-row gap-8" data-aos="fade-up">
-                            <div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-                                <h4 class="text-xl font-semibold text-primary mb-1">Gerente de Projetos</h4>
-                                <p class="text-sm text-text-body font-medium">Vila Mundo / Domebambu / Wedome</p>
-                                <p class="text-sm text-text-muted">Brasília, DF | Ago 2024 - Presente</p>
+                    <div class="experience-timeline"> <div class="experience-item"> <div class="experience-header">
+                                <h4>Gerente de Projetos</h4>
+                                <p class="company">Vila Mundo / Domebambu / Wedome</p>
+                                <p class="period">Brasília, DF | Ago 2024 - Presente</p>
                             </div>
-                            <div class="md:w-3/4 border-l-2 timeline-line pl-8">
-                                <p class="leading-relaxed text-text-body">Implementação de ClickUp, redesenho de fluxos de trabalho, liderança de reuniões Lean no chão de fábrica e gestão de compras, suprimentos e logística.</p>
+                            <div class="experience-details">
+                                <p>Implementação de ClickUp, redesenho de fluxos de trabalho, liderança de reuniões Lean no chão de fábrica e gestão de compras, suprimentos e logística.</p>
                             </div>
                         </div>
-                        <div class="experience-item flex flex-col md:flex-row gap-8" data-aos="fade-up" data-aos-delay="100">
-                            <div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-                                <h4 class="text-xl font-semibold text-primary mb-1">Founder</h4>
-                                <p class="text-sm text-text-body font-medium">MBA Lite</p>
-                                <p class="text-sm text-text-muted">Brasília, DF | Mar 2025 - Presente</p> </div>
-                            <div class="md:w-3/4 border-l-2 timeline-line pl-8">
-                                <p class="leading-relaxed text-text-body">Criação de experiência de aprendizado online em gestão (Pessoas, Riscos, Qualidade, Projetos), desenvolvimento de conteúdo, ebooks, videoaulas e website.</p>
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h4>Founder</h4>
+                                <p class="company">MBA Lite</p>
+                                <p class="period">Brasília, DF | Mar 2025 - Presente</p>
+                            </div>
+                            <div class="experience-details">
+                                <p>Criação de experiência de aprendizado online em gestão (Pessoas, Riscos, Qualidade, Projetos), desenvolvimento de conteúdo, ebooks, videoaulas e website.</p>
                             </div>
                         </div>
-                        <div class="experience-item flex flex-col md:flex-row gap-8" data-aos="fade-up" data-aos-delay="200">
-                            <div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-                                <h4 class="text-xl font-semibold text-primary mb-1">Engenheiro de Projetos</h4>
-                                <p class="text-sm text-text-body font-medium">Petrobras</p>
-                                <p class="text-sm text-text-muted">Rio Grande, RS | Mai 2013 - Jun 2015</p>
+                        <div class="experience-item">
+                             <div class="experience-header">
+                                <h4>Engenheiro de Projetos</h4>
+                                <p class="company">Petrobras</p>
+                                <p class="period">Rio Grande, RS | Mai 2013 - Jun 2015</p>
                             </div>
-                            <div class="md:w-3/4 border-l-2 timeline-line pl-8">
-                                <p class="leading-relaxed text-text-body">Atuação em projetos de construção naval (FPSOs), fiscalização, acompanhamento de cronogramas, orçamentos e processos de procurement.</p>
+                            <div class="experience-details">
+                                <p>Atuação em projetos de construção naval (FPSOs), fiscalização, acompanhamento de cronogramas, orçamentos e processos de procurement.</p>
                             </div>
                         </div>
-                         <div class="experience-item flex flex-col md:flex-row gap-8" data-aos="fade-up" data-aos-delay="300">
-                            <div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-                                <h4 class="text-xl font-semibold text-primary mb-1">Engenheiro de Projetos</h4>
-                                <p class="text-sm text-text-body font-medium">Autônomo</p>
-                                <p class="text-sm text-text-muted">Pelotas, RS | Jun 2015 - Mar 2023</p>
+                         <div class="experience-item">
+                             <div class="experience-header">
+                                <h4>Engenheiro de Projetos</h4>
+                                <p class="company">Autônomo</p>
+                                <p class="period">Pelotas, RS | Jun 2015 - Mar 2023</p>
                             </div>
-                            <div class="md:w-3/4 border-l-2 timeline-line pl-8">
-                                <p class="leading-relaxed text-text-body">Reestruturação financeira (Conta Azul), otimização de suprimentos, coordenação de projetos de fertilizantes e QA de software (Meta, Microsoft, Google).</p>
+                            <div class="experience-details">
+                                <p>Reestruturação financeira (Conta Azul), otimização de suprimentos, coordenação de projetos de fertilizantes e QA de software (Meta, Microsoft, Google).</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="publications" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto">
-                     <div class="max-w-2xl mb-16" data-aos="fade-right">
-                         <h3 class="section-subtitle text-left">CONHECIMENTO</h3>
-                         <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-left">Publicações</h2>
-                         <p class="text-lg text-text-body leading-relaxed">Compartilhando insights sobre gestão e desenvolvimento humano.</p>
+            <section id="publications" class="scroll-target section-bg-main">
+                <div class="container">
+                     <div class="section-header text-left">
+                         <h3 class="section-subtitle">CONHECIMENTO</h3>
+                         <h2 class="section-title">Publicações</h2>
+                         <p class="section-description">Compartilhando insights sobre gestão e desenvolvimento humano.</p>
                      </div>
-                     <div class="publication-card content-card p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10" data-aos="fade-up">
-                         <div class="flex-shrink-0 w-52 md:w-60">
+                     <div class="publication-card content-card"> <div class="publication-image">
                              <a href="publicacoes.html">
-                                 <img src="https://placehold.co/400x600/ffffff/111827?text=Gest%C3%A3o+de+Pessoas" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" class="rounded-md shadow-md w-full border border-border-color hover:opacity-90 transition-opacity"
-                                      onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa+Indispon%C3%ADvel';">
+                                 <img src="/img/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
                              </a>
                          </div>
-                         <div class="text-left flex-grow">
-                             <h4 class="text-2xl md:text-3xl font-semibold text-primary mb-4">Gestão de Pessoas para Alta Performance</h4>
-                             <p class="text-lg text-text-body font-medium opacity-90 mb-5">Desvendando o Potencial Humano para Resultados Extraordinários</p>
-                             <p class="text-text-body mb-8 leading-relaxed">
+                         <div class="publication-content">
+                             <h4>Gestão de Pessoas para Alta Performance</h4>
+                             <p class="publication-subtitle">Desvendando o Potencial Humano para Resultados Extraordinários</p>
+                             <p>
                                  Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade. Explore pilares essenciais como atração e desenvolvimento de talentos, liderança inspiradora, cultura organizacional e o mindset necessário para desbloquear o potencial máximo das equipes.
                              </p>
-                             <div class="space-x-4">
-                                 <a href="publicacoes.html" class="btn btn-primary py-2 px-6 rounded-btn inline-block">Saiba Mais</a>
-                                  </div>
+                             <div class="publication-link">
+                                 <a href="publicacoes.html" class="inline-link-arrow">
+                                     Saiba Mais
+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                 </a>
+                             </div>
                          </div>
                      </div>
                 </div>
             </section>
 
-            <section id="contact" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface"> <div class="container mx-auto max-w-3xl text-center">
-                    <h3 class="section-subtitle">CONECTE-SE</h3>
-                    <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-10 section-title text-center">Entre em Contato</h2>
-                    <p class="text-lg text-text-body mb-12 leading-relaxed">
+            <section id="contact" class="scroll-target section-bg-surface">
+                <div class="container contact-container"> <div class="section-header">
+                        <h3 class="section-subtitle">CONECTE-SE</h3>
+                        <h2 class="section-title">Entre em Contato</h2>
+                    </div>
+                    <p class="contact-description">
                         Estou sempre aberto a novas conexões, oportunidades e discussões sobre gestão, projetos e inovação. Sinta-se à vontade para entrar em contato.
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-10">
-                        <a href="mailto:danubio.coelho@gmail.com" class="flex items-center text-lg text-text-body hover:text-primary transition duration-300 group" data-aos="fade-up">
-                            <i class="far fa-envelope text-2xl mr-3 text-primary group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="contact-methods"> <a href="mailto:danubio.coelho@gmail.com" class="contact-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
                             <span>danubio.coelho@gmail.com</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" class="flex items-center text-lg text-text-body hover:text-primary transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                             <i class="fab fa-linkedin text-2xl mr-3 text-primary group-hover:scale-110 transition-transform duration-300"></i>
+                        <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                              <span>LinkedIn Profile</span>
                         </a>
                     </div>
                 </div>
             </section>
-        </div>
+        </div> </main>
 
-    </main>
-
-    <footer class="bg-bg-surface py-12 border-t border-border-color mt-16">
-        <div class="container mx-auto text-center text-text-muted px-4 md:px-6 lg:px-8">
-             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
-                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <footer> <div class="container">
+             <div class="footer-social-icons">
+                 <a href="mailto:danubio.coelho@gmail.com" title="Email" aria-label="Email">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><polyline points="22,6 12,13 2,6"></polyline></svg>
+                 </a>
+                 <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                 </a>
              </div>
-             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p>
-             <p class="text-sm mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
-             <p class="text-sm mt-2">Brasília - DF, Brasil</p>
+             <p>© <span id="current-year"></span> MBA Lite Program. Todos os direitos reservados.</p> <p class="footer-subtitle">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
+             <p class="footer-location">Brasília - DF, Brasil</p>
         </div>
     </footer>
 
     <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="script.js" defer></script>
 
-    </body>
+</body>
 </html>
