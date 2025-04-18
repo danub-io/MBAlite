@@ -93,16 +93,19 @@
         }
 
         /* Header Styles */
-        #main-header {
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
-            height: var(--header-height);
-            background-color: theme('colors.bg-surface'); /* Start with white background */
-            box-shadow: theme('boxShadow.header');
-        }
-        /* Style for the header when scrolled - Solid Background */
-        #main-header.header-scrolled {
-             background-color: theme('colors.bg-surface'); /* Solid white background */
-             box-shadow: theme('boxShadow.header-scrolled');
+       #main-header {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+    height: var(--header-height);
+    /* ESTA LINHA É CRUCIAL */
+    background-color: theme('colors.bg-surface'); /* Garante fundo branco (#ffffff) */
+    box-shadow: theme('boxShadow.header');
+}
+
+/* Esta regra aplica o fundo branco também após rolar (o que parece estar funcionando) */
+#main-header.header-scrolled {
+     background-color: theme('colors.bg-surface'); /* Fundo branco sólido */
+     box-shadow: theme('boxShadow.header-scrolled');
+}
         }
         #main-header a.logo-link { color: theme('colors.text-header'); }
         #main-header nav a.nav-link { color: theme('colors.text-body'); font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; } /* Add transitions */
