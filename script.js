@@ -270,15 +270,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 }); // Fim do DOMContentLoaded
-```
-
-**O que fazer agora:**
-
-1.  **Substitua** o conteúdo do seu arquivo `script.js` por este código atualizado.
-2.  **Teste novamente** o site no seu navegador.
-3.  **Abra o Console (F12):** Mesmo que o site funcione, verifique o console.
-    * Procure por mensagens de erro (vermelho).
-    * Você verá mensagens como "Preloader escondido." ou "Preloader fallback timeout: escondendo preloader." que ajudam a entender o que aconteceu.
-    * Se algum erro ainda ocorrer, as mensagens de `console.error` que adicionei podem dar pistas sobre qual função falhou.
-
-Se o preloader agora some (mesmo que seja pelo fallback após 5 segundos), isso indica que o problema original poderia ser algo bloqueando o evento `load`. Se erros específicos aparecerem no console, por favor, compartilhe-
