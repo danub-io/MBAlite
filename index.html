@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBA Lite - Gestão Estratégica Premium</title>
+    <title>MBA Lite - Gestão Estratégica Premium & Livro</title>
 
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/4f46e5/FFFFFF?text=MBA">
 
@@ -47,6 +47,7 @@
                         'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
                         'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
                         'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
+                        'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover
                     },
                     borderRadius: {
                         'card': '8px',
@@ -96,8 +97,6 @@
              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); /* shadow-header-scrolled */
              backdrop-filter: blur(5px); /* Optional: blur effect */
              -webkit-backdrop-filter: blur(5px); /* Safari support */
-             /* Optionally reduce height on scroll if desired */
-             /* height: 65px; */
         }
         #main-header a.logo-link { color: #111827; /* text-header */ }
         #main-header nav a.nav-link { color: #374151; /* text-body */ font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; } /* Add transitions */
@@ -316,6 +315,61 @@
         #page-instructor .icon-block h4 { font-size: 1.2rem; font-weight: 600; color: #111827; margin-bottom: 10px; }
         #page-instructor .icon-block p { font-size: 0.95rem; color: #374151; line-height: 1.6; }
 
+        /* Specific Styles for Book Page */
+        #book-hero {
+            background-color: #ffffff; /* bg-surface */
+            padding-top: 6rem; /* More padding */
+            padding-bottom: 6rem;
+        }
+        #book-hero h1 {
+            color: #111827; /* text-title */
+            font-weight: 800; /* Extra bold */
+            letter-spacing: -1px;
+        }
+        #book-hero .book-subtitle {
+            color: #4f46e5; /* primary */
+            font-weight: 600;
+        }
+        #book-hero .book-author {
+            color: #6b7280; /* text-muted */
+            font-weight: 500;
+        }
+        #book-cover-image {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+            transition: transform 0.3s ease;
+        }
+         #book-cover-image:hover {
+             transform: scale(1.03);
+         }
+        #book-topics .topic-item {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        #book-topics .topic-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+        #book-topics .topic-icon {
+            font-size: 2rem;
+            color: #4f46e5; /* primary */
+            margin-bottom: 15px;
+        }
+        #book-topics .topic-title {
+            font-weight: 600;
+            color: #111827;
+        }
+        #book-author-section {
+            background-color: #ffffff; /* bg-surface */
+        }
+        #book-author-section img {
+            border: 4px solid #4f46e5; /* primary border */
+        }
+
     </style>
 </head>
 <body class="bg-bg-main text-text-body">
@@ -333,7 +387,7 @@
             <nav id="main-nav" class="hidden md:flex space-x-6 items-center">
                 <a href="#" data-nav-target="page-index" data-scroll-target="hero" class="nav-link transition duration-300">Início</a>
                 <a href="#" data-nav-target="page-index" data-scroll-target="modules" class="nav-link transition duration-300">Módulos</a>
-                <a href="#" data-nav-target="page-index" data-scroll-target="benefits" class="nav-link transition duration-300">Benefícios</a>
+                <a href="#" data-nav-target="page-book" class="nav-link transition duration-300">Livro</a>
                 <a href="#" data-nav-target="page-instructor" class="nav-link transition duration-300">Sobre o Instrutor</a>
                 <a href="#" data-nav-target="page-faq" class="nav-link transition duration-300">FAQ</a>
                 <a href="#" data-nav-target="page-index" data-scroll-target="enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
@@ -355,7 +409,7 @@
          <nav class="flex flex-col space-y-2">
              <a href="#" data-nav-target="page-index" data-scroll-target="hero" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
              <a href="#" data-nav-target="page-index" data-scroll-target="modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
-             <a href="#" data-nav-target="page-index" data-scroll-target="benefits" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Benefícios</a>
+             <a href="#" data-nav-target="page-book" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Livro</a>
              <a href="#" data-nav-target="page-instructor" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
              <a href="#" data-nav-target="page-faq" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
              <a href="#" data-nav-target="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 py-2 px-3 rounded-md mobile-menu-link mobile-enroll-btn">Inscreva-se</a>
@@ -842,6 +896,147 @@
                            </div>
                   </div>
             </section>
+        </div> <div id="page-book" class="page">
+
+            <section id="book-hero" class="scroll-target py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-bg-surface">
+                <div class="container mx-auto">
+                    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                        <div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right">
+                            <img id="book-cover-image" src="https://placehold.co/400x600/4f46e5/ffffff?text=Capa+do+Livro" alt="Capa do Livro Gestão de Pessoas para Alta Performance" class="w-full max-w-xs mx-auto lg:max-w-sm rounded-lg shadow-book-cover"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa+Indispon%C3%ADvel';">
+                        </div>
+                        <div class="lg:w-2/3 text-center lg:text-left" data-aos="fade-left" data-aos-delay="100">
+                            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-title mb-4 leading-tight">
+                                Gestão de Pessoas para Alta Performance
+                            </h1>
+                            <p class="text-xl lg:text-2xl book-subtitle mb-4">
+                                Desvendando o Potencial Humano para Resultados Extraordinários
+                            </p>
+                            <p class="text-lg book-author mb-8">
+                                por Danúbio Coelho
+                            </p>
+                            <p class="text-lg text-text-body mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                                Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade, construindo equipes engajadas e resultados excepcionais.
+                            </p>
+                            <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                                <a href="#amazon-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-3 px-8 rounded-btn text-lg inline-block w-full sm:w-auto">
+                                    <i class="fab fa-amazon mr-2"></i> Comprar na Amazon
+                                </a>
+                                <a href="#" data-nav-target="page-book" data-scroll-target="book-about" class="btn btn-secondary py-3 px-8 rounded-btn text-lg inline-block w-full sm:w-auto">
+                                    Saiba Mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="book-about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+                <div class="container mx-auto max-w-4xl text-center" data-aos="fade-up">
+                    <h3 class="section-subtitle">O LIVRO</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-12 section-title text-center">Desvende o Potencial Humano</h2>
+                    <div class="text-lg text-text-body space-y-6 text-left leading-relaxed">
+                        <p>
+                            No dinâmico e desafiador cenário do século XXI, o verdadeiro diferencial competitivo de qualquer organização reside no seu capital humano. Mas como transformar esse potencial latente em resultados extraordinários? Como construir ambientes onde os indivíduos floresçam, inovem e se sintam conectados a um propósito maior?
+                        </p>
+                        <p>
+                            "Gestão de Pessoas para Alta Performance" é um guia abrangente e profundamente prático para todos que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade. Exploramos os pilares essenciais para construir e sustentar equipes de alta performance, abordando desde as estratégias mais eficazes para atrair e desenvolver talentos até as nuances da liderança inspiradora, da cultura organizacional e do mindset necessário para desbloquear o potencial máximo.
+                        </p>
+                        <p>
+                            Mais do que um compêndio teórico, este livro foi concebido como um manual prático, repleto de ferramentas, frameworks e exemplos reais que ilustram a aplicação dos conceitos no mundo real. O objetivo é capacitá-lo a atuar como um verdadeiro arquiteto de equipes de alta performance, construindo não apenas negócios bem-sucedidos, mas também ambientes de trabalho onde as pessoas se sintam valorizadas, respeitadas e motivadas a dar o seu melhor.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="book-topics" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+                <div class="container mx-auto">
+                    <div class="text-center mb-16" data-aos="fade-up">
+                        <h3 class="section-subtitle">PRINCIPAIS TÓPICOS</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center">O Que Você Vai Aprender</h2>
+                        <p class="section-description">Uma visão geral dos temas essenciais abordados no livro para transformar sua gestão.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                        <div class="topic-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="topic-icon"><i class="fas fa-users-cog"></i></div>
+                            <h4 class="topic-title">R&S Estratégico</h4>
+                        </div>
+                        <div class="topic-item" data-aos="fade-up" data-aos-delay="150">
+                            <div class="topic-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <h4 class="topic-title">Liderança e Desenvolvimento</h4>
+                        </div>
+                        <div class="topic-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="topic-icon"><i class="fas fa-chart-pie"></i></div>
+                            <h4 class="topic-title">Perfis Comportamentais (DISC)</h4>
+                        </div>
+                         <div class="topic-item" data-aos="fade-up" data-aos-delay="250">
+                            <div class="topic-icon"><i class="fas fa-clipboard-check"></i></div>
+                            <h4 class="topic-title">Avaliação de Desempenho</h4>
+                        </div>
+                         <div class="topic-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="topic-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <h4 class="topic-title">Remuneração e Benefícios</h4>
+                        </div>
+                         <div class="topic-item" data-aos="fade-up" data-aos-delay="350">
+                            <div class="topic-icon"><i class="fas fa-building"></i></div>
+                            <h4 class="topic-title">Cultura e Clima Organizacional</h4>
+                        </div>
+                         <div class="topic-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="topic-icon"><i class="fas fa-brain"></i></div>
+                            <h4 class="topic-title">Mindset de Crescimento</h4>
+                        </div>
+                         <div class="topic-item" data-aos="fade-up" data-aos-delay="450">
+                            <div class="topic-icon"><i class="fas fa-balance-scale"></i></div>
+                            <h4 class="topic-title">Legislação e Ética</h4>
+                        </div>
+                        </div>
+                </div>
+            </section>
+
+            <section id="book-author-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+                <div class="container mx-auto max-w-4xl">
+                    <div class="text-center mb-12" data-aos="fade-up">
+                        <h3 class="section-subtitle">O AUTOR</h3>
+                        <h2 class="text-3xl md:text-4xl font-bold text-text-title mb-6 section-title text-center">Conheça Danúbio Coelho</h2>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-10" data-aos="fade-up" data-aos-delay="100">
+                        <div class="md:w-1/3 flex-shrink-0">
+                             <img src="https://image.pollinations.ai/prompt/A%20professional%20headshot%20of%20Dan%C3%BAbio%20Coelho%2C%20smiling%20slightly%2C%20in%20a%20blurred%20office%20background" alt="Foto de Danúbio Coelho" class="w-48 h-48 rounded-full mx-auto shadow-lg"
+                                  onerror="this.onerror=null; this.src='https://placehold.co/192x192/e0e7ff/4f46e5?text=DC';">
+                        </div>
+                        <div class="md:w-2/3 text-lg text-text-body space-y-4 text-left leading-relaxed">
+                            <p>
+                                Minha trajetória começou na engenharia química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes.
+                            </p>
+                            <p>
+                                Ao longo de mais de uma década, atuei em processos financeiros, suprimentos, qualidade e mais, aprendendo que as melhores metodologias (Lean, Six Sigma, Agile, PMBOK) só atingem seu potencial máximo quando capacitam pessoas. Hoje, continuo essa busca implementando ferramentas e aplicando princípios Kaizen, vendo-os como catalisadores para desbloquear o potencial das equipes.
+                            </p>
+                            <p>
+                                Essa jornada prática me inspirou a compartilhar esses aprendizados através do MBA Lite e deste livro, buscando ajudar outros profissionais a conectar tecnologia, processos e, acima de tudo, pessoas, para construir algo que faça a diferença.
+                            </p>
+                            <div class="mt-6">
+                                <a href="#" data-nav-target="page-instructor" class="text-primary hover:text-primary-dark font-semibold transition duration-300">
+                                    Saiba mais sobre o instrutor <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <section id="book-cta" class="py-20 px-4 md:px-6 lg:px-8 bg-primary text-text-on-primary">
+                <div class="container mx-auto max-w-3xl text-center" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold mb-6">Transforme Sua Gestão Agora</h2>
+                    <p class="text-xl mb-10 opacity-90">
+                        Adquira seu exemplar de "Gestão de Pessoas para Alta Performance" e comece a construir equipes extraordinárias hoje mesmo.
+                    </p>
+                    <a href="#amazon-link" target="_blank" rel="noopener noreferrer" class="btn bg-white text-primary border-white hover:bg-gray-100 hover:text-primary-dark py-3 px-8 rounded-btn text-lg">
+                        <i class="fab fa-amazon mr-2"></i> Comprar na Amazon
+                    </a>
+                </div>
+            </section>
+
+
         </div> </main>
 
     <footer class="bg-bg-surface py-12 border-t border-border-color mt-16">
@@ -886,12 +1081,12 @@
                 setTimeout(() => { if (typeof AOS !== 'undefined') { AOS.refresh(); } }, 100);
             });
 
-            // --- AOS Initialization (Using Danubio's settings) ---
+            // --- AOS Initialization ---
             AOS.init({
                 duration: 600,
                 once: true,
-                offset: 80, // From Danubio
-                easing: 'ease-out-quad', // From Danubio
+                offset: 80,
+                easing: 'ease-out-quad',
             });
 
             // --- Mobile Menu Toggle ---
@@ -900,27 +1095,26 @@
                 mobileMenu.classList.remove('hidden', '-translate-x-full');
                 mobileMenu.classList.add('translate-x-0');
                 menuOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.body.style.overflow = 'hidden';
             };
             const closeMenu = () => {
                 if (!mobileMenu || !menuOverlay) return;
                 mobileMenu.classList.remove('translate-x-0');
                 mobileMenu.classList.add('-translate-x-full');
                 menuOverlay.classList.add('hidden');
-                // Delay hiding to allow animation
                 setTimeout(() => {
                     if (mobileMenu.classList.contains('-translate-x-full')) {
                         mobileMenu.classList.add('hidden');
                     }
-                }, 300); // Match transition duration
-                document.body.style.overflow = ''; // Restore background scroll
+                }, 300);
+                document.body.style.overflow = '';
             };
             if (menuBtn) menuBtn.addEventListener('click', openMenu);
             if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
             if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
             mobileMenuLinks.forEach(link => link.addEventListener('click', (e) => {
-                handleNavLinkClick(e, link); // Use common handler
-                closeMenu(); // Close after click
+                handleNavLinkClick(e, link);
+                closeMenu();
             }));
 
             // --- Footer Year ---
@@ -931,26 +1125,20 @@
             // --- Sticky Header & Scroll-to-Top Button ---
             const handleScroll = () => {
                 const scrollY = window.scrollY;
-
-                // Sticky Header (Using Danubio's logic)
                 if (header) {
-                    if (scrollY > 50) { // Trigger point for scrolled state
+                    if (scrollY > 50) {
                         header.classList.add('header-scrolled');
                     } else {
                         header.classList.remove('header-scrolled');
                     }
                 }
-
-                // Scroll-to-Top Button (Using Danubio's logic)
                 if (scrollToTopBtn) {
-                    if (scrollY > 300) { // Show button after scrolling 300px
+                    if (scrollY > 300) {
                         scrollToTopBtn.classList.add('visible');
                     } else {
                         scrollToTopBtn.classList.remove('visible');
                     }
                 }
-
-                // Update active nav link on scroll
                 updateActiveNavLink();
             };
             window.addEventListener('scroll', handleScroll);
@@ -962,101 +1150,91 @@
                 });
             }
 
-            // --- Navigation Logic (Simplified SPA) ---
+            // --- Navigation Logic (SPA) ---
             function showPage(targetPageId, scrollTargetId = null) {
                 let pageFound = false;
                 allPages.forEach(page => {
                     if (page.id === targetPageId) {
-                        page.style.display = 'block'; // Show target page
+                        page.style.display = 'block';
                         page.classList.add('active');
                         pageFound = true;
                     } else {
-                        page.style.display = 'none'; // Hide other pages
+                        page.style.display = 'none';
                         page.classList.remove('active');
                     }
                 });
 
-                // Default to index if target page not found
                 if (!pageFound) {
                     console.warn(`Page ${targetPageId} not found. Showing index.`);
-                    targetPageId = 'page-index';
+                    targetPageId = 'page-index'; // Default to index
                     const indexPage = document.getElementById(targetPageId);
                     if (indexPage) {
                         indexPage.style.display = 'block';
                         indexPage.classList.add('active');
                     } else {
                         console.error("Index page not found!");
-                        return; // Stop if index page is missing
+                        return;
                     }
                 }
 
-                // Update body class for page-specific styles (optional)
                 document.body.className = `bg-bg-main text-text-body ${targetPageId}`;
 
-                // Handle scrolling
+                // Handle scrolling after page is displayed
                 if (scrollTargetId) {
                     const scrollElement = document.getElementById(scrollTargetId);
                     if (scrollElement) {
-                        // Timeout allows the page display to update before scrolling
-                        setTimeout(() => {
-                            const offset = headerHeight + 30; // Consider header height + margin
+                        setTimeout(() => { // Timeout for display change
+                            const offset = headerHeight + 30;
                             const elementPosition = scrollElement.getBoundingClientRect().top + window.scrollY;
                             const offsetPosition = elementPosition - offset;
-
-                            window.scrollTo({
-                                top: offsetPosition,
-                                behavior: 'smooth'
-                            });
-                            // Update active link after scroll attempt
-                            updateActiveNavLink();
-                        }, 50); // Short delay
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                            updateActiveNavLink(); // Update active link after scroll attempt
+                        }, 50);
                     } else {
-                        // Scroll to top of the page if target element not found
                         console.warn(`Scroll target #${scrollTargetId} not found on page ${targetPageId}. Scrolling to top.`);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         updateActiveNavLink();
                     }
                 } else {
-                    // Scroll to top if no specific target is given
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll top if no target
                     updateActiveNavLink();
                 }
 
-                // Refresh AOS animations for the new page content
                 if (typeof AOS !== 'undefined') {
-                    AOS.refreshHard(); // Use refreshHard as display property changes
+                    AOS.refreshHard(); // Refresh AOS for new page content
                 }
             }
 
-            // --- Handle Nav Link Clicks (Common Handler) ---
+            // --- Handle Nav Link Clicks ---
             function handleNavLinkClick(event, link) {
                 const targetPageId = link.dataset.navTarget;
                 const scrollTargetId = link.dataset.scrollTarget || null;
 
                 if (targetPageId) {
-                    event.preventDefault(); // Prevent default only if it's an SPA link
+                    event.preventDefault();
                     showPage(targetPageId, scrollTargetId);
                 }
-                // If no data-nav-target, let the default browser behavior handle (e.g., standard #hash links within instructor page)
+                // Allow default behavior for non-SPA links (like standard #hash links)
             }
 
-            // Add listeners to all links with data-nav-target
+            // Add listeners to all SPA navigation links
             document.querySelectorAll('a[data-nav-target]').forEach(link => {
                 link.addEventListener('click', (e) => handleNavLinkClick(e, link));
             });
 
-            // Add listeners to standard hash links within the instructor page
-            // These should only trigger smooth scroll within the instructor page itself
-            document.querySelectorAll('#page-instructor a[href^="#"]').forEach(link => {
-                link.addEventListener('click', (event) => {
-                    // Only handle if the link is purely a hash link to an element on the same page
+            // Add listeners for standard hash links within specific pages (e.g., instructor page)
+            document.querySelectorAll('#page-instructor a[href^="#"], #page-book a[href^="#"]').forEach(link => {
+                 // Exclude links that also have data-nav-target (already handled)
+                 if (link.hasAttribute('data-nav-target')) return;
+
+                 link.addEventListener('click', (event) => {
                     if (link.pathname === window.location.pathname && link.hash !== '') {
                         const targetId = link.hash.substring(1);
                         const targetElement = document.getElementById(targetId);
                         const activePage = document.querySelector('.page.active');
 
-                        // Check if the target element exists within the currently active instructor page
-                        if (targetElement && activePage && activePage.id === 'page-instructor' && activePage.contains(targetElement)) {
+                        // Check if the target element exists within the currently active page
+                        if (targetElement && activePage && activePage.contains(targetElement)) {
                             event.preventDefault(); // Prevent default jump
 
                             const offset = headerHeight + 30;
@@ -1068,7 +1246,6 @@
                                 behavior: 'smooth'
                             });
                         }
-                        // Otherwise, let the browser handle it (might be an external link or invalid hash)
                     }
                 });
             });
@@ -1078,63 +1255,59 @@
             function updateActiveNavLink() {
                 let currentSectionId = '';
                 const scrollY = window.scrollY;
-                const offset = headerHeight + 50; // Offset for activation point
+                const offset = headerHeight + 50;
 
                 const activePage = document.querySelector('.page.active');
-                if (!activePage) return; // Exit if no active page
+                if (!activePage) return;
 
-                // Find the current section based on scroll position within the active page
                 let foundSection = false;
                 activePage.querySelectorAll('.scroll-target').forEach(section => {
-                    if (foundSection) return; // Stop checking once the active section is found
-
+                    if (foundSection) return;
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
-
-                    // Check if the top of the section is above the offset point
-                    // and the bottom of the section is below the offset point
                     if (scrollY >= sectionTop - offset && scrollY < sectionTop + sectionHeight - offset) {
                         currentSectionId = section.id;
                         foundSection = true;
                     }
                 });
 
-                // If no section is actively in the viewport offset zone, check if we are near the top
+                // Determine top section if no specific section is active
                 if (!foundSection) {
-                     if (activePage.id === 'page-index' && scrollY < document.getElementById('modules')?.offsetTop - offset) {
+                     if (activePage.id === 'page-index' && scrollY < (document.getElementById('modules')?.offsetTop || Infinity) - offset) {
                          currentSectionId = 'hero';
-                     } else if (activePage.id === 'page-instructor' && scrollY < document.getElementById('about')?.offsetTop - offset) {
+                     } else if (activePage.id === 'page-instructor' && scrollY < (document.getElementById('about')?.offsetTop || Infinity) - offset) {
                          currentSectionId = 'home';
+                     } else if (activePage.id === 'page-book' && scrollY < (document.getElementById('book-about')?.offsetTop || Infinity) - offset) {
+                          currentSectionId = 'book-hero'; // ID of the book hero section
                      }
-                     // Add similar checks for other pages if they have distinct top sections
                 }
 
-
-                // --- Update Desktop Nav Links ---
+                // Update Desktop Nav Links
                 mainNavLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkTargetPage = link.dataset.navTarget;
                     const linkScrollTarget = link.dataset.scrollTarget;
 
                     if (linkTargetPage === activePage.id) {
-                        // Link points to the current page
                         if (linkScrollTarget && linkScrollTarget === currentSectionId) {
-                            // Scroll target matches current section
                             link.classList.add('active');
                         } else if (!linkScrollTarget && linkTargetPage === 'page-index' && currentSectionId === 'hero') {
-                            // Special case for "Início" link when at the top of index
+                             link.classList.add('active');
+                        } else if (!linkScrollTarget && linkTargetPage === 'page-book' && currentSectionId === 'book-hero') {
+                             // Activate 'Livro' link if at the top of the book page
                              link.classList.add('active');
                         }
                     } else if (linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
-                        // Special case for FAQ link
                         link.classList.add('active');
                     } else if (linkTargetPage === 'page-instructor' && activePage.id === 'page-instructor') {
-                         // Special case for Instructor link
+                         link.classList.add('active');
+                    } else if (linkTargetPage === 'page-book' && activePage.id === 'page-book') {
+                         // Activate 'Livro' link if book page is active, even if scrolled down
                          link.classList.add('active');
                     }
                 });
 
-                // --- Update Mobile Nav Links ---
+                // Update Mobile Nav Links
                  mobileMenuLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkTargetPage = link.dataset.navTarget;
@@ -1145,10 +1318,14 @@
                              link.classList.add('active');
                          } else if (!linkScrollTarget && linkTargetPage === 'page-index' && currentSectionId === 'hero') {
                               link.classList.add('active');
+                         } else if (!linkScrollTarget && linkTargetPage === 'page-book' && currentSectionId === 'book-hero') {
+                              link.classList.add('active');
                          }
                      } else if (linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
                          link.classList.add('active');
                      } else if (linkTargetPage === 'page-instructor' && activePage.id === 'page-instructor') {
+                          link.classList.add('active');
+                     } else if (linkTargetPage === 'page-book' && activePage.id === 'page-book') {
                           link.classList.add('active');
                      }
                  });
@@ -1156,7 +1333,6 @@
 
 
             // --- Initial Page Load ---
-            // Determine initial page based on hash or default to index
             const initialHash = window.location.hash.substring(1);
             let initialPage = 'page-index';
             let initialScroll = null;
@@ -1170,15 +1346,15 @@
                         initialScroll = initialHash;
                     } else {
                         console.warn(`Hash #${initialHash} found but not within a page structure. Defaulting to index.`);
-                        window.history.replaceState(null, null, window.location.pathname + window.location.search); // Clear invalid hash
+                        window.history.replaceState(null, null, window.location.pathname + window.location.search);
                     }
                 } else {
-                     window.history.replaceState(null, null, window.location.pathname + window.location.search); // Clear invalid hash
+                     window.history.replaceState(null, null, window.location.pathname + window.location.search);
                 }
             }
 
             showPage(initialPage, initialScroll);
-            handleScroll(); // Initial check for sticky header/scroll button/active link
+            handleScroll();
 
         });
     </script>
