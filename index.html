@@ -100,13 +100,13 @@
              /* height: 65px; */
         }
         #main-header a.logo-link { color: #111827; /* text-header */ }
-        #main-header nav a { color: #374151; /* text-body */ font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; } /* Add padding and transparent border for alignment */
-        #main-header nav a:hover,
-        #main-header nav a.active {
+        #main-header nav a.nav-link { color: #374151; /* text-body */ font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; } /* Add transitions */
+        #main-header nav a.nav-link:hover,
+        #main-header nav a.nav-link.active {
             color: #4f46e5; /* primary */
             border-bottom-color: #4f46e5; /* primary */
         }
-        /* Ensure button in nav aligns vertically */
+        /* Ensure button in nav aligns vertically and inherits transitions */
         #main-nav .btn { margin-bottom: 5px; }
 
 
@@ -119,7 +119,7 @@
         #mobile-menu.hidden {
              transform: translateX(-100%);
         }
-        #mobile-menu nav a { color: #374151; }
+        #mobile-menu nav a { color: #374151; transition: color 0.2s ease, background-color 0.2s ease; }
         #mobile-menu nav a:hover,
         #mobile-menu nav a.active { color: #4f46e5; background-color: #f0f0f8; } /* primary and light primary bg */
         #mobile-menu .mobile-enroll-btn { background-color: #4f46e5; color: #FFFFFF; }
@@ -127,9 +127,9 @@
 
 
         /* Button Styles (From Danubio Site) */
-        .btn { transition: all 0.25s ease; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.9rem; padding: 10px 24px; border-radius: 6px; /* border-radius-btn */ border: 2px solid transparent; /* Base border */ }
+        .btn { transition: all 0.25s ease; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.9rem; padding: 10px 24px; border-radius: 6px; /* border-radius-btn */ border: 2px solid transparent; /* Base border */ display: inline-block; text-align: center; }
         .btn-primary { background-color: #4f46e5; color: #FFFFFF; border-color: #4f46e5; box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2); }
-        .btn-primary:hover { background-color: #4338ca; border-color: #4338ca; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
+        .btn-primary:hover { background-color: #4338ca; border-color: #4338ca; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
         .btn-secondary { border-color: #4f46e5; color: #4f46e5; background-color: transparent; border-width: 2px; }
         .btn-secondary:hover { background-color: #4f46e5; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2); }
         /* Specific Hero button style adjustment if needed */
@@ -589,8 +589,7 @@
                      </p>
                      <div class="space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="500">
                          <a href="#contact" class="btn btn-primary py-3 px-8 rounded-btn text-lg inline-block w-full sm:w-auto">Entre em Contato</a>
-                         <a href="#about" class="btn btn-secondary py-3 px-8 rounded-btn text-lg border-2 inline-block w-full sm:w-auto">Saiba Mais</a>
-                     </div>
+                         </div>
                 </div>
             </section>
 
@@ -951,7 +950,7 @@
                     }
                 }
 
-                // Update active nav link on scroll (only for desktop)
+                // Update active nav link on scroll
                 updateActiveNavLink();
             };
             window.addEventListener('scroll', handleScroll);
@@ -1013,6 +1012,7 @@
                         }, 50); // Short delay
                     } else {
                         // Scroll to top of the page if target element not found
+                        console.warn(`Scroll target #${scrollTargetId} not found on page ${targetPageId}. Scrolling to top.`);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                         updateActiveNavLink();
                     }
@@ -1042,13 +1042,39 @@
 
             // Add listeners to all links with data-nav-target
             document.querySelectorAll('a[data-nav-target]').forEach(link => {
-                // Exclude mobile links already handled separately if necessary (though common handler should work)
-                // if (!link.closest('#mobile-menu')) {
-                    link.addEventListener('click', (e) => handleNavLinkClick(e, link));
-                // }
+                link.addEventListener('click', (e) => handleNavLinkClick(e, link));
             });
 
-            // --- Active Nav Link Highlighting (Desktop Only) ---
+            // Add listeners to standard hash links within the instructor page
+            // These should only trigger smooth scroll within the instructor page itself
+            document.querySelectorAll('#page-instructor a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Only handle if the link is purely a hash link to an element on the same page
+                    if (link.pathname === window.location.pathname && link.hash !== '') {
+                        const targetId = link.hash.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        const activePage = document.querySelector('.page.active');
+
+                        // Check if the target element exists within the currently active instructor page
+                        if (targetElement && activePage && activePage.id === 'page-instructor' && activePage.contains(targetElement)) {
+                            event.preventDefault(); // Prevent default jump
+
+                            const offset = headerHeight + 30;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                            const offsetPosition = elementPosition - offset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                        // Otherwise, let the browser handle it (might be an external link or invalid hash)
+                    }
+                });
+            });
+
+
+            // --- Active Nav Link Highlighting ---
             function updateActiveNavLink() {
                 let currentSectionId = '';
                 const scrollY = window.scrollY;
@@ -1057,62 +1083,68 @@
                 const activePage = document.querySelector('.page.active');
                 if (!activePage) return; // Exit if no active page
 
-                // Only check sections within the currently active page
+                // Find the current section based on scroll position within the active page
+                let foundSection = false;
                 activePage.querySelectorAll('.scroll-target').forEach(section => {
+                    if (foundSection) return; // Stop checking once the active section is found
+
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
-                    // Check if the section is within the viewport activation zone
+
+                    // Check if the top of the section is above the offset point
+                    // and the bottom of the section is below the offset point
                     if (scrollY >= sectionTop - offset && scrollY < sectionTop + sectionHeight - offset) {
                         currentSectionId = section.id;
+                        foundSection = true;
                     }
                 });
 
-                 // Special case for top of index page
-                 if (activePage.id === 'page-index' && scrollY < document.getElementById('modules')?.offsetTop - offset) {
-                     currentSectionId = 'hero';
-                 }
-                 // Special case for top of instructor page
-                 if (activePage.id === 'page-instructor' && scrollY < document.getElementById('about')?.offsetTop - offset) { // Check 'about' section on instructor page
-                     currentSectionId = 'home'; // 'home' is the first section on instructor page
-                 }
+                // If no section is actively in the viewport offset zone, check if we are near the top
+                if (!foundSection) {
+                     if (activePage.id === 'page-index' && scrollY < document.getElementById('modules')?.offsetTop - offset) {
+                         currentSectionId = 'hero';
+                     } else if (activePage.id === 'page-instructor' && scrollY < document.getElementById('about')?.offsetTop - offset) {
+                         currentSectionId = 'home';
+                     }
+                     // Add similar checks for other pages if they have distinct top sections
+                }
 
 
-                // Update desktop nav links based on active page and section
+                // --- Update Desktop Nav Links ---
                 mainNavLinks.forEach(link => {
                     link.classList.remove('active');
                     const linkTargetPage = link.dataset.navTarget;
                     const linkScrollTarget = link.dataset.scrollTarget;
 
                     if (linkTargetPage === activePage.id) {
-                        // If link points to the current page
+                        // Link points to the current page
                         if (linkScrollTarget && linkScrollTarget === currentSectionId) {
-                            // And its scroll target matches the current section
+                            // Scroll target matches current section
                             link.classList.add('active');
-                        } else if (!linkScrollTarget && (currentSectionId === 'hero' || currentSectionId === 'home')) {
-                             // Handle "Início" or similar link without specific scroll target when at top
-                             if (linkTargetPage === 'page-index' && currentSectionId === 'hero') link.classList.add('active');
-                             // Note: Instructor page doesn't have a top-level nav link without scroll target in this design
+                        } else if (!linkScrollTarget && linkTargetPage === 'page-index' && currentSectionId === 'hero') {
+                            // Special case for "Início" link when at the top of index
+                             link.classList.add('active');
                         }
                     } else if (linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
-                        // Special case for FAQ link when FAQ page is active
+                        // Special case for FAQ link
                         link.classList.add('active');
                     } else if (linkTargetPage === 'page-instructor' && activePage.id === 'page-instructor') {
-                         // Special case for Instructor link when Instructor page is active
+                         // Special case for Instructor link
                          link.classList.add('active');
                     }
                 });
 
-                // Update mobile nav links (similar logic, apply 'active' class)
+                // --- Update Mobile Nav Links ---
                  mobileMenuLinks.forEach(link => {
-                    link.classList.remove('active'); // Use the same 'active' class for simplicity
+                    link.classList.remove('active');
                     const linkTargetPage = link.dataset.navTarget;
                     const linkScrollTarget = link.dataset.scrollTarget;
 
                      if (linkTargetPage === activePage.id) {
                          if (linkScrollTarget && linkScrollTarget === currentSectionId) {
                              link.classList.add('active');
-                         } else if (!linkScrollTarget && (currentSectionId === 'hero' || currentSectionId === 'home')) {
-                              if (linkTargetPage === 'page-index' && currentSectionId === 'hero') link.classList.add('active');
+                         } else if (!linkScrollTarget && linkTargetPage === 'page-index' && currentSectionId === 'hero') {
+                              link.classList.add('active');
                          }
                      } else if (linkTargetPage === 'page-faq' && activePage.id === 'page-faq') {
                          link.classList.add('active');
@@ -1137,13 +1169,11 @@
                         initialPage = parentPage.id;
                         initialScroll = initialHash;
                     } else {
-                        // If hash exists but element isn't in a .page, default to index
                         console.warn(`Hash #${initialHash} found but not within a page structure. Defaulting to index.`);
-                        window.history.replaceState(null, null, ' '); // Clear invalid hash
+                        window.history.replaceState(null, null, window.location.pathname + window.location.search); // Clear invalid hash
                     }
                 } else {
-                    // If hash doesn't match any element ID, default to index
-                     window.history.replaceState(null, null, ' '); // Clear invalid hash
+                     window.history.replaceState(null, null, window.location.pathname + window.location.search); // Clear invalid hash
                 }
             }
 
