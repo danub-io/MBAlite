@@ -1,1 +1,394 @@
+ /* Custom Tailwind Configuration - Based on Danubio Coelho Site (Indigo Theme) */
+ /* Note: This tailwind.config block is JavaScript, not CSS.
+    It configures Tailwind when used via the CDN script.
+    If you compile Tailwind separately, you'll define these in your tailwind.config.js file.
+    This block CANNOT be directly put into a separate CSS file.
+    Only the CSS rules below this comment section should go into the external style.css file. */
+ /*
+ tailwind.config = {
+     theme: {
+         extend: {
+             colors: {
+                 'primary': '#4f46e5',     // Professional Indigo (Tailwind Indigo 600)
+                 'primary-dark': '#4338ca',    // Darker Indigo (Tailwind Indigo 700)
+                 'primary-light': '#6366f1', // Lighter Indigo (Tailwind Indigo 500)
+                 'text-on-primary': '#FFFFFF', // White text on primary
+                 'bg-main': '#f9fafb',      // Very Light Gray (Tailwind Gray 50)
+                 'bg-surface': '#ffffff',      // White (Cards, Alt Sections)
+                 'bg-surface-dark': '#f3f4f6', // Slightly darker surface (Tailwind Gray 100) - for contrast like enroll section
+                 'text-header': '#111827',     // Dark Gray for Header Logo (Tailwind Gray 900)
+                 'text-title': '#111827',     // Dark Gray for Titles (Tailwind Gray 900)
+                 'text-body': '#374151',      // Medium Gray for Body (Tailwind Gray 700)
+                 'text-muted': '#6b7280',      // Muted Gray (Tailwind Gray 500)
+                 'border-color': '#e5e7eb',    // Light Gray Border (Tailwind Gray 200)
+                 'border-dark': '#d1d5db',     // Slightly Darker Border (Tailwind Gray 300)
+             },
+             fontFamily: {
+                 sans: ['Open Sans', 'sans-serif'],
+                 heading: ['Open Sans', 'sans-serif'],
+             },
+             boxShadow: {
+                 'glow-primary-focus': '0 0 0 3px rgba(79, 70, 229, 0.3)', // Indigo glow
+                 'card': '0 4px 15px rgba(0, 0, 0, 0.07)', // Softer shadow for light theme
+                 'card-hover': '0 8px 25px rgba(0, 0, 0, 0.1)', // Slightly stronger hover shadow
+                 'header': '0 1px 4px rgba(0, 0, 0, 0.08)', // Subtle header shadow for light theme
+                 'header-scrolled': '0 2px 8px rgba(0, 0, 0, 0.12)', // Shadow for scrolled header
+                 'book-cover': '0 5px 20px rgba(0, 0, 0, 0.15)', // Shadow for book cover (now publications cover)
+                 'profile-pic': '0 5px 15px rgba(0, 0, 0, 0.1)', // Consistent shadow for profile pictures
+             },
+             borderRadius: {
+                 'card': '8px',
+                 'btn': '6px', // From Danubio site
+             }
+         }
+     }
+ }
+ */
+
+ /* Additional Custom Styles - Based on Danubio Coelho Site */
+ html {
+     scroll-behavior: smooth;
+ }
+ body {
+     font-family: 'Open Sans', sans-serif;
+     background-color: #f9fafb; /* bg-main */
+     color: #374151; /* text-body */
+     padding-top: 75px; /* Header height from Danubio site */
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+ main {
+     flex-grow: 1;
+ }
+ /* Header height variable */
+ :root {
+     --header-height: 75px;
+ }
+ /* Offset for fixed header */
+ .scroll-target {
+     scroll-margin-top: calc(var(--header-height) + 30px); /* Adjusted offset */
+ }
+
+ /* Header Styles */
+ #main-header {
+     transition: background-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+     height: var(--header-height);
+     background-color: #ffffff; /* Start with white background */
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* shadow-header */
+ }
+ /* Style for the header when scrolled */
+ #main-header.header-scrolled {
+      background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); /* shadow-header-scrolled */
+      backdrop-filter: blur(5px); /* Optional: blur effect */
+      -webkit-backdrop-filter: blur(5px); /* Safari support */
+ }
+ #main-header a.logo-link { color: #111827; /* text-header */ }
+ #main-header nav a.nav-link { color: #374151; /* text-body */ font-weight: 600; padding-bottom: 5px; border-bottom: 3px solid transparent; transition: color 0.3s ease, border-color 0.3s ease; } /* Add transitions */
+ #main-header nav a.nav-link:hover,
+ #main-header nav a.nav-link.active {
+     color: #4f46e5; /* primary */
+     border-bottom-color: #4f46e5; /* primary */
+ }
+ /* Ensure button in nav aligns vertically and inherits transitions */
+ #main-nav .btn { margin-bottom: 5px; }
+
+
+ /* Mobile Menu */
+ #mobile-menu {
+     transition: transform 0.3s ease-in-out;
+     background-color: #ffffff; /* bg-surface */
+     border-right: 1px solid #e5e7eb; /* border-color */
+ }
+ #mobile-menu.hidden {
+      transform: translateX(-100%);
+ }
+ #mobile-menu nav a { color: #374151; transition: color 0.2s ease, background-color 0.2s ease; }
+ #mobile-menu nav a:hover,
+ #mobile-menu nav a.active { color: #4f46e5; background-color: #f0f0f8; } /* primary and light primary bg */
+ #mobile-menu .mobile-enroll-btn { background-color: #4f46e5; color: #FFFFFF; }
+ #mobile-menu .mobile-enroll-btn:hover { background-color: #4338ca; }
+
+
+ /* Button Styles (From Danubio Site) */
+ .btn { transition: all 0.25s ease; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.9rem; padding: 10px 24px; border-radius: 6px; /* border-radius-btn */ border: 2px solid transparent; /* Base border */ display: inline-block; text-align: center; }
+ .btn-primary { background-color: #4f46e5; color: #FFFFFF; border-color: #4f46e5; box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2); }
+ .btn-primary:hover { background-color: #4338ca; border-color: #4338ca; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
+ .btn-secondary { border-color: #4f46e5; color: #4f46e5; background-color: transparent; border-width: 2px; }
+ .btn-secondary:hover { background-color: #4f46e5; color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2); }
+ /* Specific Hero button style adjustment if needed */
+ #hero .btn-secondary { border-color: #4f46e5; color: #4f46e5; }
+ #hero .btn-secondary:hover { background-color: #4f46e5; color: #FFFFFF; }
+
+
+ /* Section Title Style (From Danubio Site) */
+ h2.section-title { font-weight: 700; letter-spacing: -0.5px; color: #111827; }
+ h3.section-subtitle { font-size: 1rem; font-weight: 700; color: #9ca3af; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+ p.section-description { font-size: 1.1rem; color: #6b7280; max-width: 700px; /* Increased max-width slightly */ margin-left: auto; margin-right: auto; line-height: 1.7; }
+ h2.section-title::after { content: ''; display: block; width: 50px; height: 3px; background-color: #4f46e5; margin-top: 15px; }
+ h2.section-title.text-center::after { margin-left: auto; margin-right: auto; }
+ h2.section-title.text-left::after { margin-left: 0; margin-right: auto; }
+
+ /* Icon Block Style (Adapted for Modules/Benefits using Danubio's style) */
+ .icon-block-card {
+     text-align: left;
+     padding: 25px;
+     background-color: #ffffff; /* bg-surface */
+     border-radius: 8px; /* card radius */
+     border: 1px solid #e5e7eb; /* border-color */
+     display: flex;
+     gap: 20px;
+     align-items: flex-start;
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Softer shadow */
+ }
+ .icon-block-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* card-hover shadow */
+ }
+ .icon-block-card .icon {
+     color: #4f46e5; /* primary */
+     font-size: 1.8rem; /* Slightly smaller icon */
+     margin-top: 3px;
+     flex-shrink: 0;
+     width: 40px; /* Fixed width for alignment */
+     text-align: center;
+     transition: transform 0.3s ease; /* Add transition to icon */
+ }
+  .icon-block-card:hover .icon {
+    transform: scale(1.1); /* Scale icon on hover */
+  }
+ .icon-block-card h4 {
+     font-size: 1.2rem; /* Match Danubio's icon block h4 */
+     font-weight: 600; /* Match Danubio's icon block h4 */
+     color: #111827; /* text-title */
+     margin-bottom: 10px;
+ }
+ .icon-block-card p {
+     font-size: 0.95rem; /* Match Danubio's icon block p */
+     color: #374151; /* text-body */
+     line-height: 1.65;
+ }
+ /* Make entire card clickable if it's a link */
+ a.icon-block-card { display: flex; text-decoration: none; }
+
+
+ /* Content Page Styles (Instructor & Module Details) */
+ .page-content-container h1 { color: #111827; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px; text-align: center;}
+ .page-content-container section { background-color: #ffffff; border: 1px solid #e5e7eb; padding: 35px 30px; margin-bottom: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+ .page-content-container section h2 { color: #4f46e5; font-size: 1.8rem; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+ .page-content-container section p, .page-content-container section ul li { color: #374151; line-height: 1.7; }
+ .page-content-container section ul { list-style: disc; padding-left: 20px; margin-top: 15px; }
+
+
+ /* FAQ Page Styles */
+ #page-faq h1 { color: #111827; font-size: 2.5rem; font-weight: 700; margin-bottom: 50px; text-align: center;}
+ #page-faq h2 { color: #111827; font-size: 1.5rem; font-weight: 600; margin-top: 40px; margin-bottom: 25px; border-bottom: 1px solid #d1d5db; padding-bottom: 10px;}
+ #page-faq .faq-item { background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; margin-bottom: 15px; transition: box-shadow 0.2s ease; }
+ #page-faq .faq-item:hover { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); }
+ #page-faq .faq-item summary { padding: 18px 20px; font-weight: 600; cursor: pointer; color: #111827; font-size: 1.1rem; position: relative; list-style: none; }
+ #page-faq .faq-item summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; font-weight: 300; color: #4f46e5; transition: transform 0.2s ease;}
+ #page-faq .faq-item[open] summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); } /* Rotate minus sign */
+ #page-faq .faq-item summary::-webkit-details-marker, #page-faq .faq-item summary::marker { display: none; }
+ #page-faq .faq-item div { padding: 5px 20px 20px 20px; border-top: 1px solid #e5e7eb; }
+ #page-faq .faq-item p { font-size: 1rem; line-height: 1.7; color: #374151; margin-bottom: 10px; text-align: left;}
+ #page-faq .faq-cta { margin-top: 60px; text-align: center; }
+ #page-faq .faq-cta h3 { color: #111827; font-size: 1.5rem; margin-bottom: 15px;}
+ #page-faq .faq-cta p { color: #6b7280; margin-bottom: 25px;}
+
+ /* ConvertKit Form Styling (Adapted to Danubio Theme) */
+ #enroll form.seva-form.formkit-form { border: none !important; background-color: transparent !important; padding: 0 !important; margin: 0 !important; border-radius: 0 !important; box-shadow: none !important; max-width: 550px !important; margin: auto !important;}
+ #enroll .ck-form-container { max-width: 100% !important; width: 100%; margin: 0 !important; padding: 0 !important; background: none !important; border: none !important; box-shadow: none !important; text-align: left !important; }
+ #enroll .ck-form-container .ck-header, #enroll .ck-form-container .ck-content { display: none !important; }
+ #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
+ #enroll .ck-form-container .ck-field label { display: block !important; margin-bottom: 8px !important; font-weight: 600 !important; font-family: 'Open Sans', sans-serif !important; color: #374151 !important; font-size: 0.9rem !important; }
+ #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input { width: 100% !important; padding: 12px 15px !important; border: 1px solid #d1d5db !important; border-radius: 6px !important; /* Match btn radius */ font-size: 1rem !important; font-family: 'Open Sans', sans-serif !important; background-color: #ffffff !important; color: #111827 !important; transition: box-shadow 0.2s ease, border-color 0.2s ease !important; margin-bottom: 18px !important; }
+ #enroll .ck-form-container .ck-input::placeholder, #enroll form.formkit-form .formkit-field .formkit-input::placeholder { color: #9ca3af !important; opacity: 1; }
+ #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus { outline: none !important; border-color: #4f46e5 !important; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3) !important; /* glow-primary-focus */ }
+ #enroll .ck-form-container .ck-button { /* Use btn styles */ width: 100% !important; padding: 12px 28px !important; margin-top: 10px !important; font-size: 1rem !important; background-color: #4f46e5 !important; border-color: #4f46e5 !important; color: #FFFFFF !important; font-weight: 700 !important; border-radius: 6px !important; cursor: pointer; transition: all 0.3s ease !important; border-width: 2px !important; border-style: solid !important; text-transform: uppercase; letter-spacing: 0.5px; }
+ #enroll .ck-form-container .ck-button:hover { background-color: #4338ca !important; border-color: #4338ca !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important; }
+ #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: #9ca3af !important; font-size: 0.8rem !important; text-align: center !important; margin-top: 20px !important; padding-bottom: 0 !important; text-decoration: none !important; opacity: 0.7; }
+ #enroll .ck-form-container .ck-powered-by a:hover { color: #4f46e5 !important; opacity: 1; text-decoration: underline !important; }
+
+
+ /* Footer Styles (From Danubio Site) */
+ footer { background-color: #ffffff; border-top: 1px solid #e5e7eb; } /* White background, light border */
+ footer p { color: #6b7280; }
+ .footer-social-icons a { color: #6b7280; transition: color 0.3s ease; font-size: 1.5rem; }
+ .footer-social-icons a:hover { color: #4f46e5; }
+
+ /* Scroll-to-Top Button (From Danubio Site) */
+ #scroll-to-top {
+     position: fixed;
+     bottom: 30px;
+     right: 30px;
+     background-color: #4f46e5; /* primary */
+     color: #ffffff; /* text-on-primary */
+     width: 45px;
+     height: 45px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+     z-index: 1000;
+     border: none;
+ }
+ #scroll-to-top.visible {
+     opacity: 1;
+     visibility: visible;
+     transform: translateY(0);
+ }
+  #scroll-to-top:hover {
+    background-color: #4338ca; /* primary-dark */
+    transform: translateY(-3px);
+  }
+
+ /* Preloader Styles (From Danubio Site) */
+ #preloader {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: #f9fafb; /* bg-main */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 9999;
+     opacity: 1;
+     transition: opacity 0.5s ease 0.5s; /* Fade out after delay */
+ }
+ #preloader.hidden {
+     opacity: 0;
+     pointer-events: none; /* Allow interaction with page below */
+ }
+ /* Simple CSS Spinner */
+ .spinner {
+     border: 4px solid rgba(0, 0, 0, 0.1);
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     border-left-color: #4f46e5; /* primary */
+     animation: spin 1s ease infinite;
+ }
+ @keyframes spin {
+     0% { transform: rotate(0deg); }
+     100% { transform: rotate(360deg); }
+ }
+
+ /* Page transition placeholder */
+ .page { display: none; animation: pageFadeIn 0.5s ease-out; }
+ .page.active { display: block; }
+ @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+ /* Specific Styles for Instructor Page Content */
+ #page-instructor .logo-link { /* Style the logo link inside instructor page if needed */ }
+ #page-instructor #home { min-height: calc(100vh - var(--header-height)); } /* Ensure hero fills screen */
+ #page-instructor .experience-item .timeline-line { border-left-color: #d1d5db; } /* Experience timeline */
+ #page-instructor .content-card { background-color: #ffffff; border-radius: 8px; border: 1px solid #e5e7eb; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); } /* General card style */
+ #page-instructor #publications .publication-card { transition: transform 0.25s ease, box-shadow 0.25s ease; } /* Note: This ID might change if publications section moves */
+ #page-instructor #publications .publication-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); } /* Note: This ID might change */
+ /* Icon block specific to instructor page */
+ #page-instructor .icon-block { text-align: center; padding: 20px; }
+ #page-instructor .icon-block .icon { display: inline-block; margin-bottom: 20px; color: #4f46e5; font-size: 2.5rem; transition: transform 0.3s ease; }
+ #page-instructor .icon-block:hover .icon { transform: translateY(-5px) scale(1.05); }
+ #page-instructor .icon-block h4 { font-size: 1.2rem; font-weight: 600; color: #111827; margin-bottom: 10px; }
+ #page-instructor .icon-block p { font-size: 0.95rem; color: #374151; line-height: 1.6; }
+ /* UPDATED: Instructor Hero Photo Style */
+ #page-instructor #instructor-profile-pic {
+     width: 176px; /* md:w-44 */
+     height: 176px; /* md:h-44 */
+     border-radius: 50%;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 2rem; /* mb-8 */
+     border: 4px solid #4f46e5; /* border-4 border-primary */
+     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+ }
+ @media (min-width: 768px) { /* Match md breakpoint */
+      #page-instructor #instructor-profile-pic {
+          /* Keep the same size for consistency with publications page */
+          width: 176px;
+          height: 176px;
+      }
+ }
+
+
+ /* Specific Styles for Publications Page (Formerly Book Page) */
+ /* Renamed IDs: book-hero -> publications-hero, etc. */
+ #publications-hero {
+     background-color: #ffffff; /* bg-surface */
+     padding-top: 6rem; /* More padding */
+     padding-bottom: 6rem;
+ }
+ #publications-hero h1 {
+     color: #111827; /* text-title */
+     font-weight: 800; /* Extra bold */
+     letter-spacing: -1px;
+ }
+ #publications-hero .publication-subtitle { /* Renamed class */
+     color: #4f46e5; /* primary */
+     font-weight: 600;
+ }
+ #publications-hero .publication-author { /* Renamed class */
+     color: #6b7280; /* text-muted */
+     font-weight: 500;
+ }
+ #publication-cover-image { /* Renamed ID */
+     border-radius: 8px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+     transition: transform 0.3s ease;
+ }
+  #publication-cover-image:hover { /* Renamed ID */
+    transform: scale(1.03);
+  }
+ #publication-topics .topic-item { /* Renamed ID */
+     background-color: #ffffff;
+     border: 1px solid #e5e7eb;
+     border-radius: 8px;
+     padding: 20px;
+     text-align: center;
+     transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+ #publication-topics .topic-item:hover { /* Renamed ID */
+     transform: translateY(-4px);
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+ }
+ #publication-topics .topic-icon { /* Renamed ID */
+     font-size: 2rem;
+     color: #4f46e5; /* primary */
+     margin-bottom: 15px;
+ }
+ #publication-topics .topic-title { /* Renamed ID */
+     font-weight: 600;
+     color: #111827;
+ }
+ #publication-author-section { /* Renamed ID */
+     background-color: #ffffff; /* bg-surface */
+ }
+ #publication-author-section img { /* Renamed ID */
+      /* UPDATED: Match instructor page photo style */
+      width: 192px; /* w-48 */
+      height: 192px; /* h-48 */
+      border-radius: 50%; /* rounded-full */
+      margin-left: auto;
+      margin-right: auto;
+      border: 4px solid #4f46e5; /* border-4 border-primary */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+ }
+ /* Ensure ebook images fit well */
+ #bonus-ebooks .ebook-item img {
+     aspect-ratio: 2 / 3; /* Maintain typical book cover ratio */
+     object-fit: cover; /* Cover the area without distorting */
+     width: 100%;
+     height: auto;
+ }
 
