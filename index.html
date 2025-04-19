@@ -206,7 +206,7 @@
         a.icon-block-card { display: flex; text-decoration: none; }
 
 
-        /* Content Page Styles (Instructor & Module Details) */
+        /* Content Page Styles (Autor & Module Details) */
         .page-content-container h1 { color: theme('colors.text-title'); font-size: 2.5rem; font-weight: 700; margin-bottom: 50px; text-align: center;}
         /* Maintainability: Use semantic <article> for content sections */
         .page-content-container article { background-color: theme('colors.bg-surface'); border: 1px solid theme('colors.border-color'); padding: 35px 30px; margin-bottom: 40px; border-radius: theme('borderRadius.card'); box-shadow: theme('boxShadow.card'); }
@@ -340,21 +340,21 @@
         .page.active { display: block; }
         @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Specific Styles for Instructor Page Content */
-        #page-instructor #home { min-height: calc(100vh - var(--header-height)); } /* Ensure hero fills screen */
-        #page-instructor .experience-item .timeline-line { border-left-color: theme('colors.border-dark'); } /* Experience timeline */
+        /* Specific Styles for autor Page Content */
+        #page-autor #home { min-height: calc(100vh - var(--header-height)); } /* Ensure hero fills screen */
+        #page-autor .experience-item .timeline-line { border-left-color: theme('colors.border-dark'); } /* Experience timeline */
         /* Maintainability: Use <article> for content sections */
-        #page-instructor article.content-card { background-color: theme('colors.bg-surface'); border-radius: theme('borderRadius.card'); border: 1px solid theme('colors.border-color'); box-shadow: theme('boxShadow.card'); } /* General card style */
-        #page-instructor #publications .publication-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-        #page-instructor #publications .publication-card:hover { transform: translateY(-5px); box-shadow: theme('boxShadow.card-hover'); }
-        /* Icon block specific to instructor page */
-        #page-instructor .icon-block { text-align: center; padding: 20px; }
-        #page-instructor .icon-block .icon { display: inline-block; margin-bottom: 20px; color: theme('colors.primary'); font-size: 2.5rem; transition: transform 0.3s ease; }
-        #page-instructor .icon-block:hover .icon { transform: translateY(-5px) scale(1.05); }
-        #page-instructor .icon-block h4 { font-size: 1.2rem; font-weight: 600; color: theme('colors.text-title'); margin-bottom: 10px; }
-        #page-instructor .icon-block p { font-size: 0.95rem; color: theme('colors.text-body'); line-height: 1.6; }
-        /* UPDATED: Instructor Hero Photo Style */
-        #page-instructor #instructor-profile-pic {
+        #page-autor article.content-card { background-color: theme('colors.bg-surface'); border-radius: theme('borderRadius.card'); border: 1px solid theme('colors.border-color'); box-shadow: theme('boxShadow.card'); } /* General card style */
+        #page-autor #publications .publication-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        #page-autor #publications .publication-card:hover { transform: translateY(-5px); box-shadow: theme('boxShadow.card-hover'); }
+        /* Icon block specific to autor page */
+        #page-autor .icon-block { text-align: center; padding: 20px; }
+        #page-autor .icon-block .icon { display: inline-block; margin-bottom: 20px; color: theme('colors.primary'); font-size: 2.5rem; transition: transform 0.3s ease; }
+        #page-autor .icon-block:hover .icon { transform: translateY(-5px) scale(1.05); }
+        #page-autor .icon-block h4 { font-size: 1.2rem; font-weight: 600; color: theme('colors.text-title'); margin-bottom: 10px; }
+        #page-autor .icon-block p { font-size: 0.95rem; color: theme('colors.text-body'); line-height: 1.6; }
+        /* UPDATED: autor Hero Photo Style */
+        #page-autor #autor-profile-pic {
             width: 176px; /* md:w-44 */
             height: 176px; /* md:h-44 */
             border-radius: 50%;
@@ -365,7 +365,7 @@
             box-shadow: theme('boxShadow.profile-pic'); /* Consistent shadow */
         }
         @media (min-width: 768px) { /* Match md breakpoint */
-             #page-instructor #instructor-profile-pic {
+             #page-autor #autor-profile-pic {
                  /* Keep the same size for consistency with publications page */
                  width: 176px;
                  height: 176px;
@@ -428,7 +428,7 @@
             background-color: theme('colors.bg-main'); /* Match other sections */
         }
         #publication-author-section img { /* Renamed ID */
-             /* UPDATED: Match instructor page photo style */
+             /* UPDATED: Match autor page photo style */
              width: 192px; /* w-48 */
              height: 192px; /* h-48 */
              border-radius: 50%; /* rounded-full */
@@ -485,7 +485,7 @@
       "provider": {
         "@type": "Person",
         "name": "Danúbio Coelho",
-        "url": "https://www.mbalite.com/instructor", // Replace with actual URL if available
+        "url": "https://www.mbalite.com/autor", // Replace with actual URL if available
         "sameAs": "https://www.linkedin.com/in/danubiocoelho/"
       },
       "courseCode": "MBALITE",
@@ -493,7 +493,7 @@
       "hasCourseInstance": {
         "@type": "CourseInstance",
         "courseMode": "Online",
-        "instructor": {
+        "autor": {
           "@type": "Person",
           "name": "Danúbio Coelho"
         }
@@ -554,7 +554,7 @@
                 <a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link transition duration-300">Início</a>
                 <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link transition duration-300">Módulos</a>
                 <a href="/publicacoes" data-page-id="page-publications" class="nav-link transition duration-300">Publicações</a>
-                <a href="/instructor" data-page-id="page-instructor" class="nav-link transition duration-300">Sobre o Instrutor</a>
+                <a href="/autor" data-page-id="page-autor" class="nav-link transition duration-300">Sobre o Autor</a>
                 <a href="/faq" data-page-id="page-faq" class="nav-link transition duration-300">FAQ</a>
                 <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="btn btn-primary rounded-btn ml-4">Inscreva-se</a>
             </nav>
@@ -576,7 +576,7 @@
            <a href="/" data-page-id="page-index" data-scroll-target="hero" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Início</a>
            <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Módulos</a>
            <a href="/publicacoes" data-page-id="page-publications" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Publicações</a>
-           <a href="/instructor" data-page-id="page-instructor" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Instrutor</a>
+           <a href="/autor" data-page-id="page-Autor" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">Sobre o Autor</a>
            <a href="/faq" data-page-id="page-faq" class="block transition duration-300 font-medium py-2 px-3 rounded-md mobile-menu-link">FAQ</a>
            <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll"
               class="block text-center font-semibold mt-4 py-2 px-6 rounded-btn mobile-menu-link mobile-enroll-btn
@@ -810,10 +810,10 @@
                        </article>
                    </div>
              </div>
-        </div> <div id="page-instructor" class="page">
+        </div> <div id="page-autor" class="page">
               <section id="home" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
                    <div class="max-w-4xl mx-auto relative z-10">
-                         <img id="instructor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, instrutor do MBA lite" width="176" height="176" data-aos="zoom-in" data-aos-delay="100" onerror="this.onerror=null; this.src='https://placehold.co/176x176/f3f4f6/6b7280?text=Foto+Indispon%C3%ADvel';">
+                         <img id="autor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do MBA lite" width="176" height="176" data-aos="zoom-in" data-aos-delay="100" onerror="this.onerror=null; this.src='https://placehold.co/176x176/f3f4f6/6b7280?text=Foto+Indispon%C3%ADvel';">
 
                          <img src="/img/guias/guia7.svg" alt="Ilustração de comunicação ou perfil" class="notion-style-svg absolute top-10 right-10 opacity-20 hidden md:block" style="max-width: 80px;" data-aos="fade-left" data-aos-delay="600" onerror="this.style.display='none'">
                          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-5" data-aos="fade-up" data-aos-delay="200">Danúbio Coelho</h1>
@@ -1065,11 +1065,11 @@
                                            </details>
                                      <details class="faq-item">
                                           <summary>Como posso tirar dúvidas durante o curso?</summary>
-                                          <div class="faq-content"><p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o instrutor ou outros alunos da comunidade poderão respondê-las.</p></div>
+                                          <div class="faq-content"><p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p></div>
                                      </details>
                                      <details class="faq-item">
                                                 <summary>O curso oferece acesso vitalício?</summary>
-                                                <div class="faq-content"><p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o instrutor venha a adicionar.</p></div>
+                                                <div class="faq-content"><p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p></div>
                                      </details>
                                      <details class="faq-item">
                                           <summary>Como me inscrevo no curso pela Udemy?</summary>
@@ -1213,8 +1213,8 @@
                                            Essa jornada prática me inspirou a compartilhar esses aprendizados através do MBA lite e deste livro, buscando ajudar outros profissionais a conectar tecnologia, processos e, acima de tudo, pessoas, para construir algo que faça a diferença.
                                      </p>
                                      <div class="mt-6">
-                                           <a href="/instructor" data-page-id="page-instructor" class="text-primary hover:text-primary-dark font-semibold transition duration-300">
-                                                 Saiba mais sobre o instrutor <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
+                                           <a href="/autor" data-page-id="page-autor" class="text-primary hover:text-primary-dark font-semibold transition duration-300">
+                                                 Saiba mais sobre o autor<i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
                                            </a>
                                      </div>
                                </div>
@@ -1284,7 +1284,7 @@
              const pageRoutes = {
                  '/': { id: 'page-index', title: 'MBA lite - Início' },
                  '/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' },
-                 '/instructor': { id: 'page-instructor', title: 'MBA lite - Sobre o Instrutor' },
+                 '/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' },
                  '/faq': { id: 'page-faq', title: 'MBA lite - FAQ' },
                  // Add a route for the content page if it needs a unique title, otherwise use default
                  // We'll handle the title update specifically for content page navigation
@@ -1552,7 +1552,7 @@
                      return; // Stop further processing
                  }
 
-                 // --- Handle Internal Page Scroll Links (e.g., #contact on /instructor page) ---
+                 // --- Handle Internal Page Scroll Links (e.g., #contact on /autor page) ---
                  // These links only have href="#...", no data-page-id or data-internal-target
                  if (href && href.startsWith('#') && !targetPageId && !internalTargetId) {
                      const targetId = href.substring(1);
@@ -1684,7 +1684,7 @@
                          // Default to top sections based on active page ID
                           const topSections = {
                               'page-index': 'hero',
-                              'page-instructor': 'home',
+                              'page-autor': 'home',
                               'page-publications': 'publications-hero',
                               'page-faq': 'faq-section', // Use the main section ID for FAQ
                               'page-content': 'content-area' // Default for content page
@@ -1775,7 +1775,7 @@
             // IMPORTANT: For the URL routing (e.g., /publicacoes) to work correctly when
             // a user directly accesses the URL or refreshes, your web server (Apache, Nginx,
             // Netlify, Vercel, etc.) must be configured to serve the main index.html file
-            // for all defined routes (/, /publicacoes, /instructor, /faq). This allows the
+            // for all defined routes (/, /publicacoes, /autor, /faq). This allows the
             // JavaScript router to take over once the page loads. Search for "SPA server configuration"
             // or "history mode routing" for your specific hosting environment.
 
