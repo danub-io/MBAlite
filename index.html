@@ -29,8 +29,8 @@
         body { font-family: 'Open Sans', sans-serif; background-color: var(--color-bg-main); color: var(--color-text-body); padding-top: var(--header-height); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: flex; flex-direction: column; min-height: 100vh; font-synthesis: none; }
         main { flex-grow: 1; }
         .scroll-target { scroll-margin-top: var(--scroll-offset); }
-        /* Section title underline removed */
-        h2.section-title { color: var(--color-text-title); position: relative; /* padding-bottom removed */ }
+        h2.section-title { color: var(--color-text-title); position: relative; } /* Removed padding-bottom */
+        /* Section title underline rules removed */
         .icon-block-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .icon-block-card:hover { transform: translateY(-5px); }
         .icon-block-card .icon { color: var(--color-primary); transition: transform 0.3s ease; }
@@ -66,7 +66,7 @@
         @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         /* Minimal ConvertKit Overrides - Focus on Font/Color */
         #enroll .form-wrapper { background-color: var(--color-bg-surface); }
-        #enroll form.seva-form.formkit-form { margin: 0 auto !important; max-width: 550px !important; /* Keep max-width */}
+        #enroll form.seva-form.formkit-form { margin: 0 auto !important; max-width: 550px !important; }
         #enroll .ck-form-container { max-width: 100% !important; width: 100%; margin: 0 !important; padding: 0 !important; text-align: left !important; }
         #enroll .ck-form-container .ck-header, #enroll .ck-form-container .ck-content { display: none !important; }
         #enroll .ck-form-container .ck-fields { padding: 0 !important; }
@@ -74,29 +74,28 @@
         #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input {
             color: var(--color-text-title) !important;
             font-family: inherit !important;
-            /* Removed background, border overrides - let CK handle or add minimal if needed */
-            /* border: 1px solid var(--color-border) !important; */ /* Re-add if CK default is bad */
+            /* Let CK handle background, border, padding, etc. */
             transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
         }
         #enroll .ck-form-container .ck-input::placeholder, #enroll form.formkit-form .formkit-field .formkit-input::placeholder { color: var(--color-text-muted) !important; opacity: 1; }
         #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus {
             outline: none !important;
             /* Keep focus style for UX, adjust color if needed */
-            border-color: var(--color-primary) !important;
+            border-color: var(--color-primary) !important; /* Might need adjustment if CK border is different */
             box-shadow: 0 0 0 3px theme('colors.blue.200') !important;
         }
         #enroll .ck-form-container .ck-button {
-            color: var(--color-text-on-primary) !important;
+            color: var(--color-text-on-primary) !important; /* Ensure white text */
             font-family: inherit !important;
-            /* Removed background, border overrides */
+             /* Let CK handle background, border, padding etc. */
             transition: all 0.3s ease !important;
         }
         #enroll .ck-form-container .ck-button:hover {
-             /* Removed background, border overrides */
-             transform: translateY(-2px);
-             box-shadow: theme('boxShadow.lg') !important; /* Keep subtle hover effect */
+             /* Let CK handle hover background/border */
+             transform: translateY(-2px); /* Keep subtle effect */
+             box-shadow: theme('boxShadow.lg') !important;
         }
-        #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; }
+        #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; font-size: 0.75rem !important; /* Example: Adjust size if needed */ }
         #enroll .ck-form-container .ck-powered-by a:hover { color: var(--color-primary) !important; }
         .notion-style-svg { max-width: 100px; height: auto; opacity: 0.7; margin-bottom: 1rem; margin-left: auto; margin-right: auto; display: block; }
         .experience-item .timeline-line { border-left-color: var(--color-border-dark); }
@@ -265,22 +264,22 @@
                     <p class="text-lg text-text-muted max-w-3xl mx-auto leading-relaxed mb-12" data-aos="fade-up" data-aos-delay="200">Aprofunde seu conhecimento com um ebook dedicado para cada módulo do MBA lite, cobrindo os tópicos essenciais de forma prática e direta.</p>
                     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
                         <div class="ebook-item group bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition duration-300">
-                            <img src="/img/ebooks/gestao-de-pessoas.webp" alt="Ebook MBA lite - Gestão de Pessoas" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Pessoas';">
+                            <img src="/img/e-books/gestao-de-pessoas.webp" alt="Ebook MBA lite - Gestão de Pessoas" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Pessoas';">
                         </div>
                         <div class="ebook-item group bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition duration-300">
-                            <img src="/img/ebooks/gestao-de-riscos.webp" alt="Ebook MBA lite - Gestão de Riscos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Riscos';">
+                            <img src="/img/e-books/gestao-de-riscos.webp" alt="Ebook MBA lite - Gestão de Riscos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Riscos';">
                         </div>
                         <div class="ebook-item group bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition duration-300">
-                            <img src="/img/ebooks/gestao-da-qualidade.webp" alt="Ebook MBA lite - Gestão da Qualidade" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Qualidade';">
+                            <img src="/img/e-books/gestao-da-qualidade.webp" alt="Ebook MBA lite - Gestão da Qualidade" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Qualidade';">
                         </div>
                         <div class="ebook-item group bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition duration-300">
-                            <img src="/img/ebooks/gestao-de-projetos.webp" alt="Ebook MBA lite - Gestão de Projetos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Projetos';">
+                            <img src="/img/e-books/gestao-de-projetos.webp" alt="Ebook MBA lite - Gestão de Projetos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Projetos';">
                         </div>
                         <div class="ebook-item group bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition duration-300">
-                            <img src="/img/ebooks/ferramentas-de-gestao.webp" alt="Ebook MBA lite - Ferramentas de Gestão" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Ferramentas';">
+                            <img src="/img/e-books/ferramentas-de-gestao.webp" alt="Ebook MBA lite - Ferramentas de Gestão" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Ferramentas';">
                         </div>
                         <div class="ebook-item group bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden transition duration-300">
-                            <img src="/img/ebooks/gestao-com-ia.webp" alt="Ebook MBA lite - Gestão com IA" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=IA';">
+                            <img src="/img/e-books/gestao-com-ia.webp" alt="Ebook MBA lite - Gestão com IA" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=IA';">
                         </div>
                     </div>
                 </div>
@@ -293,7 +292,8 @@
                         <p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
                     </div>
                     <div class="form-wrapper bg-white py-8 md:py-10 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                        <div class="px-8 md:px-10"> <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                        <div class="px-8 md:px-10">
+                            <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
                             <noscript><p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p></noscript>
                         </div>
                     </div>
@@ -394,7 +394,7 @@
                     <article class="bg-white p-8 md:p-10 rounded-lg flex flex-col lg:flex-row items-center gap-10" data-aos="fade-up">
                         <div class="flex-shrink-0 w-52 md:w-60 lg:w-1/4">
                             <a href="/publicacoes" data-page-id="page-publications" class="block group">
-                                <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600"
+                                <img src="/img/e-books/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600"
                                      class="rounded-md shadow-lg hover:shadow-xl w-full group-hover:opacity-90 transition duration-300"
                                      onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
                             </a>
@@ -468,7 +468,7 @@
             <section id="publications-hero" class="scroll-target py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-bg-surface">
                 <div class="container mx-auto">
                     <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                        <div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right"><img id="publication-cover-image" src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600" class="w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full rounded-lg shadow-xl border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';"></div>
+                        <div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right"><img id="publication-cover-image" src="/img/e-books/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600" class="w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full rounded-lg shadow-xl border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';"></div>
                         <div class="lg:w-2/3 text-center lg:text-left" data-aos="fade-left" data-aos-delay="100">
                             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-title mb-3 leading-tight">Gestão de Pessoas para Alta Performance</h1>
                             <p class="text-xl lg:text-2xl text-[#0582ff] font-semibold mb-4"> Desvendando o Potencial Humano para Resultados Extraordinários</p>
@@ -476,8 +476,7 @@
                             <p class="text-lg text-text-body mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade, construindo equipes engajadas e resultados excepcionais.</p>
                             <div class="space-y-4 sm:space-y-0 sm:space-x-4">
                                 <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-yellow-500 text-gray-900 font-semibold rounded-md shadow-md hover:bg-yellow-600 hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto"><i class="fab fa-amazon mr-2" aria-hidden="true"></i> Comprar na Amazon</a>
-                                <a href="#publications-about" class="inline-block px-8 py-3 border-2 border-[#0582ff] text-[#0582ff] font-semibold rounded-md hover:bg-[#0582ff] hover:text-white hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Saiba Mais</a>
-                            </div>
+                                </div>
                         </div>
                     </div>
                 </div>
