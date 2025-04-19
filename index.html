@@ -1233,6 +1233,31 @@
 				initFooterYear();
 				initSPARouting();
 			});
-		</script>
+		// Adicione este código DENTRO da tag <script> principal no final do <body>
+
+// Função para remover o padding do formulário ConvertKit
+function removerPaddingFormularioConvertKit() {
+    // Seletor exato que vimos na imagem do DevTools
+    const seletorFormulario = '.formkit-form[data-uid="d0849e0001"][data-style="minimal"]';
+    const formularioConvertKit = document.querySelector(seletorFormulario);
+
+    if (formularioConvertKit) {
+        console.log('Formulário ConvertKit encontrado, removendo padding...');
+        // Define o padding diretamente no estilo do elemento para sobrescrever
+        formularioConvertKit.style.paddingLeft = '0';
+formularioConvertKit.style.paddingRight = '0';
+        console.log('Padding do formulário ConvertKit zerado.');
+    } else {
+        // Se não encontrar, pode ser que o script precise de mais tempo
+        console.warn('Formulário ConvertKit não encontrado imediatamente. Verifique o seletor ou o tempo de execução.');
+    }
+}
+
+// Tenta remover o padding depois que toda a página (incluindo scripts como o do CK) carregou
+// Usamos um pequeno delay (500ms) para dar uma margem extra para o script do CK finalizar
+window.addEventListener('load', () => {
+    setTimeout(removerPaddingFormularioConvertKit, 500);
+});
+        </script>
 	</body>
 </html>
