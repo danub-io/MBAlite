@@ -78,6 +78,7 @@
             position: fixed; top: 0; left: 0; width: 16rem; height: 100%; z-index: 60; /* Above header */
         }
         #mobile-menu.hidden-menu { transform: translateX(-100%); }
+        /* General link styling (dark text) - Applied only to links with mobile-menu-link class */
         #mobile-menu nav a.mobile-menu-link { transition: color 0.2s ease, background-color 0.2s ease; color: var(--color-text-body); }
         #mobile-menu nav a.mobile-menu-link:hover, #mobile-menu nav a.mobile-menu-link.active { color: var(--color-primary); background-color: theme('colors.blue.50'); }
         #menu-overlay { background-color: rgba(0, 0, 0, 0.5); transition: opacity 0.3s ease-in-out; position: fixed; inset: 0; z-index: 55; /* Between header and menu */ }
@@ -149,7 +150,7 @@
            <a href="/publicacoes" data-page-id="page-publications" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Publicações</a>
            <a href="/autor" data-page-id="page-autor" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Autor</a>
            <a href="/faq" data-page-id="page-faq" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">FAQ</a>
-           <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md mobile-menu-link bg-blue-600 text-white uppercase tracking-wider border-2 border-blue-600 hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 ease-in-out">Inscreva-se</a>
+           <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md bg-blue-600 text-white uppercase tracking-wider border-2 border-blue-600 hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 ease-in-out">Inscreva-se</a>
          </nav>
     </div>
     <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
@@ -189,7 +190,7 @@
             function updateDynamicOffsets() { try { const rootStyles = getComputedStyle(document.documentElement); const headerHeightValue = rootStyles.getPropertyValue('--header-height').trim(); const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim(); if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 70; if (scrollOffsetValue) { const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/); scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20); } } catch (e) { scrollOffset = headerHeight + 20; } }
             function initPreloader() { window.addEventListener('load', () => { updateDynamicOffsets(); if (elements.preloader) { elements.preloader.classList.add('hidden'); setTimeout(() => { elements.preloader?.remove(); }, PAGE_FADE_DURATION + PRELOADER_FADE_DELAY); } initAOS(); handleRouteChange(true); }); }
             function initAOS() { if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' }); else console.warn("AOS library not loaded."); }
-            function initMobileMenu() { if (!elements.menuBtn || !elements.closeMenuBtn || !elements.mobileMenu || !elements.menuOverlay) return; elements.menuBtn.addEventListener('click', toggleMenu); elements.closeMenuBtn.addEventListener('click', closeMenu); elements.menuOverlay.addEventListener('click', closeMenu); elements.mobileMenuLinks.forEach(link => link.addEventListener('click', closeMenu)); }
+            function initMobileMenu() { if (!elements.menuBtn || !elements.closeMenuBtn || !elements.mobileMenu || !elements.menuOverlay) return; elements.menuBtn.addEventListener('click', toggleMenu); elements.closeMenuBtn.addEventListener('click', closeMenu); elements.menuOverlay.addEventListener('click', closeMenu); document.querySelectorAll('#mobile-menu nav a').forEach(link => link.addEventListener('click', closeMenu)); } // Close on any link click now
             function initScrollEffects() { window.addEventListener('scroll', handleScroll, { passive: true }); elements.scrollToTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' })); }
             function initFooterYear() { if (elements.currentYearSpan) elements.currentYearSpan.textContent = new Date().getFullYear(); }
             function initSPARouting() { elements.allSpaLinks.forEach(link => { const href = link.getAttribute('href'); if (link.getAttribute('target') === '_blank' || link.protocol !== window.location.protocol || link.host !== window.location.host || link.hasAttribute('download') || href?.startsWith('mailto:')) return; link.addEventListener('click', (e) => handleNavLinkClick(e, link)); }); window.addEventListener('popstate', handleRouteChange); }
