@@ -38,9 +38,8 @@
         .standard-card-style:hover { box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12); }
         .page-content-container article { background-color: var(--color-bg-surface); border: 1px solid var(--color-border); }
         .page-content-container article h2 { color: var(--color-primary); border-bottom: 1px solid var(--color-border); }
-        /* FAQ item uses standard card style now */
         .faq-item { transition: box-shadow 0.2s ease; }
-        .faq-item:hover { box-shadow: theme('boxShadow.md'); } /* Keep subtle hover for FAQ */
+        .faq-item:hover { box-shadow: theme('boxShadow.md'); }
         .faq-item summary { position: relative; list-style: none; cursor: pointer; }
         .faq-item summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 1.5rem; font-weight: 300; color: var(--color-primary); transition: transform 0.2s ease; }
         .faq-item[open] > summary::after { content: '−'; transform: translateY(-50%) rotate(180deg); }
@@ -72,9 +71,19 @@
         #enroll .ck-form-container .ck-header, #enroll .ck-form-container .ck-content { display: none !important; }
         #enroll .ck-form-container .ck-fields { padding: 0 !important; }
         #enroll .ck-form-container .ck-field label { color: var(--color-text-body) !important; font-family: inherit !important; }
-        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input { color: var(--color-text-title) !important; font-family: inherit !important; border: none !important; transition: box-shadow 0.2s ease, border-color 0.2s ease !important; }
+        /* Restore input border */
+        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input {
+            color: var(--color-text-title) !important;
+            font-family: inherit !important;
+            border: 1px solid var(--color-border) !important; /* Restore light gray border */
+            transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+        }
         #enroll .ck-form-container .ck-input::placeholder, #enroll form.formkit-form .formkit-field .formkit-input::placeholder { color: var(--color-text-muted) !important; opacity: 1; }
-        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus { outline: none !important; border: 1px solid var(--color-primary) !important; box-shadow: 0 0 0 3px theme('colors.blue.200') !important; }
+        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus {
+            outline: none !important;
+            border-color: var(--color-primary) !important; /* Keep focus border color */
+            box-shadow: 0 0 0 3px theme('colors.blue.200') !important;
+        }
         #enroll .ck-form-container .ck-button { color: var(--color-text-on-primary) !important; font-family: inherit !important; transition: all 0.3s ease !important; }
         #enroll .ck-form-container .ck-button:hover { transform: translateY(-2px); box-shadow: theme('boxShadow.lg') !important; }
         #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; font-size: 0.75rem !important; }
