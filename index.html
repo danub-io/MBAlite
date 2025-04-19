@@ -29,8 +29,7 @@
         body { font-family: 'Open Sans', sans-serif; background-color: var(--color-bg-main); color: var(--color-text-body); padding-top: var(--header-height); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: flex; flex-direction: column; min-height: 100vh; font-synthesis: none; }
         main { flex-grow: 1; }
         .scroll-target { scroll-margin-top: var(--scroll-offset); }
-        h2.section-title { color: var(--color-text-title); position: relative; } /* Removed padding-bottom */
-        /* Section title underline rules removed */
+        h2.section-title { color: var(--color-text-title); position: relative; }
         .icon-block-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .icon-block-card:hover { transform: translateY(-5px); }
         .icon-block-card .icon { color: var(--color-primary); transition: transform 0.3s ease; }
@@ -54,7 +53,7 @@
         #mobile-menu nav a.mobile-menu-link:hover, #mobile-menu nav a.mobile-menu-link.active { color: var(--color-primary); background-color: theme('colors.blue.50'); }
         #menu-overlay { background-color: rgba(0, 0, 0, 0.5); transition: opacity 0.3s ease-in-out; position: fixed; inset: 0; z-index: 55; }
         #menu-overlay.hidden { opacity: 0; pointer-events: none; }
-        #scroll-to-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primary); color: var(--color-text-on-primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease; box-shadow: theme('boxShadow.lg'); z-index: 1000; border: none; }
+        #scroll-to-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primary); /* color: var(--color-text-on-primary); /* Let class handle icon */ width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease; box-shadow: theme('boxShadow.lg'); z-index: 1000; border: none; }
         #scroll-to-top.visible { opacity: 1; visibility: visible; }
         #scroll-to-top:hover { background-color: var(--color-primary-dark); transform: translateY(-3px); }
         #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-bg-main); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 1; transition: opacity 0.5s ease 0.3s; }
@@ -64,38 +63,18 @@
         .page { display: none; animation: pageFadeIn 0.5s ease-out forwards; }
         .page.active { display: block; }
         @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        /* Minimal ConvertKit Overrides - Focus on Font/Color */
-        #enroll .form-wrapper { background-color: var(--color-bg-surface);padding-left: 0;padding-right: 0; }
+        #enroll .form-wrapper { background-color: var(--color-bg-surface); padding-left: 0; padding-right: 0;}
         #enroll form.seva-form.formkit-form { margin: 0 auto !important; max-width: 550px !important; }
         #enroll .ck-form-container { max-width: 100% !important; width: 100%; margin: 0 !important; padding: 0 !important; text-align: left !important; }
         #enroll .ck-form-container .ck-header, #enroll .ck-form-container .ck-content { display: none !important; }
         #enroll .ck-form-container .ck-fields { padding: 0 !important; }
         #enroll .ck-form-container .ck-field label { color: var(--color-text-body) !important; font-family: inherit !important; }
-        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input {
-            color: var(--color-text-title) !important;
-            font-family: inherit !important;
-            /* Let CK handle background, border, padding, etc. */
-            transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
-        }
+        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input { color: var(--color-text-title) !important; font-family: inherit !important; transition: box-shadow 0.2s ease, border-color 0.2s ease !important; }
         #enroll .ck-form-container .ck-input::placeholder, #enroll form.formkit-form .formkit-field .formkit-input::placeholder { color: var(--color-text-muted) !important; opacity: 1; }
-        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus {
-            outline: none !important;
-            /* Keep focus style for UX, adjust color if needed */
-            border-color: var(--color-primary) !important; /* Might need adjustment if CK border is different */
-            box-shadow: 0 0 0 3px theme('colors.blue.200') !important;
-        }
-        #enroll .ck-form-container .ck-button {
-            color: var(--color-text-on-primary) !important; /* Ensure white text */
-            font-family: inherit !important;
-             /* Let CK handle background, border, padding etc. */
-            transition: all 0.3s ease !important;
-        }
-        #enroll .ck-form-container .ck-button:hover {
-             /* Let CK handle hover background/border */
-             transform: translateY(-2px); /* Keep subtle effect */
-             box-shadow: theme('boxShadow.lg') !important;
-        }
-        #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; font-size: 0.75rem !important; /* Example: Adjust size if needed */ }
+        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus { outline: none !important; border-color: var(--color-primary) !important; box-shadow: 0 0 0 3px theme('colors.blue.200') !important; }
+        #enroll .ck-form-container .ck-button { color: var(--color-text-on-primary) !important; font-family: inherit !important; transition: all 0.3s ease !important; }
+        #enroll .ck-form-container .ck-button:hover { transform: translateY(-2px); box-shadow: theme('boxShadow.lg') !important; }
+        #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; font-size: 0.75rem !important; }
         #enroll .ck-form-container .ck-powered-by a:hover { color: var(--color-primary) !important; }
         .notion-style-svg { max-width: 100px; height: auto; opacity: 0.7; margin-bottom: 1rem; margin-left: auto; margin-right: auto; display: block; }
         .experience-item .timeline-line { border-left-color: var(--color-border-dark); }
@@ -292,10 +271,8 @@
                         <p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
                     </div>
                     <div class="form-wrapper bg-white py-8 md:py-10 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-                        <div class="px-8 md:px-10">
-                            <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
-                            <noscript><p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p></noscript>
-                        </div>
+                        <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+                        <noscript><p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p></noscript>
                     </div>
                 </div>
             </section>
@@ -476,7 +453,7 @@
                             <p class="text-lg text-text-body mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade, construindo equipes engajadas e resultados excepcionais.</p>
                             <div class="space-y-4 sm:space-y-0 sm:space-x-4">
                                 <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-yellow-500 text-gray-900 font-semibold rounded-md shadow-md hover:bg-yellow-600 hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto"><i class="fab fa-amazon mr-2" aria-hidden="true"></i> Comprar na Amazon</a>
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -548,7 +525,9 @@
         </div>
     </footer>
 
-    <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+    <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up text-white" aria-hidden="true"></i>
+    </button>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
