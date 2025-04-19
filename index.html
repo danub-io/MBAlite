@@ -28,8 +28,8 @@
 				--color-bg-main: theme('colors.gray.50');
 				--color-bg-surface: theme('colors.white');
 				--color-bg-surface-dark: theme('colors.gray.100');
-				--color-border: theme('colors.gray.200');
-				--color-border-dark: theme('colors.gray.300');
+				--color-border: theme('colors.gray.200'); /* #e5e7eb */
+				--color-border-dark: theme('colors.gray.300'); /* #d1d5db */
 			}
 			html {
 				scroll-behavior: smooth;
@@ -243,108 +243,17 @@
 				from { opacity: 0; transform: translateY(10px); }
 				to { opacity: 1; transform: translateY(0); }
 			}
+
+			/* --- Estilos #enroll --- */
+			/* Mantendo apenas o estilo do container externo */
 			#enroll .form-wrapper {
-				background-color: var(--color-bg-surface);
-				border-radius: theme('borderRadius.lg');
-				box-shadow: theme('boxShadow.card');
+				 background-color: var(--color-bg-surface);
+				 border-radius: theme('borderRadius.lg');
+				 box-shadow: theme('boxShadow.card');
 			}
-			#enroll form.seva-form.formkit-form {
-				border: none !important;
-				background-color: transparent !important;
-				padding: 0 !important;
-				margin: 0 auto !important;
-				border-radius: 0 !important;
-				box-shadow: none !important;
-				max-width: 550px !important;
-			}
-			#enroll .ck-form-container {
-				max-width: 100% !important;
-				width: 100%;
-				margin: 0 !important;
-				padding: 0 !important;
-				background: none !important;
-				border: none !important;
-				box-shadow: none !important;
-				text-align: left !important;
-			}
-			#enroll .ck-form-container .ck-header,
-			#enroll .ck-form-container .ck-content {
-				display: none !important;
-			}
-			#enroll .ck-form-container .ck-fields {
-				background: none !important;
-				padding: 0 !important;
-			}
-			#enroll .ck-form-container .ck-field label {
-				display: block !important;
-				margin-bottom: 8px !important;
-				font-weight: 600 !important;
-				font-family: 'Open Sans', sans-serif !important;
-				color: var(--color-text-body) !important;
-				font-size: 0.9rem !important;
-			}
-			#enroll .ck-form-container .ck-input,
-			#enroll form.formkit-form .formkit-field .formkit-input {
-				width: 100% !important;
-				padding: 12px 15px !important;
-				border: 1px solid var(--color-border) !important;
-				border-radius: theme('borderRadius.btn') !important;
-				font-size: 1rem !important;
-				font-family: 'Open Sans', sans-serif !important;
-				background-color: var(--color-bg-surface) !important;
-				color: var(--color-text-title) !important;
-				transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
-				margin-bottom: 18px !important;
-			}
-			#enroll .ck-form-container .ck-input::placeholder,
-			#enroll form.formkit-form .formkit-field .formkit-input::placeholder {
-				color: var(--color-text-muted) !important;
-				opacity: 1;
-			}
-			#enroll .ck-form-container .ck-input:focus,
-			#enroll form.formkit-form .formkit-field .formkit-input:focus {
-				outline: none !important;
-				border-color: var(--color-primary) !important;
-				box-shadow: 0 0 0 3px theme('colors.blue.200') !important;
-			}
-			#enroll .ck-form-container .ck-button {
-				width: 100% !important;
-				padding: 12px 28px !important;
-				margin-top: 10px !important;
-				font-size: 1rem !important;
-				background-color: var(--color-primary) !important;
-				border-color: var(--color-primary) !important;
-				color: var(--color-text-on-primary) !important;
-				font-weight: 700 !important;
-				border-radius: theme('borderRadius.btn') !important;
-				cursor: pointer;
-				transition: all 0.3s ease !important;
-				border-width: 2px !important;
-				border-style: solid !important;
-				text-transform: uppercase;
-				letter-spacing: 0.5px;
-			}
-			#enroll .ck-form-container .ck-button:hover {
-				background-color: var(--color-primary-dark) !important;
-				border-color: var(--color-primary-dark) !important;
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3) !important;
-			}
-			#enroll .ck-form-container .ck-powered-by,
-			#enroll .ck-form-container .ck-powered-by a {
-				color: var(--color-text-muted) !important;
-				font-size: 0.8rem !important;
-				text-align: center !important;
-				margin-top: 20px !important;
-				padding-bottom: 0 !important;
-				text-decoration: none !important;
-				opacity: 0.7;
-			}
-			#enroll .ck-form-container .ck-powered-by a:hover {
-				color: var(--color-primary) !important;
-				opacity: 1;
-				text-decoration: underline !important;
-			}
+			/* --- TODOS OS OUTROS ESTILOS PARA .ck-form-container, .ck-input, .ck-button, etc. FORAM REMOVIDOS --- */
+
+
 			.experience-item .timeline-line {
 				border-left-color: var(--color-border-dark);
 			}
@@ -594,8 +503,7 @@
 							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Garanta Sua Vaga no MBA lite</h2>
 							<p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
 						</div>
-						<div class="form-wrapper bg-white py-8 md:py-10 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-							<script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+						<div class="form-wrapper bg-white py-8 md:py-10 px-6 md:px-10 rounded-lg" data-aos="fade-up" data-aos-delay="100"> <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
 							<noscript>
 								<p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p>
 							</noscript>
