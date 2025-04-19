@@ -73,7 +73,7 @@
         #main-nav a.nav-link:hover::after, #main-nav a.nav-link.active::after { transform: scaleX(1); transform-origin: bottom left; }
 
         #mobile-menu {
-            background-color: var(--color-bg-surface); /* White background */
+            /* background-color: var(--color-bg-surface); /* Let Tailwind handle it via class */
             transition: transform 0.3s ease-in-out; border-right: 1px solid var(--color-border);
             position: fixed; top: 0; left: 0; width: 16rem; height: 100%; z-index: 60; /* Above header */
         }
@@ -138,7 +138,7 @@
         </div>
     </header>
 
-    <div id="mobile-menu" class="hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+    <div id="mobile-menu" class="hidden-menu bg-white shadow-lg" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
          <div class="flex justify-between items-center mb-8 px-6 pt-6">
            <span id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</span>
            <button id="close-menu-btn" class="text-gray-500 hover:text-blue-600 focus:outline-none" aria-label="Fechar menu"><i class="fas fa-times text-xl" aria-hidden="true"></i></button>
@@ -155,14 +155,7 @@
     <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
 
     <main id="main-content">
-        <div id="page-index" class="page">
-            <section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">...</section>
-            <section id="modules" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">...</section>
-            <section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">...</section>
-            <section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">...</section>
-            <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">...</section>
-            <section id="enroll" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface-dark">...</section>
-        </div>
+        <div id="page-index" class="page">...</div>
         <div id="page-content" class="page">...</div>
         <div id="page-autor" class="page">...</div>
         <div id="page-faq" class="page">...</div>
@@ -185,42 +178,15 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Simplified JS - Most comments removed
+        // Simplified JS
         document.addEventListener('DOMContentLoaded', () => {
-            const SCROLL_TOP_VISIBILITY_THRESHOLD = 300;
-            const HEADER_SCROLL_THRESHOLD = 50;
-            const PAGE_FADE_DURATION = 500;
-            const PRELOADER_FADE_DELAY = 300;
-
-            const elements = {
-                preloader: document.getElementById('preloader'), header: document.getElementById('main-header'),
-                scrollToTopBtn: document.getElementById('scroll-to-top'), menuBtn: document.getElementById('menu-btn'),
-                closeMenuBtn: document.getElementById('close-menu-btn'), mobileMenu: document.getElementById('mobile-menu'),
-                menuOverlay: document.getElementById('menu-overlay'), currentYearSpan: document.getElementById('current-year'),
-                mainNavLinks: document.querySelectorAll('#main-nav a.nav-link'), mobileMenuLinks: document.querySelectorAll('#mobile-menu a.mobile-menu-link'),
-                allPages: document.querySelectorAll('.page'), allSpaLinks: document.querySelectorAll('a[data-page-id], a[data-internal-target], a[href^="/"], a[href^="#"]')
-            };
-
-            const pageRoutes = {
-                 '/': { id: 'page-index', title: 'MBA lite - Início' }, '/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' },
-                 '/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' }, '/faq': { id: 'page-faq', title: 'MBA lite - FAQ' },
-                 '/content': { id: 'page-content', title: 'MBA lite - Detalhes do Módulo'}
-            };
+            const SCROLL_TOP_VISIBILITY_THRESHOLD = 300; const HEADER_SCROLL_THRESHOLD = 50; const PAGE_FADE_DURATION = 500; const PRELOADER_FADE_DELAY = 300;
+            const elements = { preloader: document.getElementById('preloader'), header: document.getElementById('main-header'), scrollToTopBtn: document.getElementById('scroll-to-top'), menuBtn: document.getElementById('menu-btn'), closeMenuBtn: document.getElementById('close-menu-btn'), mobileMenu: document.getElementById('mobile-menu'), menuOverlay: document.getElementById('menu-overlay'), currentYearSpan: document.getElementById('current-year'), mainNavLinks: document.querySelectorAll('#main-nav a.nav-link'), mobileMenuLinks: document.querySelectorAll('#mobile-menu a.mobile-menu-link'), allPages: document.querySelectorAll('.page'), allSpaLinks: document.querySelectorAll('a[data-page-id], a[data-internal-target], a[href^="/"], a[href^="#"]') };
+            const pageRoutes = { '/': { id: 'page-index', title: 'MBA lite - Início' }, '/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' }, '/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' }, '/faq': { id: 'page-faq', title: 'MBA lite - FAQ' }, '/content': { id: 'page-content', title: 'MBA lite - Detalhes do Módulo'} };
             const defaultPageRoute = pageRoutes['/']; const contentPageId = 'page-content';
             let isMenuOpen = false, headerHeight = 70, scrollOffset = 90;
 
-            function updateDynamicOffsets() {
-                try {
-                    const rootStyles = getComputedStyle(document.documentElement);
-                    const headerHeightValue = rootStyles.getPropertyValue('--header-height').trim();
-                    const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim();
-                    if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 70;
-                    if (scrollOffsetValue) {
-                        const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/);
-                        scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20);
-                    }
-                } catch (e) { scrollOffset = headerHeight + 20; }
-            }
+            function updateDynamicOffsets() { try { const rootStyles = getComputedStyle(document.documentElement); const headerHeightValue = rootStyles.getPropertyValue('--header-height').trim(); const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim(); if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 70; if (scrollOffsetValue) { const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/); scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20); } } catch (e) { scrollOffset = headerHeight + 20; } }
             function initPreloader() { window.addEventListener('load', () => { updateDynamicOffsets(); if (elements.preloader) { elements.preloader.classList.add('hidden'); setTimeout(() => { elements.preloader?.remove(); }, PAGE_FADE_DURATION + PRELOADER_FADE_DELAY); } initAOS(); handleRouteChange(true); }); }
             function initAOS() { if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' }); else console.warn("AOS library not loaded."); }
             function initMobileMenu() { if (!elements.menuBtn || !elements.closeMenuBtn || !elements.mobileMenu || !elements.menuOverlay) return; elements.menuBtn.addEventListener('click', toggleMenu); elements.closeMenuBtn.addEventListener('click', closeMenu); elements.menuOverlay.addEventListener('click', closeMenu); elements.mobileMenuLinks.forEach(link => link.addEventListener('click', closeMenu)); }
