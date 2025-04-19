@@ -16,15 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --header-height: 70px; --scroll-offset: calc(var(--header-height) + 20px);
-            --color-primary: #0582ff; --color-primary-dark: #045ac3;
-            --color-text-on-primary: theme('colors.white'); --color-text-title: theme('colors.gray.900');
-            --color-text-body: theme('colors.gray.700'); --color-text-muted: theme('colors.gray.500');
-            --color-bg-main: theme('colors.gray.50'); --color-bg-surface: theme('colors.white');
-            --color-bg-surface-dark: theme('colors.gray.100'); --color-border: theme('colors.gray.200');
-            --color-border-dark: theme('colors.gray.300');
-        }
+        :root { --header-height: 70px; --scroll-offset: calc(var(--header-height) + 20px); --color-primary: #0582ff; --color-primary-dark: #045ac3; --color-text-on-primary: theme('colors.white'); --color-text-title: theme('colors.gray.900'); --color-text-body: theme('colors.gray.700'); --color-text-muted: theme('colors.gray.500'); --color-bg-main: theme('colors.gray.50'); --color-bg-surface: theme('colors.white'); --color-bg-surface-dark: theme('colors.gray.100'); --color-border: theme('colors.gray.200'); --color-border-dark: theme('colors.gray.300'); }
         html { scroll-behavior: smooth; }
         body { font-family: 'Open Sans', sans-serif; background-color: var(--color-bg-main); color: var(--color-text-body); padding-top: var(--header-height); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: flex; flex-direction: column; min-height: 100vh; font-synthesis: none; }
         main { flex-grow: 1; }
@@ -65,25 +57,16 @@
         .page { display: none; animation: pageFadeIn 0.5s ease-out forwards; }
         .page.active { display: block; }
         @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        #enroll .form-wrapper { background-color: var(--color-bg-surface); }
+        #enroll .form-wrapper { background-color: var(--color-bg-surface); border: 0 !important; }
         #enroll form.seva-form.formkit-form { margin: 0 auto !important; max-width: 550px !important; border: none !important; }
         #enroll .ck-form-container { max-width: 100% !important; width: 100%; margin: 0 !important; padding: 0 !important; text-align: left !important; border: none !important; }
         #enroll .ck-form-container .ck-header, #enroll .ck-form-container .ck-content { display: none !important; }
         #enroll .ck-form-container .ck-fields { padding: 0 !important; }
         #enroll .ck-form-container .ck-field label { color: var(--color-text-body) !important; font-family: inherit !important; }
-        /* Restore input border */
-        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input {
-            color: var(--color-text-title) !important;
-            font-family: inherit !important;
-            border: 1px solid var(--color-border) !important; /* Restore light gray border */
-            transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
-        }
+        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input { color: var(--color-text-title) !important; font-family: inherit !important; border: 1px solid var(--color-border) !important; transition: box-shadow 0.2s ease, border-color 0.2s ease !important; }
         #enroll .ck-form-container .ck-input::placeholder, #enroll form.formkit-form .formkit-field .formkit-input::placeholder { color: var(--color-text-muted) !important; opacity: 1; }
-        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus {
-            outline: none !important;
-            border-color: var(--color-primary) !important; /* Keep focus border color */
-            box-shadow: 0 0 0 3px theme('colors.blue.200') !important;
-        }
+        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus { outline: none !important; border-color: var(--color-primary) !important; box-shadow: 0 0 0 3px theme('colors.blue.200') !important; }
+        #enroll .ck-form-container .ck-input[type="text"], #enroll .ck-form-container .ck-input[type="email"], #enroll form.formkit-form .formkit-field .formkit-input[type="text"], #enroll form.formkit-form .formkit-field .formkit-input[type="email"] { border: 1px solid var(--color-border) !important; }
         #enroll .ck-form-container .ck-button { color: var(--color-text-on-primary) !important; font-family: inherit !important; transition: all 0.3s ease !important; }
         #enroll .ck-form-container .ck-button:hover { transform: translateY(-2px); box-shadow: theme('boxShadow.lg') !important; }
         #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; font-size: 0.75rem !important; }
@@ -94,9 +77,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Gestão de Pessoas para Alta Performance: Desvendando o Potencial Humano para Resultados Extraordinários","author":{"@type":"Person","name":"Danúbio Coelho"},"url":"/publicacoes","workExample":[{"@type":"Book","identifier": "B0F47QBL8R","bookEdition":"1st Edition","bookFormat":"https://schema.org/EBook","potentialAction":{"@type":"ReadAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.amazon.com.br/dp/B0F47QBL8R","actionPlatform":["https://schema.org/DesktopWebPlatform","https://schema.org/IOSPlatform","https://schema.org/AndroidPlatform"]}}}]}</script>
 </head>
 <body class="bg-bg-main text-text-body">
-
     <div id="preloader"><div class="spinner"></div></div>
-
     <header id="main-header" class="bg-white">
         <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
             <a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-2xl font-bold text-gray-900 hover:text-[#0582ff] transition duration-300">MBA lite</a>
@@ -111,7 +92,6 @@
             <button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-[#0582ff]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars text-xl" aria-hidden="true"></i></button>
         </div>
     </header>
-
     <div id="mobile-menu" class="hidden-menu bg-white shadow-lg" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
          <div class="flex justify-between items-center mb-8 px-6 pt-6">
            <span id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</span>
@@ -127,9 +107,7 @@
          </nav>
     </div>
     <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
-
     <main id="main-content">
-
         <div id="page-index" class="page">
             <section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
                 <div class="max-w-4xl mx-auto relative z-10">
@@ -324,9 +302,6 @@
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-4" data-aos="fade-up" data-aos-delay="200">Danúbio Coelho</h1>
                     <p class="text-xl md:text-2xl text-[#0582ff] font-semibold mb-8" data-aos="fade-up" data-aos-delay="300">Engenheiro Químico | Gestor de Projetos | Founder do MBA lite</p>
                     <p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="400">Apaixonado por otimização de processos, gestão estratégica e desenvolvimento humano para alcançar resultados de alto impacto.</p>
-                    <div data-aos="fade-up" data-aos-delay="500">
-                        <a href="#contact" class="inline-block px-8 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Entre em Contato</a>
-                    </div>
                 </div>
             </section>
             <section id="about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface" data-aos="fade-up">
@@ -348,12 +323,48 @@
                         <p class="text-lg text-text-muted leading-relaxed">Combinação de expertise técnica, ferramentas modernas e foco em liderança para entregar resultados.</p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <div class="text-center p-6 standard-card-style" data-aos="fade-up"><div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-cogs"></i></div><h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos & Processos</h4><p class="text-gray-600 text-sm leading-relaxed">PMBOK, Scrum, Kanban, Lean, Six Sigma Green Belt, Otimização de Processos, PCP, Análise de Riscos, Gestão da Qualidade, Planejamento.</p></div>
-                        <div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100"><div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-tools"></i></div><h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4><p class="text-gray-600 text-sm leading-relaxed">ClickUp, Jira, Trello, Monday, Asana, MS Project, Primavera, Excel, Miro, Zapier, Integrately, SAP MM, Totvs, Sankhya.</p></div>
-                        <div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200"><div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-users"></i></div><h4 class="text-xl font-semibold text-gray-800 mb-2">Liderança & Desenvolvimento</h4><p class="text-gray-600 text-sm leading-relaxed">Gestão de Pessoas, Liderança, Comunicação, Oratória, Recrutamento e Seleção, Ferramentas de IA, Prompt Engineering.</p></div>
-                        <div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300"><div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-code"></i></div><h4 class="text-xl font-semibold text-gray-800 mb-2">Tecnologias Web</h4><p class="text-gray-600 text-sm leading-relaxed">HTML, CSS, JavaScript, Git, Github. Desenvolvimento e manutenção de sites e aplicações web.</p></div>
-                        <div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400"><div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-language"></i></div><h4 class="text-xl font-semibold text-gray-800 mb-2">Idiomas</h4><p class="text-gray-600 text-sm leading-relaxed">Português (Nativo), Inglês (Fluente - TOEFL).</p></div>
-                        <div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="500"><div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div><h4 class="text-xl font-semibold text-gray-800 mb-2">Formação Principal</h4><p class="text-gray-600 text-sm leading-relaxed">Engenharia Química (FURG), MBA em Gestão de Projetos PMI (UNOPAR).</p></div>
+                        <div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up">
+                            <div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-cogs fa-fw"></i></div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos & Processos</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">PMBOK, Scrum, Kanban, Lean, Six Sigma Green Belt, Otimização de Processos, PCP, Análise de Riscos, Gestão da Qualidade, Planejamento.</p>
+                            </div>
+                        </div>
+                        <div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-tools fa-fw"></i></div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">ClickUp, Jira, Trello, Monday, Asana, MS Project, Primavera, Excel, Miro, Zapier, Integrately, SAP MM, Totvs, Sankhya.</p>
+                            </div>
+                        </div>
+                        <div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-users fa-fw"></i></div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Liderança & Desenvolvimento</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Gestão de Pessoas, Liderança, Comunicação, Oratória, Recrutamento e Seleção, Ferramentas de IA, Prompt Engineering.</p>
+                            </div>
+                        </div>
+                        <div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-code fa-fw"></i></div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Tecnologias Web</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">HTML, CSS, JavaScript, Git, Github. Desenvolvimento e manutenção de sites e aplicações web.</p>
+                            </div>
+                        </div>
+                        <div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400">
+                            <div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-language fa-fw"></i></div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Idiomas</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Português (Nativo), Inglês (Fluente - TOEFL).</p>
+                            </div>
+                        </div>
+                        <div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="500">
+                            <div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-graduation-cap fa-fw"></i></div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-gray-800 mb-2">Formação Principal</h4>
+                                <p class="text-gray-600 text-sm leading-relaxed">Engenharia Química (FURG), MBA em Gestão de Projetos PMI (UNOPAR).</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -538,7 +549,6 @@
                 </div>
             </section>
         </div> </main>
-
     <footer class="bg-bg-surface py-10 mt-16 px-5">
         <div class="container mx-auto text-center text-text-muted">
             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
@@ -550,21 +560,17 @@
             <p class="text-xs mt-2">Brasília - DF, Brasil</p>
         </div>
     </footer>
-
     <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
         <i class="fas fa-arrow-up text-white" aria-hidden="true"></i>
     </button>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Simplified JS
         document.addEventListener('DOMContentLoaded', () => {
             const SCROLL_TOP_VISIBILITY_THRESHOLD = 300; const HEADER_SCROLL_THRESHOLD = 50; const PAGE_FADE_DURATION = 500; const PRELOADER_FADE_DELAY = 300;
             const elements = { preloader: document.getElementById('preloader'), header: document.getElementById('main-header'), scrollToTopBtn: document.getElementById('scroll-to-top'), menuBtn: document.getElementById('menu-btn'), closeMenuBtn: document.getElementById('close-menu-btn'), mobileMenu: document.getElementById('mobile-menu'), menuOverlay: document.getElementById('menu-overlay'), currentYearSpan: document.getElementById('current-year'), mainNavLinks: document.querySelectorAll('#main-nav a.nav-link'), mobileMenuLinks: document.querySelectorAll('#mobile-menu a.mobile-menu-link'), allPages: document.querySelectorAll('.page'), allSpaLinks: document.querySelectorAll('a[data-page-id], a[data-internal-target], a[href^="/"], a[href^="#"]') };
             const pageRoutes = { '/': { id: 'page-index', title: 'MBA lite - Início' }, '/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' }, '/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' }, '/faq': { id: 'page-faq', title: 'MBA lite - FAQ' }, '/content': { id: 'page-content', title: 'MBA lite - Detalhes do Módulo'} };
             const defaultPageRoute = pageRoutes['/']; const contentPageId = 'page-content';
             let isMenuOpen = false, headerHeight = 70, scrollOffset = 90;
-
             function updateDynamicOffsets() { try { const rootStyles = getComputedStyle(document.documentElement); const headerHeightValue = rootStyles.getPropertyValue('--header-height').trim(); const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim(); if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 70; if (scrollOffsetValue) { const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/); scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20); } } catch (e) { scrollOffset = headerHeight + 20; } }
             function initPreloader() { window.addEventListener('load', () => { updateDynamicOffsets(); if (elements.preloader) { elements.preloader.classList.add('hidden'); setTimeout(() => { elements.preloader?.remove(); }, PAGE_FADE_DURATION + PRELOADER_FADE_DELAY); } initAOS(); handleRouteChange(true); }); }
             function initAOS() { if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' }); else console.warn("AOS library not loaded."); }
@@ -583,9 +589,7 @@
             function handleRouteChange(isInitialLoad = false) { const path = window.location.pathname; const hash = window.location.hash.substring(1); let targetPageId, scrollTargetId = hash || null, routeInfo; if (history.state?.pageId) { targetPageId = history.state.pageId; scrollTargetId = history.state.scrollTarget || scrollTargetId; routeInfo = Object.values(pageRoutes).find(r => r.id === targetPageId); } else if (pageRoutes[path]) { routeInfo = pageRoutes[path]; targetPageId = routeInfo.id; } else { routeInfo = defaultPageRoute; targetPageId = routeInfo.id; } routeInfo = routeInfo || defaultPageRoute; if (targetPageId === contentPageId && !scrollTargetId) scrollTargetId = 'content-area'; const pageElement = displayPage(targetPageId); updateTitle(targetPageId, scrollTargetId); handleScrollingAndActivation(scrollTargetId, isInitialLoad === true, pageElement); }
             function updateActiveNavLink() { const scrollY = window.scrollY; const activePageElement = document.querySelector('.page.active'); if (!activePageElement) return; let currentSectionId = null, bestMatch = { id: null, top: -Infinity }; activePageElement.querySelectorAll('.scroll-target').forEach(section => { const sectionTop = section.getBoundingClientRect().top + window.scrollY; if (sectionTop <= scrollY + scrollOffset + 50 && sectionTop > bestMatch.top) bestMatch = { id: section.id, top: sectionTop }; }); currentSectionId = bestMatch.id; const updateLinks = (links) => { let isAnySectionLinkActive = false; links.forEach(link => { link.classList.remove('active'); const linkHref = link.getAttribute('href'); if (!linkHref) return; const linkPageId = link.dataset.pageId; const linkInternalTargetPageId = link.dataset.internalTarget; const linkScrollTarget = link.dataset.scrollTarget; const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null; const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id); if (!isLinkForActivePage) return; if (currentSectionId && (linkScrollTarget === currentSectionId || linkHash === currentSectionId)) { link.classList.add('active'); isAnySectionLinkActive = true; } }); if (!isAnySectionLinkActive) { links.forEach(link => { const linkHref = link.getAttribute('href'); if (!linkHref) return; const linkPageId = link.dataset.pageId; const linkInternalTargetPageId = link.dataset.internalTarget; const linkScrollTarget = link.dataset.scrollTarget; const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null; const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id); if (isLinkForActivePage && !linkScrollTarget && !linkHash) link.classList.add('active'); }); } }; updateLinks(elements.mainNavLinks); updateLinks(elements.mobileMenuLinks); updateLinks(document.querySelectorAll('.module-link')); }
             initPreloader(); initMobileMenu(); initScrollEffects(); initFooterYear(); initSPARouting();
-            // Server Config Note: For SPA routing to work on refresh/direct access, web server must serve index.html for all routes.
         });
     </script>
-
 </body>
 </html>
