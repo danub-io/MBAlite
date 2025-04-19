@@ -29,9 +29,8 @@
         body { font-family: 'Open Sans', sans-serif; background-color: var(--color-bg-main); color: var(--color-text-body); padding-top: var(--header-height); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: flex; flex-direction: column; min-height: 100vh; font-synthesis: none; }
         main { flex-grow: 1; }
         .scroll-target { scroll-margin-top: var(--scroll-offset); }
-        h2.section-title { color: var(--color-text-title); position: relative; padding-bottom: 15px; }
-        h2.section-title::after { content: ''; display: block; width: 50px; height: 3px; background-color: var(--color-primary); position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; }
-        h2.section-title.text-left::after { left: 0; transform: none; }
+        /* Section title underline removed */
+        h2.section-title { color: var(--color-text-title); position: relative; /* padding-bottom removed */ }
         .icon-block-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .icon-block-card:hover { transform: translateY(-5px); }
         .icon-block-card .icon { color: var(--color-primary); transition: transform 0.3s ease; }
@@ -65,19 +64,39 @@
         .page { display: none; animation: pageFadeIn 0.5s ease-out forwards; }
         .page.active { display: block; }
         @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Minimal ConvertKit Overrides - Focus on Font/Color */
         #enroll .form-wrapper { background-color: var(--color-bg-surface); }
-        #enroll form.seva-form.formkit-form { border: none !important; background-color: transparent !important; padding: 0 !important; margin: 0 auto !important; border-radius: 0 !important; box-shadow: none !important; max-width: 550px !important; }
-        #enroll .ck-form-container { max-width: 100% !important; width: 100%; margin: 0 !important; padding: 0 !important; background: none !important; border: none !important; box-shadow: none !important; text-align: left !important; }
+        #enroll form.seva-form.formkit-form { margin: 0 auto !important; max-width: 550px !important; /* Keep max-width */}
+        #enroll .ck-form-container { max-width: 100% !important; width: 100%; margin: 0 !important; padding: 0 !important; text-align: left !important; }
         #enroll .ck-form-container .ck-header, #enroll .ck-form-container .ck-content { display: none !important; }
-        #enroll .ck-form-container .ck-fields { background: none !important; padding: 0 !important; }
-        #enroll .ck-form-container .ck-field label { color: var(--color-text-body) !important; }
-        /* Form input border adjusted */
-        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input { border: 1px solid var(--color-border) !important; background-color: var(--color-bg-surface) !important; color: var(--color-text-title) !important; transition: box-shadow 0.2s ease, border-color 0.2s ease !important; }
+        #enroll .ck-form-container .ck-fields { padding: 0 !important; }
+        #enroll .ck-form-container .ck-field label { color: var(--color-text-body) !important; font-family: inherit !important; }
+        #enroll .ck-form-container .ck-input, #enroll form.formkit-form .formkit-field .formkit-input {
+            color: var(--color-text-title) !important;
+            font-family: inherit !important;
+            /* Removed background, border overrides - let CK handle or add minimal if needed */
+            /* border: 1px solid var(--color-border) !important; */ /* Re-add if CK default is bad */
+            transition: box-shadow 0.2s ease, border-color 0.2s ease !important;
+        }
         #enroll .ck-form-container .ck-input::placeholder, #enroll form.formkit-form .formkit-field .formkit-input::placeholder { color: var(--color-text-muted) !important; opacity: 1; }
-        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus { outline: none !important; border-color: var(--color-primary) !important; box-shadow: 0 0 0 3px theme('colors.blue.200') !important; }
-        #enroll .ck-form-container .ck-button { background-color: var(--color-primary) !important; border-color: var(--color-primary) !important; color: var(--color-text-on-primary) !important; transition: all 0.3s ease !important; }
-        #enroll .ck-form-container .ck-button:hover { background-color: var(--color-primary-dark) !important; border-color: var(--color-primary-dark) !important; transform: translateY(-2px); box-shadow: theme('boxShadow.lg') !important; }
-        #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; }
+        #enroll .ck-form-container .ck-input:focus, #enroll form.formkit-form .formkit-field .formkit-input:focus {
+            outline: none !important;
+            /* Keep focus style for UX, adjust color if needed */
+            border-color: var(--color-primary) !important;
+            box-shadow: 0 0 0 3px theme('colors.blue.200') !important;
+        }
+        #enroll .ck-form-container .ck-button {
+            color: var(--color-text-on-primary) !important;
+            font-family: inherit !important;
+            /* Removed background, border overrides */
+            transition: all 0.3s ease !important;
+        }
+        #enroll .ck-form-container .ck-button:hover {
+             /* Removed background, border overrides */
+             transform: translateY(-2px);
+             box-shadow: theme('boxShadow.lg') !important; /* Keep subtle hover effect */
+        }
+        #enroll .ck-form-container .ck-powered-by, #enroll .ck-form-container .ck-powered-by a { color: var(--color-text-muted) !important; font-family: inherit !important; }
         #enroll .ck-form-container .ck-powered-by a:hover { color: var(--color-primary) !important; }
         .notion-style-svg { max-width: 100px; height: auto; opacity: 0.7; margin-bottom: 1rem; margin-left: auto; margin-right: auto; display: block; }
         .experience-item .timeline-line { border-left-color: var(--color-border-dark); }
@@ -123,7 +142,6 @@
     <main id="main-content">
 
         <div id="page-index" class="page">
-
             <section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
                 <div class="max-w-4xl mx-auto relative z-10">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">Domine a Gestão Estratégica com o MBA lite</h1>
@@ -133,7 +151,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="modules" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
                 <div class="container mx-auto">
                     <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
@@ -187,7 +204,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto">
                     <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
@@ -227,7 +243,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
                 <div class="container mx-auto max-w-4xl" data-aos="fade-up">
                     <div class="text-center mb-12">
@@ -243,7 +258,6 @@
                     </ul>
                 </div>
             </section>
-
             <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto text-center">
                     <h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2" data-aos="fade-up">BÔNUS EXCLUSIVO</h3>
@@ -271,7 +285,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="enroll" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface-dark">
                 <div class="container mx-auto max-w-2xl">
                     <div class="text-center mb-12" data-aos="fade-up">
