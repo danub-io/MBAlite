@@ -39,6 +39,10 @@
                         'text-muted': '#6b7280',     // Muted Gray (Tailwind Gray 500)
                         'border-color': '#e5e7eb',   // Light Gray Border (Tailwind Gray 200)
                         'border-dark': '#d1d5db',    // Slightly Darker Border (Tailwind Gray 300)
+                        'btn-primary': '#0582ff',
+                        'btn-primary-darker': '#045ac3',
+                        'btn-text-on-primary': '#FFFFFF',
+
                     },
                     fontFamily: {
                         sans: ['Open Sans', 'sans-serif'],
@@ -139,7 +143,16 @@
         #mobile-menu nav a:hover,
         #mobile-menu nav a.active { color: theme('colors.primary'); background-color: #f0f0f8; } /* primary and light primary bg */
         #mobile-menu .mobile-enroll-btn {
-            /* Styles applied via Tailwind classes in HTML now */
+      /* As classes Tailwind aplicadas diretamente no HTML para mobile-enroll-btn */
+      /* precisam ser ajustadas manualmente no HTML para usar as novas cores btn-primary-color/darker se forem cores literais */
+      /* ou você pode adicionar uma regra CSS aqui */
+            background-color: theme('colors.btn-primary-color'); /* Exemplo */
+            border-color: theme('colors.btn-primary-color'); /* Exemplo */
+            color: theme('colors.btn-text-on-primary'); /* Exemplo */
+       }
+       #mobile-menu .mobile-enroll-btn:hover {
+            background-color: theme('colors.btn-primary-darker'); /* Exemplo */
+            border-color: theme('colors.btn-primary-darker'); /* Exemplo */
         }
         /* Mobile Menu Overlay - Kept semi-transparent black */
         #menu-overlay {
@@ -148,14 +161,43 @@
 
 
         /* Button Styles (From Danubio Site) */
-        .btn { transition: all 0.25s ease; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.9rem; padding: 10px 24px; border-radius: theme('borderRadius.btn'); border: 2px solid transparent; /* Base border */ display: inline-block; text-align: center; cursor: pointer; }
-        .btn-primary { background-color: theme('colors.primary'); color: theme('colors.text-on-primary'); border-color: theme('colors.primary'); box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2); }
-        .btn-primary:hover { background-color: theme('colors.primary-dark'); border-color: theme('colors.primary-dark'); color: theme('colors.text-on-primary'); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
-        .btn-secondary { border-color: theme('colors.primary'); color: theme('colors.primary'); background-color: transparent; border-width: 2px; }
-        .btn-secondary:hover { background-color: theme('colors.primary'); color: theme('colors.text-on-primary'); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2); }
+        .btn-primary {
+            background-color: theme('colors.btn-primary-color'); /* Use a nova cor */
+            color: theme('colors.btn-text-on-primary'); /* Cor do texto */
+            border-color: theme('colors.btn-primary-color'); /* Use a nova cor */
+            box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2); /* Mantenha ou ajuste a sombra se necessário */
+        }
+
+        .btn-primary:hover {
+            background-color: theme('colors.btn-primary-darker'); /* Use a cor para hover */
+            border-color: theme('colors.btn-primary-darker'); /* Use a cor para hover */
+            color: theme('colors.btn-text-on-primary'); /* Cor do texto */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); /* Mantenha ou ajuste a sombra se necessário */
+        }
+
+        .btn-secondary {
+            border-color: theme('colors.btn-primary-color'); /* Borda com a cor principal do botão */
+            color: theme('colors.btn-primary-color'); /* Cor do texto secundário com a cor principal do botão */
+            background-color: transparent;
+            border-width: 2px;
+        }
+
+        .btn-secondary:hover {
+            background-color: theme('colors.btn-primary-color'); /* Fundo com a cor principal do botão */
+            color: theme('colors.btn-text-on-primary'); /* Cor do texto */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2); /* Mantenha ou ajuste a sombra se necessário */
+        }
         /* Specific Hero button style adjustment if needed */
-        #hero .btn-secondary { border-color: theme('colors.primary'); color: theme('colors.primary'); }
-        #hero .btn-secondary:hover { background-color: theme('colors.primary'); color: theme('colors.text-on-primary'); }
+        #hero .btn-secondary {
+            border-color: theme('colors.btn-primary-color');
+            color: theme('colors.btn-primary-color');
+        }
+        #hero .btn-secondary:hover {
+            background-color: theme('colors.btn-primary-color');
+            color: theme('colors.btn-text-on-primary');
+        }
 
 
         /* Section Title Style (From Danubio Site) */
@@ -441,6 +483,20 @@
              border: 4px solid theme('colors.primary'); /* border-4 border-primary */
              box-shadow: theme('boxShadow.profile-pic'); /* Consistent shadow */
         }
+        #publication-cta .btn {
+            /* As classes Tailwind aplicadas diretamente no HTML */
+            /* bg-white text-primary border-white */
+            /* Podem continuar assim se for intencional ser diferente */
+            /* ou você pode adicionar uma regra CSS específica aqui se quiser controlá-lo centralmente com a nova cor */
+            background-color: white; /* Exemplo: mantém fundo branco */
+            color: theme('colors.btn-primary-color'); /* Texto com a cor principal do botão */
+            border-color: white; /* Borda branca */
+        }
+  #publication-cta .btn:hover {
+       /* hover:bg-gray-100 hover:text-primary-dark */
+       background-color: theme('colors.gray.100'); /* Exemplo: mantendo hover cinza */
+       color: theme('colors.primary-dark'); /* Exemplo: mantendo hover texto primary-dark */
+ }
         /* Ensure ebook images fit well */
         #bonus-ebooks .ebook-item img {
             aspect-ratio: 2 / 3; /* Maintain typical book cover ratio */
