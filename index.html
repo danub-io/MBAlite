@@ -28,8 +28,8 @@
 				--color-bg-main: theme('colors.gray.50');
 				--color-bg-surface: theme('colors.white');
 				--color-bg-surface-dark: theme('colors.gray.100');
-				--color-border: theme('colors.gray.200');
-				--color-border-dark: theme('colors.gray.300');
+				--color-border: theme('colors.gray.200'); /* #e5e7eb */
+				--color-border-dark: theme('colors.gray.300'); /* #d1d5db */
 			}
 			html {
 				scroll-behavior: smooth;
@@ -243,14 +243,22 @@
 				from { opacity: 0; transform: translateY(10px); }
 				to { opacity: 1; transform: translateY(0); }
 			}
+
+			/* --- Estilos #enroll --- */
+			/* Mantendo apenas o estilo do container externo */
 			#enroll .form-wrapper {
 				 background-color: var(--color-bg-surface);
 				 border-radius: theme('borderRadius.lg');
 				 box-shadow: theme('boxShadow.card');
 			}
+			/* --- TODOS OS OUTROS ESTILOS PARA .ck-form-container, .ck-input, .ck-button, etc. FORAM REMOVIDOS --- */
 			.experience-item .timeline-line {
 				border-left-color: var(--color-border-dark);
 			}
+            .formkit-form[data-uid="d0849e0001"][data-style="minimal"] 
+            {
+                padding: 0 !important; /* Remove o padding injetado pelo ConvertKit */
+            }
 		</style>
 		<script type="application/ld+json">
 			{
@@ -497,8 +505,7 @@
 							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Garanta Sua Vaga no MBA lite</h2>
 							<p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
 						</div>
-						<div class="form-wrapper bg-white py-8 md:py-10 px-0 md:px-10 rounded-lg" data-aos="fade-up" data-aos-delay="100">
-							<script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+						<div class="form-wrapper bg-white py-8 md:py-10 px-0 md:px-10 rounded-lg" data-aos="fade-up" data-aos-delay="100"> <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
 							<noscript>
 								<p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p>
 							</noscript>
@@ -968,6 +975,7 @@
 				const defaultPageRoute = pageRoutes['/'];
 				const contentPageId = 'page-content';
 				let isMenuOpen = false, headerHeight = 70, scrollOffset = 90;
+
 				function updateDynamicOffsets() {
 					try {
 						const rootStyles = getComputedStyle(document.documentElement);
@@ -982,6 +990,7 @@
 						scrollOffset = headerHeight + 20;
 					}
 				}
+
 				function initPreloader() {
 					window.addEventListener('load', () => {
 						updateDynamicOffsets();
@@ -993,10 +1002,12 @@
 						handleRouteChange(true);
 					});
 				}
+
 				function initAOS() {
 					if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' });
 					else console.warn("AOS library not loaded.");
 				}
+
 				function initMobileMenu() {
 					if (!elements.menuBtn || !elements.closeMenuBtn || !elements.mobileMenu || !elements.menuOverlay) return;
 					elements.menuBtn.addEventListener('click', toggleMenu);
@@ -1004,13 +1015,16 @@
 					elements.menuOverlay.addEventListener('click', closeMenu);
 					document.querySelectorAll('#mobile-menu nav a').forEach(link => link.addEventListener('click', closeMenu));
 				}
+
 				function initScrollEffects() {
 					window.addEventListener('scroll', handleScroll, { passive: true });
 					elements.scrollToTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 				}
+
 				function initFooterYear() {
 					if (elements.currentYearSpan) elements.currentYearSpan.textContent = new Date().getFullYear();
 				}
+
 				function initSPARouting() {
 					elements.allSpaLinks.forEach(link => {
 						const href = link.getAttribute('href');
@@ -1019,7 +1033,9 @@
 					});
 					window.addEventListener('popstate', handleRouteChange);
 				}
+
 				function toggleMenu() { isMenuOpen ? closeMenu() : openMenu(); }
+
 				function openMenu() {
 					if (isMenuOpen || !elements.mobileMenu || !elements.menuOverlay || !elements.menuBtn) return;
 					elements.mobileMenu.classList.remove('hidden-menu');
@@ -1029,6 +1045,7 @@
 					isMenuOpen = true;
 					elements.closeMenuBtn?.focus();
 				}
+
 				function closeMenu() {
 					if (!isMenuOpen || !elements.mobileMenu || !elements.menuOverlay || !elements.menuBtn) return;
 					elements.mobileMenu.classList.add('hidden-menu');
@@ -1038,12 +1055,14 @@
 					isMenuOpen = false;
 					elements.menuBtn?.focus();
 				}
+
 				function handleScroll() {
 					const scrollY = window.scrollY;
 					elements.header?.classList.toggle('header-scrolled', scrollY > HEADER_SCROLL_THRESHOLD);
 					elements.scrollToTopBtn?.classList.toggle('visible', scrollY > SCROLL_TOP_VISIBILITY_THRESHOLD);
 					updateActiveNavLink();
 				}
+
 				function displayPage(targetPageId) {
 					let targetPageElement = null;
 					elements.allPages.forEach(page => {
@@ -1066,6 +1085,7 @@
 					document.body.className = `bg-bg-main text-text-body page-${targetPageId}`;
 					return targetPageElement;
 				}
+
 				function updateTitle(pageId, scrollTargetId) {
 					let routeInfo = Object.values(pageRoutes).find(route => route.id === pageId) || defaultPageRoute;
 					let pageTitle = routeInfo.title;
@@ -1081,6 +1101,7 @@
 					}
 					document.title = pageTitle;
 				}
+
 				function handleScrollingAndActivation(scrollTargetId, isInitialLoad, pageElementToActivate) {
 					const activatePage = () => {
 						if (pageElementToActivate) setTimeout(() => pageElementToActivate.classList.add('active'), isInitialLoad ? 10 : 50);
@@ -1102,6 +1123,7 @@
 						activatePage();
 					}
 				}
+
 				function handleNavLinkClick(event, link) {
 					const href = link.getAttribute('href');
 					if (!href) return;
@@ -1138,6 +1160,7 @@
 						return;
 					}
 				}
+
 				function handleRouteChange(isInitialLoad = false) {
 					const path = window.location.pathname;
 					const hash = window.location.hash.substring(1);
@@ -1159,6 +1182,7 @@
 					updateTitle(targetPageId, scrollTargetId);
 					handleScrollingAndActivation(scrollTargetId, isInitialLoad === true, pageElement);
 				}
+
 				function updateActiveNavLink() {
 					const scrollY = window.scrollY;
 					const activePageElement = document.querySelector('.page.active');
@@ -1209,21 +1233,31 @@
 				initFooterYear();
 				initSPARouting();
 			});
-			function removerPaddingFormularioConvertKit() {
-				const seletorFormulario = '.formkit-form[data-uid="d0849e0001"][data-style="minimal"]';
-				const formularioConvertKit = document.querySelector(seletorFormulario);
-				if (formularioConvertKit) {
-					console.log('Formulário ConvertKit encontrado, removendo padding lateral...');
-					formularioConvertKit.style.paddingLeft = '0';
-					formularioConvertKit.style.paddingRight = '0';
-					console.log('Padding lateral do formulário ConvertKit zerado.');
-				} else {
-					console.warn('Formulário ConvertKit não encontrado imediatamente. Verifique o seletor ou o tempo de execução.');
-				}
-			}
-			window.addEventListener('load', () => {
-				setTimeout(removerPaddingFormularioConvertKit, 500);
-			});
-		</script>
+		// Adicione este código DENTRO da tag <script> principal no final do <body>
+
+// Função para remover o padding do formulário ConvertKit
+function removerPaddingFormularioConvertKit() {
+    // Seletor exato que vimos na imagem do DevTools
+    const seletorFormulario = '.formkit-form[data-uid="d0849e0001"][data-style="minimal"]';
+    const formularioConvertKit = document.querySelector(seletorFormulario);
+
+    if (formularioConvertKit) {
+        console.log('Formulário ConvertKit encontrado, removendo padding...');
+        // Define o padding diretamente no estilo do elemento para sobrescrever
+        formularioConvertKit.style.paddingLeft = '0';
+formularioConvertKit.style.paddingRight = '0';
+        console.log('Padding do formulário ConvertKit zerado.');
+    } else {
+        // Se não encontrar, pode ser que o script precise de mais tempo
+        console.warn('Formulário ConvertKit não encontrado imediatamente. Verifique o seletor ou o tempo de execução.');
+    }
+}
+
+// Tenta remover o padding depois que toda a página (incluindo scripts como o do CK) carregou
+// Usamos um pequeno delay (500ms) para dar uma margem extra para o script do CK finalizar
+window.addEventListener('load', () => {
+    setTimeout(removerPaddingFormularioConvertKit, 500);
+});
+        </script>
 	</body>
 </html>
