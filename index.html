@@ -47,10 +47,10 @@
         .faq-item .faq-content { border-top: 1px solid var(--color-border); }
         #main-header { background-color: var(--color-bg-surface); box-shadow: theme('boxShadow.sm'); height: var(--header-height); transition: box-shadow 0.3s ease; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
         #main-header.header-scrolled { box-shadow: theme('boxShadow.md'); }
-        #main-nav a.nav-link { position: relative; padding-bottom: 5px; transition: color 0.3s ease; color: var(--color-text-body); font-weight: 600; }
-        #main-nav a.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--color-primary); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.3s ease-out; }
+        /* Nav link styling: Removed underline (::after rules) and padding-bottom */
+        #main-nav a.nav-link { transition: color 0.3s ease; color: var(--color-text-body); font-weight: 600; display: inline-block; /* Needed for transform */ }
         #main-nav a.nav-link:hover, #main-nav a.nav-link.active { color: var(--color-primary); }
-        #main-nav a.nav-link:hover::after, #main-nav a.nav-link.active::after { transform: scaleX(1); transform-origin: bottom left; }
+        /* Underline rules removed */
         #mobile-menu { transition: transform 0.3s ease-in-out; border-right: 1px solid var(--color-border); position: fixed; top: 0; left: 0; width: 16rem; height: 100%; z-index: 60; }
         #mobile-menu.hidden-menu { transform: translateX(-100%); }
         #mobile-menu nav a.mobile-menu-link { transition: color 0.2s ease, background-color 0.2s ease; color: var(--color-text-body); }
@@ -94,11 +94,11 @@
         <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
             <a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition duration-300">MBA lite</a>
             <nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
-                <a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link">Início</a>
-                <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link">Módulos</a>
-                <a href="/publicacoes" data-page-id="page-publications" class="nav-link">Publicações</a>
-                <a href="/autor" data-page-id="page-autor" class="nav-link">Autor</a>
-                <a href="/faq" data-page-id="page-faq" class="nav-link">FAQ</a>
+                <a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link transform hover:scale-105 transition-transform duration-300">Início</a>
+                <a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
+                <a href="/publicacoes" data-page-id="page-publications" class="nav-link transform hover:scale-105 transition-transform duration-300">Publicações</a>
+                <a href="/autor" data-page-id="page-autor" class="nav-link transform hover:scale-105 transition-transform duration-300">Autor</a>
+                <a href="/faq" data-page-id="page-faq" class="nav-link transform hover:scale-105 transition-transform duration-300">FAQ</a>
                 <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="ml-4 inline-block px-6 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out">Inscreva-se</a>
             </nav>
             <button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-blue-600" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><i class="fas fa-bars text-xl" aria-hidden="true"></i></button>
@@ -124,7 +124,6 @@
     <main id="main-content">
 
         <div id="page-index" class="page">
-
             <section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
                 <div class="max-w-4xl mx-auto relative z-10">
                     <img src="/img/guias/guia4.svg" alt="Ilustração abstrata decorativa" class="notion-style-svg mx-auto mb-6" data-aos="zoom-in" data-aos-delay="50" onerror="this.style.display='none'">
@@ -135,7 +134,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="modules" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
                 <div class="container mx-auto">
                     <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
@@ -190,7 +188,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto">
                     <div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
@@ -231,7 +228,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
                 <div class="container mx-auto max-w-4xl" data-aos="fade-up">
                     <div class="text-center mb-12">
@@ -248,7 +244,6 @@
                     </ul>
                 </div>
             </section>
-
             <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto text-center">
                     <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2" data-aos="fade-up">BÔNUS EXCLUSIVO</h3>
@@ -265,7 +260,6 @@
                     </div>
                 </div>
             </section>
-
             <section id="enroll" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface-dark">
                 <div class="container mx-auto max-w-2xl">
                     <div class="text-center mb-12" data-aos="fade-up">
@@ -280,36 +274,37 @@
                     </div>
                 </div>
             </section>
-        </div> <div id="page-content" class="page">
-            <div class="page-content-container container mx-auto py-16 px-4 md:px-6 lg:px-8">
-                <div id="content-area">
-                    <h1 class="text-3xl md:text-4xl font-bold text-center text-text-title mb-12 md:mb-16" data-aos="fade-up">O que você vai aprender:</h1>
-                    <article id="gestao-pessoas" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up">
-                        <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-users mr-3 text-blue-500" aria-hidden="true"></i>Gestão de Pessoas</h2>
-                        <p class="text-gray-700 leading-relaxed">Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
-                    </article>
-                    <article id="gestao-riscos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="50">
-                        <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-exclamation-triangle mr-3 text-blue-500" aria-hidden="true"></i>Gestão de Riscos</h2>
-                        <p class="text-gray-700 leading-relaxed">Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
-                    </article>
-                    <article id="gestao-qualidade" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="100">
-                        <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-star mr-3 text-blue-500" aria-hidden="true"></i>Gestão da Qualidade</h2>
-                        <p class="text-gray-700 leading-relaxed">Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
-                    </article>
-                    <article id="gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="150">
-                        <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-tasks mr-3 text-blue-500" aria-hidden="true"></i>Gestão de Projetos</h2>
-                        <p class="text-gray-700 leading-relaxed">Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
-                    </article>
-                    <article id="ferramentas-gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-toolbox mr-3 text-blue-500" aria-hidden="true"></i>Ferramentas de Gestão</h2>
-                        <p class="text-gray-700 leading-relaxed">Aprenda a dominar as funcionalidades essenciais das principais ferramentas de gestão de projetos do mercado. Exploraremos como plataformas como ClickUp, Jira, Trello, Monday e outras podem ser utilizadas para definir escopo, criar cronogramas (Gantt), gerenciar tarefas (Kanban Boards), alocar recursos, facilitar a comunicação e monitorar o progresso através de dashboards, aplicando as melhores práticas para otimizar o fluxo de trabalho da sua equipe.</p>
-                    </article>
-                    <article id="gestao-projetos-ia" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="250">
-                        <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-robot mr-3 text-blue-500" aria-hidden="true"></i>Gestão com IA</h2>
-                        <p class="text-gray-700 leading-relaxed">Descubra como a Inteligência Artificial Generativa está revolucionando a gestão de projetos. Aprenda a usar ferramentas como ChatGPT, Google Gemini, Grok e outras para brainstorming, análise SWOT, definição de escopo e objetivos SMART, geração de documentação (atas, relatórios), análise de dados de projetos, identificação de riscos, simulação de cenários e apoio à tomada de decisão. Discutiremos também as melhores práticas de Prompt Engineering, ética e o futuro da IA na área.</p>
-                    </article>
-                </div>
-            </div>
+        </div>
+        <div id="page-content" class="page">
+             <div class="page-content-container container mx-auto py-16 px-4 md:px-6 lg:px-8">
+                   <div id="content-area">
+                       <h1 class="text-3xl md:text-4xl font-bold text-center text-text-title mb-12 md:mb-16" data-aos="fade-up">O que você vai aprender:</h1>
+                       <article id="gestao-pessoas" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up">
+                           <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-users mr-3 text-blue-500" aria-hidden="true"></i>Gestão de Pessoas</h2>
+                           <p class="text-gray-700 leading-relaxed">Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
+                       </article>
+                       <article id="gestao-riscos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="50">
+                           <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-exclamation-triangle mr-3 text-blue-500" aria-hidden="true"></i>Gestão de Riscos</h2>
+                           <p class="text-gray-700 leading-relaxed">Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
+                       </article>
+                       <article id="gestao-qualidade" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="100">
+                           <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-star mr-3 text-blue-500" aria-hidden="true"></i>Gestão da Qualidade</h2>
+                           <p class="text-gray-700 leading-relaxed">Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
+                       </article>
+                       <article id="gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="150">
+                           <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-tasks mr-3 text-blue-500" aria-hidden="true"></i>Gestão de Projetos</h2>
+                           <p class="text-gray-700 leading-relaxed">Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
+                       </article>
+                       <article id="ferramentas-gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="200">
+                           <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-toolbox mr-3 text-blue-500" aria-hidden="true"></i>Ferramentas de Gestão</h2>
+                           <p class="text-gray-700 leading-relaxed">Aprenda a dominar as funcionalidades essenciais das principais ferramentas de gestão de projetos do mercado. Exploraremos como plataformas como ClickUp, Jira, Trello, Monday e outras podem ser utilizadas para definir escopo, criar cronogramas (Gantt), gerenciar tarefas (Kanban Boards), alocar recursos, facilitar a comunicação e monitorar o progresso através de dashboards, aplicando as melhores práticas para otimizar o fluxo de trabalho da sua equipe.</p>
+                       </article>
+                       <article id="gestao-projetos-ia" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="250">
+                           <h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-robot mr-3 text-blue-500" aria-hidden="true"></i>Gestão com IA</h2>
+                           <p class="text-gray-700 leading-relaxed">Descubra como a Inteligência Artificial Generativa está revolucionando a gestão de projetos. Aprenda a usar ferramentas como ChatGPT, Google Gemini, Grok e outras para brainstorming, análise SWOT, definição de escopo e objetivos SMART, geração de documentação (atas, relatórios), análise de dados de projetos, identificação de riscos, simulação de cenários e apoio à tomada de decisão. Discutiremos também as melhores práticas de Prompt Engineering, ética e o futuro da IA na área.</p>
+                       </article>
+                   </div>
+             </div>
         </div> <div id="page-autor" class="page">
             <section id="home" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
                 <div class="max-w-4xl mx-auto relative z-10">
