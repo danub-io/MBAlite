@@ -78,9 +78,6 @@
 			.standard-card-style:hover {
 				box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
 			}
-			.page-content-container article {
-				/* Removed border to match standard-card-style */
-			}
 			.page-content-container article h2 {
 				border-bottom: 1px solid var(--color-border);
 			}
@@ -455,7 +452,7 @@
 								</ul>
 							</div>
 							<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1 md:order-2" data-aos="fade-left">
-								<img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" class="w-full h-auto max-h-[550px] max-w-xs sm:max-w-sm md:max-w-full mx-auto">
+								<img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" class="w-full h-auto max-h-[450px] max-w-xs sm:max-w-sm md:max-w-full mx-auto">
 							</div>
 						</div>
 					</div>
@@ -464,7 +461,7 @@
 					<div class="container mx-auto">
 						<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 							<div class="w-full md:w-5/12 order-1" data-aos="fade-right">
-								<img src="/img/svg/hero4.svg" alt="Ilustração de Ebooks Bônus" class="w-full h-auto max-w-md mx-auto">
+								<img src="/img/svg/hero4.svg" alt="Ilustração de Ebooks Bônus" class="w-full h-auto max-h-[450px] max-w-md mx-auto">
 							</div>
 							<div class="w-full md:w-7/12 order-2 text-center md:text-left" data-aos="fade-left" data-aos-delay="100">
 								<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">BÔNUS EXCLUSIVO</h3>
@@ -977,7 +974,7 @@
 					<div class="container mx-auto px-4 md:px-6 lg:px-8">
 						<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 							<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1 md:order-1" data-aos="fade-right" data-aos-delay="50">
-								<img src="/img/svg/hero3.svg" alt="Ilustração de confirmação de inscrição" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto">
+								<img src="/img/svg/hero3.svg" alt="Ilustração de confirmação de inscrição" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto">
 							</div>
 							<div class="w-full md:w-1/2 lg:w-7/12 order-2 md:order-2 text-center md:text-left" data-aos="fade-left" data-aos-delay="100">
 								<div class="bg-white p-8 md:p-10 rounded-lg shadow-lg">
@@ -1051,52 +1048,35 @@
 					try {
 						const rootStyles = getComputedStyle(document.documentElement);
 						let headerHeightValue = rootStyles.getPropertyValue('--header-height').trim();
-
-						// Override header height for lg screens based on user request
 						if (window.innerWidth >= 1024) {
-							headerHeightValue = '60px'; // Set to 60px for large screens
+							headerHeightValue = '60px';
 							document.documentElement.style.setProperty('--header-height', headerHeightValue);
 						} else {
-                            // Use the default from CSS for smaller screens, or fallback
-                             headerHeightValue = rootStyles.getPropertyValue('--header-height').trim() || '70px';
-                             document.documentElement.style.setProperty('--header-height', headerHeightValue); // Ensure it's set
-                        }
-
-
+							headerHeightValue = rootStyles.getPropertyValue('--header-height').trim() || '70px';
+							document.documentElement.style.setProperty('--header-height', headerHeightValue);
+						}
 						const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim();
-
-						if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 60; // Use 60 as fallback
-
+						if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 60;
 						if (scrollOffsetValue) {
 							const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/);
 							scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20);
 						} else {
-                            scrollOffset = headerHeight + 20; // Recalculate if scrollOffsetValue wasn't parsed initially
-                        }
-                         // Re-apply updated scroll offset as a CSS variable in case header height changed
-                         document.documentElement.style.setProperty('--scroll-offset', `calc(var(--header-height) + 20px)`);
-
-
+							scrollOffset = headerHeight + 20;
+						}
+						document.documentElement.style.setProperty('--scroll-offset', `calc(var(--header-height) + 20px)`);
 					} catch (e) {
 						console.warn("Could not parse CSS variables for offsets, using defaults.");
-                        headerHeight = 60; // Default to 60px if error
+						headerHeight = 60;
 						scrollOffset = headerHeight + 20;
-                        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-                        document.documentElement.style.setProperty('--scroll-offset', `${scrollOffset}px`);
+						document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+						document.documentElement.style.setProperty('--scroll-offset', `${scrollOffset}px`);
 					}
-                    // Update body padding after calculating header height
-                    document.body.style.paddingTop = `${headerHeight}px`;
+					document.body.style.paddingTop = `${headerHeight}px`;
 				}
-
-
 				function initPreloader() {
-					// Update offsets once on load before preloader hides
-                    updateDynamicOffsets();
-                    // Add listener for resize to recalculate header height if needed
-                    window.addEventListener('resize', updateDynamicOffsets);
-
+					updateDynamicOffsets();
+					window.addEventListener('resize', updateDynamicOffsets);
 					window.addEventListener('load', () => {
-						// updateDynamicOffsets(); // Already called above
 						if (elements.preloader) {
 							elements.preloader.classList.add('hidden');
 							setTimeout(() => {elements.preloader?.remove();}, PAGE_FADE_DURATION + PRELOADER_FADE_DELAY);
@@ -1206,10 +1186,9 @@
 					document.title = pageTitle;
 				}
 				function handleScrollingAndActivation(scrollTargetId, isInitialLoad, pageElementToActivate) {
-                    // Recalculate offsets before scrolling, especially if it's not the initial load
-                    if (!isInitialLoad) {
-                        updateDynamicOffsets();
-                    }
+					if (!isInitialLoad) {
+						updateDynamicOffsets();
+					}
 					const activatePage = () => {
 						if (pageElementToActivate) {
 							setTimeout(() => pageElementToActivate.classList.add('active'), isInitialLoad ? 10 : 50);
@@ -1289,7 +1268,7 @@
 						routeInfo = Object.values(pageRoutes).find(r => r.id === targetPageId);
 						if (!routeInfo) {
 							routeInfo = pageRoutes[path];
-							if (routeInfo) targetPageId = routeInfo.id;
+							if(routeInfo) targetPageId = routeInfo.id;
 						}
 					} else {
 						routeInfo = pageRoutes[path];
@@ -1301,7 +1280,7 @@
 							targetPageId = routeInfo.id;
 							scrollTargetId = null;
 							if (path !== '/') {
-								history.replaceState({pageId: targetPageId,scrollTarget: null}, '', '/');
+								history.replaceState({ pageId: targetPageId, scrollTarget: null }, '', '/');
 							}
 						}
 					}
@@ -1310,7 +1289,7 @@
 					if (targetPageId === contentPageId && !scrollTargetId) {
 						scrollTargetId = 'content-area';
 						if (window.location.hash !== '#content-area' && path === '/conteudo') {
-							history.replaceState(state || {pageId: targetPageId,scrollTarget: scrollTargetId}, '', '/conteudo#content-area');
+							history.replaceState(state || { pageId: targetPageId, scrollTarget: scrollTargetId }, '', '/conteudo#content-area');
 						}
 					}
 					const pageElement = displayPage(targetPageId);
