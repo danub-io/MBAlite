@@ -355,7 +355,7 @@ padding: 0 !important;
 <div class="container mx-auto px-4 md:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 <div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right" data-aos-delay="50">
-<img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-w-sm md:max-w-full mx-auto">
+<img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto">
 </div>
 <div class="w-full md:w-1/2 lg:w-7/12 text-center md:text-left order-2 relative z-10">
 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">Domine a Gestão Estratégica com o MBA lite</h1>
@@ -476,7 +476,7 @@ padding: 0 !important;
 </ul>
 </div>
 <div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1 md:order-2" data-aos="fade-left">
-<img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" class="w-full h-auto max-w-xs sm:max-w-sm md:max-w-full mx-auto">
+<img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" class="w-full h-auto max-h-[550px] max-w-xs sm:max-w-sm md:max-w-full mx-auto">
 </div>
 </div>
 </div>
@@ -1136,7 +1136,7 @@ return;
 if (internalTargetPageId && scrollTargetId) {
 event.preventDefault();
 const currentPath = window.location.pathname === '/' ? '' : window.location.pathname;
-const newHref = `${currentPath}#${scrollTargetId}`;
+const newHref = `<span class="math-inline">\{currentPath\}\#</span>{scrollTargetId}`;
 history.pushState({ pageId: internalTargetPageId, scrollTarget: scrollTargetId }, '', newHref);
 handleRouteChange();
 return;
