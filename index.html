@@ -321,7 +321,7 @@ padding: 0 !important;
 <a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-2xl font-bold text-gray-900 hover:text-[#0582ff] transition duration-300">MBA lite</a>
 <nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
 <a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link transform hover:scale-105 transition-transform duration-300">Início</a>
-<a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
+<a href="/conteudo#content-area" data-page-id="page-content" data-scroll-target="content-area" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
 <a href="/publicacoes" data-page-id="page-publications" class="nav-link transform hover:scale-105 transition-transform duration-300">Publicações</a>
 <a href="/autor" data-page-id="page-autor" class="nav-link transform hover:scale-105 transition-transform duration-300">Autor</a>
 <a href="/faq" data-page-id="page-faq" class="nav-link transform hover:scale-105 transition-transform duration-300">FAQ</a>
@@ -341,7 +341,7 @@ padding: 0 !important;
 </div>
 <nav class="flex flex-col space-y-1 px-3" aria-label="Navegação móvel">
 <a href="/" data-page-id="page-index" data-scroll-target="hero" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Início</a>
-<a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Módulos</a>
+<a href="/conteudo#content-area" data-page-id="page-content" data-scroll-target="content-area" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Módulos</a>
 <a href="/publicacoes" data-page-id="page-publications" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Publicações</a>
 <a href="/autor" data-page-id="page-autor" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Autor</a>
 <a href="/faq" data-page-id="page-faq" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">FAQ</a>
@@ -460,18 +460,25 @@ padding: 0 !important;
 </div>
 </section>
 <section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-<div class="container mx-auto max-w-4xl" data-aos="fade-up">
-<div class="text-center mb-12">
-<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">PARA QUEM</h3>
-<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Ideal Para Profissionais Ambiciosos</h2>
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right">
+<img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" class="w-full h-auto max-w-xs sm:max-w-sm md:max-w-full mx-auto">
 </div>
-<ul class="list-none space-y-4 text-lg text-text-body max-w-xl mx-auto">
-<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Líderes e gestores buscando aprimoramento estratégico.</span></li>
-<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Profissionais em transição para cargos de gestão.</span></li>
-<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Empreendedores e donos de negócios buscando base sólida.</span></li>
-<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Analistas e especialistas que desejam visão holística.</span></li>
-<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Consultores buscando atualização em gestão moderna.</span></li>
+<div class="w-full md:w-1/2 lg:w-7/12 order-2 text-center md:text-left" data-aos="fade-left" data-aos-delay="100">
+<div class="mb-12 md:mb-0">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">PARA QUEM</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title mb-6">Ideal Para Profissionais Ambiciosos</h2>
+</div>
+<ul class="list-none space-y-4 text-lg text-text-body">
+<li class="flex items-center justify-center md:justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Líderes e gestores buscando aprimoramento estratégico.</span></li>
+<li class="flex items-center justify-center md:justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Profissionais em transição para cargos de gestão.</span></li>
+<li class="flex items-center justify-center md:justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Empreendedores e donos de negócios buscando base sólida.</span></li>
+<li class="flex items-center justify-center md:justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Analistas e especialistas que desejam visão holística.</span></li>
+<li class="flex items-center justify-center md:justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Consultores buscando atualização em gestão moderna.</span></li>
 </ul>
+</div>
+</div>
 </div>
 </section>
 <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
@@ -973,7 +980,7 @@ const pageRoutes = {
 '/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' },
 '/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' },
 '/faq': { id: 'page-faq', title: 'MBA lite - FAQ' },
-'/content': { id: 'page-content', title: 'MBA lite - Detalhes do Módulo' }
+'/conteudo': { id: 'page-content', title: 'MBA lite - Conteúdo Programático' }
 };
 const defaultPageRoute = pageRoutes['/'];
 const contentPageId = 'page-content';
@@ -1081,12 +1088,16 @@ let routeInfo = Object.values(pageRoutes).find(route => route.id === pageId) || 
 let pageTitle = routeInfo.title;
 if (pageId === contentPageId && scrollTargetId) {
 const sectionElement = document.getElementById(scrollTargetId);
+if (sectionElement && scrollTargetId !== 'content-area') {
 const sectionTitleElement = sectionElement?.querySelector('h2');
 if (sectionTitleElement) {
 const titleClone = sectionTitleElement.cloneNode(true);
 if (titleClone.firstChild?.nodeName === 'I') titleClone.removeChild(titleClone.firstChild);
 const sectionTitleText = titleClone.textContent?.trim();
 if (sectionTitleText) pageTitle = `MBA lite - ${sectionTitleText}`;
+}
+} else {
+pageTitle = pageRoutes['/conteudo'] ? pageRoutes['/conteudo'].title : defaultPageRoute.title;
 }
 }
 document.title = pageTitle;
@@ -1117,21 +1128,34 @@ const href = link.getAttribute('href');
 if (!href) return;
 const targetPageId = link.dataset.pageId;
 const internalTargetPageId = link.dataset.internalTarget;
-const scrollTargetId = link.dataset.scrollTarget || (href.startsWith('#') ? href.substring(1) : null);
+const scrollTargetId = link.dataset.scrollTarget || (href.includes('#') ? href.split('#')[1] : null);
+const isExternalOrSpecial = link.getAttribute('target') === '_blank' || link.protocol !== window.location.protocol || link.host !== window.location.host || link.hasAttribute('download') || href?.startsWith('mailto:') || href?.startsWith('tel:');
+if (isExternalOrSpecial) {
+return;
+}
 if (internalTargetPageId && scrollTargetId) {
 event.preventDefault();
-const newHref = window.location.pathname + `#${scrollTargetId}`;
+const currentPath = window.location.pathname === '/' ? '' : window.location.pathname;
+const newHref = `${currentPath}#${scrollTargetId}`;
 history.pushState({ pageId: internalTargetPageId, scrollTarget: scrollTargetId }, '', newHref);
 handleRouteChange();
 return;
 }
-if (targetPageId && (href.startsWith('/') || href.startsWith('#'))) {
+if (targetPageId && (href.startsWith('/') || href.startsWith('#') || !href.includes(':'))) {
 event.preventDefault();
-const newPath = href.split('#')[0] || '/';
-const newHash = href.includes('#') ? href.split('#')[1] : null;
+let newPath = href.split('#')[0];
+if (newPath === window.location.pathname && href.includes('#')) {
+const newHash = href.split('#')[1];
 const finalScrollTarget = scrollTargetId || newHash;
 history.pushState({ pageId: targetPageId, scrollTarget: finalScrollTarget }, '', href);
 handleRouteChange();
+} else {
+const newHash = href.includes('#') ? href.split('#')[1] : null;
+const finalScrollTarget = scrollTargetId || newHash;
+if(newPath === '') newPath = '/';
+history.pushState({ pageId: targetPageId, scrollTarget: finalScrollTarget }, '', newPath + (finalScrollTarget ? `#${finalScrollTarget}`: ''));
+handleRouteChange();
+}
 return;
 }
 if (href.startsWith('#') && !targetPageId && !internalTargetPageId) {
@@ -1149,22 +1173,33 @@ return;
 }
 }
 function handleRouteChange(isInitialLoad = false) {
-const path = window.location.pathname;
+let path = window.location.pathname;
+if (path === '') path = '/';
 const hash = window.location.hash.substring(1);
 let targetPageId, scrollTargetId = hash || null, routeInfo;
 if (history.state?.pageId) {
 targetPageId = history.state.pageId;
 scrollTargetId = history.state.scrollTarget || scrollTargetId;
 routeInfo = Object.values(pageRoutes).find(r => r.id === targetPageId);
-} else if (pageRoutes[path]) {
+} else {
 routeInfo = pageRoutes[path];
+if (routeInfo) {
 targetPageId = routeInfo.id;
 } else {
 routeInfo = defaultPageRoute;
 targetPageId = routeInfo.id;
+if(path !== '/') {
+history.replaceState({ pageId: targetPageId, scrollTarget: null }, '', '/');
+}
+}
 }
 routeInfo = routeInfo || defaultPageRoute;
-if (targetPageId === contentPageId && !scrollTargetId) scrollTargetId = 'content-area';
+if (targetPageId === contentPageId && !scrollTargetId) {
+scrollTargetId = 'content-area';
+if(window.location.hash !== '#content-area' && path === '/conteudo') {
+history.replaceState(history.state, '', '/conteudo#content-area');
+}
+}
 const pageElement = displayPage(targetPageId);
 updateTitle(targetPageId, scrollTargetId);
 handleScrollingAndActivation(scrollTargetId, isInitialLoad === true, pageElement);
@@ -1181,6 +1216,7 @@ if (sectionTop <= scrollY + scrollOffset + 50 && sectionTop > bestMatch.top) bes
 currentSectionId = bestMatch.id;
 const updateLinks = (links) => {
 let isAnySectionLinkActive = false;
+const currentPath = window.location.pathname === '/' ? '/' : window.location.pathname;
 links.forEach(link => {
 link.classList.remove('active');
 const linkHref = link.getAttribute('href');
@@ -1188,10 +1224,12 @@ if (!linkHref) return;
 const linkPageId = link.dataset.pageId;
 const linkInternalTargetPageId = link.dataset.internalTarget;
 const linkScrollTarget = link.dataset.scrollTarget;
+const linkPath = linkHref.split('#')[0] || currentPath;
 const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
-const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id);
-if (!isLinkForActivePage) return;
-if (currentSectionId && (linkScrollTarget === currentSectionId || linkHash === currentSectionId)) {
+const isLinkForActivePage = linkPageId === activePageElement.id || linkInternalTargetPageId === activePageElement.id;
+const isCurrentPathMatch = (linkPath === currentPath) || (linkPath === '/' && currentPath === '/');
+if (!isLinkForActivePage && !isCurrentPathMatch) return;
+if (isLinkForActivePage && currentSectionId && (linkScrollTarget === currentSectionId || linkHash === currentSectionId)) {
 link.classList.add('active');
 isAnySectionLinkActive = true;
 }
@@ -1204,8 +1242,14 @@ const linkPageId = link.dataset.pageId;
 const linkInternalTargetPageId = link.dataset.internalTarget;
 const linkScrollTarget = link.dataset.scrollTarget;
 const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
-const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id);
-if (isLinkForActivePage && !linkScrollTarget && !linkHash) link.classList.add('active');
+const linkPath = linkHref.split('#')[0] || '/';
+const isLinkForActivePage = linkPageId === activePageElement.id || linkInternalTargetPageId === activePageElement.id;
+const isCurrentPathMatch = (linkPath === currentPath) || (linkPath === '/' && currentPath === '/');
+if (isLinkForActivePage && isCurrentPathMatch && !linkScrollTarget && !linkHash && !currentSectionId && window.scrollY < SCROLL_TOP_VISIBILITY_THRESHOLD) {
+link.classList.add('active');
+} else if (isLinkForActivePage && isCurrentPathMatch && linkHref === '/conteudo#content-area' && activePageElement.id === 'page-content' && !currentSectionId ) {
+link.classList.add('active');
+}
 });
 }
 };
