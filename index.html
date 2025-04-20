@@ -1,1263 +1,1230 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="MBA lite: Domine a Gestão Estratégica com um programa intensivo e prático. Aprenda sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA com Danúbio Coelho.">
-		<title>MBA lite - Domine a Alta Performance</title>
-		<link rel="icon" type="image/png" href="https://placehold.co/32x32/0582ff/FFFFFF?text=MBA">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preconnect" href="https://cdnjs.cloudflare.com">
-		<link rel="preconnect" href="https://unpkg.com">
-		<link rel="preconnect" href="https://mbalite.kit.com">
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<script src="https://cdn.tailwindcss.com"></script>
-		<style>
-			:root {
-				--header-height: 70px;
-				--scroll-offset: calc(var(--header-height) + 20px);
-				--color-primary: #0582ff;
-				--color-primary-dark: #045ac3;
-				--color-text-on-primary: theme('colors.white');
-				--color-text-title: theme('colors.gray.900');
-				--color-text-body: theme('colors.gray.700');
-				--color-text-muted: theme('colors.gray.500');
-				--color-bg-main: theme('colors.gray.50');
-				--color-bg-surface: theme('colors.white');
-				--color-bg-surface-dark: theme('colors.gray.100');
-				--color-border: theme('colors.gray.200'); /* #e5e7eb */
-				--color-border-dark: theme('colors.gray.300'); /* #d1d5db */
-			}
-			html {
-				scroll-behavior: smooth;
-			}
-			body {
-				font-family: 'Open Sans', sans-serif;
-				background-color: var(--color-bg-main);
-				color: var(--color-text-body);
-				padding-top: var(--header-height);
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				font-synthesis: none;
-			}
-			main {
-				flex-grow: 1;
-			}
-			.scroll-target {
-				scroll-margin-top: var(--scroll-offset);
-			}
-			h2.section-title {
-				color: var(--color-text-title);
-				position: relative;
-			}
-			.icon-block-card {
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
-			.icon-block-card:hover {
-				transform: translateY(-5px);
-			}
-			.icon-block-card .icon {
-				color: var(--color-primary);
-				transition: transform 0.3s ease;
-			}
-			.icon-block-card:hover .icon {
-				transform: scale(1.1);
-			}
-			.standard-card-style {
-				background-color: var(--color-bg-surface);
-				border-radius: theme('borderRadius.lg');
-				box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
-				transition: box-shadow 0.3s ease, transform 0.3s ease;
-			}
-			.standard-card-style:hover {
-				box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
-			}
-			.page-content-container article {
-				background-color: var(--color-bg-surface);
-				border: 1px solid var(--color-border);
-			}
-			.page-content-container article h2 {
-				color: var(--color-primary);
-				border-bottom: 1px solid var(--color-border);
-			}
-			.faq-item {
-				transition: box-shadow 0.2s ease;
-			}
-			.faq-item:hover {
-				box-shadow: theme('boxShadow.md');
-			}
-			.faq-item summary {
-				position: relative;
-				list-style: none;
-				cursor: pointer;
-			}
-			.faq-item summary::after {
-				content: '+';
-				position: absolute;
-				right: 20px;
-				top: 50%;
-				transform: translateY(-50%);
-				font-size: 1.5rem;
-				font-weight: 300;
-				color: var(--color-primary);
-				transition: transform 0.2s ease;
-			}
-			.faq-item[open] > summary::after {
-				content: '−';
-				transform: translateY(-50%) rotate(180deg);
-			}
-			.faq-item summary::-webkit-details-marker {
-				display: none;
-			}
-			.faq-item .faq-content {
-				border-top: 1px solid var(--color-border);
-			}
-			#main-header {
-				box-shadow: theme('boxShadow.sm');
-				height: var(--header-height);
-				transition: box-shadow 0.3s ease;
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				z-index: 50;
-			}
-			#main-header.header-scrolled {
-				box-shadow: theme('boxShadow.md');
-			}
-			#main-nav a.nav-link {
-				transition: color 0.3s ease;
-				color: var(--color-text-body);
-				font-weight: 600;
-				display: inline-block;
-			}
-			#main-nav a.nav-link:hover,
-			#main-nav a.nav-link.active {
-				color: var(--color-primary);
-			}
-			#mobile-menu {
-				transition: transform 0.3s ease-in-out;
-				border-right: 1px solid var(--color-border);
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 16rem;
-				height: 100%;
-				z-index: 60;
-			}
-			#mobile-menu.hidden-menu {
-				transform: translateX(-100%);
-			}
-			#mobile-menu nav a.mobile-menu-link {
-				transition: color 0.2s ease, background-color 0.2s ease;
-				color: var(--color-text-body);
-			}
-			#mobile-menu nav a.mobile-menu-link:hover,
-			#mobile-menu nav a.mobile-menu-link.active {
-				color: var(--color-primary);
-				background-color: theme('colors.blue.50');
-			}
-			#menu-overlay {
-				background-color: rgba(0, 0, 0, 0.5);
-				transition: opacity 0.3s ease-in-out;
-				position: fixed;
-				inset: 0;
-				z-index: 55;
-			}
-			#menu-overlay.hidden {
-				opacity: 0;
-				pointer-events: none;
-			}
-			#scroll-to-top {
-				position: fixed;
-				bottom: 30px;
-				right: 30px;
-				background-color: var(--color-primary);
-				color: var(--color-text-on-primary);
-				width: 45px;
-				height: 45px;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				cursor: pointer;
-				opacity: 0;
-				visibility: hidden;
-				transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-				box-shadow: theme('boxShadow.lg');
-				z-index: 1000;
-				border: none;
-			}
-			#scroll-to-top.visible {
-				opacity: 1;
-				visibility: visible;
-			}
-			#scroll-to-top:hover {
-				background-color: var(--color-primary-dark);
-				transform: translateY(-3px);
-			}
-			#preloader {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background-color: var(--color-bg-main);
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				z-index: 9999;
-				opacity: 1;
-				transition: opacity 0.5s ease 0.3s;
-			}
-			#preloader.hidden {
-				opacity: 0;
-				pointer-events: none;
-			}
-			.spinner {
-				border: 4px solid rgba(0, 0, 0, 0.1);
-				width: 36px;
-				height: 36px;
-				border-radius: 50%;
-				border-left-color: var(--color-primary);
-				animation: spin 1s ease infinite;
-			}
-			@keyframes spin {
-				0% { transform: rotate(0deg); }
-				100% { transform: rotate(360deg); }
-			}
-			.page {
-				display: none;
-				animation: pageFadeIn 0.5s ease-out forwards;
-			}
-			.page.active {
-				display: block;
-			}
-			@keyframes pageFadeIn {
-				from { opacity: 0; transform: translateY(10px); }
-				to { opacity: 1; transform: translateY(0); }
-			}
-
-			/* --- Estilos #enroll --- */
-			/* Mantendo apenas o estilo do container externo */
-			#enroll .form-wrapper {
-				 background-color: var(--color-bg-surface);
-				 border-radius: theme('borderRadius.lg');
-				 box-shadow: theme('boxShadow.card');
-			}
-			/* --- TODOS OS OUTROS ESTILOS PARA .ck-form-container, .ck-input, .ck-button, etc. FORAM REMOVIDOS --- */
-			.experience-item .timeline-line {
-				border-left-color: var(--color-border-dark);
-			}
-            .formkit-form[data-uid="d0849e0001"][data-style="minimal"] 
-            {
-                padding: 0 !important; /* Remove o padding injetado pelo ConvertKit */
-            }
-		</style>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Course",
-				"name": "MBA lite",
-				"description": "Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.",
-				"provider": {
-					"@type": "Person",
-					"name": "Danúbio Coelho",
-					"url": "/autor",
-					"sameAs": "https://www.linkedin.com/in/danubiocoelho/"
-				},
-				"courseCode": "MBALITE",
-				"educationalCredentialAwarded": "Certificate of Completion",
-				"hasCourseInstance": {
-					"@type": "CourseInstance",
-					"courseMode": "Online",
-					"instructor": {
-						"@type": "Person",
-						"name": "Danúbio Coelho"
-					}
-				},
-				"url": "/"
-			}
-		</script>
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Book",
-				"name": "Gestão de Pessoas para Alta Performance: Desvendando o Potencial Humano para Resultados Extraordinários",
-				"author": {
-					"@type": "Person",
-					"name": "Danúbio Coelho"
-				},
-				"url": "/publicacoes",
-				"workExample": [{
-					"@type": "Book",
-					"identifier": "B0F47QBL8R",
-					"bookEdition": "1st Edition",
-					"bookFormat": "https://schema.org/EBook",
-					"potentialAction": {
-						"@type": "ReadAction",
-						"target": {
-							"@type": "EntryPoint",
-							"urlTemplate": "https://www.amazon.com.br/dp/B0F47QBL8R",
-							"actionPlatform": [
-								"https://schema.org/DesktopWebPlatform",
-								"https://schema.org/IOSPlatform",
-								"https://schema.org/AndroidPlatform"
-							]
-						}
-					}
-				}]
-			}
-		</script>
-	</head>
-	<body class="bg-bg-main text-text-body">
-		<div id="preloader">
-			<div class="spinner"></div>
-		</div>
-		<header id="main-header" class="bg-white">
-			<div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-				<a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-2xl font-bold text-gray-900 hover:text-[#0582ff] transition duration-300">MBA lite</a>
-				<nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
-					<a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link transform hover:scale-105 transition-transform duration-300">Início</a>
-					<a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
-					<a href="/publicacoes" data-page-id="page-publications" class="nav-link transform hover:scale-105 transition-transform duration-300">Publicações</a>
-					<a href="/autor" data-page-id="page-autor" class="nav-link transform hover:scale-105 transition-transform duration-300">Autor</a>
-					<a href="/faq" data-page-id="page-faq" class="nav-link transform hover:scale-105 transition-transform duration-300">FAQ</a>
-					<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="ml-4 inline-block px-6 py-2 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out">Inscreva-se</a>
-				</nav>
-				<button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-[#0582ff]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-					<i class="fas fa-bars text-xl" aria-hidden="true"></i>
-				</button>
-			</div>
-		</header>
-		<div id="mobile-menu" class="hidden-menu bg-white shadow-lg" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
-			<div class="flex justify-between items-center mb-8 px-6 pt-6">
-				<span id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</span>
-				<button id="close-menu-btn" class="text-gray-500 hover:text-[#0582ff] focus:outline-none" aria-label="Fechar menu">
-					<i class="fas fa-times text-xl" aria-hidden="true"></i>
-				</button>
-			</div>
-			<nav class="flex flex-col space-y-1 px-3" aria-label="Navegação móvel">
-				<a href="/" data-page-id="page-index" data-scroll-target="hero" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Início</a>
-				<a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Módulos</a>
-				<a href="/publicacoes" data-page-id="page-publications" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Publicações</a>
-				<a href="/autor" data-page-id="page-autor" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Autor</a>
-				<a href="/faq" data-page-id="page-faq" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">FAQ</a>
-				<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md bg-[#0582ff] text-white uppercase tracking-wider border-2 border-[#0582ff] hover:bg-[#045ac3] hover:border-[#045ac3] transition-all duration-300 ease-in-out">Inscreva-se</a>
-			</nav>
-		</div>
-		<div id="menu-overlay" class="hidden" aria-hidden="true"></div>
-		<main id="main-content">
-			<div id="page-index" class="page">
-				<section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
-					<div class="max-w-4xl mx-auto relative z-10">
-						<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">Domine a Gestão Estratégica com o MBA lite</h1>
-						<p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.</p>
-						<div class="space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="300">
-							<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-10 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Inscreva-se Agora</a>
-						</div>
-					</div>
-				</section>
-				<section id="modules" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-					<div class="container mx-auto">
-						<div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CONTEÚDO</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Currículo Essencial para Líderes</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
-						</div>
-						<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-							<a href="#gestao-pessoas" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-internal-target="page-content" data-scroll-target="gestao-pessoas">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-users fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Pessoas</h4>
-									<p class="text-gray-600 leading-relaxed">Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional.</p>
-								</div>
-							</a>
-							<a href="#gestao-riscos" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100" data-internal-target="page-content" data-scroll-target="gestao-riscos">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-exclamation-triangle fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Riscos</h4>
-									<p class="text-gray-600 leading-relaxed">Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar e mitigar riscos.</p>
-								</div>
-							</a>
-							<a href="#gestao-qualidade" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200" data-internal-target="page-content" data-scroll-target="gestao-qualidade">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-star fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão da Qualidade</h4>
-									<p class="text-gray-600 leading-relaxed">Metodologias (PDCA, Seis Sigma, Lean, ISO 9001) para otimizar processos e garantir valor.</p>
-								</div>
-							</a>
-							<a href="#gestao-projetos" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300" data-internal-target="page-content" data-scroll-target="gestao-projetos">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-tasks fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos</h4>
-									<p class="text-gray-600 leading-relaxed">Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos.</p>
-								</div>
-							</a>
-							<a href="#ferramentas-gestao-projetos" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400" data-internal-target="page-content" data-scroll-target="ferramentas-gestao-projetos">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-toolbox fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4>
-									<p class="text-gray-600 leading-relaxed">Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos.</p>
-								</div>
-							</a>
-							<a href="#gestao-projetos-ia" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="500" data-internal-target="page-content" data-scroll-target="gestao-projetos-ia">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-robot fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão com IA</h4>
-									<p class="text-gray-600 leading-relaxed">Explore IAs Generativas (ChatGPT, Gemini) para otimizar análise, ideação e tomada de decisão.</p>
-								</div>
-							</a>
-						</div>
-					</div>
-				</section>
-				<section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto">
-						<div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">VANTAGENS</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Invista no Seu Potencial de Liderança</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Adquira habilidades práticas e estratégicas para se destacar no mercado e impulsionar sua carreira.</p>
-						</div>
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-							<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-chart-line fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Desenvolvimento Estratégico</h4>
-									<p class="text-gray-600 leading-relaxed">Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas.</p>
-								</div>
-							</div>
-							<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-book-reader fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Aprendizado Prático</h4>
-									<p class="text-gray-600 leading-relaxed">Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para seu contexto.</p>
-								</div>
-							</div>
-							<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-clock fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Flexibilidade Total</h4>
-									<p class="text-gray-600 leading-relaxed">Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina.</p>
-								</div>
-							</div>
-							<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
-								<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-users-cog fa-fw"></i></div>
-								<div>
-									<h4 class="text-xl font-semibold text-gray-800 mb-2">Networking Estratégico</h4>
-									<p class="text-gray-600 leading-relaxed">Conecte-se com outros profissionais e líderes, expandindo sua rede e trocando experiências valiosas.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-					<div class="container mx-auto max-w-4xl" data-aos="fade-up">
-						<div class="text-center mb-12">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">PARA QUEM</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Ideal Para Profissionais Ambiciosos</h2>
-						</div>
-						<ul class="list-none space-y-4 text-lg text-text-body max-w-xl mx-auto">
-							<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Líderes e gestores buscando aprimoramento estratégico.</span></li>
-							<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Profissionais em transição para cargos de gestão.</span></li>
-							<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Empreendedores e donos de negócios buscando base sólida.</span></li>
-							<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Analistas e especialistas que desejam visão holística.</span></li>
-							<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Consultores buscando atualização em gestão moderna.</span></li>
-						</ul>
-					</div>
-				</section>
-				<section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto text-center">
-						<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2" data-aos="fade-up">BÔNUS EXCLUSIVO</h3>
-						<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6" data-aos="fade-up" data-aos-delay="100">Receba 6 Ebooks Exclusivos!</h2>
-						<p class="text-lg text-text-muted max-w-3xl mx-auto leading-relaxed mb-12" data-aos="fade-up" data-aos-delay="200">Aprofunde seu conhecimento com um ebook dedicado para cada módulo do MBA lite, cobrindo os tópicos essenciais de forma prática e direta.</p>
-						<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
-							<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
-								<img src="/img/ebooks/gestao-de-pessoas.webp" alt="Ebook MBA lite - Gestão de Pessoas" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Pessoas';">
-							</div>
-							<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
-								<img src="/img/ebooks/gestao-de-riscos.webp" alt="Ebook MBA lite - Gestão de Riscos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Riscos';">
-							</div>
-							<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
-								<img src="/img/ebooks/gestao-da-qualidade.webp" alt="Ebook MBA lite - Gestão da Qualidade" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Qualidade';">
-							</div>
-							<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
-								<img src="/img/ebooks/gestao-de-projetos.webp" alt="Ebook MBA lite - Gestão de Projetos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Projetos';">
-							</div>
-							<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
-								<img src="/img/ebooks/ferramentas-de-gestao.webp" alt="Ebook MBA lite - Ferramentas de Gestão" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Ferramentas';">
-							</div>
-							<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
-								<img src="/img/ebooks/gestao-com-ia.webp" alt="Ebook MBA lite - Gestão com IA" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=IA';">
-							</div>
-						</div>
-					</div>
-				</section>
-				<section id="enroll" class="scroll-target py-24 px-0 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto max-w-2xl">
-						<div class="text-center mb-12" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">INSCRIÇÃO</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Garanta Sua Vaga no MBA lite</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
-						</div>
-						<div class="form-wrapper bg-white py-8 md:py-10 px-0 md:px-10 rounded-lg" data-aos="fade-up" data-aos-delay="100"> <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
-							<noscript>
-								<p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p>
-							</noscript>
-						</div>
-					</div>
-				</section>
-			</div>
-			<div id="page-content" class="page">
-				<div class="page-content-container container mx-auto py-16 px-4 md:px-6 lg:px-8">
-					<div id="content-area">
-						<h1 class="text-3xl md:text-4xl font-bold text-center text-text-title mb-12 md:mb-16" data-aos="fade-up">O que você vai aprender:</h1>
-						<article id="gestao-pessoas" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up">
-							<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-users mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão de Pessoas</h2>
-							<p class="text-gray-700 leading-relaxed">Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
-						</article>
-						<article id="gestao-riscos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="50">
-							<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-exclamation-triangle mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão de Riscos</h2>
-							<p class="text-gray-700 leading-relaxed">Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
-						</article>
-						<article id="gestao-qualidade" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="100">
-							<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-star mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão da Qualidade</h2>
-							<p class="text-gray-700 leading-relaxed">Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
-						</article>
-						<article id="gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="150">
-							<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-tasks mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão de Projetos</h2>
-							<p class="text-gray-700 leading-relaxed">Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
-						</article>
-						<article id="ferramentas-gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="200">
-							<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-toolbox mr-3 text-[#0582ff]" aria-hidden="true"></i>Ferramentas de Gestão</h2>
-							<p class="text-gray-700 leading-relaxed">Aprenda a dominar as funcionalidades essenciais das principais ferramentas de gestão de projetos do mercado. Exploraremos como plataformas como ClickUp, Jira, Trello, Monday e outras podem ser utilizadas para definir escopo, criar cronogramas (Gantt), gerenciar tarefas (Kanban Boards), alocar recursos, facilitar a comunicação e monitorar o progresso através de dashboards, aplicando as melhores práticas para otimizar o fluxo de trabalho da sua equipe.</p>
-						</article>
-						<article id="gestao-projetos-ia" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="250">
-							<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-robot mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão com IA</h2>
-							<p class="text-gray-700 leading-relaxed">Descubra como a Inteligência Artificial Generativa está revolucionando a gestão de projetos. Aprenda a usar ferramentas como ChatGPT, Google Gemini, Grok e outras para brainstorming, análise SWOT, definição de escopo e objetivos SMART, geração de documentação (atas, relatórios), análise de dados de projetos, identificação de riscos, simulação de cenários e apoio à tomada de decisão. Discutiremos também as melhores práticas de Prompt Engineering, ética e o futuro da IA na área.</p>
-						</article>
-					</div>
-				</div>
-			</div>
-			<div id="page-autor" class="page">
-				<section id="home" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
-					<div class="max-w-4xl mx-auto relative z-10">
-						<img id="autor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do MBA lite" width="176" height="176" class="w-44 h-44 rounded-full mx-auto mb-8 border-4 border-[#0582ff] shadow-lg" data-aos="zoom-in" data-aos-delay="100" onerror="this.onerror=null; this.src='https://placehold.co/176x176/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
-						<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-4" data-aos="fade-up" data-aos-delay="200">Danúbio Coelho</h1>
-						<p class="text-xl md:text-2xl text-[#0582ff] font-semibold mb-8" data-aos="fade-up" data-aos-delay="300">Engenheiro Químico | Gestor de Projetos | Founder do MBA lite</p>
-						<p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="400">Apaixonado por otimização de processos, gestão estratégica e desenvolvimento humano para alcançar resultados de alto impacto.</p>
-						<div data-aos="fade-up" data-aos-delay="500">
-							<a href="#contact" class="inline-block px-8 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Entre em Contato</a>
-						</div>
-					</div>
-				</section>
-				<section id="about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface" data-aos="fade-up">
-					<div class="container mx-auto max-w-4xl text-center">
-						<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">QUEM SOU</h3>
-						<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-12">Sobre Mim</h2>
-						<div class="text-lg text-text-body space-y-6 text-left leading-relaxed max-w-3xl mx-auto">
-							<p>Minha jornada profissional começou na Engenharia Química, onde aprendi a importância da análise, dos processos e da busca pela eficiência. Complementei essa base com um MBA em Gestão de Projetos e, ao longo dos anos, atuei em diversas frentes: planejamento, operações, suprimentos, consultoria e liderança de equipes em projetos desafiadores.</p>
-							<p>Acredito firmemente que o verdadeiro diferencial competitivo está nas pessoas. Essa convicção, somada à paixão por compartilhar conhecimento prático, me motivou a criar o site e o curso <a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-[#0582ff] hover:text-[#045ac3] underline font-medium">MBA lite</a>, focado em gestão moderna, e a escrever o livro "Gestão de Pessoas para Alta Performance".</p>
-							<p>Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
-						</div>
-					</div>
-				</section>
-				<section id="skills" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto">
-						<div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">COMPETÊNCIAS</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Habilidades Principais</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Combinação de expertise técnica, ferramentas modernas e foco em liderança para entregar resultados.</p>
-						</div>
-						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-							<div class="text-center p-6 standard-card-style" data-aos="fade-up">
-								<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-cogs"></i></div>
-								<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos & Processos</h4>
-								<p class="text-gray-600 text-sm leading-relaxed">PMBOK, Scrum, Kanban, Lean, Six Sigma Green Belt, Otimização de Processos, PCP, Análise de Riscos, Gestão da Qualidade, Planejamento.</p>
-							</div>
-							<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
-								<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-tools"></i></div>
-								<h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4>
-								<p class="text-gray-600 text-sm leading-relaxed">ClickUp, Jira, Trello, Monday, Asana, MS Project, Primavera, Excel, Miro, Zapier, Integrately, SAP MM, Totvs, Sankhya.</p>
-							</div>
-							<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
-								<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-users"></i></div>
-								<h4 class="text-xl font-semibold text-gray-800 mb-2">Liderança & Desenvolvimento</h4>
-								<p class="text-gray-600 text-sm leading-relaxed">Gestão de Pessoas, Liderança, Comunicação, Oratória, Recrutamento e Seleção, Ferramentas de IA, Prompt Engineering.</p>
-							</div>
-							<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
-								<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-code"></i></div>
-								<h4 class="text-xl font-semibold text-gray-800 mb-2">Tecnologias Web</h4>
-								<p class="text-gray-600 text-sm leading-relaxed">HTML, CSS, JavaScript, Git, Github. Desenvolvimento e manutenção de sites e aplicações web.</p>
-							</div>
-							<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400">
-								<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-language"></i></div>
-								<h4 class="text-xl font-semibold text-gray-800 mb-2">Idiomas</h4>
-								<p class="text-gray-600 text-sm leading-relaxed">Português (Nativo), Inglês (Fluente - TOEFL).</p>
-							</div>
-							<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="500">
-								<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div>
-								<h4 class="text-xl font-semibold text-gray-800 mb-2">Formação Principal</h4>
-								<p class="text-gray-600 text-sm leading-relaxed">Engenharia Química (FURG), MBA em Gestão de Projetos PMI (UNOPAR).</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section id="experience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-					<div class="container mx-auto">
-						<div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CARREIRA</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Experiência Profissional</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Trajetória focada em gestão, otimização e entrega de valor em diversos setores.</p>
-						</div>
-						<div class="space-y-16">
-							<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up">
-								<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-									<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Gerente de Projetos</h4>
-									<p class="text-sm text-gray-700 font-medium">Vila Mundo / Domebambu / Wedome</p>
-									<p class="text-xs text-gray-500">Brasília, DF | Ago 2024 - Presente</p>
-								</div>
-								<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
-									<p class="leading-relaxed text-gray-700">Implementação de ClickUp, redesenho de fluxos de trabalho, liderança de reuniões Lean no chão de fábrica e gestão de compras, suprimentos e logística.</p>
-								</div>
-							</article>
-							<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="100">
-								<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-									<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Founder</h4>
-									<p class="text-sm text-gray-700 font-medium">MBA lite</p>
-									<p class="text-xs text-gray-500">Brasília, DF | Mar 2025 - Presente</p>
-								</div>
-								<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
-									<p class="leading-relaxed text-gray-700">Criação de experiência de aprendizado online em gestão (Pessoas, Riscos, Qualidade, Projetos), desenvolvimento de conteúdo, ebooks, videoaulas e website.</p>
-								</div>
-							</article>
-							<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="200">
-								<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-									<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Fiscal de Empreendimentos e Engenheiro de Projetos</h4>
-									<p class="text-sm text-gray-700 font-medium">Petrobras</p>
-									<p class="text-xs text-gray-500">Rio Grande, RS | Mai 2013 - Jun 2015</p>
-								</div>
-								<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
-									<p class="leading-relaxed text-gray-700">Atuação em projetos de construção naval (FPSOs), fiscalização, acompanhamento de cronogramas, orçamentos e processos de procurement.</p>
-								</div>
-							</article>
-							<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
-								<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
-									<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Consultor, Prestador de Serviços e Engenheiro de Projetos</h4>
-									<p class="text-sm text-gray-700 font-medium">Autônomo</p>
-									<p class="text-xs text-gray-500">Pelotas, RS | Jun 2015 - Mar 2023</p>
-								</div>
-								<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
-									<p class="leading-relaxed text-gray-700">Reestruturação financeira (Conta Azul), otimização de suprimentos, coordenação de projetos de fertilizantes e QA de produtos e conteúdos digitais (Meta, Microsoft, Google).</p>
-								</div>
-							</article>
-						</div>
-					</div>
-				</section>
-				<section id="publications" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto">
-						<div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CONHECIMENTO</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Publicações</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Compartilho com você um recurso que explora em detalhes os temas de gestão e desenvolvimento humano. A seguir, apresento um livro que complementa nossa discussão sobre um dos principais tópicos do MBA lite.</p>
-						</div>
-						<article class="bg-white p-8 md:p-10 rounded-lg flex flex-col lg:flex-row items-center gap-10" data-aos="fade-up">
-							<div class="flex-shrink-0 w-52 md:w-60 lg:w-1/4">
-								<a href="/publicacoes" data-page-id="page-publications" class="block group">
-									<img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600" class="rounded-md shadow-lg hover:shadow-xl w-full group-hover:opacity-90 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
-								</a>
-							</div>
-							<div class="text-left flex-grow lg:w-3/4">
-								<h4 class="text-2xl md:text-3xl font-semibold text-[#0582ff] mb-3">Gestão de Pessoas para Alta Performance</h4>
-								<p class="text-lg text-gray-700 font-medium opacity-90 mb-5">Desvendando o Potencial Humano para Resultados Extraordinários</p>
-								<p class="text-gray-600 mb-8 leading-relaxed">Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade. Explore pilares essenciais como atração e desenvolvimento de talentos, liderança inspiradora, cultura organizacional e o mindset necessário para desbloquear o potencial máximo das equipes.</p>
-								<div class="space-x-4">
-									<a href="/publicacoes" data-page-id="page-publications" class="inline-block px-6 py-2 border-2 border-[#0582ff] text-[#0582ff] font-semibold rounded-md hover:bg-[#0582ff] hover:text-white hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out">Saiba Mais</a>
-								</div>
-							</div>
-						</article>
-					</div>
-				</section>
-				<section id="contact" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-					<div class="container mx-auto max-w-3xl text-center">
-						<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CONECTE-SE</h3>
-						<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-10">Entre em Contato</h2>
-						<p class="text-lg text-text-muted mb-12 leading-relaxed">Valorizo novas conexões, oportunidades e discussões sobre gestão, projetos e inovação. Ficarei feliz em receber seu contato.</p>
-						<div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-10">
-							<a href="mailto:dan@mbalite.com.br" class="flex items-center text-lg text-gray-700 hover:text-[#0582ff] transition duration-300 group" data-aos="fade-up">
-								<i class="far fa-envelope text-2xl mr-3 text-[#0582ff] group-hover:scale-110 transition-transform duration-300" aria-hidden="true"></i><span>dan@mbalite.com.br</span>
-							</a>
-							<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" class="flex items-center text-lg text-gray-700 hover:text-[#0582ff] transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
-								<i class="fab fa-linkedin text-2xl mr-3 text-[#0582ff] group-hover:scale-110 transition-transform duration-300" aria-hidden="true"></i><span>Perfil no LinkedIn</span>
-							</a>
-						</div>
-					</div>
-				</section>
-			</div>
-			<div id="page-faq" class="page">
-				<section id="faq-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto max-w-4xl">
-						<div class="text-center mb-12 md:mb-16">
-							<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-title mt-4" data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
-						</div>
-						<div class="mb-12">
-							<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300" data-aos="fade-up" data-aos-delay="100">Geral</h2>
-							<div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="150">
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O que é o curso MBA lite?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Para quem este curso é recomendado?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Qual a duração total estimada do curso?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Precisarei de alguma ferramenta ou software específico?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Preciso ter experiência prévia em gestão para fazer o curso?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
-									</div>
-								</details>
-							</div>
-						</div>
-						<div class="mb-12">
-							<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300" data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
-							<div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="250">
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais são os principais módulos abordados no MBA lite?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais ferramentas práticas de gestão serão ensinadas?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
-									</div>
-								</details>
-							</div>
-						</div>
-						<div class="mb-12">
-							<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300" data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
-							<div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="350">
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como o curso é entregue?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">O MBA lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Receberei um certificado ao concluir o curso?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como posso tirar dúvidas durante o curso?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso oferece acesso vitalício?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como me inscrevo no curso pela Udemy?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA lite" na barra de busca da Udemy ou acessar através do link direto que será compartilhado aqui no site assim que o curso for lançado. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
-									</div>
-								</details>
-								<details class="faq-item standard-card-style overflow-hidden">
-									<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Posso assistir às aulas no meu celular ou tablet?</summary>
-									<div class="faq-content p-5 pt-0">
-										<p class="text-gray-600 leading-relaxed">Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
-									</div>
-								</details>
-							</div>
-						</div>
-						<div class="faq-cta text-center mt-16" data-aos="fade-up" data-aos-delay="400">
-							<h3 class="text-2xl font-semibold text-gray-800 mb-4">Ainda tem dúvidas?</h3>
-							<p class="text-lg text-text-muted mb-8">Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
-							<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-8 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg">Quero ser um(a) gestor(a) de alta performance!</a>
-						</div>
-					</div>
-				</section>
-			</div>
-			<div id="page-publications" class="page">
-				<section id="publications-hero" class="scroll-target py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-bg-surface">
-					<div class="container mx-auto">
-						<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-							<div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right">
-								<img id="publication-cover-image" src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600" class="w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full rounded-lg shadow-xl border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
-							</div>
-							<div class="lg:w-2/3 text-center lg:text-left" data-aos="fade-left" data-aos-delay="100">
-								<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-title mb-3 leading-tight">Gestão de Pessoas para Alta Performance</h1>
-								<p class="text-xl lg:text-2xl text-[#0582ff] font-semibold mb-4"> Desvendando o Potencial Humano para Resultados Extraordinários</p>
-								<p class="text-lg text-gray-600 mb-8"> por Danúbio Coelho</p>
-								<p class="text-lg text-text-body mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade, construindo equipes engajadas e resultados excepcionais.</p>
-								<div class="space-y-4 sm:space-y-0 sm:space-x-4">
-									<a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-yellow-500 text-gray-900 font-semibold rounded-md shadow-md hover:bg-yellow-600 hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto"><i class="fab fa-amazon mr-2" aria-hidden="true"></i> Comprar na Amazon</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section id="publications-about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto max-w-4xl text-center" data-aos="fade-up">
-						<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">O LIVRO</h3>
-						<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-12">Desvende o Potencial Humano</h2>
-						<div class="text-lg text-text-body space-y-6 text-left leading-relaxed max-w-3xl mx-auto">
-							<p>No dinâmico e desafiador cenário do século XXI, o verdadeiro diferencial competitivo de qualquer organização reside no seu capital humano. Mas como transformar esse potencial latente em resultados extraordinários? Como construir ambientes onde os indivíduos floresçam, inovem e se sintam conectados a um propósito maior?</p>
-							<p>"Gestão de Pessoas para Alta Performance" é um guia abrangente e profundamente prático para todos que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade. Exploramos os pilares essenciais para construir e sustentar equipes de alta performance, abordando desde as estratégias mais eficazes para atrair e desenvolver talentos até as nuances da liderança inspiradora, da cultura organizacional e do mindset necessário para desbloquear o potencial máximo.</p>
-							<p>Mais do que um compêndio teórico, este livro foi concebido como um manual prático, repleto de ferramentas, frameworks e exemplos reais que ilustram a aplicação dos conceitos no mundo real. O objetivo é capacitá-lo a atuar como um verdadeiro arquiteto de equipes de alta performance, construindo não apenas negócios bem-sucedidos, mas também ambientes de trabalho onde as pessoas se sintam valorizadas, respeitadas e motivadas a dar o seu melhor.</p>
-						</div>
-					</div>
-				</section>
-				<section id="publication-topics" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-					<div class="container mx-auto">
-						<div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">PRINCIPAIS TÓPICOS</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">O Que Você Vai Aprender</h2>
-							<p class="text-lg text-text-muted leading-relaxed">Uma visão geral dos temas essenciais abordados no livro para transformar sua gestão.</p>
-						</div>
-						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-users-cog"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">R&S Estratégico</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="150">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Liderança e Desenvolvimento</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-chart-pie"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Perfis Comportamentais (DISC)</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="250">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-clipboard-check"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Avaliação de Desempenho</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-hand-holding-usd"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Remuneração e Benefícios</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="350">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-building"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Cultura e Clima Organizacional</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-brain"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Mindset de Crescimento</h4>
-							</div>
-							<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="450">
-								<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-balance-scale"></i></div>
-								<h4 class="text-lg font-semibold text-gray-800">Legislação e Ética</h4>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section id="publication-author-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-					<div class="container mx-auto max-w-4xl">
-						<div class="text-center mb-12" data-aos="fade-up">
-							<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">O AUTOR</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Conheça Danúbio Coelho</h2>
-						</div>
-						<div class="flex flex-col md:flex-row items-center gap-10" data-aos="fade-up" data-aos-delay="100">
-							<div class="md:w-1/3 flex-shrink-0">
-								<img src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do livro" width="192" height="192" class="w-48 h-48 rounded-full mx-auto border-4 border-[#0582ff] shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/192x192/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
-							</div>
-							<div class="md:w-2/3 text-lg text-text-body space-y-4 text-left leading-relaxed">
-								<p>Minha trajetória começou na engenharia química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes.</p>
-								<p>Ao longo de mais de uma década, atuei em processos financeiros, suprimentos, qualidade e mais, aprendendo que as melhores metodologias (Lean, Six Sigma, Agile, PMBOK) só atingem seu potencial máximo quando capacitam pessoas. Hoje, continuo essa busca implementando ferramentas e aplicando princípios Kaizen, vendo-os como catalisadores para desbloquear o potencial das equipes.</p>
-								<p>Essa jornada prática me inspirou a compartilhar esses aprendizados através do MBA lite e deste livro, "Gestão de Pessoas para Alta Performance", buscando ajudar outros profissionais a conectar tecnologia, processos e, acima de tudo, pessoas, para construir algo que faça a diferença.</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section id="publication-cta" class="py-20 px-4 md:px-6 lg:px-8 bg-[#0582ff] text-white">
-					<div class="container mx-auto max-w-3xl text-center" data-aos="fade-up">
-						<h2 class="text-3xl font-bold mb-6">Transforme Sua Gestão Agora</h2>
-						<p class="text-xl mb-10 opacity-90">Adquira seu exemplar de "Gestão de Pessoas para Alta Performance" e comece a construir equipes extraordinárias hoje mesmo.</p>
-						<a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-white text-[#0582ff] border-2 border-white font-semibold rounded-md shadow-md hover:bg-gray-100 hover:text-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg"><i class="fab fa-amazon mr-2" aria-hidden="true"></i> Comprar na Amazon</a>
-					</div>
-				</section>
-			</div>
-		</main>
-		<footer class="bg-bg-surface py-10 mt-16 px-5">
-			<div class="container mx-auto text-center text-text-muted">
-				<div class="footer-social-icons flex justify-center space-x-6 mb-6">
-					<a href="mailto:dan@mbalite.com.br" title="Email" aria-label="Enviar email para Danúbio Coelho" class="text-gray-500 hover:text-[#0582ff] transition duration-300 text-2xl"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-					<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Ver perfil de Danúbio Coelho no LinkedIn" class="text-gray-500 hover:text-[#0582ff] transition duration-300 text-2xl"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-				</div>
-				<p class="text-sm">&copy; <span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
-				<p class="text-xs mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
-				<p class="text-xs mt-2">Brasília - DF, Brasil</p>
-			</div>
-		</footer>
-		<button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
-			<i class="fas fa-arrow-up text-white" aria-hidden="true"></i>
-		</button>
-		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const SCROLL_TOP_VISIBILITY_THRESHOLD = 300;
-				const HEADER_SCROLL_THRESHOLD = 50;
-				const PAGE_FADE_DURATION = 500;
-				const PRELOADER_FADE_DELAY = 300;
-				const elements = {
-					preloader: document.getElementById('preloader'),
-					header: document.getElementById('main-header'),
-					scrollToTopBtn: document.getElementById('scroll-to-top'),
-					menuBtn: document.getElementById('menu-btn'),
-					closeMenuBtn: document.getElementById('close-menu-btn'),
-					mobileMenu: document.getElementById('mobile-menu'),
-					menuOverlay: document.getElementById('menu-overlay'),
-					currentYearSpan: document.getElementById('current-year'),
-					mainNavLinks: document.querySelectorAll('#main-nav a.nav-link'),
-					mobileMenuLinks: document.querySelectorAll('#mobile-menu a.mobile-menu-link'),
-					allPages: document.querySelectorAll('.page'),
-					allSpaLinks: document.querySelectorAll('a[data-page-id], a[data-internal-target], a[href^="/"], a[href^="#"]')
-				};
-				const pageRoutes = {
-					'/': { id: 'page-index', title: 'MBA lite - Início' },
-					'/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' },
-					'/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' },
-					'/faq': { id: 'page-faq', title: 'MBA lite - FAQ' },
-					'/content': { id: 'page-content', title: 'MBA lite - Detalhes do Módulo' }
-				};
-				const defaultPageRoute = pageRoutes['/'];
-				const contentPageId = 'page-content';
-				let isMenuOpen = false, headerHeight = 70, scrollOffset = 90;
-
-				function updateDynamicOffsets() {
-					try {
-						const rootStyles = getComputedStyle(document.documentElement);
-						const headerHeightValue = rootStyles.getPropertyValue('--header-height').trim();
-						const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim();
-						if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 70;
-						if (scrollOffsetValue) {
-							const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/);
-							scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20);
-						}
-					} catch (e) {
-						scrollOffset = headerHeight + 20;
-					}
-				}
-
-				function initPreloader() {
-					window.addEventListener('load', () => {
-						updateDynamicOffsets();
-						if (elements.preloader) {
-							elements.preloader.classList.add('hidden');
-							setTimeout(() => { elements.preloader?.remove(); }, PAGE_FADE_DURATION + PRELOADER_FADE_DELAY);
-						}
-						initAOS();
-						handleRouteChange(true);
-					});
-				}
-
-				function initAOS() {
-					if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' });
-					else console.warn("AOS library not loaded.");
-				}
-
-				function initMobileMenu() {
-					if (!elements.menuBtn || !elements.closeMenuBtn || !elements.mobileMenu || !elements.menuOverlay) return;
-					elements.menuBtn.addEventListener('click', toggleMenu);
-					elements.closeMenuBtn.addEventListener('click', closeMenu);
-					elements.menuOverlay.addEventListener('click', closeMenu);
-					document.querySelectorAll('#mobile-menu nav a').forEach(link => link.addEventListener('click', closeMenu));
-				}
-
-				function initScrollEffects() {
-					window.addEventListener('scroll', handleScroll, { passive: true });
-					elements.scrollToTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-				}
-
-				function initFooterYear() {
-					if (elements.currentYearSpan) elements.currentYearSpan.textContent = new Date().getFullYear();
-				}
-
-				function initSPARouting() {
-					elements.allSpaLinks.forEach(link => {
-						const href = link.getAttribute('href');
-						if (link.getAttribute('target') === '_blank' || link.protocol !== window.location.protocol || link.host !== window.location.host || link.hasAttribute('download') || href?.startsWith('mailto:')) return;
-						link.addEventListener('click', (e) => handleNavLinkClick(e, link));
-					});
-					window.addEventListener('popstate', handleRouteChange);
-				}
-
-				function toggleMenu() { isMenuOpen ? closeMenu() : openMenu(); }
-
-				function openMenu() {
-					if (isMenuOpen || !elements.mobileMenu || !elements.menuOverlay || !elements.menuBtn) return;
-					elements.mobileMenu.classList.remove('hidden-menu');
-					elements.menuOverlay.classList.remove('hidden');
-					elements.menuBtn.setAttribute('aria-expanded', 'true');
-					document.body.style.overflow = 'hidden';
-					isMenuOpen = true;
-					elements.closeMenuBtn?.focus();
-				}
-
-				function closeMenu() {
-					if (!isMenuOpen || !elements.mobileMenu || !elements.menuOverlay || !elements.menuBtn) return;
-					elements.mobileMenu.classList.add('hidden-menu');
-					elements.menuOverlay.classList.add('hidden');
-					elements.menuBtn.setAttribute('aria-expanded', 'false');
-					document.body.style.overflow = '';
-					isMenuOpen = false;
-					elements.menuBtn?.focus();
-				}
-
-				function handleScroll() {
-					const scrollY = window.scrollY;
-					elements.header?.classList.toggle('header-scrolled', scrollY > HEADER_SCROLL_THRESHOLD);
-					elements.scrollToTopBtn?.classList.toggle('visible', scrollY > SCROLL_TOP_VISIBILITY_THRESHOLD);
-					updateActiveNavLink();
-				}
-
-				function displayPage(targetPageId) {
-					let targetPageElement = null;
-					elements.allPages.forEach(page => {
-						const isTarget = page.id === targetPageId;
-						page.style.display = isTarget ? 'block' : 'none';
-						page.classList.remove('active');
-						if (isTarget) targetPageElement = page;
-					});
-					if (!targetPageElement) {
-						targetPageId = defaultPageRoute.id;
-						targetPageElement = document.getElementById(targetPageId);
-						if (targetPageElement) {
-							targetPageElement.style.display = 'block';
-							targetPageElement.classList.remove('active');
-						} else {
-							console.error("Default page element not found!");
-							return null;
-						}
-					}
-					document.body.className = `bg-bg-main text-text-body page-${targetPageId}`;
-					return targetPageElement;
-				}
-
-				function updateTitle(pageId, scrollTargetId) {
-					let routeInfo = Object.values(pageRoutes).find(route => route.id === pageId) || defaultPageRoute;
-					let pageTitle = routeInfo.title;
-					if (pageId === contentPageId && scrollTargetId) {
-						const sectionElement = document.getElementById(scrollTargetId);
-						const sectionTitleElement = sectionElement?.querySelector('h2');
-						if (sectionTitleElement) {
-							const titleClone = sectionTitleElement.cloneNode(true);
-							if (titleClone.firstChild?.nodeName === 'I') titleClone.removeChild(titleClone.firstChild);
-							const sectionTitleText = titleClone.textContent?.trim();
-							if (sectionTitleText) pageTitle = `MBA lite - ${sectionTitleText}`;
-						}
-					}
-					document.title = pageTitle;
-				}
-
-				function handleScrollingAndActivation(scrollTargetId, isInitialLoad, pageElementToActivate) {
-					const activatePage = () => {
-						if (pageElementToActivate) setTimeout(() => pageElementToActivate.classList.add('active'), isInitialLoad ? 10 : 50);
-						if (typeof AOS !== 'undefined' && !isInitialLoad && pageElementToActivate) setTimeout(() => AOS.refreshHard(), PAGE_FADE_DURATION + 50);
-						setTimeout(updateActiveNavLink, 150);
-					};
-					if (scrollTargetId) {
-						const scrollElement = document.getElementById(scrollTargetId);
-						if (scrollElement) {
-							const elementPosition = scrollElement.getBoundingClientRect().top + window.scrollY;
-							window.scrollTo({ top: elementPosition - scrollOffset, behavior: isInitialLoad ? 'auto' : 'smooth' });
-							activatePage();
-						} else {
-							window.scrollTo({ top: 0, behavior: isInitialLoad ? 'auto' : 'smooth' });
-							activatePage();
-						}
-					} else {
-						if (!isInitialLoad && window.scrollY > 0) window.scrollTo({ top: 0, behavior: 'smooth' });
-						activatePage();
-					}
-				}
-
-				function handleNavLinkClick(event, link) {
-					const href = link.getAttribute('href');
-					if (!href) return;
-					const targetPageId = link.dataset.pageId;
-					const internalTargetPageId = link.dataset.internalTarget;
-					const scrollTargetId = link.dataset.scrollTarget || (href.startsWith('#') ? href.substring(1) : null);
-					if (internalTargetPageId && scrollTargetId) {
-						event.preventDefault();
-						const newHref = window.location.pathname + `#${scrollTargetId}`;
-						history.pushState({ pageId: internalTargetPageId, scrollTarget: scrollTargetId }, '', newHref);
-						handleRouteChange();
-						return;
-					}
-					if (targetPageId && (href.startsWith('/') || href.startsWith('#'))) {
-						event.preventDefault();
-						const newPath = href.split('#')[0] || '/';
-						const newHash = href.includes('#') ? href.split('#')[1] : null;
-						const finalScrollTarget = scrollTargetId || newHash;
-						history.pushState({ pageId: targetPageId, scrollTarget: finalScrollTarget }, '', href);
-						handleRouteChange();
-						return;
-					}
-					if (href.startsWith('#') && !targetPageId && !internalTargetPageId) {
-						const targetId = href.substring(1);
-						const targetElement = document.getElementById(targetId);
-						const activePage = document.querySelector('.page.active');
-						if (targetElement && activePage?.contains(targetElement)) {
-							event.preventDefault();
-							const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-							window.scrollTo({ top: elementPosition - scrollOffset, behavior: 'smooth' });
-							history.replaceState(history.state, '', window.location.pathname + href);
-							setTimeout(updateActiveNavLink, 150);
-						}
-						return;
-					}
-				}
-
-				function handleRouteChange(isInitialLoad = false) {
-					const path = window.location.pathname;
-					const hash = window.location.hash.substring(1);
-					let targetPageId, scrollTargetId = hash || null, routeInfo;
-					if (history.state?.pageId) {
-						targetPageId = history.state.pageId;
-						scrollTargetId = history.state.scrollTarget || scrollTargetId;
-						routeInfo = Object.values(pageRoutes).find(r => r.id === targetPageId);
-					} else if (pageRoutes[path]) {
-						routeInfo = pageRoutes[path];
-						targetPageId = routeInfo.id;
-					} else {
-						routeInfo = defaultPageRoute;
-						targetPageId = routeInfo.id;
-					}
-					routeInfo = routeInfo || defaultPageRoute;
-					if (targetPageId === contentPageId && !scrollTargetId) scrollTargetId = 'content-area';
-					const pageElement = displayPage(targetPageId);
-					updateTitle(targetPageId, scrollTargetId);
-					handleScrollingAndActivation(scrollTargetId, isInitialLoad === true, pageElement);
-				}
-
-				function updateActiveNavLink() {
-					const scrollY = window.scrollY;
-					const activePageElement = document.querySelector('.page.active');
-					if (!activePageElement) return;
-					let currentSectionId = null, bestMatch = { id: null, top: -Infinity };
-					activePageElement.querySelectorAll('.scroll-target').forEach(section => {
-						const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-						if (sectionTop <= scrollY + scrollOffset + 50 && sectionTop > bestMatch.top) bestMatch = { id: section.id, top: sectionTop };
-					});
-					currentSectionId = bestMatch.id;
-					const updateLinks = (links) => {
-						let isAnySectionLinkActive = false;
-						links.forEach(link => {
-							link.classList.remove('active');
-							const linkHref = link.getAttribute('href');
-							if (!linkHref) return;
-							const linkPageId = link.dataset.pageId;
-							const linkInternalTargetPageId = link.dataset.internalTarget;
-							const linkScrollTarget = link.dataset.scrollTarget;
-							const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
-							const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id);
-							if (!isLinkForActivePage) return;
-							if (currentSectionId && (linkScrollTarget === currentSectionId || linkHash === currentSectionId)) {
-								link.classList.add('active');
-								isAnySectionLinkActive = true;
-							}
-						});
-						if (!isAnySectionLinkActive) {
-							links.forEach(link => {
-								const linkHref = link.getAttribute('href');
-								if (!linkHref) return;
-								const linkPageId = link.dataset.pageId;
-								const linkInternalTargetPageId = link.dataset.internalTarget;
-								const linkScrollTarget = link.dataset.scrollTarget;
-								const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
-								const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id);
-								if (isLinkForActivePage && !linkScrollTarget && !linkHash) link.classList.add('active');
-							});
-						}
-					};
-					updateLinks(elements.mainNavLinks);
-					updateLinks(elements.mobileMenuLinks);
-					updateLinks(document.querySelectorAll('.module-link'));
-				}
-				initPreloader();
-				initMobileMenu();
-				initScrollEffects();
-				initFooterYear();
-				initSPARouting();
-			});
-		// Adicione este código DENTRO da tag <script> principal no final do <body>
-
-// Função para remover o padding do formulário ConvertKit
-function removerPaddingFormularioConvertKit() {
-    // Seletor exato que vimos na imagem do DevTools
-    const seletorFormulario = '.formkit-form[data-uid="d0849e0001"][data-style="minimal"]';
-    const formularioConvertKit = document.querySelector(seletorFormulario);
-
-    if (formularioConvertKit) {
-        console.log('Formulário ConvertKit encontrado, removendo padding...');
-        // Define o padding diretamente no estilo do elemento para sobrescrever
-        formularioConvertKit.style.paddingLeft = '0';
-formularioConvertKit.style.paddingRight = '0';
-        console.log('Padding do formulário ConvertKit zerado.');
-    } else {
-        // Se não encontrar, pode ser que o script precise de mais tempo
-        console.warn('Formulário ConvertKit não encontrado imediatamente. Verifique o seletor ou o tempo de execução.');
-    }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MBA lite: Domine a Gestão Estratégica com um programa intensivo e prático. Aprenda sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA com Danúbio Coelho.">
+<title>MBA lite - Domine a Alta Performance</title>
+<link rel="icon" type="image/png" href="https://placehold.co/32x32/0582ff/FFFFFF?text=MBA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="preconnect" href="https://mbalite.kit.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+--header-height: 70px;
+--scroll-offset: calc(var(--header-height) + 20px);
+--color-primary: #0582ff;
+--color-primary-dark: #045ac3;
+--color-text-on-primary: theme('colors.white');
+--color-text-title: theme('colors.gray.900');
+--color-text-body: theme('colors.gray.700');
+--color-text-muted: theme('colors.gray.500');
+--color-bg-main: theme('colors.gray.50');
+--color-bg-surface: theme('colors.white');
+--color-bg-surface-dark: theme('colors.gray.100');
+--color-border: theme('colors.gray.200');
+--color-border-dark: theme('colors.gray.300');
 }
-
-// Tenta remover o padding depois que toda a página (incluindo scripts como o do CK) carregou
-// Usamos um pequeno delay (500ms) para dar uma margem extra para o script do CK finalizar
+html {
+scroll-behavior: smooth;
+}
+body {
+font-family: 'Open Sans', sans-serif;
+background-color: var(--color-bg-main);
+color: var(--color-text-body);
+padding-top: var(--header-height);
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+font-synthesis: none;
+}
+main {
+flex-grow: 1;
+}
+.scroll-target {
+scroll-margin-top: var(--scroll-offset);
+}
+h2.section-title {
+color: var(--color-text-title);
+position: relative;
+}
+.icon-block-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.icon-block-card:hover {
+transform: translateY(-5px);
+}
+.icon-block-card .icon {
+color: var(--color-primary);
+transition: transform 0.3s ease;
+}
+.icon-block-card:hover .icon {
+transform: scale(1.1);
+}
+.standard-card-style {
+background-color: var(--color-bg-surface);
+border-radius: theme('borderRadius.lg');
+box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
+transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.standard-card-style:hover {
+box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
+}
+.page-content-container article {
+background-color: var(--color-bg-surface);
+border: 1px solid var(--color-border);
+}
+.page-content-container article h2 {
+color: var(--color-primary);
+border-bottom: 1px solid var(--color-border);
+}
+.faq-item {
+transition: box-shadow 0.2s ease;
+}
+.faq-item:hover {
+box-shadow: theme('boxShadow.md');
+}
+.faq-item summary {
+position: relative;
+list-style: none;
+cursor: pointer;
+}
+.faq-item summary::after {
+content: '+';
+position: absolute;
+right: 20px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 1.5rem;
+font-weight: 300;
+color: var(--color-primary);
+transition: transform 0.2s ease;
+}
+.faq-item[open] > summary::after {
+content: '−';
+transform: translateY(-50%) rotate(180deg);
+}
+.faq-item summary::-webkit-details-marker {
+display: none;
+}
+.faq-item .faq-content {
+border-top: 1px solid var(--color-border);
+}
+#main-header {
+box-shadow: theme('boxShadow.sm');
+height: var(--header-height);
+transition: box-shadow 0.3s ease;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 50;
+}
+#main-header.header-scrolled {
+box-shadow: theme('boxShadow.md');
+}
+#main-nav a.nav-link {
+transition: color 0.3s ease;
+color: var(--color-text-body);
+font-weight: 600;
+display: inline-block;
+}
+#main-nav a.nav-link:hover,
+#main-nav a.nav-link.active {
+color: var(--color-primary);
+}
+#mobile-menu {
+transition: transform 0.3s ease-in-out;
+border-right: 1px solid var(--color-border);
+position: fixed;
+top: 0;
+left: 0;
+width: 16rem;
+height: 100%;
+z-index: 60;
+}
+#mobile-menu.hidden-menu {
+transform: translateX(-100%);
+}
+#mobile-menu nav a.mobile-menu-link {
+transition: color 0.2s ease, background-color 0.2s ease;
+color: var(--color-text-body);
+}
+#mobile-menu nav a.mobile-menu-link:hover,
+#mobile-menu nav a.mobile-menu-link.active {
+color: var(--color-primary);
+background-color: theme('colors.blue.50');
+}
+#menu-overlay {
+background-color: rgba(0, 0, 0, 0.5);
+transition: opacity 0.3s ease-in-out;
+position: fixed;
+inset: 0;
+z-index: 55;
+}
+#menu-overlay.hidden {
+opacity: 0;
+pointer-events: none;
+}
+#scroll-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: var(--color-primary);
+color: var(--color-text-on-primary);
+width: 45px;
+height: 45px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+box-shadow: theme('boxShadow.lg');
+z-index: 1000;
+border: none;
+}
+#scroll-to-top.visible {
+opacity: 1;
+visibility: visible;
+}
+#scroll-to-top:hover {
+background-color: var(--color-primary-dark);
+transform: translateY(-3px);
+}
+#preloader {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: var(--color-bg-main);
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 9999;
+opacity: 1;
+transition: opacity 0.5s ease 0.3s;
+}
+#preloader.hidden {
+opacity: 0;
+pointer-events: none;
+}
+.spinner {
+border: 4px solid rgba(0, 0, 0, 0.1);
+width: 36px;
+height: 36px;
+border-radius: 50%;
+border-left-color: var(--color-primary);
+animation: spin 1s ease infinite;
+}
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+.page {
+display: none;
+animation: pageFadeIn 0.5s ease-out forwards;
+}
+.page.active {
+display: block;
+}
+@keyframes pageFadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+#enroll .form-wrapper {
+background-color: var(--color-bg-surface);
+border-radius: theme('borderRadius.lg');
+box-shadow: theme('boxShadow.card');
+}
+.experience-item .timeline-line {
+border-left-color: var(--color-border-dark);
+}
+.formkit-form[data-uid="d0849e0001"][data-style="minimal"]
+{
+padding: 0 !important;
+}
+</style>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Course",
+"name": "MBA lite",
+"description": "Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.",
+"provider": {
+"@type": "Person",
+"name": "Danúbio Coelho",
+"url": "/autor",
+"sameAs": "https://www.linkedin.com/in/danubiocoelho/"
+},
+"courseCode": "MBALITE",
+"educationalCredentialAwarded": "Certificate of Completion",
+"hasCourseInstance": {
+"@type": "CourseInstance",
+"courseMode": "Online",
+"instructor": {
+"@type": "Person",
+"name": "Danúbio Coelho"
+}
+},
+"url": "/"
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Book",
+"name": "Gestão de Pessoas para Alta Performance: Desvendando o Potencial Humano para Resultados Extraordinários",
+"author": {
+"@type": "Person",
+"name": "Danúbio Coelho"
+},
+"url": "/publicacoes",
+"workExample": [{
+"@type": "Book",
+"identifier": "B0F47QBL8R",
+"bookEdition": "1st Edition",
+"bookFormat": "https://schema.org/EBook",
+"potentialAction": {
+"@type": "ReadAction",
+"target": {
+"@type": "EntryPoint",
+"urlTemplate": "https://www.amazon.com.br/dp/B0F47QBL8R",
+"actionPlatform": [
+"https://schema.org/DesktopWebPlatform",
+"https://schema.org/IOSPlatform",
+"https://schema.org/AndroidPlatform"
+]
+}
+}
+}]
+}
+</script>
+</head>
+<body class="bg-bg-main text-text-body">
+<div id="preloader">
+<div class="spinner"></div>
+</div>
+<header id="main-header" class="bg-white">
+<div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
+<a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-2xl font-bold text-gray-900 hover:text-[#0582ff] transition duration-300">MBA lite</a>
+<nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
+<a href="/" data-page-id="page-index" data-scroll-target="hero" class="nav-link transform hover:scale-105 transition-transform duration-300">Início</a>
+<a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
+<a href="/publicacoes" data-page-id="page-publications" class="nav-link transform hover:scale-105 transition-transform duration-300">Publicações</a>
+<a href="/autor" data-page-id="page-autor" class="nav-link transform hover:scale-105 transition-transform duration-300">Autor</a>
+<a href="/faq" data-page-id="page-faq" class="nav-link transform hover:scale-105 transition-transform duration-300">FAQ</a>
+<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="ml-4 inline-block px-6 py-2 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out">Inscreva-se</a>
+</nav>
+<button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-[#0582ff]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+<i class="fas fa-bars text-xl" aria-hidden="true"></i>
+</button>
+</div>
+</header>
+<div id="mobile-menu" class="hidden-menu bg-white shadow-lg" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+<div class="flex justify-between items-center mb-8 px-6 pt-6">
+<span id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</span>
+<button id="close-menu-btn" class="text-gray-500 hover:text-[#0582ff] focus:outline-none" aria-label="Fechar menu">
+<i class="fas fa-times text-xl" aria-hidden="true"></i>
+</button>
+</div>
+<nav class="flex flex-col space-y-1 px-3" aria-label="Navegação móvel">
+<a href="/" data-page-id="page-index" data-scroll-target="hero" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Início</a>
+<a href="/#modules" data-page-id="page-index" data-scroll-target="modules" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Módulos</a>
+<a href="/publicacoes" data-page-id="page-publications" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Publicações</a>
+<a href="/autor" data-page-id="page-autor" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Autor</a>
+<a href="/faq" data-page-id="page-faq" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">FAQ</a>
+<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md bg-[#0582ff] text-white uppercase tracking-wider border-2 border-[#0582ff] hover:bg-[#045ac3] hover:border-[#045ac3] transition-all duration-300 ease-in-out">Inscreva-se</a>
+</nav>
+</div>
+<div id="menu-overlay" class="hidden" aria-hidden="true"></div>
+<main id="main-content">
+<div id="page-index" class="page">
+<section id="hero" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
+<div class="max-w-4xl mx-auto relative z-10">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">Domine a Gestão Estratégica com o MBA lite</h1>
+<p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.</p>
+<div class="space-y-4 sm:space-y-0 sm:space-x-4" data-aos="fade-up" data-aos-delay="300">
+<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-10 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Inscreva-se Agora</a>
+</div>
+</div>
+</section>
+<section id="modules" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+<div class="container mx-auto">
+<div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CONTEÚDO</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Currículo Essencial para Líderes</h2>
+<p class="text-lg text-text-muted leading-relaxed">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<a href="#gestao-pessoas" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-internal-target="page-content" data-scroll-target="gestao-pessoas">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-users fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Pessoas</h4>
+<p class="text-gray-600 leading-relaxed">Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional.</p>
+</div>
+</a>
+<a href="#gestao-riscos" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100" data-internal-target="page-content" data-scroll-target="gestao-riscos">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-exclamation-triangle fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Riscos</h4>
+<p class="text-gray-600 leading-relaxed">Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar e mitigar riscos.</p>
+</div>
+</a>
+<a href="#gestao-qualidade" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200" data-internal-target="page-content" data-scroll-target="gestao-qualidade">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-star fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão da Qualidade</h4>
+<p class="text-gray-600 leading-relaxed">Metodologias (PDCA, Seis Sigma, Lean, ISO 9001) para otimizar processos e garantir valor.</p>
+</div>
+</a>
+<a href="#gestao-projetos" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300" data-internal-target="page-content" data-scroll-target="gestao-projetos">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-tasks fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos</h4>
+<p class="text-gray-600 leading-relaxed">Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos.</p>
+</div>
+</a>
+<a href="#ferramentas-gestao-projetos" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400" data-internal-target="page-content" data-scroll-target="ferramentas-gestao-projetos">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-toolbox fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4>
+<p class="text-gray-600 leading-relaxed">Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos.</p>
+</div>
+</a>
+<a href="#gestao-projetos-ia" class="icon-block-card module-link flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="500" data-internal-target="page-content" data-scroll-target="gestao-projetos-ia">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-robot fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão com IA</h4>
+<p class="text-gray-600 leading-relaxed">Explore IAs Generativas (ChatGPT, Gemini) para otimizar análise, ideação e tomada de decisão.</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto">
+<div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">VANTAGENS</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Invista no Seu Potencial de Liderança</h2>
+<p class="text-lg text-text-muted leading-relaxed">Adquira habilidades práticas e estratégicas para se destacar no mercado e impulsionar sua carreira.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-chart-line fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Desenvolvimento Estratégico</h4>
+<p class="text-gray-600 leading-relaxed">Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas.</p>
+</div>
+</div>
+<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-book-reader fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Aprendizado Prático</h4>
+<p class="text-gray-600 leading-relaxed">Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para seu contexto.</p>
+</div>
+</div>
+<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-clock fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Flexibilidade Total</h4>
+<p class="text-gray-600 leading-relaxed">Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina.</p>
+</div>
+</div>
+<div class="icon-block-card flex items-start p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
+<div class="icon text-3xl mr-5 mt-1 text-[#0582ff] flex-shrink-0" aria-hidden="true"><i class="fas fa-users-cog fa-fw"></i></div>
+<div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Networking Estratégico</h4>
+<p class="text-gray-600 leading-relaxed">Conecte-se com outros profissionais e líderes, expandindo sua rede e trocando experiências valiosas.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+<div class="container mx-auto max-w-4xl" data-aos="fade-up">
+<div class="text-center mb-12">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">PARA QUEM</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Ideal Para Profissionais Ambiciosos</h2>
+</div>
+<ul class="list-none space-y-4 text-lg text-text-body max-w-xl mx-auto">
+<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Líderes e gestores buscando aprimoramento estratégico.</span></li>
+<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Profissionais em transição para cargos de gestão.</span></li>
+<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Empreendedores e donos de negócios buscando base sólida.</span></li>
+<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Analistas e especialistas que desejam visão holística.</span></li>
+<li class="flex items-center justify-start"><i class="fas fa-check-circle text-[#0582ff] mr-3 text-xl flex-shrink-0" aria-hidden="true"></i> <span>Consultores buscando atualização em gestão moderna.</span></li>
+</ul>
+</div>
+</section>
+<section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto text-center">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2" data-aos="fade-up">BÔNUS EXCLUSIVO</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6" data-aos="fade-up" data-aos-delay="100">Receba 6 Ebooks Exclusivos!</h2>
+<p class="text-lg text-text-muted max-w-3xl mx-auto leading-relaxed mb-12" data-aos="fade-up" data-aos-delay="200">Aprofunde seu conhecimento com um ebook dedicado para cada módulo do MBA lite, cobrindo os tópicos essenciais de forma prática e direta.</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
+<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
+<img src="/img/ebooks/gestao-de-pessoas.webp" alt="Ebook MBA lite - Gestão de Pessoas" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Pessoas';">
+</div>
+<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
+<img src="/img/ebooks/gestao-de-riscos.webp" alt="Ebook MBA lite - Gestão de Riscos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Riscos';">
+</div>
+<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
+<img src="/img/ebooks/gestao-da-qualidade.webp" alt="Ebook MBA lite - Gestão da Qualidade" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Qualidade';">
+</div>
+<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
+<img src="/img/ebooks/gestao-de-projetos.webp" alt="Ebook MBA lite - Gestão de Projetos" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Projetos';">
+</div>
+<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
+<img src="/img/ebooks/ferramentas-de-gestao.webp" alt="Ebook MBA lite - Ferramentas de Gestão" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Ferramentas';">
+</div>
+<div class="ebook-item group standard-card-style overflow-hidden transition duration-300">
+<img src="/img/ebooks/gestao-com-ia.webp" alt="Ebook MBA lite - Gestão com IA" loading="lazy" width="200" height="300" class="w-full h-auto object-cover aspect-[2/3] group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=IA';">
+</div>
+</div>
+</div>
+</section>
+<section id="enroll" class="scroll-target py-24 px-0 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto max-w-2xl">
+<div class="text-center mb-12" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">INSCRIÇÃO</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Garanta Sua Vaga no MBA lite</h2>
+<p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
+</div>
+<div class="form-wrapper bg-white py-8 md:py-10 px-0 md:px-10 rounded-lg" data-aos="fade-up" data-aos-delay="100"> <script async data-uid="d0849e0001" src="https://mbalite.kit.com/d0849e0001/index.js"></script>
+<noscript>
+<p class="text-center text-red-600 font-medium">JavaScript é necessário para exibir o formulário de inscrição.</p>
+</noscript>
+</div>
+</div>
+</section>
+</div>
+<div id="page-content" class="page">
+<div class="page-content-container container mx-auto py-16 px-4 md:px-6 lg:px-8">
+<div id="content-area">
+<h1 class="text-3xl md:text-4xl font-bold text-center text-text-title mb-12 md:mb-16" data-aos="fade-up">O que você vai aprender:</h1>
+<article id="gestao-pessoas" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up">
+<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-users mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão de Pessoas</h2>
+<p class="text-gray-700 leading-relaxed">Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
+</article>
+<article id="gestao-riscos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="50">
+<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-exclamation-triangle mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão de Riscos</h2>
+<p class="text-gray-700 leading-relaxed">Aqui, você aprenderá os fundamentos essenciais da gestão de riscos, compreendendo seu papel estratégico para proteger e otimizar os resultados organizacionais. Vamos explorar os principais frameworks internacionais como ISO 31000 e COSO ERM, além das diretrizes do PMI focadas em projetos. Você dominará um conjunto prático de ferramentas cruciais para identificar, analisar e responder a riscos, incluindo a Análise Preliminar de Riscos (APR), Análise de Modos de Falha e Efeitos (FMEA), Análise de Árvore de Falhas (FTA), Estudo de Perigos e Operabilidade (HAZOP), Matriz de Probabilidade e Impacto, Simulação de Monte Carlo e a metodologia visual BowTie.</p>
+</article>
+<article id="gestao-qualidade" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="100">
+<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-star mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão da Qualidade</h2>
+<p class="text-gray-700 leading-relaxed">Neste módulo, você dominará os princípios e práticas da Gestão da Qualidade como requisito essencial para a competitividade. Aprenderá a aplicar o ciclo PDCA (Plan-Do-Check-Act) para melhoria contínua e a utilizar as ferramentas clássicas da qualidade, como o Diagrama de Ishikawa (causa e efeito), Diagrama de Pareto (priorização), 5 Porquês (causa raiz), Histograma, Gráfico de Controle, Folha de Verificação e Fluxograma. Além disso, exploraremos metodologias robustas como Seis Sigma (com foco no DMAIC), os requisitos da norma ISO 9001, a organização do ambiente de trabalho com o Programa 5S, a filosofia de eliminação de desperdícios do Lean Manufacturing e a técnica de Benchmarking para aprender com os melhores.</p>
+</article>
+<article id="gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="150">
+<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-tasks mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão de Projetos</h2>
+<p class="text-gray-700 leading-relaxed">Este módulo oferece uma base sólida sobre como transformar ideias em realidade através da gestão eficaz de projetos. Você aprenderá os fundamentos, o ciclo de vida de um projeto (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento) e o papel crucial do gerente de projetos. Exploraremos a abordagem tradicional, utilizando como referência o guia PMBOK® do PMI, cobrindo suas áreas de conhecimento (Integração, Escopo, Cronograma, Custos, etc.) e grupos de processos. Em contraste, você também mergulhará nos princípios e valores do Manifesto Ágil e aprenderá sobre as metodologias ágeis mais populares, como Scrum (com seus papéis, eventos e sprints) e Kanban (focado no fluxo visual e limitação de trabalho em progresso), entendendo quando aplicar cada abordagem.</p>
+</article>
+<article id="ferramentas-gestao-projetos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="200">
+<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-toolbox mr-3 text-[#0582ff]" aria-hidden="true"></i>Ferramentas de Gestão</h2>
+<p class="text-gray-700 leading-relaxed">Aprenda a dominar as funcionalidades essenciais das principais ferramentas de gestão de projetos do mercado. Exploraremos como plataformas como ClickUp, Jira, Trello, Monday e outras podem ser utilizadas para definir escopo, criar cronogramas (Gantt), gerenciar tarefas (Kanban Boards), alocar recursos, facilitar a comunicação e monitorar o progresso através de dashboards, aplicando as melhores práticas para otimizar o fluxo de trabalho da sua equipe.</p>
+</article>
+<article id="gestao-projetos-ia" class="scroll-target mb-10 p-6 md:p-8 rounded-lg shadow-md bg-white" data-aos="fade-up" data-aos-delay="250">
+<h2 class="text-2xl font-semibold mb-5 pb-3"><i class="fas fa-robot mr-3 text-[#0582ff]" aria-hidden="true"></i>Gestão com IA</h2>
+<p class="text-gray-700 leading-relaxed">Descubra como a Inteligência Artificial Generativa está revolucionando a gestão de projetos. Aprenda a usar ferramentas como ChatGPT, Google Gemini, Grok e outras para brainstorming, análise SWOT, definição de escopo e objetivos SMART, geração de documentação (atas, relatórios), análise de dados de projetos, identificação de riscos, simulação de cenários e apoio à tomada de decisão. Discutiremos também as melhores práticas de Prompt Engineering, ética e o futuro da IA na área.</p>
+</article>
+</div>
+</div>
+</div>
+<div id="page-autor" class="page">
+<section id="home" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]" data-aos="fade-in">
+<div class="max-w-4xl mx-auto relative z-10">
+<img id="autor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do MBA lite" width="176" height="176" class="w-44 h-44 rounded-full mx-auto mb-8 border-4 border-[#0582ff] shadow-lg" data-aos="zoom-in" data-aos-delay="100" onerror="this.onerror=null; this.src='https://placehold.co/176x176/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-4" data-aos="fade-up" data-aos-delay="200">Danúbio Coelho</h1>
+<p class="text-xl md:text-2xl text-[#0582ff] font-semibold mb-8" data-aos="fade-up" data-aos-delay="300">Engenheiro Químico | Gestor de Projetos | Founder do MBA lite</p>
+<p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="400">Apaixonado por otimização de processos, gestão estratégica e desenvolvimento humano para alcançar resultados de alto impacto.</p>
+<div data-aos="fade-up" data-aos-delay="500">
+<a href="#contact" class="inline-block px-8 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Entre em Contato</a>
+</div>
+</div>
+</section>
+<section id="about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface" data-aos="fade-up">
+<div class="container mx-auto max-w-4xl text-center">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">QUEM SOU</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-12">Sobre Mim</h2>
+<div class="text-lg text-text-body space-y-6 text-left leading-relaxed max-w-3xl mx-auto">
+<p>Minha jornada profissional começou na Engenharia Química, onde aprendi a importância da análise, dos processos e da busca pela eficiência. Complementei essa base com um MBA em Gestão de Projetos e, ao longo dos anos, atuei em diversas frentes: planejamento, operações, suprimentos, consultoria e liderança de equipes em projetos desafiadores.</p>
+<p>Acredito firmemente que o verdadeiro diferencial competitivo está nas pessoas. Essa convicção, somada à paixão por compartilhar conhecimento prático, me motivou a criar o site e o curso <a href="/" data-page-id="page-index" data-scroll-target="hero" class="text-[#0582ff] hover:text-[#045ac3] underline font-medium">MBA lite</a>, focado em gestão moderna, e a escrever o livro "Gestão de Pessoas para Alta Performance".</p>
+<p>Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
+</div>
+</div>
+</section>
+<section id="skills" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">COMPETÊNCIAS</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Habilidades Principais</h2>
+<p class="text-lg text-text-muted leading-relaxed">Combinação de expertise técnica, ferramentas modernas e foco em liderança para entregar resultados.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="text-center p-6 standard-card-style" data-aos="fade-up">
+<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-cogs"></i></div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos & Processos</h4>
+<p class="text-gray-600 text-sm leading-relaxed">PMBOK, Scrum, Kanban, Lean, Six Sigma Green Belt, Otimização de Processos, PCP, Análise de Riscos, Gestão da Qualidade, Planejamento.</p>
+</div>
+<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
+<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-tools"></i></div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4>
+<p class="text-gray-600 text-sm leading-relaxed">ClickUp, Jira, Trello, Monday, Asana, MS Project, Primavera, Excel, Miro, Zapier, Integrately, SAP MM, Totvs, Sankhya.</p>
+</div>
+<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
+<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-users"></i></div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Liderança & Desenvolvimento</h4>
+<p class="text-gray-600 text-sm leading-relaxed">Gestão de Pessoas, Liderança, Comunicação, Oratória, Recrutamento e Seleção, Ferramentas de IA, Prompt Engineering.</p>
+</div>
+<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
+<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-code"></i></div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Tecnologias Web</h4>
+<p class="text-gray-600 text-sm leading-relaxed">HTML, CSS, JavaScript, Git, Github. Desenvolvimento e manutenção de sites e aplicações web.</p>
+</div>
+<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400">
+<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-language"></i></div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Idiomas</h4>
+<p class="text-gray-600 text-sm leading-relaxed">Português (Nativo), Inglês (Fluente - TOEFL).</p>
+</div>
+<div class="text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="500">
+<div class="text-4xl text-[#0582ff] mb-4" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div>
+<h4 class="text-xl font-semibold text-gray-800 mb-2">Formação Principal</h4>
+<p class="text-gray-600 text-sm leading-relaxed">Engenharia Química (FURG), MBA em Gestão de Projetos PMI (UNOPAR).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="experience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+<div class="container mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CARREIRA</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Experiência Profissional</h2>
+<p class="text-lg text-text-muted leading-relaxed">Trajetória focada em gestão, otimização e entrega de valor em diversos setores.</p>
+</div>
+<div class="space-y-16">
+<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up">
+<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
+<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Gerente de Projetos</h4>
+<p class="text-sm text-gray-700 font-medium">Vila Mundo / Domebambu / Wedome</p>
+<p class="text-xs text-gray-500">Brasília, DF | Ago 2024 - Presente</p>
+</div>
+<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
+<p class="leading-relaxed text-gray-700">Implementação de ClickUp, redesenho de fluxos de trabalho, liderança de reuniões Lean no chão de fábrica e gestão de compras, suprimentos e logística.</p>
+</div>
+</article>
+<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="100">
+<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
+<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Founder</h4>
+<p class="text-sm text-gray-700 font-medium">MBA lite</p>
+<p class="text-xs text-gray-500">Brasília, DF | Mar 2025 - Presente</p>
+</div>
+<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
+<p class="leading-relaxed text-gray-700">Criação de experiência de aprendizado online em gestão (Pessoas, Riscos, Qualidade, Projetos), desenvolvimento de conteúdo, ebooks, videoaulas e website.</p>
+</div>
+</article>
+<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="200">
+<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
+<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Fiscal de Empreendimentos e Engenheiro de Projetos</h4>
+<p class="text-sm text-gray-700 font-medium">Petrobras</p>
+<p class="text-xs text-gray-500">Rio Grande, RS | Mai 2013 - Jun 2015</p>
+</div>
+<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
+<p class="leading-relaxed text-gray-700">Atuação em projetos de construção naval (FPSOs), fiscalização, acompanhamento de cronogramas, orçamentos e processos de procurement.</p>
+</div>
+</article>
+<article class="experience-item flex flex-col md:flex-row gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="300">
+<div class="md:w-1/4 text-left md:text-right flex-shrink-0">
+<h4 class="text-xl font-semibold text-[#0582ff] mb-1">Consultor, Prestador de Serviços e Engenheiro de Projetos</h4>
+<p class="text-sm text-gray-700 font-medium">Autônomo</p>
+<p class="text-xs text-gray-500">Pelotas, RS | Jun 2015 - Mar 2023</p>
+</div>
+<div class="md:w-3/4 border-l-2 timeline-line pl-6 md:pl-8">
+<p class="leading-relaxed text-gray-700">Reestruturação financeira (Conta Azul), otimização de suprimentos, coordenação de projetos de fertilizantes e QA de produtos e conteúdos digitais (Meta, Microsoft, Google).</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section id="publications" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CONHECIMENTO</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Publicações</h2>
+<p class="text-lg text-text-muted leading-relaxed">Compartilho com você um recurso que explora em detalhes os temas de gestão e desenvolvimento humano. A seguir, apresento um livro que complementa nossa discussão sobre um dos principais tópicos do MBA lite.</p>
+</div>
+<article class="bg-white p-8 md:p-10 rounded-lg flex flex-col lg:flex-row items-center gap-10" data-aos="fade-up">
+<div class="flex-shrink-0 w-52 md:w-60 lg:w-1/4">
+<a href="/publicacoes" data-page-id="page-publications" class="block group">
+<img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600" class="rounded-md shadow-lg hover:shadow-xl w-full group-hover:opacity-90 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
+</a>
+</div>
+<div class="text-left flex-grow lg:w-3/4">
+<h4 class="text-2xl md:text-3xl font-semibold text-[#0582ff] mb-3">Gestão de Pessoas para Alta Performance</h4>
+<p class="text-lg text-gray-700 font-medium opacity-90 mb-5">Desvendando o Potencial Humano para Resultados Extraordinários</p>
+<p class="text-gray-600 mb-8 leading-relaxed">Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade. Explore pilares essenciais como atração e desenvolvimento de talentos, liderança inspiradora, cultura organizacional e o mindset necessário para desbloquear o potencial máximo das equipes.</p>
+<div class="space-x-4">
+<a href="/publicacoes" data-page-id="page-publications" class="inline-block px-6 py-2 border-2 border-[#0582ff] text-[#0582ff] font-semibold rounded-md hover:bg-[#0582ff] hover:text-white hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out">Saiba Mais</a>
+</div>
+</div>
+</article>
+</div>
+</section>
+<section id="contact" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+<div class="container mx-auto max-w-3xl text-center">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">CONECTE-SE</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-10">Entre em Contato</h2>
+<p class="text-lg text-text-muted mb-12 leading-relaxed">Valorizo novas conexões, oportunidades e discussões sobre gestão, projetos e inovação. Ficarei feliz em receber seu contato.</p>
+<div class="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-10">
+<a href="mailto:dan@mbalite.com.br" class="flex items-center text-lg text-gray-700 hover:text-[#0582ff] transition duration-300 group" data-aos="fade-up">
+<i class="far fa-envelope text-2xl mr-3 text-[#0582ff] group-hover:scale-110 transition-transform duration-300" aria-hidden="true"></i><span>dan@mbalite.com.br</span>
+</a>
+<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" class="flex items-center text-lg text-gray-700 hover:text-[#0582ff] transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+<i class="fab fa-linkedin text-2xl mr-3 text-[#0582ff] group-hover:scale-110 transition-transform duration-300" aria-hidden="true"></i><span>Perfil no LinkedIn</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+<div id="page-faq" class="page">
+<section id="faq-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto max-w-4xl">
+<div class="text-center mb-12 md:mb-16">
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-title mt-4" data-aos="fade-up">Perguntas Frequentes (FAQ)</h1>
+</div>
+<div class="mb-12">
+<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300" data-aos="fade-up" data-aos-delay="100">Geral</h2>
+<div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="150">
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O que é o curso MBA lite?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Para quem este curso é recomendado?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Qual a duração total estimada do curso?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Precisarei de alguma ferramenta ou software específico?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Preciso ter experiência prévia em gestão para fazer o curso?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
+</div>
+</details>
+</div>
+</div>
+<div class="mb-12">
+<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300" data-aos="fade-up" data-aos-delay="200">Conteúdo do Curso</h2>
+<div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="250">
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais são os principais módulos abordados no MBA lite?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais ferramentas práticas de gestão serão ensinadas?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
+</div>
+</details>
+</div>
+</div>
+<div class="mb-12">
+<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300" data-aos="fade-up" data-aos-delay="300">Plataforma e Acesso</h2>
+<div class="faq-group space-y-4" data-aos="fade-up" data-aos-delay="350">
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como o curso é entregue?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">O MBA lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Receberei um certificado ao concluir o curso?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como posso tirar dúvidas durante o curso?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso oferece acesso vitalício?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como me inscrevo no curso pela Udemy?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA lite" na barra de busca da Udemy ou acessar através do link direto que será compartilhado aqui no site assim que o curso for lançado. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
+</div>
+</details>
+<details class="faq-item standard-card-style overflow-hidden">
+<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Posso assistir às aulas no meu celular ou tablet?</summary>
+<div class="faq-content p-5 pt-0">
+<p class="text-gray-600 leading-relaxed">Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
+</div>
+</details>
+</div>
+</div>
+<div class="faq-cta text-center mt-16" data-aos="fade-up" data-aos-delay="400">
+<h3 class="text-2xl font-semibold text-gray-800 mb-4">Ainda tem dúvidas?</h3>
+<p class="text-lg text-text-muted mb-8">Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
+<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-8 py-3 bg-[#0582ff] text-white font-semibold rounded-md shadow-md hover:bg-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg">Quero ser um(a) gestor(a) de alta performance!</a>
+</div>
+</div>
+</section>
+</div>
+<div id="page-publications" class="page">
+<section id="publications-hero" class="scroll-target py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-bg-surface">
+<div class="container mx-auto">
+<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+<div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right">
+<img id="publication-cover-image" src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Danúbio Coelho" width="400" height="600" class="w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full rounded-lg shadow-xl border border-gray-200" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
+</div>
+<div class="lg:w-2/3 text-center lg:text-left" data-aos="fade-left" data-aos-delay="100">
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-title mb-3 leading-tight">Gestão de Pessoas para Alta Performance</h1>
+<p class="text-xl lg:text-2xl text-[#0582ff] font-semibold mb-4"> Desvendando o Potencial Humano para Resultados Extraordinários</p>
+<p class="text-lg text-gray-600 mb-8"> por Danúbio Coelho</p>
+<p class="text-lg text-text-body mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">Um guia abrangente e prático para líderes e profissionais de RH que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade, construindo equipes engajadas e resultados excepcionais.</p>
+<div class="space-y-4 sm:space-y-0 sm:space-x-4">
+<a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-yellow-500 text-gray-900 font-semibold rounded-md shadow-md hover:bg-yellow-600 hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto"><i class="fab fa-amazon mr-2" aria-hidden="true"></i> Comprar na Amazon</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="publications-about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto max-w-4xl text-center" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">O LIVRO</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-12">Desvende o Potencial Humano</h2>
+<div class="text-lg text-text-body space-y-6 text-left leading-relaxed max-w-3xl mx-auto">
+<p>No dinâmico e desafiador cenário do século XXI, o verdadeiro diferencial competitivo de qualquer organização reside no seu capital humano. Mas como transformar esse potencial latente em resultados extraordinários? Como construir ambientes onde os indivíduos floresçam, inovem e se sintam conectados a um propósito maior?</p>
+<p>"Gestão de Pessoas para Alta Performance" é um guia abrangente e profundamente prático para todos que buscam dominar a arte e a ciência de gerenciar pessoas na contemporaneidade. Exploramos os pilares essenciais para construir e sustentar equipes de alta performance, abordando desde as estratégias mais eficazes para atrair e desenvolver talentos até as nuances da liderança inspiradora, da cultura organizacional e do mindset necessário para desbloquear o potencial máximo.</p>
+<p>Mais do que um compêndio teórico, este livro foi concebido como um manual prático, repleto de ferramentas, frameworks e exemplos reais que ilustram a aplicação dos conceitos no mundo real. O objetivo é capacitá-lo a atuar como um verdadeiro arquiteto de equipes de alta performance, construindo não apenas negócios bem-sucedidos, mas também ambientes de trabalho onde as pessoas se sintam valorizadas, respeitadas e motivadas a dar o seu melhor.</p>
+</div>
+</div>
+</section>
+<section id="publication-topics" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
+<div class="container mx-auto">
+<div class="text-center mb-16 max-w-3xl mx-auto" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">PRINCIPAIS TÓPICOS</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">O Que Você Vai Aprender</h2>
+<p class="text-lg text-text-muted leading-relaxed">Uma visão geral dos temas essenciais abordados no livro para transformar sua gestão.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="100">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-users-cog"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">R&S Estratégico</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="150">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Liderança e Desenvolvimento</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="200">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-chart-pie"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Perfis Comportamentais (DISC)</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="250">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-clipboard-check"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Avaliação de Desempenho</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="300">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-hand-holding-usd"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Remuneração e Benefícios</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="350">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-building"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Cultura e Clima Organizacional</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="400">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-brain"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Mindset de Crescimento</h4>
+</div>
+<div class="topic-item text-center p-6 standard-card-style" data-aos="fade-up" data-aos-delay="450">
+<div class="text-3xl text-[#0582ff] mb-3" aria-hidden="true"><i class="fas fa-balance-scale"></i></div>
+<h4 class="text-lg font-semibold text-gray-800">Legislação e Ética</h4>
+</div>
+</div>
+</div>
+</section>
+<section id="publication-author-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
+<div class="container mx-auto max-w-4xl">
+<div class="text-center mb-12" data-aos="fade-up">
+<h3 class="text-sm font-bold text-[#0582ff] uppercase tracking-wider mb-2">O AUTOR</h3>
+<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Conheça Danúbio Coelho</h2>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-10" data-aos="fade-up" data-aos-delay="100">
+<div class="md:w-1/3 flex-shrink-0">
+<img src="/img/profile-pic.webp" alt="Foto de Danúbio Coelho, autor do livro" width="192" height="192" class="w-48 h-48 rounded-full mx-auto border-4 border-[#0582ff] shadow-lg" onerror="this.onerror=null; this.src='https://placehold.co/192x192/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
+</div>
+<div class="md:w-2/3 text-lg text-text-body space-y-4 text-left leading-relaxed">
+<p>Minha trajetória começou na engenharia química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes.</p>
+<p>Ao longo de mais de uma década, atuei em processos financeiros, suprimentos, qualidade e mais, aprendendo que as melhores metodologias (Lean, Six Sigma, Agile, PMBOK) só atingem seu potencial máximo quando capacitam pessoas. Hoje, continuo essa busca implementando ferramentas e aplicando princípios Kaizen, vendo-os como catalisadores para desbloquear o potencial das equipes.</p>
+<p>Essa jornada prática me inspirou a compartilhar esses aprendizados através do MBA lite e deste livro, "Gestão de Pessoas para Alta Performance", buscando ajudar outros profissionais a conectar tecnologia, processos e, acima de tudo, pessoas, para construir algo que faça a diferença.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="publication-cta" class="py-20 px-4 md:px-6 lg:px-8 bg-[#0582ff] text-white">
+<div class="container mx-auto max-w-3xl text-center" data-aos="fade-up">
+<h2 class="text-3xl font-bold mb-6">Transforme Sua Gestão Agora</h2>
+<p class="text-xl mb-10 opacity-90">Adquira seu exemplar de "Gestão de Pessoas para Alta Performance" e comece a construir equipes extraordinárias hoje mesmo.</p>
+<a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-white text-[#0582ff] border-2 border-white font-semibold rounded-md shadow-md hover:bg-gray-100 hover:text-[#045ac3] hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg"><i class="fab fa-amazon mr-2" aria-hidden="true"></i> Comprar na Amazon</a>
+</div>
+</section>
+</div>
+</main>
+<footer class="bg-bg-surface py-10 mt-16 px-5">
+<div class="container mx-auto text-center text-text-muted">
+<div class="footer-social-icons flex justify-center space-x-6 mb-6">
+<a href="mailto:dan@mbalite.com.br" title="Email" aria-label="Enviar email para Danúbio Coelho" class="text-gray-500 hover:text-[#0582ff] transition duration-300 text-2xl"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="Ver perfil de Danúbio Coelho no LinkedIn" class="text-gray-500 hover:text-[#0582ff] transition duration-300 text-2xl"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+</div>
+<p class="text-sm">&copy; <span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
+<p class="text-xs mt-1">Uma iniciativa de Danúbio Coelho para capacitar os líderes do futuro.</p>
+<p class="text-xs mt-2">Brasília - DF, Brasil</p>
+</div>
+</footer>
+<button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
+<i class="fas fa-arrow-up text-white" aria-hidden="true"></i>
+</button>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const SCROLL_TOP_VISIBILITY_THRESHOLD = 300;
+const HEADER_SCROLL_THRESHOLD = 50;
+const PAGE_FADE_DURATION = 500;
+const PRELOADER_FADE_DELAY = 300;
+const elements = {
+preloader: document.getElementById('preloader'),
+header: document.getElementById('main-header'),
+scrollToTopBtn: document.getElementById('scroll-to-top'),
+menuBtn: document.getElementById('menu-btn'),
+closeMenuBtn: document.getElementById('close-menu-btn'),
+mobileMenu: document.getElementById('mobile-menu'),
+menuOverlay: document.getElementById('menu-overlay'),
+currentYearSpan: document.getElementById('current-year'),
+mainNavLinks: document.querySelectorAll('#main-nav a.nav-link'),
+mobileMenuLinks: document.querySelectorAll('#mobile-menu a.mobile-menu-link'),
+allPages: document.querySelectorAll('.page'),
+allSpaLinks: document.querySelectorAll('a[data-page-id], a[data-internal-target], a[href^="/"], a[href^="#"]')
+};
+const pageRoutes = {
+'/': { id: 'page-index', title: 'MBA lite - Início' },
+'/publicacoes': { id: 'page-publications', title: 'MBA lite - Publicações' },
+'/autor': { id: 'page-autor', title: 'MBA lite - Sobre o Autor' },
+'/faq': { id: 'page-faq', title: 'MBA lite - FAQ' },
+'/content': { id: 'page-content', title: 'MBA lite - Detalhes do Módulo' }
+};
+const defaultPageRoute = pageRoutes['/'];
+const contentPageId = 'page-content';
+let isMenuOpen = false, headerHeight = 70, scrollOffset = 90;
+function updateDynamicOffsets() {
+try {
+const rootStyles = getComputedStyle(document.documentElement);
+const headerHeightValue = rootStyles.getPropertyValue('--header-height').trim();
+const scrollOffsetValue = rootStyles.getPropertyValue('--scroll-offset').trim();
+if (headerHeightValue) headerHeight = parseInt(headerHeightValue, 10) || 70;
+if (scrollOffsetValue) {
+const match = scrollOffsetValue.match(/calc\(\s*var\(--header-height\)\s*\+\s*(\d+)px\s*\)/);
+scrollOffset = (match && match[1]) ? headerHeight + (parseInt(match[1], 10) || 20) : (parseInt(scrollOffsetValue, 10) || headerHeight + 20);
+}
+} catch (e) {
+scrollOffset = headerHeight + 20;
+}
+}
+function initPreloader() {
 window.addEventListener('load', () => {
-    setTimeout(removerPaddingFormularioConvertKit, 500);
+updateDynamicOffsets();
+if (elements.preloader) {
+elements.preloader.classList.add('hidden');
+setTimeout(() => { elements.preloader?.remove(); }, PAGE_FADE_DURATION + PRELOADER_FADE_DELAY);
+}
+initAOS();
+handleRouteChange(true);
 });
-        </script>
-	</body>
+}
+function initAOS() {
+if (typeof AOS !== 'undefined') AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' });
+else console.warn("AOS library not loaded.");
+}
+function initMobileMenu() {
+if (!elements.menuBtn || !elements.closeMenuBtn || !elements.mobileMenu || !elements.menuOverlay) return;
+elements.menuBtn.addEventListener('click', toggleMenu);
+elements.closeMenuBtn.addEventListener('click', closeMenu);
+elements.menuOverlay.addEventListener('click', closeMenu);
+document.querySelectorAll('#mobile-menu nav a').forEach(link => link.addEventListener('click', closeMenu));
+}
+function initScrollEffects() {
+window.addEventListener('scroll', handleScroll, { passive: true });
+elements.scrollToTopBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+function initFooterYear() {
+if (elements.currentYearSpan) elements.currentYearSpan.textContent = new Date().getFullYear();
+}
+function initSPARouting() {
+elements.allSpaLinks.forEach(link => {
+const href = link.getAttribute('href');
+if (link.getAttribute('target') === '_blank' || link.protocol !== window.location.protocol || link.host !== window.location.host || link.hasAttribute('download') || href?.startsWith('mailto:')) return;
+link.addEventListener('click', (e) => handleNavLinkClick(e, link));
+});
+window.addEventListener('popstate', handleRouteChange);
+}
+function toggleMenu() { isMenuOpen ? closeMenu() : openMenu(); }
+function openMenu() {
+if (isMenuOpen || !elements.mobileMenu || !elements.menuOverlay || !elements.menuBtn) return;
+elements.mobileMenu.classList.remove('hidden-menu');
+elements.menuOverlay.classList.remove('hidden');
+elements.menuBtn.setAttribute('aria-expanded', 'true');
+document.body.style.overflow = 'hidden';
+isMenuOpen = true;
+elements.closeMenuBtn?.focus();
+}
+function closeMenu() {
+if (!isMenuOpen || !elements.mobileMenu || !elements.menuOverlay || !elements.menuBtn) return;
+elements.mobileMenu.classList.add('hidden-menu');
+elements.menuOverlay.classList.add('hidden');
+elements.menuBtn.setAttribute('aria-expanded', 'false');
+document.body.style.overflow = '';
+isMenuOpen = false;
+elements.menuBtn?.focus();
+}
+function handleScroll() {
+const scrollY = window.scrollY;
+elements.header?.classList.toggle('header-scrolled', scrollY > HEADER_SCROLL_THRESHOLD);
+elements.scrollToTopBtn?.classList.toggle('visible', scrollY > SCROLL_TOP_VISIBILITY_THRESHOLD);
+updateActiveNavLink();
+}
+function displayPage(targetPageId) {
+let targetPageElement = null;
+elements.allPages.forEach(page => {
+const isTarget = page.id === targetPageId;
+page.style.display = isTarget ? 'block' : 'none';
+page.classList.remove('active');
+if (isTarget) targetPageElement = page;
+});
+if (!targetPageElement) {
+targetPageId = defaultPageRoute.id;
+targetPageElement = document.getElementById(targetPageId);
+if (targetPageElement) {
+targetPageElement.style.display = 'block';
+targetPageElement.classList.remove('active');
+} else {
+console.error("Default page element not found!");
+return null;
+}
+}
+document.body.className = `bg-bg-main text-text-body page-${targetPageId}`;
+return targetPageElement;
+}
+function updateTitle(pageId, scrollTargetId) {
+let routeInfo = Object.values(pageRoutes).find(route => route.id === pageId) || defaultPageRoute;
+let pageTitle = routeInfo.title;
+if (pageId === contentPageId && scrollTargetId) {
+const sectionElement = document.getElementById(scrollTargetId);
+const sectionTitleElement = sectionElement?.querySelector('h2');
+if (sectionTitleElement) {
+const titleClone = sectionTitleElement.cloneNode(true);
+if (titleClone.firstChild?.nodeName === 'I') titleClone.removeChild(titleClone.firstChild);
+const sectionTitleText = titleClone.textContent?.trim();
+if (sectionTitleText) pageTitle = `MBA lite - ${sectionTitleText}`;
+}
+}
+document.title = pageTitle;
+}
+function handleScrollingAndActivation(scrollTargetId, isInitialLoad, pageElementToActivate) {
+const activatePage = () => {
+if (pageElementToActivate) setTimeout(() => pageElementToActivate.classList.add('active'), isInitialLoad ? 10 : 50);
+if (typeof AOS !== 'undefined' && !isInitialLoad && pageElementToActivate) setTimeout(() => AOS.refreshHard(), PAGE_FADE_DURATION + 50);
+setTimeout(updateActiveNavLink, 150);
+};
+if (scrollTargetId) {
+const scrollElement = document.getElementById(scrollTargetId);
+if (scrollElement) {
+const elementPosition = scrollElement.getBoundingClientRect().top + window.scrollY;
+window.scrollTo({ top: elementPosition - scrollOffset, behavior: isInitialLoad ? 'auto' : 'smooth' });
+activatePage();
+} else {
+window.scrollTo({ top: 0, behavior: isInitialLoad ? 'auto' : 'smooth' });
+activatePage();
+}
+} else {
+if (!isInitialLoad && window.scrollY > 0) window.scrollTo({ top: 0, behavior: 'smooth' });
+activatePage();
+}
+}
+function handleNavLinkClick(event, link) {
+const href = link.getAttribute('href');
+if (!href) return;
+const targetPageId = link.dataset.pageId;
+const internalTargetPageId = link.dataset.internalTarget;
+const scrollTargetId = link.dataset.scrollTarget || (href.startsWith('#') ? href.substring(1) : null);
+if (internalTargetPageId && scrollTargetId) {
+event.preventDefault();
+const newHref = window.location.pathname + `#${scrollTargetId}`;
+history.pushState({ pageId: internalTargetPageId, scrollTarget: scrollTargetId }, '', newHref);
+handleRouteChange();
+return;
+}
+if (targetPageId && (href.startsWith('/') || href.startsWith('#'))) {
+event.preventDefault();
+const newPath = href.split('#')[0] || '/';
+const newHash = href.includes('#') ? href.split('#')[1] : null;
+const finalScrollTarget = scrollTargetId || newHash;
+history.pushState({ pageId: targetPageId, scrollTarget: finalScrollTarget }, '', href);
+handleRouteChange();
+return;
+}
+if (href.startsWith('#') && !targetPageId && !internalTargetPageId) {
+const targetId = href.substring(1);
+const targetElement = document.getElementById(targetId);
+const activePage = document.querySelector('.page.active');
+if (targetElement && activePage?.contains(targetElement)) {
+event.preventDefault();
+const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+window.scrollTo({ top: elementPosition - scrollOffset, behavior: 'smooth' });
+history.replaceState(history.state, '', window.location.pathname + href);
+setTimeout(updateActiveNavLink, 150);
+}
+return;
+}
+}
+function handleRouteChange(isInitialLoad = false) {
+const path = window.location.pathname;
+const hash = window.location.hash.substring(1);
+let targetPageId, scrollTargetId = hash || null, routeInfo;
+if (history.state?.pageId) {
+targetPageId = history.state.pageId;
+scrollTargetId = history.state.scrollTarget || scrollTargetId;
+routeInfo = Object.values(pageRoutes).find(r => r.id === targetPageId);
+} else if (pageRoutes[path]) {
+routeInfo = pageRoutes[path];
+targetPageId = routeInfo.id;
+} else {
+routeInfo = defaultPageRoute;
+targetPageId = routeInfo.id;
+}
+routeInfo = routeInfo || defaultPageRoute;
+if (targetPageId === contentPageId && !scrollTargetId) scrollTargetId = 'content-area';
+const pageElement = displayPage(targetPageId);
+updateTitle(targetPageId, scrollTargetId);
+handleScrollingAndActivation(scrollTargetId, isInitialLoad === true, pageElement);
+}
+function updateActiveNavLink() {
+const scrollY = window.scrollY;
+const activePageElement = document.querySelector('.page.active');
+if (!activePageElement) return;
+let currentSectionId = null, bestMatch = { id: null, top: -Infinity };
+activePageElement.querySelectorAll('.scroll-target').forEach(section => {
+const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+if (sectionTop <= scrollY + scrollOffset + 50 && sectionTop > bestMatch.top) bestMatch = { id: section.id, top: sectionTop };
+});
+currentSectionId = bestMatch.id;
+const updateLinks = (links) => {
+let isAnySectionLinkActive = false;
+links.forEach(link => {
+link.classList.remove('active');
+const linkHref = link.getAttribute('href');
+if (!linkHref) return;
+const linkPageId = link.dataset.pageId;
+const linkInternalTargetPageId = link.dataset.internalTarget;
+const linkScrollTarget = link.dataset.scrollTarget;
+const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
+const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id);
+if (!isLinkForActivePage) return;
+if (currentSectionId && (linkScrollTarget === currentSectionId || linkHash === currentSectionId)) {
+link.classList.add('active');
+isAnySectionLinkActive = true;
+}
+});
+if (!isAnySectionLinkActive) {
+links.forEach(link => {
+const linkHref = link.getAttribute('href');
+if (!linkHref) return;
+const linkPageId = link.dataset.pageId;
+const linkInternalTargetPageId = link.dataset.internalTarget;
+const linkScrollTarget = link.dataset.scrollTarget;
+const linkHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
+const isLinkForActivePage = (linkPageId === activePageElement.id) || (linkInternalTargetPageId === activePageElement.id);
+if (isLinkForActivePage && !linkScrollTarget && !linkHash) link.classList.add('active');
+});
+}
+};
+updateLinks(elements.mainNavLinks);
+updateLinks(elements.mobileMenuLinks);
+updateLinks(document.querySelectorAll('.module-link'));
+}
+initPreloader();
+initMobileMenu();
+initScrollEffects();
+initFooterYear();
+initSPARouting();
+});
+function removerPaddingFormularioConvertKit() {
+const seletorFormulario = '.formkit-form[data-uid="d0849e0001"][data-style="minimal"]';
+const formularioConvertKit = document.querySelector(seletorFormulario);
+if (formularioConvertKit) {
+formularioConvertKit.style.paddingLeft = '0';
+formularioConvertKit.style.paddingRight = '0';
+} else {
+console.warn('Formulário ConvertKit não encontrado imediatamente.');
+}
+}
+window.addEventListener('load', () => {
+setTimeout(removerPaddingFormularioConvertKit, 500);
+});
+</script>
+</body>
 </html>
