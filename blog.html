@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="--header-height: 60px; --scroll-offset: calc(var(--header-height) + 20px);">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Blog MBA lite: Artigos e insights sobre Gestão Estratégica, Pessoas, Riscos, Qualidade, Projetos e IA.">
+    <title>MBA lite - Blog</title>
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/0582ff/FFFFFF?text=MBA">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <style>
+		:root {
+			--header-height: 60px; /* Adjusted header height */
+			--scroll-offset: calc(var(--header-height) + 20px);
+			--color-primary: #0582ff;
+			--color-primary-dark: #045ac3;
+			--color-text-on-primary: theme('colors.white');
+			--color-text-title: theme('colors.gray.900');
+			--color-text-body: theme('colors.gray.700');
+			--color-text-muted: theme('colors.gray.500');
+			--color-bg-main: theme('colors.gray.50');
+			--color-bg-surface: theme('colors.white');
+			--color-bg-surface-dark: theme('colors.gray.100');
+			--color-border: theme('colors.gray.200');
+			--color-border-dark: theme('colors.gray.300');
+		}
+		html {
+			scroll-behavior: smooth;
+		}
+		body {
+			font-family: 'Inter', sans-serif;
+			background-color: var(--color-bg-main);
+			color: var(--color-text-body);
+			padding-top: var(--header-height);
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			font-synthesis: none;
+		}
+		main {
+			flex-grow: 1;
+		}
+		.scroll-target {
+			scroll-margin-top: var(--scroll-offset);
+		}
+		h2.section-title {
+			color: var(--color-text-title);
+			position: relative;
+		}
+		.icon-block-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+		.icon-block-card:hover {
+			transform: translateY(-5px);
+		}
+		.icon-block-card .icon {
+			color: var(--color-primary);
+			transition: transform 0.3s ease;
+		}
+		.icon-block-card:hover .icon {
+			transform: scale(1.1);
+		}
+		.standard-card-style {
+			background-color: var(--color-bg-surface);
+			border-radius: theme('borderRadius.lg');
+			box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
+			transition: box-shadow 0.3s ease, transform 0.3s ease;
+		}
+		.standard-card-style:hover {
+			box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
+		}
+		.page-content-container article h2 {
+			border-bottom: 1px solid var(--color-border);
+		}
+		.faq-item {
+			transition: box-shadow 0.2s ease;
+		}
+		.faq-item:hover {
+			box-shadow: theme('boxShadow.md');
+		}
+		.faq-item summary {
+			position: relative;
+			list-style: none;
+			cursor: pointer;
+		}
+		.faq-item summary::after {
+			content: '+';
+			position: absolute;
+			right: 20px;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 1.5rem;
+			font-weight: 300;
+			color: var(--color-primary);
+			transition: transform 0.2s ease;
+		}
+		.faq-item[open] > summary::after {
+			content: '−';
+			transform: translateY(-50%) rotate(180deg);
+		}
+		.faq-item summary::-webkit-details-marker {
+			display: none;
+		}
+		.faq-item .faq-content {
+			border-top: 1px solid var(--color-border);
+		}
+		#main-header {
+			box-shadow: theme('boxShadow.sm');
+			height: var(--header-height);
+			transition: box-shadow 0.3s ease;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 50;
+		}
+		#main-header.header-scrolled {
+			box-shadow: theme('boxShadow.md');
+		}
+		#main-nav a.nav-link {
+			transition: color 0.3s ease;
+			color: var(--color-text-body);
+			font-weight: 600;
+			display: inline-block;
+		}
+		#main-nav a.nav-link:hover,
+		#main-nav a.nav-link.active {
+			color: var(--color-primary);
+		}
+		#mobile-menu {
+			transition: transform 0.3s ease-in-out;
+			border-right: 1px solid var(--color-border);
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 16rem;
+			height: 100%;
+			z-index: 60;
+		}
+		#mobile-menu.hidden-menu {
+			transform: translateX(-100%);
+		}
+		#mobile-menu nav a.mobile-menu-link {
+			transition: color 0.2s ease, background-color 0.2s ease;
+			color: var(--color-text-body);
+		}
+		#mobile-menu nav a.mobile-menu-link:hover,
+		#mobile-menu nav a.mobile-menu-link.active {
+			color: var(--color-primary);
+			background-color: theme('colors.blue.50');
+		}
+		#menu-overlay {
+			background-color: rgba(0, 0, 0, 0.5);
+			transition: opacity 0.3s ease-in-out;
+			position: fixed;
+			inset: 0;
+			z-index: 55;
+		}
+		#menu-overlay.hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+		#scroll-to-top {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			background-color: var(--color-primary);
+			color: var(--color-text-on-primary);
+			width: 45px;
+			height: 45px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+			box-shadow: theme('boxShadow.lg');
+			z-index: 1000;
+			border: none;
+		}
+		#scroll-to-top.visible {
+			opacity: 1;
+			visibility: visible;
+		}
+		#scroll-to-top:hover {
+			background-color: var(--color-primary-dark);
+			transform: translateY(-3px);
+		}
+		#preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-bg-main);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 9999;
+			opacity: 1;
+			transition: opacity 0.5s ease 0.3s;
+		}
+		#preloader.hidden {
+			opacity: 0;
+			pointer-events: none;
+		}
+		.spinner {
+			border: 4px solid rgba(0, 0, 0, 0.1);
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			border-left-color: var(--color-primary);
+			animation: spin 1s ease infinite;
+		}
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+		.page {
+			display: none;
+			animation: pageFadeIn 0.5s ease-out forwards;
+		}
+		.page.active {
+			display: block;
+		}
+		@keyframes pageFadeIn {
+			from { opacity: 0; transform: translateY(10px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+		#enroll .form-wrapper {
+			background-color: var(--color-bg-surface);
+			border-radius: theme('borderRadius.lg');
+			box-shadow: theme('boxShadow.card');
+		}
+		.experience-item .timeline-line {
+			border-left-color: var(--color-border-dark);
+		}
+		.formkit-form[data-uid="d0849e0001"][data-style="minimal"] {
+			padding: 0 !important;
+		}
+	</style>
+
+</head>
+<body class="bg-bg-main text-text-body page-blog" data-aos-easing="ease-out-quad" data-aos-duration="600" data-aos-delay="0">
+
+    <header id="main-header">
+         <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-900 hover:text-[#0582ff] transition duration-300">MBA lite</a>
+            <nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
+                 <a href="index.html" class="nav-link ...">Início</a>
+                 <a href="index.html#modules" class="nav-link ...">Módulos</a>
+                 <a href="index.html#publications" class="nav-link ...">Publicações</a>
+                 <a href="index.html#autor" class="nav-link ...">Autor</a>
+                 <a href="blog.html" class="nav-link active ...">Blog</a> <a href="index.html#faq" class="nav-link ...">FAQ</a>
+                 <a href="index.html#enroll" class="...">Inscreva-se</a>
+            </nav>
+             <button id="menu-btn" class="lg:hidden ..."><i class="fas fa-bars ..."></i></button>
+        </div>
+    </header>
+
+     <div id="mobile-menu" class="bg-white shadow-lg hidden-menu ...">
+         <nav ...>
+              <a href="index.html" class="mobile-menu-link ...">Início</a>
+              ...
+              <a href="blog.html" class="mobile-menu-link active ...">Blog</a>
+              ...
+              <a href="index.html#enroll" class="...">Inscreva-se</a>
+         </nav>
+     </div>
+    <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
+
+    <main id="main-content">
+        <section id="blog-hero" class="py-20 px-4 md:px-6 lg:px-8 bg-bg-surface text-center">
+            <div class="container mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-text-title mb-4 aos-init" data-aos="fade-up">Blog MBA lite</h1>
+                <p class="text-lg md:text-xl text-text-muted max-w-2xl mx-auto aos-init" data-aos="fade-up" data-aos-delay="100">Artigos recentes e insights sobre gestão e liderança.</p>
+                <p class="mt-4 text-sm text-text-muted aos-init" data-aos="fade-up" data-aos-delay="150">
+                    Prefere receber no seu email? <a href="https://SEUNOME.substack.com/" target="_blank" rel="noopener noreferrer" class="text-[#0582ff] hover:underline">Assine nossa Substack!</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="blog-posts-grid" class="py-16 px-4 md:px-6 lg:px-8">
+            <div class="container mx-auto max-w-7xl"> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+
+                    <article class="standard-card-style substack-embed-container p-4 md:p-6 aos-init" data-aos="fade-up">
+                        <div class="substack-post-embed"><p lang="pt-br">#ANormalidadeDeLula por Não É Imprensa</p><p>Em mais uma entrevista, Gilmar Mendes mostra sua “experiência política”. Ou, como devolver a cocaína ao traficante</p><a data-post-link href="https://www.naoeimprensa.com/p/anormalidadedelula">Leia no Substack</a></div>
+                        </article>
+
+                    <article class="standard-card-style substack-embed-container p-4 md:p-6 aos-init" data-aos="fade-up" data-aos-delay="100">
+                        <div class="substack-post-embed">
+                             <p>Título do Segundo Post</p>
+                             <p>Resumo do segundo post que você pegou do Substack...</p>
+                             <a data-post-link href="https://www.reddit.com/r/Substack/comments/17jyy12/should_i_publish_several_articles_when_i_begin_or/">Leia no Substack</a>
+                        </div>
+                        </article>
+
+                    <article class="standard-card-style substack-embed-container p-4 md:p-6 aos-init" data-aos="fade-up" data-aos-delay="200">
+                        <div class="substack-post-embed">
+                             <p>Título do Terceiro Post</p>
+                             <p>Resumo do terceiro post...</p>
+                              <a data-post-link href="https://www.reddit.com/r/Substack/comments/1c9u7j8/if_i_started_posting_with_no_followers_can_people/">Leia no Substack</a>
+                         </div>
+                        </article>
+
+                     </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-bg-surface py-10 mt-16 px-5">
+        <div class="container mx-auto text-center text-text-muted"> ... </div>
+    </footer>
+
+    <button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
+         <i class="fas fa-arrow-up text-white" aria-hidden="true"></i>
+    </button>
+
+    <script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Cole o JS adaptado (sem loadBlogPosts) aqui
+         document.addEventListener('DOMContentLoaded', () => {
+             // ... inicializações do AOS, menu, scroll ...
+            AOS.init({ duration: 600, once: true, offset: 50, easing: 'ease-out-quad' });
+            // Lógica do menu mobile, scroll-to-top, etc. (copiar/adaptar do blog.html anterior)
+         });
+    </script>
+
+</body>
+</html>
