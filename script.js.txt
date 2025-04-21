@@ -1,0 +1,358 @@
+document.addEventListener('DOMContentLoaded', function() {
+	const preloader = document.getElementById('preloader');
+	const menuBtn = document.getElementById('menu-btn');
+	const closeMenuBtn = document.getElementById('close-menu-btn');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuOverlay = document.getElementById('menu-overlay');
+	const mainHeader = document.getElementById('main-header');
+	const scrollToTopBtn = document.getElementById('scroll-to-top');
+	const navLinks = document.querySelectorAll('nav a');
+	const mobileMenuLinks = document.querySelectorAll('#mobile-menu nav a');
+	const pages = document.querySelectorAll('.page');
+	const yearSpan = document.getElementById('current-year');
+	const allLinks = document.querySelectorAll('a[href]');
+
+	// Update current year
+	if (yearSpan) {
+		yearSpan.textContent = new Date().getFullYear();
+	}
+
+	// Preloader
+	if (preloader) {
+		window.addEventListener('load', () => {
+			preloader.classList.add('hidden');
+		});
+	}
+
+	// AOS Initialization
+	AOS.init();
+
+	// Function to toggle mobile menu
+	const toggleMenu = (open) => {
+		if (mobileMenu && menuOverlay) {
+			if (open) {
+				mobileMenu.classList.remove('hidden-menu');
+				menuOverlay.classList.remove('hidden');
+				document.body.style.overflow = 'hidden'; // Prevent scrolling
+				menuBtn.setAttribute('aria-expanded', 'true');
+			} else {
+				mobileMenu.classList.add('hidden-menu');
+				menuOverlay.classList.add('hidden');
+				document.body.style.overflow = ''; // Restore scrolling
+				menuBtn.setAttribute('aria-expanded', 'false');
+			}
+		}
+	};
+
+	// Mobile Menu Toggle
+	if (menuBtn && closeMenuBtn && mobileMenu && menuOverlay) {
+		menuBtn.addEventListener('click', (e) => {
+			e.stopPropagation(); // Prevent click from immediately closing via overlay
+			toggleMenu(true);
+		});
+
+		closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+		menuOverlay.addEventListener('click', () => toggleMenu(false));
+
+		// Close menu when a link inside it is clicked
+		mobileMenuLinks.forEach(link => {
+			link.addEventListener('click', () => toggleMenu(false));
+		});
+	}
+
+	// Header scroll effect
+	if (mainHeader) {
+		const handleScroll = () => {
+			if (window.scrollY > 50) {
+				mainHeader.classList.add('header-scrolled');
+			} else {
+				mainHeader.classList.remove('header-scrolled');
+			}
+		};
+		window.addEventListener('scroll', handleScroll);
+		// Initial check in case the page is loaded scrolled down
+		handleScroll();
+	}
+
+	// Scroll to Top Button
+	if (scrollToTopBtn) {
+		const handleScrollToTopVisibility = () => {
+			if (window.scrollY > 300) {
+				scrollToTopBtn.classList.add('visible');
+			} else {
+				scrollToTopBtn.classList.remove('visible');
+			}
+		};
+
+		window.addEventListener('scroll', handleScrollToTopVisibility);
+		scrollToTopBtn.addEventListener('click', () => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+		// Initial check
+		handleScrollToTopVisibility();
+	}
+
+	// --- Single Page Application (SPA) Navigation ---
+
+	const defaultPageId = 'page-index'; // Your default page (e.g., home)
+	const pageMap = new Map(); // Map path to page ID
+
+	// Populate pageMap based on data-page-id attributes or paths
+	pages.forEach(page => {
+		if (page.id) {
+			// Assuming page IDs directly map to simple paths
+			const path = page.id === 'page-index' ? '/' :
+						 page.id === 'page-content' ? '/conteudo' :
+						 page.id === 'page-publications' ? '/publicacoes' :
+						 page.id === 'page-autor' ? '/autor' :
+						 page.id === 'page-faq' ? '/faq' :
+						 page.id === 'page-confirmation' ? '/confirmation' : // Add confirmation page
+						 null; // Fallback or handle other IDs
+			if (path) {
+				pageMap.set(path, page.id);
+			}
+		}
+	});
+
+
+	// Function to display a specific page and update history
+	function showPage(pageId, targetElementId = null, pushState = true, isPopState = false) {
+		const targetPage = document.getElementById(pageId);
+
+		if (!targetPage) {
+			console.warn(`Page with ID "${pageId}" not found. Showing default page.`);
+			pageId = defaultPageId; // Fallback to default if page not found
+		}
+
+		// Hide all pages first
+		pages.forEach(p => {
+			p.classList.remove('active');
+			p.style.display = 'none'; // Ensure it's hidden
+		});
+
+		// Show the target page
+		const pageToShow = document.getElementById(pageId);
+		if (pageToShow) {
+			pageToShow.style.display = 'block'; // Make it visible
+			// Use setTimeout to allow the display change to render before adding the class
+			setTimeout(() => {
+				pageToShow.classList.add('active');
+			}, 0);
+		} else {
+			console.error(`Target page with ID "${pageId}" could not be found even after fallback.`);
+			// Maybe show a dedicated 404 page here
+			return;
+		}
+
+		updateActiveNavLink(pageId);
+
+		// Scroll logic
+		if (targetElementId) {
+			const targetElement = document.getElementById(targetElementId);
+			if (targetElement) {
+				setTimeout(() => { // Allow page content to render
+					const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
+					const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+					const offsetPosition = elementPosition - headerOffset - 20; // 20px extra padding
+
+					window.scrollTo({
+						top: offsetPosition,
+						behavior: 'smooth'
+					});
+				}, 100); // Delay might need adjustment
+			} else {
+				console.warn(`Target element "${targetElementId}" not found on page "${pageId}". Scrolling to top.`);
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+		} else if (!isPopState) { // Only scroll to top if it's not a back/forward navigation
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+
+		// Update browser history and URL
+		if (pushState) {
+			const path = getKeyByValue(pageMap, pageId) || (pageId === defaultPageId ? '/' : '/' + pageId.replace('page-', ''));
+			const fullPath = targetElementId ? `${path}#${targetElementId}` : path;
+			// Don't push the same state twice if URL is already correct
+			if (window.location.pathname + window.location.hash !== fullPath) {
+				history.pushState({ pageId: pageId, targetElementId: targetElementId }, '', fullPath);
+			}
+		}
+
+		// Re-initialize AOS for the newly displayed page content
+		AOS.refresh();
+	}
+
+	// Helper to get path (key) from pageId (value) in pageMap
+	function getKeyByValue(map, value) {
+		for (let [key, val] of map.entries()) {
+			if (val === value) {
+				return key;
+			}
+		}
+		return undefined; // Or handle appropriately
+	}
+
+	// Function to update the active state of navigation links
+	function updateActiveNavLink(activePageId) {
+		const linksToUpdate = [...navLinks, ...mobileMenuLinks];
+		linksToUpdate.forEach(link => {
+			// Match based on the data-page-id attribute
+			if (link.dataset.pageId === activePageId) {
+				link.classList.add('active');
+			} else {
+				link.classList.remove('active');
+			}
+		});
+	}
+
+	// Handle internal link clicks
+	allLinks.forEach(link => {
+		const href = link.getAttribute('href');
+
+		// Skip external links, mailto links, tel links, etc.
+		if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || link.target === '_blank') {
+			return;
+		}
+
+		// Check if the link points to a page managed by the SPA
+		const url = new URL(href, window.location.origin);
+		const targetPageId = pageMap.get(url.pathname);
+		const targetElementId = url.hash ? url.hash.substring(1) : null; // Get ID from hash
+
+		if (targetPageId) {
+			link.addEventListener('click', (event) => {
+				event.preventDefault(); // Prevent default navigation
+				showPage(targetPageId, targetElementId, true); // Show the target page and scroll if needed
+				toggleMenu(false); // Close mobile menu if open
+			});
+		} else {
+			// Handle links to pages not managed by SPA (if any) or log warning
+			// console.warn(`Link ${href} does not map to a known SPA page.`);
+			// Allow default behavior for these links
+		}
+	});
+
+	// Handle scroll target link clicks (within the same page or navigating to a page + target)
+	document.querySelectorAll('a[data-scroll-target]').forEach(link => {
+		link.addEventListener('click', (event) => {
+			event.preventDefault();
+			const targetPageId = link.dataset.pageId;
+			const targetElementId = link.dataset.scrollTarget;
+			const currentPageId = document.querySelector('.page.active')?.id;
+
+			if (targetPageId && targetElementId) {
+				if (targetPageId === currentPageId) {
+					// Scroll within the current page
+					const targetElement = document.getElementById(targetElementId);
+					if (targetElement) {
+						const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
+						const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+						const offsetPosition = elementPosition - headerOffset - 20; // 20px extra padding
+
+						window.scrollTo({
+							top: offsetPosition,
+							behavior: 'smooth'
+						});
+
+						// Update URL hash without pushing history state again if only scrolling
+						const path = getKeyByValue(pageMap, targetPageId) || (targetPageId === defaultPageId ? '/' : '/' + targetPageId.replace('page-', ''));
+						const fullPath = `${path}#${targetElementId}`;
+						if(window.location.pathname + window.location.hash !== fullPath) {
+							history.replaceState(history.state, '', fullPath); // Use replaceState for hash changes
+						}
+					} else {
+						console.warn(`Scroll target element "${targetElementId}" not found on current page.`);
+					}
+				} else {
+					// Navigate to a different page and scroll
+					showPage(targetPageId, targetElementId, true);
+				}
+			} else if (targetElementId) {
+				// Simple same-page scroll (though showPage handles this case too)
+				showPage(currentPageId, targetElementId, false); // Don't push state, just scroll
+				// Update URL hash
+				const path = getKeyByValue(pageMap, currentPageId) || (currentPageId === defaultPageId ? '/' : '/' + currentPageId.replace('page-', ''));
+				const fullPath = `${path}#${targetElementId}`;
+				if(window.location.pathname + window.location.hash !== fullPath) {
+					history.replaceState(history.state, '', fullPath);
+				}
+			}
+			toggleMenu(false); // Close mobile menu if open
+		});
+	});
+
+	// Handle browser back/forward buttons
+	window.addEventListener('popstate', (event) => {
+		let pageIdToShow = defaultPageId;
+		let targetElementId = null;
+
+		if (event.state && event.state.pageId) {
+			pageIdToShow = event.state.pageId;
+			targetElementId = event.state.targetElementId; // Restore target element if saved
+		} else {
+			// If no state, determine page from current URL pathname/hash
+			const currentPath = window.location.pathname;
+			const currentHash = window.location.hash ? window.location.hash.substring(1) : null;
+			pageIdToShow = pageMap.get(currentPath) || defaultPageId;
+			targetElementId = currentHash;
+		}
+		showPage(pageIdToShow, targetElementId, false, true); // Don't push state again, indicate it's popstate
+	});
+
+	// Initial page load: Show page based on URL or default
+	const initialPath = window.location.pathname;
+	const initialHash = window.location.hash ? window.location.hash.substring(1) : null;
+	const initialPageId = pageMap.get(initialPath) || defaultPageId;
+
+	showPage(initialPageId, initialHash, false); // Show initial page without pushing state
+
+	// --- End SPA Navigation ---
+
+	// Form Submission Handling (Example for ConvertKit - adjust if needed)
+	// This part might be automatically handled by the ConvertKit script,
+	// but you could add custom logic here if necessary.
+	// Example: Listen for successful submission events if ConvertKit provides them.
+
+
+	// --- FAQ Accordion ---
+	const faqItems = document.querySelectorAll('.faq-item');
+	faqItems.forEach(item => {
+		const summary = item.querySelector('summary');
+		const content = item.querySelector('.faq-content');
+
+		// If you want only one item open at a time (optional)
+		// summary.addEventListener('click', (e) => {
+		//    if (!item.open) { // Only run if opening
+		//        faqItems.forEach(otherItem => {
+		//            if (otherItem !== item && otherItem.open) {
+		//                otherItem.removeAttribute('open');
+		//            }
+		//        });
+		//    }
+		// });
+
+		// Smooth animation (optional, requires CSS transition on max-height)
+		// This simple JS doesn't add smooth animation, CSS would handle that.
+	});
+
+	// Specific logic for confirmation page redirect via ConvertKit
+	if (window.location.search.includes('submission_confirmed=true') || window.location.search.includes('ck_subscriber_id=')) {
+		const confirmationPageId = 'page-confirmation';
+		if (document.getElementById(confirmationPageId)) {
+			// Check if we are already on the confirmation page path in the URL
+			const expectedPath = getKeyByValue(pageMap, confirmationPageId);
+			if (expectedPath && window.location.pathname !== expectedPath) {
+				// Use replaceState to change the URL to the confirmation path without adding to history
+				history.replaceState({ pageId: confirmationPageId }, '', expectedPath);
+			}
+			// Show the confirmation page content
+			showPage(confirmationPageId, null, false); // Show without pushing (already replaced or correct)
+		} else {
+			console.warn("Confirmation page element not found, redirecting to home.");
+			history.replaceState({ pageId: defaultPageId }, '', '/'); // Correct URL
+			showPage(defaultPageId, null, false); // Show home
+		}
+	}
+
+
+}); // End DOMContentLoaded
