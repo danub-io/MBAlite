@@ -6,57 +6,21 @@
     <meta name="description" content="Blog MBA lite: Artigos e insights sobre Gestão Estratégica, Pessoas, Riscos, Qualidade, Projetos e IA.">
     <title>MBA lite - Blog</title>
     <link rel="icon" type="image/png" href="https://placehold.co/32x32/0582ff/FFFFFF?text=MBA">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Cole os estilos base do seu index.html aqui OU use o styles.css */
-        :root {
-            --header-height: 60px; /* Adjusted header height */
-            --scroll-offset: calc(var(--header-height) + 20px);
-            --color-primary: #0582ff;
-            --color-primary-dark: #045ac3;
-            --color-text-on-primary: theme('colors.white');
-            --color-text-title: theme('colors.gray.900');
-            --color-text-body: theme('colors.gray.700');
-            --color-text-muted: theme('colors.gray.500');
-            --color-bg-main: theme('colors.gray.50');
-            --color-bg-surface: theme('colors.white');
-            --color-bg-surface-dark: theme('colors.gray.100');
-            --color-border: theme('colors.gray.200');
-            --color-border-dark: theme('colors.gray.300');
-        }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--color-bg-main); color: var(--color-text-body); padding-top: var(--header-height); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: flex; flex-direction: column; min-height: 100vh; font-synthesis: none; }
-        main { flex-grow: 1; }
-        .scroll-target { scroll-margin-top: var(--scroll-offset); }
-        h2.section-title { color: var(--color-text-title); position: relative; }
-        .standard-card-style { background-color: var(--color-bg-surface); border-radius: theme('borderRadius.lg'); box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08); transition: box-shadow 0.3s ease, transform 0.3s ease; }
-        .standard-card-style:hover { box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12); transform: translateY(-5px); }
-        #main-header { background-color: var(--color-bg-surface); box-shadow: theme('boxShadow.sm'); height: var(--header-height); transition: box-shadow 0.3s ease; position: fixed; top: 0; left: 0; width: 100%; z-index: 50; }
-        #main-header.header-scrolled { box-shadow: theme('boxShadow.md'); }
-        #main-nav a.nav-link { transition: color 0.3s ease; color: var(--color-text-body); font-weight: 600; display: inline-block; }
-        #main-nav a.nav-link:hover, #main-nav a.nav-link.active { color: var(--color-primary); }
-        #mobile-menu { transition: transform 0.3s ease-in-out; border-right: 1px solid var(--color-border); position: fixed; top: 0; left: 0; width: 16rem; height: 100%; z-index: 60; background-color: var(--color-bg-surface); }
-        #mobile-menu.hidden-menu { transform: translateX(-100%); }
-        #mobile-menu nav a.mobile-menu-link { transition: color 0.2s ease, background-color 0.2s ease; color: var(--color-text-body); }
-        #mobile-menu nav a.mobile-menu-link:hover, #mobile-menu nav a.mobile-menu-link.active { color: var(--color-primary); background-color: theme('colors.blue.50'); }
-        #menu-overlay { background-color: rgba(0, 0, 0, 0.5); transition: opacity 0.3s ease-in-out; position: fixed; inset: 0; z-index: 55; }
-        #menu-overlay.hidden { opacity: 0; pointer-events: none; }
-        #scroll-to-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primary); color: var(--color-text-on-primary); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease; box-shadow: theme('boxShadow.lg'); z-index: 1000; border: none; }
-        #scroll-to-top.visible { opacity: 1; visibility: visible; }
-        #scroll-to-top:hover { background-color: var(--color-primary-dark); transform: translateY(-3px); }
-        .page { display: block; animation: pageFadeIn 0.5s ease-out forwards; } /* Sempre visível */
-        @keyframes pageFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .substack-embed-container { overflow: hidden; /* Ajuda a conter o conteúdo do embed */ }
-        .substack-embed-container iframe { margin: -1px; /* Ajuste se necessário */ }
-        .redirect-button { display: inline-block; padding: 12px 24px; background-color: var(--color-primary); color: var(--color-text-on-primary); font-weight: 600; border-radius: 8px; text-decoration: none; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .redirect-button:hover { background-color: var(--color-primary-dark); transform: translateY(-2px); }
-        /* Adicione quaisquer outros estilos base do seu index.html aqui */
-    </style>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>/* Estilos Tailwind inline ou específicos de plugins permanecem aqui */</style>
+
 </head>
 <body class="bg-bg-main text-text-body page-blog" data-aos-easing="ease-out-quad" data-aos-duration="600" data-aos-delay="0">
 
@@ -64,21 +28,21 @@
         <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-gray-900 hover:text-[#0582ff] transition duration-300">MBA lite</a>
             <nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
-                <a href="index.html" class="nav-link transform hover:scale-105 transition-transform duration-300">Início</a>
-                <a href="index.html#modules" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
-                <a href="index.html#publications" class="nav-link transform hover:scale-105 transition-transform duration-300">Publicações</a>
-                <a href="index.html#autor" class="nav-link transform hover:scale-105 transition-transform duration-300">Autor</a>
-                <a href="blog.html" class="nav-link active transform hover:scale-105 transition-transform duration-300">Blog</a>
-                <a href="index.html#faq" class="nav-link transform hover:scale-105 transition-transform duration-300">FAQ</a>
-                <a href="index.html#enroll" class="ml-4 inline-flex items-center justify-center px-6 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-700 transform transition duration-300 ease-in-out text-sm h-[30px] leading-tight">Inscreva-se</a>
+                 <a href="index.html" class="nav-link transform hover:scale-105 transition-transform duration-300">Início</a>
+                 <a href="index.html#modules" class="nav-link transform hover:scale-105 transition-transform duration-300">Módulos</a>
+                 <a href="index.html#publications" class="nav-link transform hover:scale-105 transition-transform duration-300">Publicações</a>
+                 <a href="index.html#autor" class="nav-link transform hover:scale-105 transition-transform duration-300">Autor</a>
+                 <a href="blog.html" class="nav-link active transform hover:scale-105 transition-transform duration-300">Blog</a>
+                 <a href="index.html#faq" class="nav-link transform hover:scale-105 transition-transform duration-300">FAQ</a>
+                 <a href="index.html#enroll" class="ml-4 inline-flex items-center justify-center px-6 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-700 transform transition duration-300 ease-in-out text-sm h-[30px] leading-tight">Inscreva-se</a>
             </nav>
-            <button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-[#0582ff]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+             <button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-[#0582ff]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i class="fas fa-bars text-xl" aria-hidden="true"></i>
             </button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="bg-white shadow-lg hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+     <div id="mobile-menu" class="bg-white shadow-lg hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
         <div class="flex justify-between items-center mb-8 px-6 pt-6">
             <span id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</span>
             <button id="close-menu-btn" class="text-gray-500 hover:text-[#0582ff] focus:outline-none" aria-label="Fechar menu">
@@ -90,7 +54,7 @@
             <a href="index.html#modules" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Módulos</a>
             <a href="index.html#publications" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Publicações</a>
             <a href="index.html#autor" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Autor</a>
-            <a href="blog.html" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link active">Blog</a>
+             <a href="blog.html" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link active">Blog</a>
             <a href="index.html#faq" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">FAQ</a>
             <a href="index.html#enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md bg-[#0582ff] text-white uppercase tracking-wider border-2 border-[#0582ff] hover:bg-[#045ac3] hover:border-[#045ac3] transition-all duration-300 ease-in-out" style="margin-top: 40px;">Inscreva-se</a>
         </nav>
@@ -113,7 +77,7 @@
 
                     <article class="standard-card-style substack-embed-container p-4 md:p-6 aos-init" data-aos="fade-up">
                         <div class="substack-post-embed"><p lang="pt-br">#ANormalidadeDeLula por Não É Imprensa</p><p>Em mais uma entrevista, Gilmar Mendes mostra sua “experiência política”. Ou, como devolver a cocaína ao traficante</p><a data-post-link href="https://www.naoeimprensa.com/p/anormalidadedelula">Leia no Substack</a></div>
-                    </article>
+                        </article>
 
                     <article class="standard-card-style substack-embed-container p-4 md:p-6 aos-init" data-aos="fade-up" data-aos-delay="100">
                         <div class="substack-post-embed">
@@ -121,7 +85,7 @@
                             <p>Resumo do segundo post que você pegou do Substack...</p>
                             <a data-post-link href="https://www.reddit.com/r/Substack/comments/17jyy12/should_i_publish_several_articles_when_i_begin_or/">Leia no Substack</a>
                         </div>
-                    </article>
+                        </article>
 
                     <article class="standard-card-style substack-embed-container p-4 md:p-6 aos-init" data-aos="fade-up" data-aos-delay="200">
                         <div class="substack-post-embed">
@@ -129,7 +93,7 @@
                             <p>Resumo do terceiro post...</p>
                              <a data-post-link href="https://www.reddit.com/r/Substack/comments/1c9u7j8/if_i_started_posting_with_no_followers_can_people/">Leia no Substack</a>
                         </div>
-                    </article>
+                        </article>
 
                      </div>
             </div>
@@ -137,7 +101,7 @@
     </main>
 
     <footer class="bg-bg-surface py-10 mt-16 px-5">
-        <div class="container mx-auto text-center text-text-muted">
+         <div class="container mx-auto text-center text-text-muted">
             <div class="footer-social-icons flex justify-center space-x-6 mb-6">
                 <a href="mailto:dan@mbalite.com.br" title="Email" aria-label="Enviar email para Danúbio Coelho" class="text-gray-500 hover:text-[#0582ff] transition duration-300 text-2xl">
                     <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -160,6 +124,7 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // O JavaScript aqui é o mais simples, sem a lógica de SPA
         document.addEventListener('DOMContentLoaded', () => {
             const SCROLL_TOP_VISIBILITY_THRESHOLD = 300;
             const HEADER_SCROLL_THRESHOLD = 50;
@@ -175,7 +140,7 @@
             };
 
             let isMenuOpen = false;
-            let headerHeight = 60; // Ou recalcule como antes
+            let headerHeight = 60; // Pode recalcular se precisar
 
             function updateDynamicOffsets() {
                 try {
@@ -188,8 +153,6 @@
                     headerHeight = 60;
                     document.body.style.paddingTop = `${headerHeight}px`;
                 }
-                 // Recalcular scrollOffset se necessário para alguma lógica, mas não é usado para navegação aqui
-                 // let scrollOffset = headerHeight + 20;
              }
 
             function initAOS() {
@@ -205,18 +168,11 @@
                 elements.menuBtn.addEventListener('click', toggleMenu);
                 elements.closeMenuBtn.addEventListener('click', closeMenu);
                 elements.menuOverlay.addEventListener('click', closeMenu);
-                 // Fechar ao clicar em link (bom para páginas separadas)
+                 // Fechar menu ao clicar em qualquer link no mobile (simples)
                  document.querySelectorAll('#mobile-menu nav a').forEach(link => {
-                     link.addEventListener('click', (e) => {
-                         // Verifica se é um link externo ou para outra página
-                         const href = link.getAttribute('href');
-                         if (href && (href.startsWith('http') || href.includes('.html'))) {
-                             // Não previne navegação, apenas fecha o menu se estiver aberto
-                             if (isMenuOpen) closeMenu();
-                         } else {
-                             // Se for um link interno da página (improvável aqui), apenas fecha
-                             if (isMenuOpen) closeMenu();
-                         }
+                     link.addEventListener('click', () => {
+                         if (isMenuOpen) closeMenu();
+                         // A navegação normal do link ocorrerá
                      });
                  });
             }
@@ -260,7 +216,7 @@
                 }
             }
 
-            // Inicializações
+            // Inicializações para blog.html (sem SPA)
             updateDynamicOffsets();
             window.addEventListener('resize', updateDynamicOffsets);
             initAOS();

@@ -1,0 +1,305 @@
+/* === Conteúdo para styles.css === */
+
+:root {
+    --header-height: 60px; /* Adjusted header height */
+    --scroll-offset: calc(var(--header-height) + 20px);
+    --color-primary: #0582ff;
+    --color-primary-dark: #045ac3;
+    --color-text-on-primary: theme('colors.white');
+    --color-text-title: theme('colors.gray.900');
+    --color-text-body: theme('colors.gray.700');
+    --color-text-muted: theme('colors.gray.500');
+    --color-bg-main: theme('colors.gray.50');
+    --color-bg-surface: theme('colors.white');
+    --color-bg-surface-dark: theme('colors.gray.100');
+    --color-border: theme('colors.gray.200');
+    --color-border-dark: theme('colors.gray.300');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg-main);
+    color: var(--color-text-body);
+    padding-top: var(--header-height); /* Mantém espaço para o header fixo */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-synthesis: none;
+}
+
+main {
+    flex-grow: 1; /* Garante que o main ocupe o espaço restante */
+}
+
+.scroll-target {
+    scroll-margin-top: var(--scroll-offset); /* Ajusta o ponto de scroll para links internos */
+}
+
+h2.section-title {
+    color: var(--color-text-title);
+    position: relative;
+}
+
+/* Estilos de Cards e Ícones */
+.icon-block-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.icon-block-card:hover {
+    transform: translateY(-5px);
+}
+.icon-block-card .icon {
+    color: var(--color-primary);
+    transition: transform 0.3s ease;
+}
+.icon-block-card:hover .icon {
+    transform: scale(1.1);
+}
+
+.standard-card-style {
+    background-color: var(--color-bg-surface);
+    border-radius: theme('borderRadius.lg');
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.standard-card-style:hover {
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
+    /* A animação de hover translateY está sendo aplicada diretamente no blog.html, pode ser adicionada aqui se preferir */
+}
+
+/* Estilos específicos de páginas (se houver) */
+.page-content-container article h2 {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem; /* Equivalente a pb-3 do Tailwind */
+    margin-bottom: 1.25rem; /* Equivalente a mb-5 do Tailwind */
+}
+
+/* Estilos FAQ */
+.faq-item {
+    transition: box-shadow 0.2s ease;
+}
+.faq-item:hover {
+    box-shadow: theme('boxShadow.md');
+}
+.faq-item summary {
+    position: relative;
+    list-style: none; /* Remove marcador padrão */
+    cursor: pointer;
+}
+.faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px; /* Ajuste conforme padding do summary */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-primary);
+    transition: transform 0.2s ease;
+}
+.faq-item[open] > summary::after {
+    content: '−'; /* Caractere de menos */
+    /* A rotação não é mais necessária com a troca de caractere */
+    /* transform: translateY(-50%) rotate(180deg); */
+}
+.faq-item summary::-webkit-details-marker {
+    display: none; /* Esconde marcador no Chrome/Safari */
+}
+.faq-item .faq-content {
+    border-top: 1px solid var(--color-border);
+}
+
+/* Header Principal */
+#main-header {
+    background-color: var(--color-bg-surface); /* Garante fundo branco no header */
+    box-shadow: theme('boxShadow.sm');
+    height: var(--header-height);
+    transition: box-shadow 0.3s ease;
+    position: fixed; /* Header fixo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+#main-header.header-scrolled {
+    box-shadow: theme('boxShadow.md');
+}
+
+/* Navegação Principal (Desktop) */
+#main-nav a.nav-link {
+    transition: color 0.3s ease;
+    color: var(--color-text-body);
+    font-weight: 600;
+    display: inline-block;
+    /* Efeitos de hover/transform podem ser mantidos ou movidos das classes Tailwind */
+}
+#main-nav a.nav-link:hover,
+#main-nav a.nav-link.active {
+    color: var(--color-primary);
+}
+
+/* Menu Mobile */
+#mobile-menu {
+    background-color: var(--color-bg-surface); /* Fundo */
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid var(--color-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16rem; /* Largura do menu */
+    height: 100%;
+    z-index: 60; /* Acima do overlay */
+}
+#mobile-menu.hidden-menu {
+    transform: translateX(-100%);
+}
+#mobile-menu nav a.mobile-menu-link {
+    transition: color 0.2s ease, background-color 0.2s ease;
+    color: var(--color-text-body);
+    display: block; /* Garante que ocupem a linha toda */
+    padding: 0.625rem 0.75rem; /* py-2.5 px-3 */
+    border-radius: theme('borderRadius.md');
+    font-weight: 500; /* medium */
+}
+#mobile-menu nav a.mobile-menu-link:hover,
+#mobile-menu nav a.mobile-menu-link.active {
+    color: var(--color-primary);
+    background-color: theme('colors.blue.50'); /* Fundo azul claro no hover/ativo */
+}
+
+/* Overlay do Menu Mobile */
+#menu-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+    position: fixed;
+    inset: 0; /* Cobre a tela toda */
+    z-index: 55; /* Abaixo do menu, acima do conteúdo */
+}
+#menu-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Não interage quando escondido */
+}
+
+/* Botão Voltar ao Topo */
+#scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: theme('boxShadow.lg');
+    z-index: 1000;
+    border: none;
+}
+#scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#scroll-to-top:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Preloader (Se ainda estiver usando) */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease 0.3s;
+}
+#preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--color-primary);
+    animation: spin 1s ease infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Gerenciamento de Páginas SPA (Aplicável apenas ao index.html com JS) */
+.page {
+    display: none; /* Escondido por padrão */
+    animation: pageFadeIn 0.5s ease-out forwards;
+}
+.page.active {
+    display: block; /* Apenas a página ativa é mostrada */
+}
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos específicos de seções (index.html) */
+#enroll .form-wrapper {
+    background-color: var(--color-bg-surface);
+    border-radius: theme('borderRadius.lg');
+    /* Usar a sombra padrão do card ou uma específica */
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
+}
+
+.experience-item .timeline-line {
+    border-left-color: var(--color-border-dark);
+}
+
+/* Ajuste para formulário ConvertKit (se aplicável) */
+.formkit-form[data-uid="d0849e0001"][data-style="minimal"] {
+    padding: 0 !important;
+}
+
+/* Estilos específicos para o Blog (blog.html) */
+.substack-embed-container {
+    overflow: hidden; /* Ajuda a conter o conteúdo do embed */
+}
+.substack-embed-container iframe {
+    margin: -1px; /* Pequeno ajuste para bordas do iframe */
+    /* Outros estilos para o iframe, se necessário */
+}
+
+.redirect-button { /* Estilo para o botão na página de redirecionamento do blog */
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.redirect-button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Você pode adicionar mais estilos personalizados aqui, se necessário */
