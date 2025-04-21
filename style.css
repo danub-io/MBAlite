@@ -1,3 +1,14 @@
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Aplica a prevenção de overflow na raiz */
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; /* Garante herança do box-sizing */
+}
+
 :root {
 	--header-height: 60px; /* Adjusted header height */
 	--scroll-offset: calc(var(--header-height) + 20px);
@@ -15,10 +26,6 @@
 }
 html {
 	scroll-behavior: smooth;
-	overflow: hidden;
-	width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 body {
 	font-family: 'Inter', sans-serif;
@@ -31,10 +38,6 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	font-synthesis: none;
-	overflow: hidden;
-	width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
 }
 main {
 	flex-grow: 1;
