@@ -1,5 +1,3 @@
-/* style.css */
-
 :root {
 	--header-height: 60px; /* Adjusted header height */
 	--scroll-offset: calc(var(--header-height) + 20px);
@@ -15,89 +13,67 @@
 	--color-border: theme('colors.gray.200');
 	--color-border-dark: theme('colors.gray.300');
 }
-
 html {
 	scroll-behavior: smooth;
-	/* Adicionado para segurança: */
-	overflow-x: hidden;
 }
-
 body {
 	font-family: 'Inter', sans-serif;
 	background-color: var(--color-bg-main);
 	color: var(--color-text-body);
-	padding-top: var(--header-height); /* Mantém espaço para header fixo */
+	padding-top: var(--header-height);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	font-synthesis: none;
-	/* Adicionado para corrigir rolagem horizontal: */
-	overflow-x: hidden;
 }
-
 main {
 	flex-grow: 1;
-	/* Opcional: Se o problema persistir, pode tentar adicionar aqui também */
-	/* overflow-x: hidden; */
 }
-
 .scroll-target {
 	scroll-margin-top: var(--scroll-offset);
 }
-
 h2.section-title {
 	color: var(--color-text-title);
 	position: relative;
 }
-
 .icon-block-card {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .icon-block-card:hover {
 	transform: translateY(-5px);
 }
-
 .icon-block-card .icon {
 	color: var(--color-primary);
 	transition: transform 0.3s ease;
 }
-
 .icon-block-card:hover .icon {
 	transform: scale(1.1);
 }
-
 .standard-card-style {
 	background-color: var(--color-bg-surface);
 	border-radius: theme('borderRadius.lg');
 	box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
 	transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
 .standard-card-style:hover {
 	box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
 }
-
 .page-content-container article h2 {
 	border-bottom: 1px solid var(--color-border);
 }
-
 .faq-item {
 	transition: box-shadow 0.2s ease;
 }
-
 .faq-item:hover {
 	box-shadow: theme('boxShadow.md');
 }
-
 .faq-item summary {
 	position: relative;
 	list-style: none;
 	cursor: pointer;
 }
-
 .faq-item summary::after {
 	content: '+';
 	position: absolute;
@@ -109,24 +85,16 @@ h2.section-title {
 	color: var(--color-primary);
 	transition: transform 0.2s ease;
 }
-
 .faq-item[open] > summary::after {
 	content: '−';
-	/* Não precisa de rotate aqui, apenas muda o content */
-	transform: translateY(-50%);
+	transform: translateY(-50%) rotate(180deg);
 }
-
 .faq-item summary::-webkit-details-marker {
 	display: none;
 }
-
 .faq-item .faq-content {
 	border-top: 1px solid var(--color-border);
-	/* Adicione padding inferior para espaçamento quando aberto */
-	padding-bottom: 1rem;
 }
-
-
 #main-header {
 	box-shadow: theme('boxShadow.sm');
 	height: var(--header-height);
@@ -136,53 +104,42 @@ h2.section-title {
 	left: 0;
 	width: 100%;
 	z-index: 50;
-	background-color: var(--color-bg-surface); /* Garante fundo branco */
 }
-
 #main-header.header-scrolled {
 	box-shadow: theme('boxShadow.md');
 }
-
 #main-nav a.nav-link {
 	transition: color 0.3s ease;
 	color: var(--color-text-body);
 	font-weight: 600;
 	display: inline-block;
 }
-
 #main-nav a.nav-link:hover,
 #main-nav a.nav-link.active {
 	color: var(--color-primary);
 }
-
 #mobile-menu {
 	transition: transform 0.3s ease-in-out;
 	border-right: 1px solid var(--color-border);
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 16rem; /* 256px */
+	width: 16rem;
 	height: 100%;
 	z-index: 60;
-	background-color: var(--color-bg-surface); /* Garante fundo */
-	overflow-y: auto; /* Permite rolar o menu se for longo */
 }
-
 #mobile-menu.hidden-menu {
 	transform: translateX(-100%);
 }
-
 #mobile-menu nav a.mobile-menu-link {
 	transition: color 0.2s ease, background-color 0.2s ease;
 	color: var(--color-text-body);
 }
-
 #mobile-menu nav a.mobile-menu-link:hover,
 #mobile-menu nav a.mobile-menu-link.active {
 	color: var(--color-primary);
 	background-color: theme('colors.blue.50');
 }
-
 #menu-overlay {
 	background-color: rgba(0, 0, 0, 0.5);
 	transition: opacity 0.3s ease-in-out;
@@ -190,12 +147,10 @@ h2.section-title {
 	inset: 0;
 	z-index: 55;
 }
-
 #menu-overlay.hidden {
 	opacity: 0;
 	pointer-events: none;
 }
-
 #scroll-to-top {
 	position: fixed;
 	bottom: 30px;
@@ -216,17 +171,14 @@ h2.section-title {
 	z-index: 1000;
 	border: none;
 }
-
 #scroll-to-top.visible {
 	opacity: 1;
 	visibility: visible;
 }
-
 #scroll-to-top:hover {
 	background-color: var(--color-primary-dark);
 	transform: translateY(-3px);
 }
-
 #preloader {
 	position: fixed;
 	top: 0;
@@ -241,12 +193,10 @@ h2.section-title {
 	opacity: 1;
 	transition: opacity 0.5s ease 0.3s;
 }
-
 #preloader.hidden {
 	opacity: 0;
 	pointer-events: none;
 }
-
 .spinner {
 	border: 4px solid rgba(0, 0, 0, 0.1);
 	width: 36px;
@@ -255,46 +205,30 @@ h2.section-title {
 	border-left-color: var(--color-primary);
 	animation: spin 1s ease infinite;
 }
-
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
-
 .page {
 	display: none;
 	animation: pageFadeIn 0.5s ease-out forwards;
-	width: 100%; /* Garante que a página ocupe a largura disponível */
 }
-
 .page.active {
 	display: block;
 }
-
 @keyframes pageFadeIn {
-	from { opacity: 0; /* transform: translateY(10px); - Removido para evitar saltos */ }
-	to { opacity: 1; /* transform: translateY(0); */ }
+	from { opacity: 0; transform: translateY(10px); }
+	to { opacity: 1; transform: translateY(0); }
 }
-
-
 #enroll .form-wrapper {
 	background-color: var(--color-bg-surface);
 	border-radius: theme('borderRadius.lg');
-	/* Removido padding para deixar o form controlar */
-	/* box-shadow: theme('boxShadow.card'); */ /* Sombra pode ser desnecessária se o form já tiver */
+	box-shadow: theme('boxShadow.card');
 }
-
 .experience-item .timeline-line {
 	border-left-color: var(--color-border-dark);
 }
-
-/* Ajuste para formulário ConvertKit (evitar overflow se possível) */
-.formkit-form[data-uid="d0849e0001"] {
-	border: 0 !important; /* Sobrescreve borda padrão se houver */
-	max-width: 100% !important; /* Garante que não ultrapasse o container */
-	overflow: hidden; /* Esconde qualquer coisa que tente vazar */
-}
 .formkit-form[data-uid="d0849e0001"][data-style="minimal"] {
-	padding: 0 !important; /* Remove padding interno do wrapper */
+	padding: 0 !important;
 }
-/* Estilos do Tailwind são carregados via CDN */
+/* Estilos do Tailwind (removidos pois são carregados via CDN ou estarão em suas próprias folhas de estilo) */
