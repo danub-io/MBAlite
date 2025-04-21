@@ -15,6 +15,10 @@
 }
 html {
 	scroll-behavior: smooth;
+	overflow: hidden;
+	width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 body {
 	font-family: 'Inter', sans-serif;
@@ -28,6 +32,9 @@ body {
 	min-height: 100vh;
 	font-synthesis: none;
 	overflow: hidden;
+	width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 main {
 	flex-grow: 1;
