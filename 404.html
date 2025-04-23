@@ -10,7 +10,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 	<link rel="preconnect" href="https://mbalite.kit.com">
-	<link href="./src/aos.css" rel="stylesheet">
+    <link rel="preload" href="./src/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="./src/aos.css"></noscript>
 	<link rel="preload" href="./fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="./fontawesome/css/all.min.css"></noscript>
 	<link href="./dist/output.css" rel="stylesheet">
@@ -877,7 +878,7 @@
 	<button id="scroll-to-top" title="Voltar ao topo" aria-label="Voltar ao topo" class="visible">
 		<i class="fas fa-arrow-up text-white" aria-hidden="true"></i>
 	</button>
-	<script src="./src/aos.js"></script>
+    <script src="./src/aos.js" defer></script>
 	<script src="https://f.convertkit.com/ckjs/ck.5.js" async="true" crossorigin="anonymous"></script>
 	<script src="script.js" defer></script>
 </body>
