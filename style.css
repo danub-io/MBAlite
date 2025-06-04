@@ -242,9 +242,3 @@ h2.section-title {
 .formkit-form[data-uid="d0849e0001"][data-style="minimal"] {
 	padding: 0 !important;
 }
-/* Estilos do Tailwind (removidos pois são carregados via CDN ou estarão em suas próprias folhas de estilo) */
-
-/* Adicionado para remover o cursor de ponteiro dos módulos */
-#modules .icon-block-card.module-link {
-    cursor: default;
-}
