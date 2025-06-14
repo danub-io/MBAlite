@@ -319,38 +319,47 @@ document.addEventListener('DOMContentLoaded', function() {
 			showPage(defaultPageId, null, false, true);
 		}
 	});
+// --- NOVO BLOCO DE INICIALIZAÇÃO ---
 
-	const initialPath = window.location.pathname;
-	const initialHash = window.location.hash ? window.location.hash.substring(1) : null;
-	let initialPageId = pageMap.get(initialPath) || defaultPageId;
+// Função para tratar o carregamento inicial da página sem causar atraso de renderização
+function initializePage() {
+    const initialPath = window.location.pathname;
+    const initialHash = window.location.hash ? window.location.hash.substring(1) : null;
+    let initialPageId = pageMap.get(initialPath) || defaultPageId;
 
-	const confirmationPageId = 'page-confirmation';
-	const isConfirmationRedirect = window.location.search.includes('submission_confirmed=true') || window.location.search.includes('ck_subscriber_id=');
+    // Lógica para a página de confirmação
+    const confirmationPageId = 'page-confirmation';
+    if (window.location.search.includes('submission_confirmed=true') || window.location.search.includes('ck_subscriber_id=')) {
+        if (pageMap.get('/confirmation')) {
+            initialPageId = confirmationPageId;
+        }
+    }
 
-	if (isConfirmationRedirect && pageMap.get('/confirmation')) {
-	    initialPageId = confirmationPageId;
-	    const confirmationPath = getKeyByValue(pageMap, confirmationPageId);
-	    if (confirmationPath && window.location.pathname !== confirmationPath) {
-	        history.replaceState({ pageId: confirmationPageId }, '', confirmationPath);
-	        console.log("Corrected URL for confirmation page.");
-	    } else {
-			if (window.location.search) {
-				history.replaceState({ pageId: confirmationPageId }, '', window.location.pathname);
-			}
-		}
-	}
+    // Se a página inicial não for a que está 'ativa' no HTML, então trocamos.
+    // Isso só deve acontecer se o usuário entrar por uma URL direta (ex: /autor).
+    const activePage = document.querySelector('.page.active');
+    if (!activePage || activePage.id !== initialPageId) {
+        if (document.getElementById(initialPageId)) {
+            showPage(initialPageId, initialHash, false);
+        } else {
+            showPage(defaultPageId, null, false); // Carrega a página padrão se a URL for inválida
+        }
+    } else {
+        // Se a página correta já está ativa, apenas atualizamos o link de navegação e rolamos se necessário.
+        updateActiveNavLink(initialPageId);
+        if (initialHash) {
+            const targetElement = document.getElementById(initialHash);
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }, 150);
+            }
+        }
+    }
+}
 
-	if (document.getElementById(initialPageId)) {
-		showPage(initialPageId, initialHash, false);
-	} else {
-		console.error(`Initial page ID "${initialPageId}" derived from URL "${initialPath}" does not exist. Showing default page "${defaultPageId}".`);
-		const defaultPath = getKeyByValue(pageMap, defaultPageId) || '/';
-		if (window.location.pathname !== defaultPath) {
-			history.replaceState({ pageId: defaultPageId }, '', defaultPath);
-		}
-		showPage(defaultPageId, null, false);
-	}
-
+initializePage(); // Executa a nova função de inicialização
+	
 	if (faqItems.length > 0) {
 		faqItems.forEach(item => {
 			const summary = item.querySelector('summary');
