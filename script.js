@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			let path;
 			switch (page.id) {
 				case 'page-index': path = '/'; break;
-				case 'page-content': path = '/conteudo'; break;
+				case 'page-content': path = '/modulos'; break;
 				case 'page-publications': path = '/publicacoes'; break;
 				case 'page-autor': path = '/autor'; break;
 				case 'page-faq': path = '/faq'; break;
