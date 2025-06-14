@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<link rel="preload" href="/img/svg/hero1.svg" as="image" type="image/svg+xml">
-    <meta name="description" content="Domine a Gestão Estratégica com um programa intensivo e prático. Aprenda sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA.">
+    <link rel="preload" href="/img/svg/hero1.svg" as="image" type="image/svg+xml" fetchpriority="high">
+	<meta name="description" content="Domine a Gestão Estratégica com um programa intensivo e prático. Aprenda sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA.">
     <title>MBA lite</title>
     <link rel="icon" type="image/png" href="/img/fav.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -267,8 +267,9 @@
     <noscript><link rel="stylesheet" href="./src/aos.css"></noscript>
     <link rel="preload" href="./fontawesome/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="./fontawesome/css/all.min.css"></noscript>
-    <link rel="preload" href="./dist/output.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./dist/output.css"></noscript>
+    <link rel="stylesheet" href="./dist/output.css">
+<link rel="stylesheet" href="style.css">
+	<noscript><link rel="stylesheet" href="./dist/output.css"></noscript>
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
 
@@ -315,7 +316,7 @@
 				<div class="container mx-auto px-4 md:px-6 lg:px-8">
 					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" style="margin-bottom: 0px;">
-							<img width="720" height="690" src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto aos-init aos-animate" data-aos="fade-right" data-aos-delay="50">
+                        <img width="720" height="690" src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" fetchpriority="high">
 						</div>
 						<div class="w-full md:w-1/2 lg:w-7/12 text-center md:text-left order-2 relative z-10">
 							<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight">Domine a Gestão Estratégica com o MBA lite</h1>
