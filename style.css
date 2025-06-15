@@ -4,6 +4,7 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -15,21 +16,15 @@ body {
 :root {
     --header-height: 60px;
     --scroll-offset: calc(var(--header-height) + 20px);
-    --color-primary: #0582ff;
-    --color-primary-dark: #045ac3;
-    --color-text-on-primary: theme('colors.white');
-    --color-text-title: theme('colors.gray.900');
-    --color-text-body: theme('colors.gray.700');
-    --color-text-muted: theme('colors.gray.500');
-    --color-bg-main: theme('colors.gray.50');
-    --color-bg-surface: theme('colors.white');
-    --color-bg-surface-dark: theme('colors.gray.100');
-    --color-border: theme('colors.gray.200');
-    --color-border-dark: theme('colors.gray.300');
-}
-
-html {
-    scroll-behavior: smooth;
+    --color-primary: #005A9E;
+    --color-primary-dark: #00437A;
+    --color-text-on-primary: #ffffff;
+    --color-text-title: #111827;
+    --color-text-body: #374151;
+    --color-text-muted: #6b7281;
+    --color-bg-main: #f9fafb;
+    --color-bg-surface: #ffffff;
+    --color-border: #e5e7eb;
 }
 
 body {
@@ -53,14 +48,37 @@ main {
     scroll-margin-top: var(--scroll-offset);
 }
 
+.text-primary-main {
+    color: var(--color-primary);
+}
+
+.bg-primary-main {
+    background-color: var(--color-primary);
+}
+
+.border-primary-main {
+    border-color: var(--color-primary);
+}
+
+.hover\:text-primary-main:hover {
+    color: var(--color-primary);
+}
+
+.hover\:bg-primary-dark:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.hover\:border-primary-dark:hover {
+    border-color: var(--color-primary-dark);
+}
+
 h2.section-title {
     color: var(--color-text-title);
-    position: relative;
 }
 
 .standard-card-style {
     background-color: var(--color-bg-surface);
-    border-radius: theme('borderRadius.lg');
+    border-radius: 0.5rem;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
 }
 
@@ -77,7 +95,7 @@ h2.section-title {
 .faq-item summary::after {
     content: '+';
     position: absolute;
-    right: 20px;
+    right: 1.25rem;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.5rem;
@@ -87,7 +105,7 @@ h2.section-title {
 }
 
 .faq-item[open]>summary::after {
-    content: '−';
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -99,7 +117,7 @@ h2.section-title {
 }
 
 #main-header {
-    box-shadow: theme('boxShadow.sm');
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     height: var(--header-height);
     transition: box-shadow 0.3s ease;
     position: fixed;
@@ -110,7 +128,7 @@ h2.section-title {
 }
 
 #main-header.header-scrolled {
-    box-shadow: theme('boxShadow.md');
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 #main-nav a.nav-link {
@@ -136,6 +154,7 @@ h2.section-title {
     height: 100%;
     z-index: 60;
     transform: translateX(-100%);
+    background-color: var(--color-bg-surface);
 }
 
 #mobile-menu.menu-open {
@@ -154,7 +173,7 @@ h2.section-title {
 #mobile-menu nav a.mobile-menu-link:hover,
 #mobile-menu nav a.mobile-menu-link.active {
     color: var(--color-primary);
-    background-color: theme('colors.blue.50');
+    background-color: #eef8ff;
 }
 
 #menu-overlay {
@@ -188,7 +207,7 @@ h2.section-title {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    box-shadow: theme('boxShadow.lg');
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
     z-index: 1000;
     border: none;
 }
@@ -208,47 +227,44 @@ h2.section-title {
 
 .page.active {
     display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .experience-item .timeline-line {
-    border-left-color: var(--color-border-dark);
+    border-left-color: var(--color-border);
 }
 
-.formkit-form[data-uid="d0849e0001"] * {
-    box-sizing: border-box
+.formkit-form[data-uid="d0849e0001"] .formkit-header {
+    color:#111827;
+    font-size:20px;
+    font-weight:700;
 }
-
-.formkit-form[data-uid="d0849e0001"] ul:not([template-default]) {
-    text-align: left
+.formkit-form[data-uid="d0849e0001"] .formkit-subheader {
+    color:#454545;
+    font-size:16px;
 }
-
-.formkit-form[data-uid="d0849e0001"] ul:not([template-default]) {
-    color: inherit;
-    font-style: initial
+.formkit-form[data-uid="d0849e0001"] .formkit-input {
+    color:#6b7280;
+    border-color:#d3d3d3;
+    border-radius:5px;
+    font-weight:400;
 }
-
-.formkit-form[data-uid="d0849e0001"] .formkit-alert {
-    background: #f9fafb;
-    border: 1px solid #e3e3e3;
-    border-radius: 5px;
-    flex: 1 0 auto;
-    list-style: none;
-    margin: 25px auto;
-    padding: 12px;
-    text-align: center;
-    width: 100%
+.formkit-form[data-uid="d0849e0001"] .formkit-submit {
+    color:#ffffff;
+    background-color: var(--color-primary);
+    border-radius:4px;
+    font-weight:700;
 }
-
-.formkit-form[data-uid="d0849e0001"] .formkit-alert:empty {
-    display: none
+.formkit-form[data-uid="d0849e0001"] .formkit-submit:hover {
+    background-color: var(--color-primary-dark);
 }
-
-.formkit-form[data-uid="d0849e0001"] .formkit-alert-error {
-    background: #fde8e2;
-    border-color: #f2643b;
-    color: #ea4110
-}
-
-#modules .icon-block-card {
-    cursor: default;
+.formkit-form[data-uid="d0849e0001"] .formkit-guarantee {
+    color:#454545;
+    font-size:13px;
+    font-weight:400;
 }

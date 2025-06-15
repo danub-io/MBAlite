@@ -5,11 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuOverlay = document.getElementById('menu-overlay');
     const mainHeader = document.getElementById('main-header');
     const scrollToTopBtn = document.getElementById('scroll-to-top');
-    const navLinks = document.querySelectorAll('#main-nav a');
-    const mobileMenuLinks = document.querySelectorAll('#mobile-menu nav a');
+    const allLinks = document.querySelectorAll('a');
     const pages = document.querySelectorAll('.page');
     const yearSpan = document.getElementById('current-year');
-    const allLinks = document.querySelectorAll('a');
 
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
@@ -17,17 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const toggleMenu = (open) => {
         if (mobileMenu && menuOverlay && menuBtn) {
-            if (open) {
-                mobileMenu.classList.add('menu-open');
-                menuOverlay.classList.add('overlay-visible');
-                document.body.style.overflow = 'hidden';
-                menuBtn.setAttribute('aria-expanded', 'true');
-            } else {
-                mobileMenu.classList.remove('menu-open');
-                menuOverlay.classList.remove('overlay-visible');
-                document.body.style.overflow = '';
-                menuBtn.setAttribute('aria-expanded', 'false');
-            }
+            mobileMenu.classList.toggle('menu-open', open);
+            menuOverlay.classList.toggle('overlay-visible', open);
+            document.body.style.overflow = open ? 'hidden' : '';
+            menuBtn.setAttribute('aria-expanded', open);
         }
     };
 
@@ -41,26 +32,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (mainHeader) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
         const handleScroll = () => {
-            if (window.scrollY > 50) {
-                mainHeader.classList.add('header-scrolled');
-            } else {
-                mainHeader.classList.remove('header-scrolled');
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    mainHeader.classList.toggle('header-scrolled', lastScrollY > 50);
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
     }
 
     if (scrollToTopBtn) {
         const handleScrollToTopVisibility = () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
+            scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
         };
-        window.addEventListener('scroll', handleScrollToTopVisibility);
+        window.addEventListener('scroll', handleScrollToTopVisibility, { passive: true });
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -70,121 +62,103 @@ document.addEventListener('DOMContentLoaded', function() {
         handleScrollToTopVisibility();
     }
 
+    const pageMap = new Map([
+        ['/', 'page-index'],
+        ['/modulos', 'page-content'],
+        ['/publicacoes', 'page-publications'],
+        ['/autor', 'page-autor'],
+        ['/faq', 'page-faq'],
+        ['/confirmation', 'page-confirmation']
+    ]);
+    
     const defaultPageId = 'page-index';
-    const pageMap = new Map();
-    pageMap.set('/', 'page-index');
-    pageMap.set('/modulos', 'page-content');
-    pageMap.set('/publicacoes', 'page-publications');
-    pageMap.set('/autor', 'page-autor');
-    pageMap.set('/faq', 'page-faq');
-    pageMap.set('/confirmation', 'page-confirmation');
 
-    function getPathByPageId(pageId) {
+    const getPathByPageId = (pageId) => {
         for (let [key, val] of pageMap.entries()) {
-            if (val === pageId) {
-                return key;
-            }
+            if (val === pageId) return key;
         }
         return null;
-    }
+    };
 
-    function showPage(pageId, targetElementId = null, pushState = true, isPopState = false) {
-        let pageToShow = document.getElementById(pageId);
-        if (!pageToShow) {
-            pageId = defaultPageId;
-            pageToShow = document.getElementById(pageId);
-        }
+    const updateActiveNavLink = (activePageId) => {
+        const activePath = getPathByPageId(activePageId);
+        const linksToUpdate = document.querySelectorAll('#main-nav a, #mobile-menu nav a');
+        linksToUpdate.forEach(link => {
+            try {
+                const linkUrl = new URL(link.href, window.location.origin);
+                link.classList.toggle('active', linkUrl.pathname === activePath);
+            } catch (e) {
+                link.classList.remove('active');
+            }
+        });
+    };
+
+    const showPage = (pageId, targetElementId = null, pushState = true, isPopState = false) => {
+        let pageToShow = document.getElementById(pageId) || document.getElementById(defaultPageId);
+        const effectivePageId = pageToShow.id;
 
         pages.forEach(p => {
-            p.classList.remove('active');
             p.style.display = 'none';
+            p.classList.remove('active');
         });
 
         pageToShow.style.display = 'block';
-        pageToShow.classList.add('active');
+        setTimeout(() => pageToShow.classList.add('active'), 10);
+        
+        updateActiveNavLink(effectivePageId);
 
-        updateActiveNavLink(pageId);
-
-        if (targetElementId) {
-            const targetElement = document.getElementById(targetElementId);
-            if (targetElement) {
-                setTimeout(() => {
+        const scrollToTarget = () => {
+            if (targetElementId) {
+                const targetElement = document.getElementById(targetElementId);
+                if (targetElement) {
                     const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                     const offsetPosition = elementPosition - headerOffset - 20;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }, 100);
-            } else {
-                 if (!isPopState) window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                } else if (!isPopState) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else if (!isPopState) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-        } else if (!isPopState) {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        };
+
+        setTimeout(scrollToTarget, 50);
 
         if (pushState) {
-            const path = getPathByPageId(pageId) || `/${pageId.replace('page-', '')}`;
+            const path = getPathByPageId(effectivePageId) || `/${effectivePageId.replace('page-', '')}`;
             const fullPath = targetElementId ? `${path}#${targetElementId}` : path;
             if ((window.location.pathname + window.location.hash) !== fullPath) {
-                history.pushState({ pageId: pageId, targetElementId: targetElementId }, '', fullPath);
+                history.pushState({ pageId: effectivePageId, targetElementId }, '', fullPath);
             }
         }
-    }
+    };
     
-    function updateActiveNavLink(activePageId) {
-        const linksToUpdate = [...navLinks, ...mobileMenuLinks];
-        const activePath = getPathByPageId(activePageId);
-
-        linksToUpdate.forEach(link => {
-            try {
-                 const linkUrl = new URL(link.href, window.location.origin);
-                 if (linkUrl.pathname === activePath) {
-                     link.classList.add('active');
-                 } else {
-                     link.classList.remove('active');
-                 }
-            } catch(e){}
-        });
-    }
-
-    function handleLinkClick(event) {
+    const handleLinkClick = (event) => {
         const link = event.currentTarget;
         const href = link.getAttribute('href');
 
         if (!href || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') {
             return;
         }
-
-        const scrollTarget = link.dataset.scrollTarget;
-        if (href.startsWith('/#') && scrollTarget) {
-            event.preventDefault();
-            const targetPageId = 'page-index';
-            const targetElement = document.getElementById(scrollTarget);
-            if (document.body.contains(targetElement)) {
-                 showPage(targetPageId, scrollTarget, true);
-            }
-            toggleMenu(false);
-            return;
-        }
         
         event.preventDefault();
+        
         try {
             const url = new URL(href, window.location.origin);
             const targetPageId = pageMap.get(url.pathname);
-            const targetElementId = url.hash ? url.hash.substring(1) : null;
+            const targetElementId = url.hash.substring(1);
 
-            if (targetPageId && document.getElementById(targetPageId)) {
-                showPage(targetPageId, targetElementId, true);
+            if (targetPageId) {
+                showPage(targetPageId, targetElementId);
             } else {
-                showPage(defaultPageId, null, true);
+                showPage(defaultPageId);
             }
             toggleMenu(false);
         } catch (e) {
             window.location.href = href;
         }
-    }
+    };
 
     allLinks.forEach(link => {
         link.addEventListener('click', handleLinkClick);
@@ -196,26 +170,26 @@ document.addEventListener('DOMContentLoaded', function() {
         let targetElementId = state.targetElementId;
 
         if (!pageIdToShow) {
-            const currentPath = window.location.pathname;
-            pageIdToShow = pageMap.get(currentPath) || defaultPageId;
-            targetElementId = window.location.hash ? window.location.hash.substring(1) : null;
+            pageIdToShow = pageMap.get(window.location.pathname) || defaultPageId;
+            targetElementId = window.location.hash.substring(1);
         }
         showPage(pageIdToShow, targetElementId, false, true);
     });
     
-    function initialLoad() {
-        const initialPath = window.location.pathname;
-        const initialHash = window.location.hash ? window.location.hash.substring(1) : null;
-        let initialPageId = pageMap.get(initialPath) || defaultPageId;
-        
-        const isConfirmation = window.location.search.includes('submission_confirmed=true');
-        if (isConfirmation && pageMap.get('/confirmation')) {
+    const initialLoad = () => {
+        const params = new URLSearchParams(window.location.search);
+        let initialPageId, initialHash;
+
+        if (params.has('submission_confirmed')) {
             initialPageId = 'page-confirmation';
             history.replaceState({ pageId: initialPageId }, '', '/confirmation');
+        } else {
+            initialPageId = pageMap.get(window.location.pathname) || defaultPageId;
+            initialHash = window.location.hash.substring(1);
         }
-
+        
         showPage(initialPageId, initialHash, true, true);
-    }
+    };
     
     initialLoad();
 });
