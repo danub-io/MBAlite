@@ -12,110 +12,103 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white text-gray-900 font-sans">
-    <header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 h-14 bg-white/70 backdrop-blur-sm border-b border-gray-200">
-        <a href="/" class="font-semibold text-lg">MBA lite</a>
-        <nav class="hidden md:flex items-center gap-x-6">
-            <a href="#modules" class="text-sm font-medium hover:text-blue-600 transition-colors">Módulos</a>
-            <a href="#publications" class="text-sm font-medium hover:text-blue-600 transition-colors">Publicações</a>
-            <a href="#author" class="text-sm font-medium hover:text-blue-600 transition-colors">Autor</a>
-            <a href="#faq" class="text-sm font-medium hover:text-blue-600 transition-colors">FAQ</a>
+<body>
+    <header>
+        <a href="/" class="logo">MBA lite</a>
+        <nav class="main-nav">
+            <a href="#modules">Módulos</a>
+            <a href="#publications">Publicações</a>
+            <a href="#author">Autor</a>
+            <a href="#faq">FAQ</a>
         </nav>
-        <div class="flex items-center gap-x-4">
-            <a href="#enroll" class="hidden md:inline-block bg-gray-900 text-white text-sm font-medium px-4 py-1.5 rounded-md hover:bg-gray-700 transition-colors">Inscreva-se</a>
-            <button id="menu-btn" class="md:hidden text-gray-600 text-xl">
-                <i class="fas fa-bars"></i>
-            </button>
+        <div class="header-actions">
+            <a href="#enroll" class="enroll-button">Inscreva-se</a>
+            <button id="menu-btn" class="menu-button"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-white p-6">
-        <div class="flex justify-between items-center mb-8">
-            <a href="/" class="font-semibold text-lg">MBA lite</a>
-            <button id="close-menu-btn" class="text-gray-600 text-xl">
-                <i class="fas fa-times"></i>
-            </button>
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <div class="mobile-menu-header">
+            <a href="/" class="logo">MBA lite</a>
+            <button id="close-menu-btn" class="close-menu-button"><i class="fas fa-times"></i></button>
         </div>
-        <nav class="flex flex-col gap-y-4">
-            <a href="#modules" class="text-lg font-medium hover:text-blue-600 transition-colors mobile-link">Módulos</a>
-            <a href="#publications" class="text-lg font-medium hover:text-blue-600 transition-colors mobile-link">Publicações</a>
-            <a href="#author" class="text-lg font-medium hover:text-blue-600 transition-colors mobile-link">Autor</a>
-            <a href="#faq" class="text-lg font-medium hover:text-blue-600 transition-colors mobile-link">FAQ</a>
-            <a href="#enroll" class="mt-4 inline-block bg-blue-600 text-white text-lg font-semibold px-6 py-2 rounded-md hover:bg-blue-700 transition-colors text-center mobile-link">Inscreva-se</a>
+        <nav class="mobile-nav">
+            <a href="#modules" class="mobile-link">Módulos</a>
+            <a href="#publications" class="mobile-link">Publicações</a>
+            <a href="#author" class="mobile-link">Autor</a>
+            <a href="#faq" class="mobile-link">FAQ</a>
+            <a href="#enroll" class="enroll-button-mobile mobile-link">Inscreva-se</a>
         </nav>
     </div>
 
-    <main class="pt-14">
-        <section id="hero" class="text-center py-20 px-4">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Domine a Gestão Estratégica com o MBA lite</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos e impulsionar resultados sustentáveis.</p>
-            <a href="#enroll" class="bg-blue-600 text-white text-lg font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">Inscreva-se Agora</a>
-            <div class="mt-12">
-                <img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" width="720" height="690" class="w-full max-w-3xl mx-auto">
+    <main>
+        <section id="hero">
+            <h1>Domine a Gestão Estratégica com o MBA lite</h1>
+            <p>Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos e impulsionar resultados sustentáveis.</p>
+            <a href="#enroll" class="hero-enroll-button">Inscreva-se Agora</a>
+            <img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="hero-image">
+        </section>
+
+        <section id="modules">
+            <div class="section-header">
+                <h2>Currículo Essencial para Líderes</h2>
+                <p>Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
+            </div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Gestão de Pessoas</h3>
+                    <p>Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional.</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Gestão de Riscos</h3>
+                    <p>Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar e mitigar riscos.</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Gestão da Qualidade</h3>
+                    <p>Metodologias (PDCA, Seis Sigma, Lean, ISO 9001) para otimizar processos e garantir valor.</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Gestão de Projetos</h3>
+                    <p>Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos.</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-toolbox"></i>
+                    <h3>Ferramentas de Gestão</h3>
+                    <p>Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos.</p>
+                </div>
+                <div class="module-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Gestão com IA</h3>
+                    <p>Explore IAs Generativas (ChatGPT, Gemini) para otimizar análise, ideação e tomada de decisão.</p>
+                </div>
             </div>
         </section>
 
-        <section id="modules" class="py-20 px-4 bg-gray-50">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold">Currículo Essencial para Líderes</h2>
-                <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="module-card">
-                    <i class="fas fa-users text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Gestão de Pessoas</h3>
-                    <p class="text-gray-600">Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional.</p>
-                </div>
-                <div class="module-card">
-                    <i class="fas fa-exclamation-triangle text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Gestão de Riscos</h3>
-                    <p class="text-gray-600">Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar e mitigar riscos.</p>
-                </div>
-                <div class="module-card">
-                    <i class="fas fa-star text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Gestão da Qualidade</h3>
-                    <p class="text-gray-600">Metodologias (PDCA, Seis Sigma, Lean, ISO 9001) para otimizar processos e garantir valor.</p>
-                </div>
-                <div class="module-card">
-                    <i class="fas fa-tasks text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Gestão de Projetos</h3>
-                    <p class="text-gray-600">Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos.</p>
-                </div>
-                <div class="module-card">
-                    <i class="fas fa-toolbox text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Ferramentas de Gestão</h3>
-                    <p class="text-gray-600">Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos.</p>
-                </div>
-                <div class="module-card">
-                    <i class="fas fa-robot text-2xl text-blue-600 mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-2">Gestão com IA</h3>
-                    <p class="text-gray-600">Explore IAs Generativas (ChatGPT, Gemini) para otimizar análise, ideação e tomada de decisão.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="enroll" class="py-20 px-4">
-            <div class="max-w-xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-4">Garanta Sua Vaga no MBA lite</h2>
-                <p class="text-gray-600 mb-8">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
-                <form action="https://app.kit.com/forms/7865976/subscriptions" method="post" class="space-y-4">
-                    <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" type="text" name="fields[first_name]" placeholder="Seu nome">
-                    <input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" type="email" name="email_address" placeholder="Seu melhor e-mail" required>
-                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">Inscreva-se</button>
-                    <p class="text-xs text-gray-500 mt-2">* Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p>
+        <section id="enroll">
+            <div class="enroll-container">
+                <h2>Garanta Sua Vaga no MBA lite</h2>
+                <p>Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
+                <form action="https://app.kit.com/forms/7865976/subscriptions" method="post" class="enroll-form">
+                    <input type="text" name="fields[first_name]" placeholder="Seu nome">
+                    <input type="email" name="email_address" placeholder="Seu melhor e-mail" required>
+                    <button type="submit">Inscreva-se</button>
+                    <span>* Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</span>
                 </form>
             </div>
         </section>
-
     </main>
 
-    <footer class="text-center py-10 border-t bg-gray-50">
-        <div class="flex justify-center gap-x-6 mb-4">
-            <a href="mailto:dan@mbalite.com.br" class="text-gray-500 hover:text-blue-600 transition-colors"><i class="fas fa-envelope text-xl"></i></a>
-            <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+    <footer>
+        <div class="social-links">
+            <a href="mailto:dan@mbalite.com.br"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
         </div>
-        <p class="text-sm text-gray-600">&copy; <span id="current-year">2025</span> MBA lite. Todos os direitos reservados.</p>
-        <p class="text-xs text-gray-500 mt-1">Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
+        <p>&copy; <span id="current-year">2025</span> MBA lite. Todos os direitos reservados.</p>
+        <p class="footer-initiative">Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
     </footer>
 
     <script src="script.js"></script>
