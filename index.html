@@ -186,7 +186,6 @@
              text-align: center;
              background-color: var(--color-primary);
              color: white;
-             text-transform: uppercase;
              letter-spacing: 0.05em;
              border: 2px solid var(--color-primary);
          }
@@ -253,16 +252,14 @@
             gap: 2rem;
         }
         @media (min-width: 768px) {
-             #hero .container { flex-direction: row; gap: 3rem; }
+             #hero .container { flex-direction: column; gap: 3rem; }
         }
         #hero .text-content { text-align: center; }
-        #hero .image-content { width: 75%; margin: 0 auto 2rem auto; }
-         @media (min-width: 768px) {
-            #hero .text-content { text-align: left; width: 58.333%; order: 2; }
-            #hero .image-content { width: 41.667%; margin: 0; order: 1; }
-         }
+        @media (min-width: 768px) {
+            #hero .text-content { text-align: center; width: 100%; }
+        }
         #hero h1 { font-size: 2.25rem; font-weight: 700; color: var(--color-text-title); margin-bottom: 1.5rem; line-height: 1.25; }
-        #hero p { font-size: 1.125rem; color: var(--color-text-body); margin-bottom: 2.5rem; line-height: 1.625; max-width: 48rem; }
+        #hero p { font-size: 1.125rem; color: var(--color-text-body); margin-bottom: 2.5rem; line-height: 1.625; max-width: 48rem; margin-left:auto; margin-right:auto; }
         @media (min-width: 768px) { #hero h1 { font-size: 3rem; } #hero p { font-size: 1.25rem; } }
         .enroll-button {
              padding: 0.75rem 2.5rem;
@@ -314,7 +311,9 @@
          #autor .author-photo, #autor .book-cover {
              flex-shrink: 0;
              max-width: 200px;
-             border-radius: 50%;
+         }
+         #autor .author-photo {
+            border-radius: 50%;
          }
          #autor .book-cover {
              border-radius: 0.5rem;
@@ -347,11 +346,17 @@
             font-weight: 600;
             cursor: pointer;
             position: relative;
+            list-style: none;
+        }
+        #faq .faq-item summary::-webkit-details-marker {
+            display: none;
         }
         #faq .faq-item summary::after {
             content: '+';
             position: absolute;
             right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
             font-weight: 300;
             font-size: 1.5rem;
         }
@@ -377,7 +382,7 @@
         footer .social-icons a {
             font-size: 1rem;
             color: var(--color-text-muted);
-            text-decoration: underline;
+            text-decoration: none;
         }
         footer .social-icons a:hover {
             color: var(--color-primary);
@@ -443,9 +448,6 @@
     <main id="main-content">
         <section id="hero">
             <div class="container">
-                <div class="image-content">
-                    <img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=MBA+lite';">
-                </div>
                 <div class="text-content">
                     <h1>Domine a Gestão Estratégica com o MBA lite</h1>
                     <p>Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.</p>
@@ -544,14 +546,14 @@
                     <style>.formkit-form[data-uid="d0849e0001"] *{box-sizing:border-box;}.formkit-form[data-uid="d0849e0001"]{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.formkit-form[data-uid="d0849e0001"] h2{font-size:1.25rem; font-weight: 600; margin-bottom: 0.5rem;}.formkit-form[data-uid="d0849e0001"] p{margin-bottom: 1.5rem;}.formkit-form[data-uid="d0849e0001"] .formkit-input{width:100%;font-size:1rem;padding:0.75rem;border:1px solid var(--color-border);border-radius:0.375rem;margin-bottom:1rem;}.formkit-form[data-uid="d0849e0001"] .formkit-submit{width:100%;padding:0.75rem;border:none;background-color:var(--color-primary);color:var(--color-text-on-primary);border-radius:0.375rem;font-size:1rem;font-weight:600;cursor:pointer;}.formkit-form[data-uid="d0849e0001"] .formkit-guarantee{font-size:0.875rem;text-align:center;margin-top:1rem;color:var(--color-text-muted);}</style>
                     <form action="https://app.kit.com/forms/7865976/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7865976" data-uid="d0849e0001">
                         <div data-style="minimal">
-                            <div data-element="header"><h2>Inicie sua Jornada de Transformação</h2></div>
-                            <div data-element="subheader"><p>O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Inscreva-se para receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p></div>
+                            <div data-element="header" style="text-align: center;"><h2>Inicie sua Jornada de Transformação</h2></div>
+                            <div data-element="subheader" style="text-align: center;"><p>O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Inscreva-se para receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p></div>
                             <div data-element="fields">
                                 <input class="formkit-input" aria-label="Nome" name="fields[first_name]" placeholder="Nome" type="text">
                                 <input class="formkit-input" name="email_address" aria-label="Seu melhor e-mail" placeholder="Seu melhor e-mail" required type="email">
                                 <button data-element="submit" class="formkit-submit"><span>Inscreva-se</span></button>
                             </div>
-                            <div data-element="guarantee"><p>*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p></div>
+                            <div data-element="guarantee" style="text-align: center;"><p>*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p></div>
                         </div>
 					</form>
                 </div>
@@ -562,8 +564,12 @@
     <footer>
 		<div class="container">
 			<div class="social-icons">
-				<a href="mailto:dan@mbalite.com.br" title="Email">Email</a>
-				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn">LinkedIn</a>
+				<a href="mailto:dan@mbalite.com.br" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
 			</div>
 			<p>©<span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
 			<p>Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
