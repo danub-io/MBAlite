@@ -8,7 +8,8 @@
     <link rel="icon" type="image/png" href="/img/fav.png" onerror="this.onerror=null;this.href='https://placehold.co/32x32/0582ff/ffffff?text=M';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
     <style>
         :root {
@@ -461,8 +462,8 @@
         <section id="modulos" class="bg-bg-surface">
             <div class="container">
                 <div class="section-header">
-                    <h3 class="subtitle">CONTEÚDO</h3>
                     <h2 class="title">Currículo Essencial para Líderes</h2>
+                    <h3 class="subtitle">CONTEÚDO</h3>
                     <p class="description">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
                 </div>
                 <div class="grid-container">
@@ -497,22 +498,22 @@
         <section id="autor" class="bg-bg-main">
             <div class="container">
                 <div class="author-intro">
-                     <img src="/img/profile-pic.webp" alt="Foto de Dan Coelho" class="author-photo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/e0e7ff/4f46e5?text=DC';">
+                     <img src="/img/profile-pic.webp" alt="Foto de Dan Coelho" class="author-photo" width="200" height="200" onerror="this.onerror=null; this.src='https://placehold.co/200x200/e0e7ff/4f46e5?text=DC';">
                      <div class="author-bio">
-                         <h3 class="subtitle" style="text-align: left;">O AUTOR</h3>
                          <h2 class="title" style="text-align: left;">Dan Coelho</h2>
+                         <h3 class="subtitle" style="text-align: left;">O AUTOR</h3>
                          <p class="description" style="text-align: left; color: var(--color-text-body);">Minha jornada profissional começou na Engenharia Química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes. Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
                      </div>
                 </div>
                 <div class="publications-section" style="margin-top: 5rem;">
                      <div class="text-content" style="order: 2;">
-                         <h3 class="subtitle" style="text-align: left;">PUBLICAÇÃO EM DESTAQUE</h3>
                          <h2 class="title" style="text-align: left;">Gestão de Pessoas para Alta Performance</h2>
+                         <h3 class="subtitle" style="text-align: left;">PUBLICAÇÃO EM DESTAQUE</h3>
                          <p class="description" style="text-align: left; color: var(--color-text-body); margin-bottom: 2rem;">Um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais. Explore pilares como atração de talentos, liderança inspiradora e cultura organizacional.</p>
                          <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
                      </div>
                      <div class="image-content" style="order: 1;">
-                        <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro" class="book-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
+                        <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro" class="book-cover" width="200" height="300" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
                     </div>
                 </div>
             </div>
@@ -521,8 +522,8 @@
         <section id="faq" class="bg-bg-surface">
             <div class="container" style="max-width: 56rem;">
                 <div class="section-header">
-                    <h3 class="subtitle">FAQ</h3>
                     <h2 class="title">Perguntas Frequentes</h2>
+                    <h3 class="subtitle">FAQ</h3>
                 </div>
                 <div class="faq-group">
                     <details class="faq-item"><summary>O que é o curso MBA lite?</summary><div class="faq-content"><p>O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p></div></details>
@@ -538,8 +539,8 @@
         <section id="enroll" class="bg-bg-main">
             <div class="container" style="max-width: 42rem;">
                 <div class="section-header">
-                    <h3 class="subtitle">INSCRIÇÃO</h3>
                     <h2 class="title">Garanta Sua Vaga no MBA lite</h2>
+                    <h3 class="subtitle">INSCRIÇÃO</h3>
                     <p class="description">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
                 </div>
                 <div class="form-wrapper">
@@ -658,6 +659,16 @@
 
             handleScroll();
         });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('Service Worker registrado com sucesso:', registration);
+                }).catch(registrationError => {
+                    console.log('Falha ao registrar o Service Worker:', registrationError);
+                });
+            });
+        }
 	</script>
 </body>
 </html>
