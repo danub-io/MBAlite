@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" xintegrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* --- CSS COMBINADO (inline + style.css) --- */
@@ -669,7 +669,7 @@
 		<i class="fas fa-arrow-up text-white"></i>
 	</button>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" xintegrity="sha512-A7AYk1fGKX6S2SsHyreqc9rRY9cLAHdaVnUssS1eAESiKWqdbvrCpIfGvvRp7interGNKFA0WA5guw6DBKAQPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 	<script>
         // --- SCRIPT.JS COMBINADO E CORRIGIDO ---
@@ -744,8 +744,12 @@
             const showPage = (pageId, targetElementId = null, pushState = true) => {
                 const pageToShow = document.getElementById(pageId);
                 if (!pageToShow) {
-                    showPage(defaultPageId);
-                    history.replaceState({ pageId: defaultPageId }, '', '/');
+                    showPage(defaultPageId, null, false);
+                    try {
+                        history.replaceState({ pageId: defaultPageId }, '', '/');
+                    } catch (e) {
+                        console.warn('Could not replace history state for 404 redirect.');
+                    }
                     return;
                 }
 
@@ -777,8 +781,12 @@
                     const path = getPathFromPageId(pageId);
                     if (path) {
                         const fullPath = targetElementId ? `${path}#${targetElementId}` : path;
-                         if (window.location.pathname + window.location.hash !== fullPath) {
-                            history.pushState({ pageId, targetElementId }, '', fullPath);
+                        if (window.location.pathname + window.location.hash !== fullPath) {
+                            try {
+                                history.pushState({ pageId, targetElementId }, '', fullPath);
+                            } catch (e) {
+                                console.warn("Could not push state to History API. This is expected in some sandboxed environments.", e);
+                            }
                         }
                     }
                 }
@@ -802,14 +810,18 @@
 
                 if (pageId) {
                     showPage(pageId, scrollTarget);
-                } else if (scrollTarget && getPageIdFromPath(window.location.pathname)) {
-                    // Handle scroll on the same page
+                } else if (scrollTarget) {
                     const targetElement = document.getElementById(scrollTarget);
                     if (targetElement) {
                          const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
                          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                          window.scrollTo({ top: elementPosition - headerOffset - 20, behavior: 'smooth' });
-                         history.pushState(history.state, '', `#${scrollTarget}`);
+                         try {
+                            const newUrl = window.location.pathname + '#' + scrollTarget;
+                            history.replaceState(history.state, '', newUrl);
+                         } catch (e) {
+                            console.warn("Could not update URL hash via replaceState.", e);
+                         }
                     }
                 }
             });
