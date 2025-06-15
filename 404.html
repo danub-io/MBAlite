@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="Domine a Gestão Estratégica com um programa intensivo e prático. Aprenda sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA.">
     <title>MBA lite - Corrigido e Completo</title>
-    <!-- NOTA: O favicon original /img/fav.png não foi fornecido. Usando um placeholder. -->
-    <link rel="icon" type="image/png" href="https://placehold.co/32x32/0582ff/ffffff?text=M">
+    <link rel="icon" type="image/png" href="/img/fav.png" onerror="this.onerror=null;this.href='https://placehold.co/32x32/0582ff/ffffff?text=M';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* --- CSS COMBINADO (inline + style.css) --- */
@@ -126,12 +127,6 @@
             transition: transform 0.2s ease;
         }
         
-        .faq-item[open] > summary {
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-        }
-
         .faq-item[open] > summary::after {
             content: '−';
         }
@@ -258,7 +253,24 @@
         }
     </style>
 
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'bg-main': '#f9fafb',
+                    'bg-surface': '#ffffff',
+                    'text-title': '#111827',
+                    'text-body': '#374151',
+                    'text-muted': '#6b7280',
+                    'primary': '#0582ff',
+                    'primary-dark': '#045ac3',
+                }
+            }
+        }
+    }
+    </script>
 
     <!-- Schema.org e outros metadados -->
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"MBA lite","description":"Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.","provider":{"@type":"Person","name":"Dan Coelho","url":"/autor","sameAs":"https://www.linkedin.com/in/danubiocoelho/"},"courseCode":"MBALITE","educationalCredentialAwarded":"Certificate of Completion","hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@type":"Person","name":"Dan Coelho"}},"url":"https://mbalite.com.br/"}</script>
@@ -308,7 +320,7 @@
 				<div class="container mx-auto">
 					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right" data-aos-delay="50">
-							<img src="https://placehold.co/720x690/e0e7ff/4f46e5?text=Hero+Image" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+							<img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
 						</div>
 						<div class="w-full md:w-1/2 lg:w-7/12 text-center md:text-left order-2 relative z-10">
 							<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight">Domine a Gestão Estratégica com o MBA lite</h1>
@@ -359,7 +371,7 @@
 				<div class="container mx-auto">
 					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right">
-                            <img src="https://placehold.co/500x450/e0e7ff/4f46e5?text=Ebooks" alt="Ilustração de Ebooks Bônus" width="500" height="450" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+                            <img src="/img/svg/hero4.svg" alt="Ilustração de Ebooks Bônus" width="500" height="450" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
                         </div>
 						<div class="w-full md:w-7/12 order-2 text-center md:text-left">
 							<h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-2">BÔNUS EXCLUSIVO</h3>
@@ -409,7 +421,7 @@
 							</ul>
 						</div>
 						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1 md:order-2" data-aos="fade-left">
-                            <img src="https://placehold.co/500x450/e0e7ff/4f46e5?text=Profissionais" alt="Ilustração representando profissionais ambiciosos" width="500" height="450" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+                            <img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" width="500" height="450" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
                         </div>
 					</div>
 				</div>
@@ -463,7 +475,7 @@
 				<div class="container mx-auto">
 					<div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 						<div class="lg:w-1/3 flex-shrink-0" data-aos="fade-right">
-							<img id="publication-cover-image" src="https://placehold.co/400x600/e0e7ff/4f46e5?text=Capa+Livro" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Dan Coelho" width="400" height="600" class="w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full rounded-lg shadow-xl border border-gray-200" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
+							<img id="publication-cover-image" src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance por Dan Coelho" width="400" height="600" class="w-full max-w-xs sm:max-w-sm mx-auto lg:max-w-full rounded-lg shadow-xl border border-gray-200" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
 						</div>
 						<div class="lg:w-2/3 text-center lg:text-left">
 							<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-title mb-3 leading-tight">Gestão de Pessoas para Alta Performance</h1>
@@ -515,7 +527,7 @@
 					</div>
 					<div class="flex flex-col md:flex-row items-center gap-10">
 						<div class="md:w-1/3 flex-shrink-0" data-aos="fade-up">
-							<img src="https://placehold.co/192x192/e0e7ff/4f46e5?text=DC" alt="Foto de Dan Coelho, autor do livro" width="192" height="192" class="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-lg" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/192x192/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
+							<img src="/img/profile-pic.webp" alt="Foto de Dan Coelho, autor do livro" width="192" height="192" class="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-lg" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/192x192/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
 						</div>
 						<div class="md:w-2/3 text-lg text-text-body space-y-4 text-left leading-relaxed">
 							<p>Minha trajetória começou na engenharia química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes.</p>
@@ -538,7 +550,7 @@
 		<div id="page-autor" class="page">
 			<section id="home" class="scroll-target bg-bg-main flex items-center justify-center text-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]">
 				<div class="max-w-4xl mx-auto relative z-10">
-					<img id="autor-profile-pic" src="https://placehold.co/176x176/e0e7ff/4f46e5?text=DC" alt="Foto de Dan Coelho, autor do MBA lite" width="176" height="176" class="w-44 h-44 rounded-full mx-auto mb-8 border-4 border-primary shadow-lg" data-aos="zoom-in" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/176x176/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
+					<img id="autor-profile-pic" src="/img/profile-pic.webp" alt="Foto de Dan Coelho, autor do MBA lite" width="176" height="176" class="w-44 h-44 rounded-full mx-auto mb-8 border-4 border-primary shadow-lg" data-aos="zoom-in" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/176x176/e0e7ff/4f46e5?text=DC'; this.classList.add('bg-gray-200');">
 					<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-4">Dan Coelho</h1>
 					<p class="text-xl md:text-2xl text-primary font-semibold mb-8">Engenheiro Químico | Gestor de Projetos | Founder do MBA lite</p>
 					<p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed">Apaixonado por otimização de processos, gestão estratégica e desenvolvimento humano para alcançar resultados de alto impacto.</p>
@@ -594,18 +606,120 @@
 					<div class="mb-12">
 						<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Geral</h2>
 						<div class="faq-group space-y-4">
-							<details class="faq-item standard-card-style overflow-hidden p-5"><summary class="text-lg font-semibold text-gray-800">O que é o curso MBA lite?</summary><div class="faq-content pt-4"><p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p></div></details>
-							<details class="faq-item standard-card-style overflow-hidden p-5"><summary class="text-lg font-semibold text-gray-800">Para quem este curso é recomendado?</summary><div class="faq-content pt-4"><p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p></div></details>
-                            <!-- Mais FAQs aqui -->
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O que é o curso MBA lite?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Para quem este curso é recomendado?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Qual a duração total estimada do curso?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Precisarei de alguma ferramenta ou software específico?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Preciso ter experiência prévia em gestão para fazer o curso?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
+								</div>
+							</details>
 						</div>
 					</div>
                     <div class="mb-12">
 						<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Conteúdo do Curso</h2>
 						<div class="faq-group space-y-4">
-							<details class="faq-item standard-card-style overflow-hidden p-5"><summary class="text-lg font-semibold text-gray-800">Quais são os principais módulos abordados no MBA lite?</summary><div class="faq-content pt-4"><p class="text-gray-600 leading-relaxed">O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p></div></details>
-                            <!-- Mais FAQs aqui -->
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais são os principais módulos abordados no MBA lite?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
+								</div>
+							</details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais ferramentas práticas de gestão serão ensinadas?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
+								</div>
+							</details>
                         </div>
                     </div>
+                    <div class="mb-12">
+						<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Plataforma e Acesso</h2>
+						<div class="faq-group space-y-4">
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como o curso é entregue?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">O MBA lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Receberei um certificado ao concluir o curso?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como posso tirar dúvidas durante o curso?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&amp;A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso oferece acesso vitalício?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como me inscrevo no curso pela Udemy?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA lite" na barra de busca da Udemy ou acessar através do link direto que será compartilhado aqui no site assim que o curso for lançado. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
+								</div>
+							</details>
+							<details class="faq-item standard-card-style overflow-hidden">
+								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Posso assistir às aulas no meu celular ou tablet?</summary>
+								<div class="faq-content p-5 pt-0">
+									<p class="text-gray-600 leading-relaxed">Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
+								</div>
+							</details>
+						</div>
+					</div>
 					<div class="faq-cta text-center mt-16"><h3 class="text-2xl font-semibold text-gray-800 mb-4">Ainda tem dúvidas?</h3><p class="text-lg text-text-muted mb-8">Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p><a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-md shadow-md hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg">Quero ser um(a) gestor(a) de alta performance!</a></div>
 				</div>
 			</section>
@@ -617,7 +731,7 @@
 				<div class="container mx-auto">
 					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
 						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right">
-							<img src="https://placehold.co/720x690/e0e7ff/4f46e5?text=Confirmado" alt="Ilustração de confirmação de inscrição" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+							<img src="/img/svg/hero3.svg" alt="Ilustração de confirmação de inscrição" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
 						</div>
 						<div class="w-full md:w-1/2 lg:w-7/12 order-2 md:order-2 text-center md:text-left">
 							<div class="bg-white p-8 md:p-10 rounded-lg shadow-lg">
