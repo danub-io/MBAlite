@@ -1,30 +1,18 @@
 <!DOCTYPE html>
-<html lang="pt-BR" style="--header-height: 60px; --scroll-offset: calc(var(--header-height) + 20px);">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="description" content="Domine a Gestão Estratégica com um programa intensivo e prático. Aprenda sobre Pessoas, Riscos, Qualidade, Projetos, Ferramentas e IA.">
-    <title>MBA lite - Corrigido e Completo</title>
+    <title>MBA lite - Versão Simplificada</title>
     <link rel="icon" type="image/png" href="/img/fav.png" onerror="this.onerror=null;this.href='https://placehold.co/32x32/0582ff/ffffff?text=M';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* --- CSS COMBINADO (inline + style.css) --- */
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-            box-sizing: border-box;
-        }
-
-        *, *::before, *::after {
-            box-sizing: inherit;
-        }
-
+        /* --- ESTILOS CSS PERSONALIZADOS (SEM TAILWIND/AOS) --- */
         :root {
             --header-height: 60px;
             --scroll-offset: calc(var(--header-height) + 20px);
@@ -38,6 +26,13 @@
             --color-bg-surface: #ffffff;
             --color-border: #e5e7eb;
             --color-border-dark: #d1d5db;
+        }
+
+        /* --- RESET E ESTILOS GLOBAIS --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
@@ -54,118 +49,103 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         main {
             flex-grow: 1;
         }
-
-        .scroll-target {
-            scroll-margin-top: var(--scroll-offset);
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
-        h2.section-title {
-            color: var(--color-text-title);
-            position: relative;
-        }
-
-        .icon-block-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .icon-block-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .icon-block-card .icon {
-            color: var(--color-primary);
-            transition: transform 0.3s ease;
-        }
-
-        .icon-block-card:hover .icon {
-            transform: scale(1.1);
+        a {
+            color: inherit;
+            text-decoration: none;
         }
         
-        #modules .module-link {
-           cursor: pointer;
-        }
-
-        .standard-card-style {
-            background-color: var(--color-bg-surface);
-            border-radius: 0.5rem;
-            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        .standard-card-style:hover {
-            box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.12);
-        }
-
-        .page-content-container article h2 {
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .faq-item {
-            transition: box-shadow 0.2s ease;
-        }
-
-        .faq-item summary {
-            position: relative;
+        ul {
             list-style: none;
-            cursor: pointer;
         }
 
-        .faq-item summary::after {
-            content: '+';
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: var(--color-primary);
-            transition: transform 0.2s ease;
+        /* --- LAYOUT & HELPERS --- */
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
         }
-        
-        .faq-item[open] > summary::after {
-            content: '−';
-        }
+        @media (min-width: 640px) { .container { max-width: 640px; } }
+        @media (min-width: 768px) { .container { max-width: 768px; } }
+        @media (min-width: 1024px) { .container { max-width: 1024px; } }
 
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
+        .hidden { display: none !important; }
 
+        /* --- CABEÇALHO --- */
         #main-header {
-            box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);
             height: var(--header-height);
-            transition: box-shadow 0.3s ease;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 50;
             background-color: var(--color-bg-surface);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        #main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
         }
 
-        #main-header.header-scrolled {
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+        #main-header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-title);
         }
+
+        #main-nav {
+            display: none; /* Escondido por defeito, visível em desktops */
+            align-items: center;
+        }
+        @media (min-width: 1024px) { #main-nav { display: flex; } }
 
         #main-nav a.nav-link {
-            transition: color 0.3s ease;
-            color: var(--color-text-body);
             font-weight: 600;
-            display: inline-block;
+            color: var(--color-text-body);
+            padding: 0.5rem 1rem;
         }
-
-        #main-nav a.nav-link:hover,
-        #main-nav a.nav-link.active {
+        #main-nav a.nav-link:hover, #main-nav a.nav-link.active {
             color: var(--color-primary);
         }
+        #main-nav a.enroll-button {
+             margin-left: 1rem;
+             padding: 0.5rem 1.5rem;
+             background-color: #111827;
+             color: white;
+             border-radius: 0.375rem;
+             font-size: 0.875rem;
+             line-height: 1.25rem;
+        }
+        
+        #menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: var(--color-text-body);
+        }
+         @media (min-width: 1024px) { #menu-btn { display: none; } }
 
+        /* --- MENU MÓVEL --- */
         #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            border-right: 1px solid var(--color-border);
             position: fixed;
             top: 0;
             left: 0;
@@ -173,36 +153,258 @@
             height: 100%;
             z-index: 60;
             background-color: var(--color-bg-surface);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            border-right: 1px solid var(--color-border);
+            padding: 1.5rem;
         }
-
         #mobile-menu.hidden-menu {
             transform: translateX(-100%);
         }
-
-        #mobile-menu nav a.mobile-menu-link {
-            transition: color 0.2s ease, background-color 0.2s ease;
-            color: var(--color-text-body);
+        #mobile-menu:not(.hidden-menu) {
+            transform: translateX(0);
         }
-
-        #mobile-menu nav a.mobile-menu-link:hover,
-        #mobile-menu nav a.mobile-menu-link.active {
-            color: var(--color-primary);
+        
+        #mobile-menu .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        #mobile-menu .header #mobile-menu-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        #mobile-menu .header #close-menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+        
+        #mobile-menu nav a {
+            display: block;
+            padding: 0.625rem 0.75rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+        }
+        #mobile-menu nav a:hover {
             background-color: #eff6ff;
+            color: var(--color-primary);
         }
+         #mobile-menu nav a.enroll-button {
+             margin-top: 1rem;
+             text-align: center;
+             background-color: var(--color-primary);
+             color: white;
+             text-transform: uppercase;
+             letter-spacing: 0.05em;
+             border: 2px solid var(--color-primary);
+         }
+
 
         #menu-overlay {
-            background-color: rgba(0, 0, 0, 0.5);
-            transition: opacity 0.3s ease-in-out;
             position: fixed;
             inset: 0;
             z-index: 55;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease-in-out;
         }
-
         #menu-overlay.hidden {
             opacity: 0;
             pointer-events: none;
         }
+        
+        /* --- PÁGINAS E CONTEÚDO --- */
+        .page { display: none; }
+        .page.active { display: block; }
+        .scroll-target { scroll-margin-top: var(--scroll-offset); }
 
+        section {
+            padding: 6rem 1rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 48rem;
+            margin: 0 auto 4rem auto;
+        }
+        .section-header .subtitle {
+            text-transform: uppercase;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+        .section-header .title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--color-text-title);
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) { .section-header .title { font-size: 2.25rem; } }
+
+        .section-header .description {
+            font-size: 1.125rem;
+            line-height: 1.625;
+            color: var(--color-text-muted);
+        }
+        
+        .grid-container {
+            display: grid;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; } }
+        @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+
+        /* Estilos específicos de secções */
+        #hero {
+            display: flex;
+            align-items: center;
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        #hero .container, #target-audience .container, #bonus-ebooks .container, #confirmation-section .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+             #hero .container, #target-audience .container, #bonus-ebooks .container, #confirmation-section .container {
+                flex-direction: row;
+                gap: 3rem;
+             }
+        }
+        #hero .text-content, #target-audience .text-content, #bonus-ebooks .text-content, #confirmation-section .text-content {
+            text-align: center;
+        }
+        #hero .image-content, #target-audience .image-content, #bonus-ebooks .image-content, #confirmation-section .image-content {
+            width: 75%;
+            margin: 0 auto 2rem auto;
+        }
+         @media (min-width: 768px) {
+            #hero .text-content, #target-audience .text-content, #bonus-ebooks .text-content, #confirmation-section .text-content {
+                text-align: left;
+                width: 58.333%;
+            }
+             #hero .image-content, #target-audience .image-content, #bonus-ebooks .image-content, #confirmation-section .image-content {
+                width: 41.667%;
+                margin: 0;
+            }
+             #hero .text-content { order: 2; }
+             #hero .image-content { order: 1; }
+         }
+        
+        #hero h1 { font-size: 2.25rem; font-weight: 700; color: var(--color-text-title); margin-bottom: 1.5rem; line-height: 1.25; }
+        #hero p { font-size: 1.125rem; color: var(--color-text-body); margin-bottom: 2.5rem; line-height: 1.625; max-width: 48rem; }
+        @media (min-width: 768px) { #hero h1 { font-size: 3rem; } #hero p { font-size: 1.25rem; } }
+        
+        .icon-block-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background-color: var(--color-bg-surface);
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08);
+        }
+        
+        .icon-block-card .icon {
+            font-size: 1.875rem;
+            color: var(--color-primary);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        
+        .icon-block-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-text-title);
+            margin-bottom: 0.5rem;
+        }
+        
+        .icon-block-card p {
+            line-height: 1.625;
+            color: #4b5563;
+        }
+        
+        ul.checklist {
+            list-style: none;
+            space-y: 1rem;
+        }
+        ul.checklist li {
+            display: flex;
+            align-items: center;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        ul.checklist i {
+            color: var(--color-primary);
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        /* FAQ */
+        #page-faq .faq-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+         #page-faq .faq-item {
+             background-color: var(--color-bg-surface);
+             border-radius: 0.5rem;
+             overflow: hidden;
+             border: 1px solid var(--color-border);
+         }
+        #page-faq .faq-item summary {
+            padding: 1.25rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+         #page-faq .faq-item .faq-content {
+             padding: 0 1.25rem 1.25rem 1.25rem;
+             color: var(--color-text-body);
+         }
+         #page-faq .faq-item[open] > summary {
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        /* Formulário */
+        #enroll .form-wrapper {
+             background-color: var(--color-bg-surface);
+             border-radius: 0.5rem;
+             padding: 2rem;
+             box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+        }
+         
+        /* Rodapé */
+        footer {
+            background-color: var(--color-bg-surface);
+            padding: 2.5rem 1.25rem;
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--color-text-muted);
+        }
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        footer .social-icons a {
+            font-size: 1.5rem;
+            color: var(--color-text-muted);
+        }
+        footer p { font-size: 0.875rem; }
+        footer .legal { font-size: 0.75rem; margin-top: 0.25rem; }
+        footer .location { font-size: 0.75rem; margin-top: 0.5rem; }
+        
+        /* Botão Voltar ao Topo */
         #scroll-to-top {
             position: fixed;
             bottom: 30px;
@@ -216,98 +418,49 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
             z-index: 1000;
             border: none;
+            opacity: 0;
+            visibility: hidden;
         }
-
-        #scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #scroll-to-top:hover {
-            background-color: var(--color-primary-dark);
-            transform: translateY(-3px);
-        }
-
-        .page {
-            display: none;
-            animation: pageFadeIn 0.5s ease-out forwards;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes pageFadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .experience-item .timeline-line {
-            border-left-color: var(--color-border-dark);
-        }
+        #scroll-to-top.visible { opacity: 1; visibility: visible; }
     </style>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    'bg-main': '#f9fafb',
-                    'bg-surface': '#ffffff',
-                    'text-title': '#111827',
-                    'text-body': '#374151',
-                    'text-muted': '#6b7280',
-                    'primary': '#0582ff',
-                    'primary-dark': '#045ac3',
-                }
-            }
-        }
-    }
-    </script>
-
     <!-- Schema.org e outros metadados -->
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"MBA lite","description":"Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.","provider":{"@type":"Person","name":"Dan Coelho","url":"/autor","sameAs":"https://www.linkedin.com/in/danubiocoelho/"},"courseCode":"MBALITE","educationalCredentialAwarded":"Certificate of Completion","hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@type":"Person","name":"Dan Coelho"}},"url":"https://mbalite.com.br/"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Gestão de Pessoas para Alta Performance: Desvendando o Potencial Humano para Resultados Extraordinários","author":{"@type":"Person","name":"Dan Coelho"},"url":"https://mbalite.com.br/publicacoes","workExample":[{"@type":"Book","identifier":"B0F47QBL8R","bookEdition":"1st Edition","bookFormat":"https://schema.org/EBook","potentialAction":{"@type":"ReadAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.amazon.com.br/dp/B0F47QBL8R","actionPlatform":["https://schema.org/DesktopWebPlatform","https://schema.org/IOSPlatform","https://schema.org/AndroidPlatform"]}}}]}</script>
 </head>
-<body class="bg-bg-main text-text-body" data-aos-easing="ease-out-quad" data-aos-duration="600" data-aos-delay="0">
-	<header id="main-header" class="bg-white">
-		<div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
-			<a href="/" data-page-id="page-index" class="text-2xl font-bold text-gray-900 hover:text-primary transition duration-300">MBA lite</a>
-			<nav id="main-nav" class="hidden lg:flex space-x-7 items-center">
+<body class="bg-bg-main text-text-body">
+	<header id="main-header">
+		<div class="container">
+			<a href="/" data-page-id="page-index" class="logo">MBA lite</a>
+			<nav id="main-nav">
               <a href="/" data-page-id="page-index" class="nav-link">Início</a>
               <a href="/modulos" data-page-id="page-content" class="nav-link">Módulos</a>
               <a href="/publicacoes" data-page-id="page-publications" class="nav-link">Publicações</a>
               <a href="/autor" data-page-id="page-autor" class="nav-link">Autor</a>
               <a href="/faq" data-page-id="page-faq" class="nav-link">FAQ</a>
-              <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="ml-4 inline-flex items-center justify-center px-6 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-700 transform transition duration-300 ease-in-out text-sm h-[30px] leading-tight">Inscreva-se</a>
+              <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="enroll-button">Inscreva-se</a>
             </nav>
-			<button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-primary" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-				<i class="fas fa-bars text-xl" aria-hidden="true"></i>
+			<button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+				<i class="fas fa-bars" aria-hidden="true"></i>
 			</button>
 		</div>
 	</header>
 	
-    <div id="mobile-menu" class="bg-white shadow-lg hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
-		<div class="flex justify-between items-center mb-8 px-6 pt-6">
-			<span id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</span>
-			<button id="close-menu-btn" class="text-gray-500 hover:text-primary focus:outline-none" aria-label="Fechar menu">
-				<i class="fas fa-times text-xl" aria-hidden="true"></i>
+    <div id="mobile-menu" class="hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+		<div class="header">
+			<span id="mobile-menu-title">Menu</span>
+			<button id="close-menu-btn" aria-label="Fechar menu">
+				<i class="fas fa-times" aria-hidden="true"></i>
 			</button>
 		</div>
-		<nav class="flex flex-col space-y-1 px-3" aria-label="Navegação móvel">
-			<a href="/" data-page-id="page-index" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Início</a>
-			<a href="/modulos" data-page-id="page-content" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Módulos</a>
-			<a href="/publicacoes" data-page-id="page-publications" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Publicações</a>
-			<a href="/autor" data-page-id="page-autor" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">Autor</a>
-			<a href="/faq" data-page-id="page-faq" class="block font-medium py-2.5 px-3 rounded-md mobile-menu-link">FAQ</a>
-			<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md bg-primary text-white uppercase tracking-wider border-2 border-primary hover:bg-primary-dark hover:border-primary-dark transition-all duration-300 ease-in-out">Inscreva-se</a>
+		<nav aria-label="Navegação móvel">
+			<a href="/" data-page-id="page-index" class="mobile-menu-link">Início</a>
+			<a href="/modulos" data-page-id="page-content" class="mobile-menu-link">Módulos</a>
+			<a href="/publicacoes" data-page-id="page-publications" class="mobile-menu-link">Publicações</a>
+			<a href="/autor" data-page-id="page-autor" class="mobile-menu-link">Autor</a>
+			<a href="/faq" data-page-id="page-faq" class="mobile-menu-link">FAQ</a>
+			<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="enroll-button mobile-menu-link">Inscreva-se</a>
 		</nav>
 	</div>
 
@@ -316,124 +469,130 @@
     <main id="main-content">
 		<!-- PÁGINA INICIAL -->
         <div id="page-index" class="page">
-			<section id="hero" class="scroll-target bg-bg-main flex items-center justify-center pt-24 pb-20 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]">
-				<div class="container mx-auto">
-					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
-						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right" data-aos-delay="50">
-							<img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
-						</div>
-						<div class="w-full md:w-1/2 lg:w-7/12 text-center md:text-left order-2 relative z-10">
-							<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-text-title mb-6 leading-tight">Domine a Gestão Estratégica com o MBA lite</h1>
-							<p class="text-lg md:text-xl text-text-body max-w-3xl mb-10 leading-relaxed">Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.</p>
-							<div class="space-y-4 sm:space-y-0 sm:space-x-4">
-								<a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-10 py-3 bg-primary text-white font-semibold rounded-md shadow-md hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg w-full sm:w-auto">Inscreva-se Agora</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id="modules" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-				<div class="container mx-auto">
-					<div class="text-center mb-16 max-w-3xl mx-auto">
-						<h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-2">CONTEÚDO</h3>
-						<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Currículo Essencial para Líderes</h2>
-						<p class="text-lg text-text-muted leading-relaxed">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
-					</div>
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="icon-block-card module-link flex items-start p-6 standard-card-style" data-page-id="page-content" data-scroll-target="gestao-pessoas">
-                            <div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0" aria-hidden="true"><i class="fas fa-users fa-fw"></i></div>
-                            <div><h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Pessoas</h4><p class="text-gray-600 leading-relaxed">Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional.</p></div>
-                        </div>
-                        <div class="icon-block-card module-link flex items-start p-6 standard-card-style" data-page-id="page-content" data-scroll-target="gestao-riscos">
-                            <div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0" aria-hidden="true"><i class="fas fa-exclamation-triangle fa-fw"></i></div>
-                            <div><h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Riscos</h4><p class="text-gray-600 leading-relaxed">Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar e mitigar riscos.</p></div>
-                        </div>
-                        <div class="icon-block-card module-link flex items-start p-6 standard-card-style" data-page-id="page-content" data-scroll-target="gestao-qualidade">
-                            <div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0" aria-hidden="true"><i class="fas fa-star fa-fw"></i></div>
-                            <div><h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão da Qualidade</h4><p class="text-gray-600 leading-relaxed">Metodologias (PDCA, Seis Sigma, Lean, ISO 9001) para otimizar processos e garantir valor.</p></div>
-                        </div>
-                        <div class="icon-block-card module-link flex items-start p-6 standard-card-style" data-page-id="page-content" data-scroll-target="gestao-projetos">
-                            <div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0" aria-hidden="true"><i class="fas fa-tasks fa-fw"></i></div>
-                            <div><h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos</h4><p class="text-gray-600 leading-relaxed">Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos.</p></div>
-                        </div>
-                        <div class="icon-block-card module-link flex items-start p-6 standard-card-style" data-page-id="page-content" data-scroll-target="ferramentas-gestao-projetos">
-                            <div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0" aria-hidden="true"><i class="fas fa-toolbox fa-fw"></i></div>
-                            <div><h4 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h4><p class="text-gray-600 leading-relaxed">Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos.</p></div>
-                        </div>
-                        <div class="icon-block-card module-link flex items-start p-6 standard-card-style" data-page-id="page-content" data-scroll-target="gestao-projetos-ia">
-                            <div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0" aria-hidden="true"><i class="fas fa-robot fa-fw"></i></div>
-                            <div><h4 class="text-xl font-semibold text-gray-800 mb-2">Gestão com IA</h4><p class="text-gray-600 leading-relaxed">Explore IAs Generativas (ChatGPT, Gemini) para otimizar análise, ideação e tomada de decisão.</p></div>
+			<section id="hero">
+				<div class="container">
+                    <div class="image-content">
+                        <img src="/img/svg/hero1.svg" alt="Ilustração de gestão e equilíbrio" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+                    </div>
+                    <div class="text-content">
+                        <h1>Domine a Gestão Estratégica com o MBA lite</h1>
+                        <p>Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.</p>
+                        <div>
+                            <a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="enroll-button" style="padding: 0.75rem 2.5rem; font-size: 1.125rem;">Inscreva-se Agora</a>
                         </div>
                     </div>
 				</div>
 			</section>
-            <section id="bonus-ebooks" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-				<div class="container mx-auto">
-					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
-						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right">
-                            <img src="/img/svg/hero4.svg" alt="Ilustração de Ebooks Bônus" width="500" height="450" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+			<section id="modules" class="bg-bg-surface">
+				<div class="container">
+					<div class="section-header">
+						<h3 class="subtitle">CONTEÚDO</h3>
+						<h2 class="title">Currículo Essencial para Líderes</h2>
+						<p class="description">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
+					</div>
+					<div class="grid-container">
+                        <div class="icon-block-card module-link" data-page-id="page-content" data-scroll-target="gestao-pessoas">
+                            <div class="icon"><i class="fas fa-users fa-fw"></i></div>
+                            <div><h4>Gestão de Pessoas</h4><p>Atração, desenvolvimento e retenção de talentos, liderança adaptativa e cultura organizacional.</p></div>
                         </div>
-						<div class="w-full md:w-7/12 order-2 text-center md:text-left">
-							<h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-2">BÔNUS EXCLUSIVO</h3>
-							<h2 class="text-3xl md:text-4xl font-bold section-title mb-6">Receba 6 Ebooks Exclusivos!</h2>
-							<p class="text-lg text-text-muted leading-relaxed mb-10">Aprofunde seu conhecimento com um ebook dedicado para cada módulo do MBA lite, cobrindo os tópicos essenciais de forma prática e direta.</p>
-							<ul class="list-none space-y-4 text-lg text-text-body text-left">
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Gestão de Pessoas</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Gestão de Riscos</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Gestão da Qualidade</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Gestão de Projetos</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Gestão de Tarefas</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Gestão com Inteligência Artificial</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section id="benefits" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-				<div class="container mx-auto">
-					<div class="text-center mb-16 max-w-3xl mx-auto">
-						<h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-2">VANTAGENS</h3>
-						<h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Invista no Seu Potencial de Liderança</h2>
-						<p class="text-lg text-text-muted leading-relaxed">Adquira habilidades práticas e estratégicas para se destacar no mercado e impulsionar sua carreira.</p>
-					</div>
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-						<div class="icon-block-card flex items-start p-6 standard-card-style"><div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0"><i class="fas fa-chart-line fa-fw"></i></div><div><h4 class="text-xl font-semibold text-gray-800 mb-2">Desenvolvimento Estratégico</h4><p class="text-gray-600 leading-relaxed">Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas.</p></div></div>
-						<div class="icon-block-card flex items-start p-6 standard-card-style"><div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0"><i class="fas fa-book-reader fa-fw"></i></div><div><h4 class="text-xl font-semibold text-gray-800 mb-2">Aprendizado Prático</h4><p class="text-gray-600 leading-relaxed">Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para seu contexto.</p></div></div>
-						<div class="icon-block-card flex items-start p-6 standard-card-style"><div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0"><i class="fas fa-clock fa-fw"></i></div><div><h4 class="text-xl font-semibold text-gray-800 mb-2">Flexibilidade Total</h4><p class="text-gray-600 leading-relaxed">Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina.</p></div></div>
-						<div class="icon-block-card flex items-start p-6 standard-card-style"><div class="icon text-3xl mr-5 mt-1 text-primary flex-shrink-0"><i class="fas fa-users-cog fa-fw"></i></div><div><h4 class="text-xl font-semibold text-gray-800 mb-2">Networking Estratégico</h4><p class="text-gray-600 leading-relaxed">Conecte-se com outros profissionais e líderes, expandindo sua rede e trocando experiências valiosas.</p></div></div>
-					</div>
-				</div>
-			</section>
-			<section id="target-audience" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-				<div class="container mx-auto">
-					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
-						<div class="w-full md:w-1/2 lg:w-7/12 order-2 md:order-1 text-left">
-							<div class="mb-12 md:mb-0 text-center md:text-left">
-								<h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-2">PARA QUEM</h3>
-								<h2 class="text-3xl md:text-4xl font-bold section-title mb-6">Ideal Para Profissionais Orientados a Resultados Diretos</h2>
-							</div>
-							<ul class="list-none space-y-4 text-lg text-text-body">
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Líderes e gestores buscando aprimoramento estratégico.</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Profissionais em transição para cargos de gestão.</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Empreendedores e donos de negócios buscando base sólida.</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Analistas e especialistas que desejam visão holística.</li>
-								<li class="flex items-center"><i class="fas fa-check-circle text-primary mr-3 text-xl flex-shrink-0"></i>Consultores buscando atualização em gestão moderna.</li>
-							</ul>
-						</div>
-						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1 md:order-2" data-aos="fade-left">
-                            <img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" width="500" height="450" class="w-full h-auto max-h-[450px] max-w-sm md:max-w-full mx-auto" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+                        <div class="icon-block-card module-link" data-page-id="page-content" data-scroll-target="gestao-riscos">
+                            <div class="icon"><i class="fas fa-exclamation-triangle fa-fw"></i></div>
+                            <div><h4>Gestão de Riscos</h4><p>Frameworks (ISO 31000, COSO) e ferramentas (FMEA, HAZOP) para identificar e mitigar riscos.</p></div>
                         </div>
-					</div>
-				</div>
-			</section>
-            <section id="enroll" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto max-w-2xl">
-                    <div class="text-center mb-12">
-                        <h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-2">INSCRIÇÃO</h3>
-                        <h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Garanta Sua Vaga no MBA lite</h2>
-                        <p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
+                        <div class="icon-block-card module-link" data-page-id="page-content" data-scroll-target="gestao-qualidade">
+                            <div class="icon"><i class="fas fa-star fa-fw"></i></div>
+                            <div><h4>Gestão da Qualidade</h4><p>Metodologias (PDCA, Seis Sigma, Lean, ISO 9001) para otimizar processos e garantir valor.</p></div>
+                        </div>
+                        <div class="icon-block-card module-link" data-page-id="page-content" data-scroll-target="gestao-projetos">
+                            <div class="icon"><i class="fas fa-tasks fa-fw"></i></div>
+                            <div><h4>Gestão de Projetos</h4><p>Abordagens tradicionais (PMBOK) e ágeis (Scrum, Kanban) para entregar projetos complexos.</p></div>
+                        </div>
+                        <div class="icon-block-card module-link" data-page-id="page-content" data-scroll-target="ferramentas-gestao-projetos">
+                            <div class="icon"><i class="fas fa-toolbox fa-fw"></i></div>
+                            <div><h4>Ferramentas de Gestão</h4><p>Domine ClickUp, Jira, Trello, Monday e mais para planejar, executar e monitorar projetos.</p></div>
+                        </div>
+                        <div class="icon-block-card module-link" data-page-id="page-content" data-scroll-target="gestao-projetos-ia">
+                            <div class="icon"><i class="fas fa-robot fa-fw"></i></div>
+                            <div><h4>Gestão com IA</h4><p>Explore IAs Generativas (ChatGPT, Gemini) para otimizar análise, ideação e tomada de decisão.</p></div>
+                        </div>
                     </div>
-                    <div class="form-wrapper bg-white p-6 md:p-10 rounded-lg shadow-lg">
+				</div>
+			</section>
+            <section id="bonus-ebooks" class="bg-bg-main">
+				<div class="container">
+                    <div class="image-content">
+                        <img src="/img/svg/hero4.svg" alt="Ilustração de Ebooks Bônus" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+                    </div>
+                    <div class="text-content">
+                        <h3 class="subtitle" style="text-align: left; margin-bottom: 0.5rem;">BÔNUS EXCLUSIVO</h3>
+                        <h2 class="title" style="text-align: left; margin-bottom: 1.5rem;">Receba 6 Ebooks Exclusivos!</h2>
+                        <p class="description" style="text-align: left; margin-bottom: 2.5rem; color: var(--color-text-muted);">Aprofunde seu conhecimento com um ebook dedicado para cada módulo do MBA lite, cobrindo os tópicos essenciais de forma prática e direta.</p>
+                        <ul class="checklist">
+                            <li><i class="fas fa-check-circle"></i><span>Gestão de Pessoas</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Gestão de Riscos</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Gestão da Qualidade</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Gestão de Projetos</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Gestão de Tarefas</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Gestão com Inteligência Artificial</span></li>
+                        </ul>
+                    </div>
+				</div>
+			</section>
+			<section id="benefits" class="bg-bg-main">
+				<div class="container">
+					<div class="section-header">
+						<h3 class="subtitle">VANTAGENS</h3>
+						<h2 class="title">Invista no Seu Potencial de Liderança</h2>
+						<p class="description">Adquira habilidades práticas e estratégicas para se destacar no mercado e impulsionar sua carreira.</p>
+					</div>
+					<div class="grid-container md:grid-cols-2">
+						<div class="icon-block-card">
+                            <div class="icon"><i class="fas fa-chart-line fa-fw"></i></div>
+                            <div><h4>Desenvolvimento Estratégico</h4><p>Adquira uma visão 360º da gestão, conectando teoria e prática para tomar decisões mais assertivas.</p></div>
+                        </div>
+						<div class="icon-block-card">
+                            <div class="icon"><i class="fas fa-book-reader fa-fw"></i></div>
+                            <div><h4>Aprendizado Prático</h4><p>Metodologia focada em estudos de caso, ferramentas práticas e discussões relevantes para seu contexto.</p></div>
+                        </div>
+						<div class="icon-block-card">
+                            <div class="icon"><i class="fas fa-clock fa-fw"></i></div>
+                            <div><h4>Flexibilidade Total</h4><p>Acesse o conteúdo de alta qualidade no seu próprio ritmo, conciliando os estudos com sua rotina.</p></div>
+                        </div>
+						<div class="icon-block-card">
+                            <div class="icon"><i class="fas fa-users-cog fa-fw"></i></div>
+                            <div><h4>Networking Estratégico</h4><p>Conecte-se com outros profissionais e líderes, expandindo sua rede e trocando experiências valiosas.</p></div>
+                        </div>
+					</div>
+				</div>
+			</section>
+			<section id="target-audience" class="bg-bg-surface">
+				<div class="container">
+                    <div class="text-content" style="order: 2; text-align: left;">
+                        <div style="margin-bottom: 3rem;">
+                            <h3 class="subtitle">PARA QUEM</h3>
+                            <h2 class="title">Ideal Para Profissionais Orientados a Resultados Diretos</h2>
+                        </div>
+                        <ul class="checklist">
+                            <li><i class="fas fa-check-circle"></i><span>Líderes e gestores buscando aprimoramento estratégico.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Profissionais em transição para cargos de gestão.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Empreendedores e donos de negócios buscando base sólida.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Analistas e especialistas que desejam visão holística.</span></li>
+                            <li><i class="fas fa-check-circle"></i><span>Consultores buscando atualização em gestão moderna.</span></li>
+                        </ul>
+                    </div>
+                    <div class="image-content" style="order: 1;">
+                        <img src="/img/svg/hero2.svg" alt="Ilustração representando profissionais ambiciosos" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/500x450/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+                    </div>
+				</div>
+			</section>
+            <section id="enroll" class="bg-bg-main">
+                <div class="container" style="max-width: 42rem;">
+                    <div class="section-header">
+                        <h3 class="subtitle">INSCRIÇÃO</h3>
+                        <h2 class="title">Garanta Sua Vaga no MBA lite</h2>
+                        <p class="description">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
+                    </div>
+                    <div class="form-wrapper">
                         <style>.formkit-form[data-uid="d0849e0001"] *{box-sizing:border-box;}.formkit-form[data-uid="d0849e0001"]{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.formkit-form[data-uid="d0849e0001"] legend{border:none;font-size:inherit;margin-bottom:10px;padding:0;position:relative;display:table;}.formkit-form[data-uid="d0849e0001"] fieldset{border:0;padding:0.01em 0 0 0;margin:0;min-width:0;}.formkit-form[data-uid="d0849e0001"] body:not(:-moz-handler-blocked) fieldset{display:table-cell;}.formkit-form[data-uid="d0849e0001"] h1,.formkit-form[data-uid="d0849e0001"] h2,.formkit-form[data-uid="d0849e0001"] h3,.formkit-form[data-uid="d0849e0001"] h4,.formkit-form[data-uid="d0849e0001"] h5,.formkit-form[data-uid="d0849e0001"] h6{color:inherit;font-size:inherit;font-weight:inherit;}.formkit-form[data-uid="d0849e0001"] h2{font-size:1.5em;margin:1em 0;}.formkit-form[data-uid="d0849e0001"] h3{font-size:1.17em;margin:1em 0;}.formkit-form[data-uid="d0849e0001"] p{color:inherit;font-size:inherit;font-weight:inherit;}.formkit-form[data-uid="d0849e0001"] ol:not([template-default]),.formkit-form[data-uid="d0849e0001"] ul:not([template-default]),.formkit-form[data-uid="d0849e0001"] blockquote:not([template-default]){text-align:left;}.formkit-form[data-uid="d0849e0001"] p:not([template-default]),.formkit-form[data-uid="d0849e0001"] hr:not([template-default]),.formkit-form[data-uid="d0849e0001"] blockquote:not([template-default]),.formkit-form[data-uid="d0849e0001"] ol:not([template-default]),.formkit-form[data-uid="d0849e0001"] ul:not([template-default]){color:inherit;font-style:initial;}.formkit-form[data-uid="d0849e0001"] .ordered-list,.formkit-form[data-uid="d0849e0001"] .unordered-list{list-style-position:outside !important;padding-left:1em;}.formkit-form[data-uid="d0849e0001"] .list-item{padding-left:0;}.formkit-form[data-uid="d0849e0001"][data-format="modal"]{display:none;}.formkit-form[data-uid="d0849e0001"][data-format="slide in"]{display:none;}.formkit-form[data-uid="d0849e0001"][data-format="sticky bar"]{display:none;}.formkit-sticky-bar .formkit-form[data-uid="d0849e0001"][data-format="sticky bar"]{display:block;}.formkit-form[data-uid="d0849e0001"] .formkit-input,.formkit-form[data-uid="d0849e0001"] .formkit-select,.formkit-form[data-uid="d0849e0001"] .formkit-checkboxes{width:100%;}.formkit-form[data-uid="d0849e0001"] .formkit-button,.formkit-form[data-uid="d0849e0001"] .formkit-submit{border:0;border-radius:5px;color:#ffffff;cursor:pointer;display:inline-block;text-align:center;font-size:15px;font-weight:500;cursor:pointer;margin-bottom:15px;overflow:hidden;padding:0;position:relative;vertical-align:middle;}.formkit-form[data-uid="d0849e0001"] .formkit-button:hover,.formkit-form[data-uid="d0849e0001"] .formkit-submit:hover,.formkit-form[data-uid="d0849e0001"] .formkit-button:focus,.formkit-form[data-uid="d0849e0001"] .formkit-submit:focus{outline:none;}.formkit-form[data-uid="d0849e0001"] .formkit-button:hover > span,.formkit-form[data-uid="d0849e0001"] .formkit-submit:hover > span,.formkit-form[data-uid="d0849e0001"] .formkit-button:focus > span,.formkit-form[data-uid="d0849e0001"] .formkit-submit:focus > span{background-color:rgba(0,0,0,0.1);}.formkit-form[data-uid="d0849e0001"] .formkit-button > span,.formkit-form[data-uid="d0849e0001"] .formkit-submit > span{display:block;-webkit-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out;padding:12px 24px;}.formkit-form[data-uid="d0849e0001"] .formkit-input{background:#ffffff;font-size:15px;padding:12px;border:1px solid #e3e3e3;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;line-height:1.4;margin:0;-webkit-transition:border-color ease-out 300ms;transition:border-color ease-out 300ms;}.formkit-form[data-uid="d0849e0001"] .formkit-input:focus{outline:none;border-color:#1677be;-webkit-transition:border-color ease 300ms;transition:border-color ease 300ms;}.formkit-form[data-uid="d0849e0001"] .formkit-input::-webkit-input-placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] .formkit-input::-moz-placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] .formkit-input:-ms-input-placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] .formkit-input::placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"]{position:relative;display:inline-block;width:100%;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"]::before{content:"";top:calc(50% - 2.5px);right:10px;position:absolute;pointer-events:none;border-color:#4f4f4f transparent transparent transparent;border-style:solid;border-width:6px 6px 0 6px;height:0;width:0;z-index:999;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"] select{height:auto;width:100%;cursor:pointer;color:#333333;line-height:1.4;margin-bottom:0;padding:0 6px;-webkit-appearance:none;-moz-appearance:none;appearance:none;font-size:15px;padding:12px;padding-right:25px;border:1px solid #e3e3e3;background:#ffffff;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"] select:focus{outline:none;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"]{text-align:left;margin:0;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"]{margin-bottom:10px;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] *{cursor:pointer;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"]:last-of-type{margin-bottom:0;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]{display:none;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"] + label::after{content:none;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]:checked + label::after{border-color:#ffffff;content:"";}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]:checked + label::before{background:#10bf7a;border-color:#10bf7a;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label{position:relative;display:inline-block;padding-left:28px;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::before,.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::after{position:absolute;content:"";display:inline-block;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::before{height:16px;width:16px;border:1px solid #e3e3e3;background:#ffffff;left:0px;top:3px;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::after{height:4px;width:8px;border-left:2px solid #4d4d4d;border-bottom:2px solid #4d4d4d;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);left:4px;top:8px;}.formkit-form[data-uid="d0849e0001"] .formkit-alert{background:#f9fafb;border:1px solid #e3e3e3;border-radius:5px;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;list-style:none;margin:25px auto;padding:12px;text-align:center;width:100%;}.formkit-form[data-uid="d0849e0001"] .formkit-alert:empty{display:none;}.formkit-form[data-uid="d0849e0001"] .formkit-alert-success{background:#d3fbeb;border-color:#10bf7a;color:#0c905c;}.formkit-form[data-uid="d0849e0001"] .formkit-alert-error{background:#fde8e2;border-color:#f2643b;color:#ea4110;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:0px;width:0px;margin:0 auto;position:absolute;top:0;left:0;right:0;width:0px;overflow:hidden;text-align:center;-webkit-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner > div{margin:auto;width:12px;height:12px;background-color:#fff;opacity:0.3;border-radius:100%;display:inline-block;-webkit-animation:formkit-bouncedelay-formkit-form-data-uid-d0849e0001- 1.4s infinite ease-in-out both;animation:formkit-bouncedelay-formkit-form-data-uid-d0849e0001- 1.4s infinite ease-in-out both;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner > div:nth-child(1){-webkit-animation-delay:-0.32s;animation-delay:-0.32s;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner > div:nth-child(2){-webkit-animation-delay:-0.16s;animation-delay:-0.16s;}.formkit-form[data-uid="d0849e0001"] .formkit-submit[data-active] .formkit-spinner{opacity:1;height:100%;width:50px;}.formkit-form[data-uid="d0849e0001"] .formkit-submit[data-active] .formkit-spinner ~ span{opacity:0;}.formkit-form[data-uid="d0849e0001"] .formkit-powered-by[data-active="false"]{opacity:0.35;}@-webkit-keyframes formkit-bouncedelay-formkit-form-data-uid-d0849e0001-{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}@keyframes formkit-bouncedelay-formkit-form-data-uid-d0849e0001-{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}.formkit-form[data-uid="d0849e0001"] blockquote{padding:10px 20px;margin:0 0 20px;border-left:5px solid #e1e1e1;}.formkit-form[data-uid="d0849e0001"] .seva-custom-content{padding:15px;font-size:16px;color:#fff;mix-blend-mode:difference;}.formkit-form[data-uid="d0849e0001"] .formkit-modal.guard{max-width:420px;width:100%;} .formkit-form[data-uid="d0849e0001"]{border:1px solid #e3e3e3;max-width:700px;position:relative;overflow:hidden;}.formkit-form[data-uid="d0849e0001"] .formkit-background{width:100%;height:100%;position:absolute;top:0;left:0;background-size:cover;background-position:center;opacity:0.3;}.formkit-form[data-uid="d0849e0001"] [data-style="minimal"]{padding:20px;width:100%;position:relative;}.formkit-form[data-uid="d0849e0001"] .formkit-header{margin:0 0 27px 0;text-align:center;}.formkit-form[data-uid="d0849e0001"] .formkit-subheader{margin:18px 0;text-align:center;}.formkit-form[data-uid="d0849e0001"] .formkit-guarantee{font-size:13px;margin:10px 0 15px 0;text-align:center;}.formkit-form[data-uid="d0849e0001"] .formkit-guarantee > p{margin:0;}.formkit-form[data-uid="d0849e0001"] .formkit-powered-by-convertkit-container{margin-bottom:0;}.formkit-form[data-uid="d0849e0001"] .formkit-fields{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:25px auto 0 auto;}.formkit-form[data-uid="d0849e0001"] .formkit-field{min-width:220px;}.formkit-form[data-uid="d0849e0001"] .formkit-field,.formkit-form[data-uid="d0849e0001"] .formkit-submit{margin:0 0 15px 0;-webkit-flex:1 0 100%;-ms-flex:1 0 100%;flex:1 0 100%;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] [data-style="minimal"]{padding:40px;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"]{margin-left:-5px;margin-right:-5px;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-field,.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-submit{margin:0 5px 15px 5px;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-field{-webkit-flex:100 1 auto;-ms-flex:100 1 auto;flex:100 1 auto;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-submit{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;} .formkit-form[data-uid="d0849e0001"]{border:0;}</style>
                         <form action="https://app.kit.com/forms/7865976/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7865976" data-uid="d0849e0001" data-format="inline" data-version="5" min-width="400">
                             <div style="opacity:1" class="formkit-background"></div>
@@ -602,125 +761,127 @@
 		<div id="page-faq" class="page">
 			<section id="faq-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
 				<div class="container mx-auto max-w-4xl">
-					<div class="text-center mb-12 md:mb-16"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-title mt-4">Perguntas Frequentes (FAQ)</h1></div>
-					<div class="mb-12">
+					<div class="section-header">
+                        <h1 class="title" style="font-size: 2.5rem; margin-top: 1rem;">Perguntas Frequentes (FAQ)</h1>
+                    </div>
+					<div style="margin-bottom: 3rem;">
 						<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Geral</h2>
-						<div class="faq-group space-y-4">
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O que é o curso MBA lite?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
+						<div class="faq-group">
+							<details class="faq-item">
+								<summary>O que é o curso MBA lite?</summary>
+								<div class="faq-content">
+									<p>O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Para quem este curso é recomendado?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
+							<details class="faq-item">
+								<summary>Para quem este curso é recomendado?</summary>
+								<div class="faq-content">
+									<p>O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Qual a duração total estimada do curso?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
+							<details class="faq-item">
+								<summary>Qual a duração total estimada do curso?</summary>
+								<div class="faq-content">
+									<p>A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Precisarei de alguma ferramenta ou software específico?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+							<details class="faq-item">
+								<summary>Precisarei de alguma ferramenta ou software específico?</summary>
+								<div class="faq-content">
+									<p>O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Preciso ter experiência prévia em gestão para fazer o curso?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
+							<details class="faq-item">
+								<summary>Preciso ter experiência prévia em gestão para fazer o curso?</summary>
+								<div class="faq-content">
+									<p>Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
 								</div>
 							</details>
 						</div>
 					</div>
-                    <div class="mb-12">
+                    <div style="margin-bottom: 3rem;">
 						<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Conteúdo do Curso</h2>
-						<div class="faq-group space-y-4">
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais são os principais módulos abordados no MBA lite?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
+						<div class="faq-group">
+							<details class="faq-item">
+								<summary>Quais são os principais módulos abordados no MBA lite?</summary>
+								<div class="faq-content">
+									<p>O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
 								</div>
 							</details>
-                            <details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
+                            <details class="faq-item">
+								<summary>O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
+								<div class="faq-content">
+									<p>Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Quais ferramentas práticas de gestão serão ensinadas?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
+							<details class="faq-item">
+								<summary>Quais ferramentas práticas de gestão serão ensinadas?</summary>
+								<div class="faq-content">
+									<p>O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
+							<details class="faq-item">
+								<summary>O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
+								<div class="faq-content">
+									<p>Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
+							<details class="faq-item">
+								<summary>Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
+								<div class="faq-content">
+									<p>O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
+							<details class="faq-item">
+								<summary>O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
+								<div class="faq-content">
+									<p>Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
 								</div>
 							</details>
                         </div>
                     </div>
-                    <div class="mb-12">
+                    <div style="margin-bottom: 3rem;">
 						<h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Plataforma e Acesso</h2>
-						<div class="faq-group space-y-4">
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como o curso é entregue?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">O MBA lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
+						<div class="faq-group">
+							<details class="faq-item">
+								<summary>Como o curso é entregue?</summary>
+								<div class="faq-content">
+									<p>O MBA lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Receberei um certificado ao concluir o curso?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
+							<details class="faq-item">
+								<summary>Receberei um certificado ao concluir o curso?</summary>
+								<div class="faq-content">
+									<p>Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como posso tirar dúvidas durante o curso?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&amp;A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p>
+							<details class="faq-item">
+								<summary>Como posso tirar dúvidas durante o curso?</summary>
+								<div class="faq-content">
+									<p>A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">O curso oferece acesso vitalício?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
+							<details class="faq-item">
+								<summary>O curso oferece acesso vitalício?</summary>
+								<div class="faq-content">
+									<p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Como me inscrevo no curso pela Udemy?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA lite" na barra de busca da Udemy ou acessar através do link direto que será compartilhado aqui no site assim que o curso for lançado. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
+							<details class="faq-item">
+								<summary>Como me inscrevo no curso pela Udemy?</summary>
+								<div class="faq-content">
+									<p>A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA lite" na barra de busca da Udemy ou acessar através do link direto que será compartilhado aqui no site assim que o curso for lançado. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
 								</div>
 							</details>
-							<details class="faq-item standard-card-style overflow-hidden">
-								<summary class="text-lg font-semibold text-gray-800 p-5 hover:bg-gray-100">Posso assistir às aulas no meu celular ou tablet?</summary>
-								<div class="faq-content p-5 pt-0">
-									<p class="text-gray-600 leading-relaxed">Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
+							<details class="faq-item">
+								<summary>Posso assistir às aulas no meu celular ou tablet?</summary>
+								<div class="faq-content">
+									<p>Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
 								</div>
 							</details>
 						</div>
 					</div>
-					<div class="faq-cta text-center mt-16"><h3 class="text-2xl font-semibold text-gray-800 mb-4">Ainda tem dúvidas?</h3><p class="text-lg text-text-muted mb-8">Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p><a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-md shadow-md hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg">Quero ser um(a) gestor(a) de alta performance!</a></div>
+					<div class="text-center mt-16"><h3 class="text-2xl font-semibold text-gray-800 mb-4">Ainda tem dúvidas?</h3><p class="text-lg text-text-muted mb-8">Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p><a href="/#enroll" data-page-id="page-index" data-scroll-target="enroll" class="enroll-button" style="display: inline-block; padding: 0.75rem 2rem; font-size: 1.125rem;">Quero ser um(a) gestor(a) de alta performance!</a></div>
 				</div>
 			</section>
 		</div>
@@ -728,49 +889,44 @@
         <!-- PÁGINA CONFIRMAÇÃO -->
 		<div id="page-confirmation" class="page">
 			<section id="confirmation-section" class="scroll-target bg-bg-main flex items-center justify-center py-24 px-4 md:px-6 lg:px-8 min-h-[calc(100vh-var(--header-height))]">
-				<div class="container mx-auto">
-					<div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
-						<div class="w-3/4 mx-auto mb-8 md:w-1/2 lg:w-5/12 md:mx-0 md:mb-0 order-1" data-aos="fade-right">
-							<img src="/img/svg/hero3.svg" alt="Ilustração de confirmação de inscrição" class="w-full h-auto max-h-[550px] max-w-sm md:max-w-full mx-auto" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
+				<div class="container">
+						<div class="image-content">
+							<img src="/img/svg/hero3.svg" alt="Ilustração de confirmação de inscrição" onerror="this.onerror=null; this.src='https://placehold.co/720x690/e0e7ff/4f46e5?text=Imagem+Indisponível';">
 						</div>
-						<div class="w-full md:w-1/2 lg:w-7/12 order-2 md:order-2 text-center md:text-left">
-							<div class="bg-white p-8 md:p-10 rounded-lg shadow-lg">
-								<div class="text-5xl md:text-6xl text-green-500 mb-6 text-center"><i class="fas fa-check-circle"></i></div>
-								<h1 class="text-3xl md:text-4xl font-bold text-text-title mb-4 text-center">Inscrição Confirmada!</h1>
-								<p class="text-lg text-text-body leading-relaxed mb-8 text-center">Obrigado por se inscrever no MBA lite. Seu e-mail foi confirmado com sucesso.</p>
-								<p class="text-text-muted mb-10 text-center">Em breve você receberá mais informações sobre os próximos passos. Fique de olho na sua caixa de entrada!</p>
-								<div class="text-center"><a href="/" data-page-id="page-index" class="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-md shadow-md hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5 transform transition duration-300 ease-in-out text-lg">Voltar para a Página Inicial</a></div>
+						<div class="text-content">
+							<div class="bg-white p-8 md:p-10 rounded-lg shadow-lg text-center">
+								<div style="font-size: 3.75rem; color: #22c55e; margin-bottom: 1.5rem;"><i class="fas fa-check-circle"></i></div>
+								<h1 class="text-3xl md:text-4xl font-bold text-text-title mb-4">Inscrição Confirmada!</h1>
+								<p class="text-lg text-text-body leading-relaxed mb-8">Obrigado por se inscrever no MBA lite. Seu e-mail foi confirmado com sucesso.</p>
+								<p class="text-text-muted mb-10">Em breve você receberá mais informações sobre os próximos passos. Fique de olho na sua caixa de entrada!</p>
+								<div><a href="/" data-page-id="page-index" class="enroll-button" style="display: inline-block; padding: 0.75rem 2rem; font-size: 1.125rem;">Voltar para a Página Inicial</a></div>
 							</div>
 						</div>
-					</div>
 				</div>
 			</section>
 		</div>
 	</main>
 	
-    <footer class="bg-bg-surface py-10 mt-16 px-5">
-		<div class="container mx-auto text-center text-text-muted">
-			<div class="flex justify-center space-x-6 mb-6">
-				<a href="mailto:dan@mbalite.com.br" title="Email" class="text-gray-500 hover:text-primary transition duration-300 text-2xl"><i class="fas fa-envelope"></i></a>
-				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="text-gray-500 hover:text-primary transition duration-300 text-2xl"><i class="fab fa-linkedin"></i></a>
+    <footer class="bg-bg-surface">
+		<div class="container">
+			<div class="social-icons">
+				<a href="mailto:dan@mbalite.com.br" title="Email"><i class="fas fa-envelope"></i></a>
+				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
 			</div>
-			<p class="text-sm">©<span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
-			<p class="text-xs mt-1">Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
-			<p class="text-xs mt-2">Brasília - DF, Brasil</p>
+			<p>©<span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
+			<p class="legal">Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
+			<p class="location">Brasília - DF, Brasil</p>
 		</div>
 	</footer>
 
-	<button id="scroll-to-top" title="Voltar ao topo" class="invisible">
-		<i class="fas fa-arrow-up text-white"></i>
+	<button id="scroll-to-top" title="Voltar ao topo">
+		<i class="fas fa-arrow-up"></i>
 	</button>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 	<script>
-        // --- SCRIPT.JS COMBINADO E CORRIGIDO ---
+        // --- SCRIPT.JS SEM DEPENDÊNCIAS ---
         document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({ once: true });
-
             const menuBtn = document.getElementById('menu-btn');
             const closeMenuBtn = document.getElementById('close-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -850,12 +1006,7 @@
 
                 pages.forEach(p => p.style.display = 'none');
                 pageToShow.style.display = 'block';
-                
-                setTimeout(() => {
-                    pages.forEach(p => p.classList.remove('active'));
-                    pageToShow.classList.add('active');
-                    AOS.refresh();
-                }, 10);
+                pageToShow.classList.add('active');
                 
                 updateActiveNavLink(pageId);
 
