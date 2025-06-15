@@ -4,14 +4,15 @@
     --font-sans: 'Inter', sans-serif;
     --color-text: #111827;
     --color-text-muted: #6b7280;
-    --color-bg-main: #f9fafb;
-    --color-bg-surface: #ffffff;
+    --color-bg-main: #ffffff;
+    --color-bg-surface: #f9fafb;
     --color-border: #e5e7eb;
     --color-primary: #0582ff;
     --color-primary-dark: #045ac3;
     --header-height: 60px;
 }
 
+/* Reset and Base Styles */
 html, body {
     width: 100%;
     max-width: 100%;
@@ -34,21 +35,21 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-synthesis: none;
 }
 
 main {
     flex-grow: 1;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     color: var(--color-text);
 }
 
 a {
-    transition: color 0.3s ease;
+    transition: color 0.2s ease-in-out;
 }
 
+/* Header */
 header {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
@@ -59,9 +60,21 @@ header {
     left: 0;
     width: 100%;
     z-index: 50;
-    transition: box-shadow 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
 }
 
+header nav a {
+    color: var(--color-text-muted);
+}
+
+header nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Module Cards */
 .module-card {
     background-color: var(--color-bg-surface);
     border: 1px solid var(--color-border);
@@ -72,19 +85,40 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .module-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
 }
 
-.module-card .fas {
+.module-card i {
     color: var(--color-primary);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
-.module-card:hover .fas {
+.module-card:hover i {
     transform: scale(1.1);
 }
+
+/* Utility Classes (simulating Tailwind for this context) */
+.hidden { display: none; }
+.fixed { position: fixed; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.p-6 { padding: 1.5rem; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.mb-8 { margin-bottom: 2rem; }
+.gap-y-4 > * + * { margin-top: 1rem; }
+.bg-white { background-color: #fff; }
+.text-gray-600 { color: #4b5563; }
+.text-lg { font-size: 1.125rem; }
+.font-semibold { font-weight: 600; }
+.hover\:text-blue-600:hover { color: #2563eb; }
+.transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+/* Add other Tailwind-like classes from your HTML here if not using a framework */
