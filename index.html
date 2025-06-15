@@ -17,7 +17,7 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"MBA lite","description":"Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.","provider":{"@type":"Person","name":"Dan Coelho","url":"/autor","sameAs":"https://www.linkedin.com/in/danubiocoelho/"},"courseCode":"MBALITE","educationalCredentialAwarded":"Certificate of Completion","hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@type":"Person","name":"Dan Coelho"}},"url":"/"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"Gestão de Pessoas para Alta Performance: Desvendando o Potencial Humano para Resultados Extraordinários","author":{"@type":"Person","name":"Dan Coelho"},"url":"/publicacoes","workExample":[{"@type":"Book","identifier":"B0F47QBL8R","bookEdition":"1st Edition","bookFormat":"https://schema.org/EBook","potentialAction":{"@type":"ReadAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.amazon.com.br/dp/B0F47QBL8R","actionPlatform":["https://schema.org/DesktopWebPlatform","https://schema.org/IOSPlatform","https://schema.org/AndroidPlatform"]}}}]}</script>
 </head>
-<body class="bg-bg-main text-text-body page-page-index">
+<body class="bg-bg-main text-text-body">
     <header id="main-header" class="bg-white">
         <div class="container mx-auto px-4 md:px-6 lg:px-8 h-full flex justify-between items-center">
             <a href="/" class="text-2xl font-bold text-gray-900 hover:text-primary-main transition-colors duration-300">MBA lite</a>
@@ -30,7 +30,7 @@
                 <a href="/#enroll" data-scroll-target="enroll" class="ml-4 inline-flex items-center justify-center px-6 bg-gray-900 text-white rounded-md shadow-md hover:bg-gray-700 transition duration-300 ease-in-out text-sm h-[30px] leading-tight">Inscreva-se</a>
             </nav>
             <button id="menu-btn" class="lg:hidden focus:outline-none text-gray-700 hover:text-primary-main" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fas fa-bars text-xl" aria-hidden="true"></i>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
     </header>
@@ -38,7 +38,7 @@
         <div class="flex justify-between items-center mb-8 px-6 pt-6">
             <h2 id="mobile-menu-title" class="text-xl font-semibold text-gray-800">Menu</h2>
             <button id="close-menu-btn" class="text-gray-500 hover:text-primary-main focus:outline-none" aria-label="Fechar menu">
-                <i class="fas fa-times text-xl" aria-hidden="true"></i>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
         <nav class="flex flex-col space-y-1 px-3" aria-label="Navegação móvel">
@@ -47,7 +47,7 @@
             <a href="/publicacoes" class="mobile-menu-link">Publicações</a>
             <a href="/autor" class="mobile-menu-link">Autor</a>
             <a href="/faq" class="mobile-menu-link">FAQ</a>
-            <a href="/#enroll" data-scroll-target="enroll" class="block text-center font-semibold mt-4 mx-3 py-2.5 px-6 rounded-md bg-primary-main text-white uppercase tracking-wider border-2 border-primary-main hover:bg-primary-dark hover:border-primary-dark transition-all duration-300 ease-in-out">Inscreva-se</a>
+            <a href="/#enroll" data-scroll-target="enroll" class="mobile-menu-cta">Inscreva-se</a>
         </nav>
     </div>
     <div id="menu-overlay" aria-hidden="true"></div>
@@ -213,20 +213,20 @@
                         <p class="text-lg text-text-muted leading-relaxed">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
                     </div>
                     <div class="form-wrapper bg-white py-8 md:py-10 px-0 md:px-10 rounded-lg">
-                         <form action="https://app.kit.com/forms/7865976/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7865976" data-uid="d0849e0001" data-format="inline" data-version="5" min-width="400">
-                           <div class="formkit-background"></div>
+                        <form action="https://app.kit.com/forms/7865976/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7865976" data-uid="d0849e0001" data-format="inline" data-version="5" min-width="400" style="background-color:#ffffff;border-radius:4px">
+                           <div style="opacity:1" class="formkit-background"></div>
                            <div data-style="minimal">
-                              <div class="formkit-header" data-element="header">
+                              <div class="formkit-header" style="color:#111827;font-size:20px;font-weight:700" data-element="header">
                                  <h2>Inicie sua Jornada de Transformação</h2>
                               </div>
-                              <div class="formkit-subheader" data-element="subheader">
+                              <div class="formkit-subheader" style="color:#454545;font-size:16px" data-element="subheader">
                                  <p>O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Inscreva-se para receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p>
                               </div>
                               <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
                               <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
-                                 <div class="formkit-field"><input class="formkit-input" aria-label="Nome" name="fields[first_name]" placeholder="Nome" type="text"></div>
-                                 <div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Seu melhor e-mail" placeholder="Seu melhor e-mail" required type="email"></div>
-                                 <button data-element="submit" class="formkit-submit formkit-submit">
+                                 <div class="formkit-field"><input class="formkit-input" aria-label="Nome" name="fields[first_name]" placeholder="Nome" type="text" style="color:#6b7280;border-color:#d3d3d3;border-radius:5px;font-weight:400"></div>
+                                 <div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Seu melhor e-mail" placeholder="Seu melhor e-mail" required type="email" style="color:#6b7280;border-color:#d3d3d3;border-radius:5px;font-weight:400"></div>
+                                 <button data-element="submit" class="formkit-submit formkit-submit" style="color:#ffffff;background-color:#005A9E;border-radius:4px;font-weight:700">
                                     <div class="formkit-spinner">
                                        <div></div>
                                        <div></div>
@@ -235,7 +235,7 @@
                                     <span>Inscreva-se</span>
                                  </button>
                               </div>
-                              <div class="formkit-guarantee" data-element="guarantee">
+                              <div class="formkit-guarantee" style="color:#454545;font-size:13px;font-weight:400" data-element="guarantee">
                                  <p>*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p>
                               </div>
                            </div>
@@ -250,7 +250,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold text-center text-text-title mb-12 md:mb-16">O Que Você Vai Aprender</h1>
                     <article id="gestao-pessoas" class="scroll-target mb-10 p-6 md:p-8 rounded-lg standard-card-style">
                         <h2 class="text-2xl font-semibold mb-5 pb-3 text-text-title"><i class="fas fa-users mr-3 text-primary-main" aria-hidden="true"></i>Gestão de Pessoas</h2>
-                        <p class="text-gray-700 leading-relaxed">Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
+                        <p class="text-gray-700 leading-relaxed">Neste módulo, você aprenderá a transformar o RH em um parceiro estratégico do negócio. Abordaremos desde o recrutamento e seleção por competências, passando por técnicas de entrevista e onboarding eficaz, até o desenvolvimento de lideranças, com foco em ferramentas como a análise de perfil DISC. Você entenderá como implementar programas de treinamento (T&amp;D), avaliação de desempenho, planos de desenvolvimento individual (PDI) e sistemas de remuneração e beneficios alinhados aos objetivos da empresa. Além disso, exploraremos a importância do clima e cultura organizacional, comunicação, gestão de conflitos, diversidade, saúde e segurança, People Analytics e a relevância de cultivar um mindset de crescimento para potencializar o capital humano.</p>
                     </article>
                     <article id="gestao-riscos" class="scroll-target mb-10 p-6 md:p-8 rounded-lg standard-card-style">
                         <h2 class="text-2xl font-semibold mb-5 pb-3 text-text-title"><i class="fas fa-exclamation-triangle mr-3 text-primary-main" aria-hidden="true"></i>Gestão de Riscos</h2>
@@ -284,43 +284,134 @@
                     <p class="text-lg md:text-xl text-text-body max-w-3xl mx-auto mb-10 leading-relaxed">Apaixonado por otimização de processos, gestão estratégica e desenvolvimento humano para alcançar resultados de alto impacto.</p>
                 </div>
             </section>
-            <section id="autor-about" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-surface">
-                <div class="container mx-auto max-w-4xl text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-12">Sobre Mim</h2>
-                    <div class="text-lg text-text-body space-y-6 text-left leading-relaxed max-w-3xl mx-auto">
-                        <p>Minha jornada profissional começou na Engenharia Química, onde aprendi a importância da análise, dos processos e da busca pela eficiência. Complementei essa base com um MBA em Gestão de Projetos e, ao longo dos anos, atuei em diversas frentes: planejamento, operações, suprimentos, consultoria e liderança de equipes em projetos desafiadores.</p>
-                        <p>Acredito firmemente que o verdadeiro diferencial competitivo está nas pessoas. Essa convicção, somada à paixão por compartilhar conhecimento prático, me motivou a criar o site e o curso <a href="/" class="text-primary-main hover:text-primary-dark underline font-medium">MBA lite</a>, focado em gestão moderna, e a escrever o livro "Gestão de Pessoas para Alta Performance".</p>
-                        <p>Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
-                    </div>
-                </div>
-            </section>
-            <section id="autor-skills" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
-                <div class="container mx-auto">
-                    <div class="text-center max-w-2xl mx-auto mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold section-title text-center mb-6">Habilidades Principais</h2>
-                        <p class="text-lg text-text-muted leading-relaxed">Combinação de expertise técnica, ferramentas modernas e foco em liderança para entregar resultados.</p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <div class="text-center p-6 standard-card-style"><div class="text-4xl text-primary-main mb-4" aria-hidden="true"><i class="fas fa-cogs"></i></div><h3 class="text-xl font-semibold text-gray-800 mb-2">Gestão de Projetos &amp; Processos</h3><p class="text-gray-600 text-sm leading-relaxed">PMBOK, Scrum, Kanban, Lean, Six Sigma Green Belt, Otimização de Processos, PCP, Análise de Riscos, Gestão da Qualidade, Planejamento.</p></div>
-                        <div class="text-center p-6 standard-card-style"><div class="text-4xl text-primary-main mb-4" aria-hidden="true"><i class="fas fa-tools"></i></div><h3 class="text-xl font-semibold text-gray-800 mb-2">Ferramentas de Gestão</h3><p class="text-gray-600 text-sm leading-relaxed">ClickUp, Jira, Trello, Monday, Asana, MS Project, Primavera, Excel, Miro, Zapier, Integrately, SAP MM, Totvs, Sankhya.</p></div>
-                        <div class="text-center p-6 standard-card-style"><div class="text-4xl text-primary-main mb-4" aria-hidden="true"><i class="fas fa-users"></i></div><h3 class="text-xl font-semibold text-gray-800 mb-2">Liderança &amp; Desenvolvimento</h3><p class="text-gray-600 text-sm leading-relaxed">Gestão de Pessoas, Liderança, Comunicação, Oratória, Recrutamento e Seleção, Ferramentas de IA, Prompt Engineering.</p></div>
-                        <div class="text-center p-6 standard-card-style"><div class="text-4xl text-primary-main mb-4" aria-hidden="true"><i class="fas fa-code"></i></div><h3 class="text-xl font-semibold text-gray-800 mb-2">Tecnologias Web</h3><p class="text-gray-600 text-sm leading-relaxed">HTML, CSS, JavaScript, Git, Github. Desenvolvimento e manutenção de sites e aplicações web.</p></div>
-                        <div class="text-center p-6 standard-card-style"><div class="text-4xl text-primary-main mb-4" aria-hidden="true"><i class="fas fa-language"></i></div><h3 class="text-xl font-semibold text-gray-800 mb-2">Idiomas</h3><p class="text-gray-600 text-sm leading-relaxed">Português (Nativo), Inglês (Fluente - TOEFL).</p></div>
-                        <div class="text-center p-6 standard-card-style"><div class="text-4xl text-primary-main mb-4" aria-hidden="true"><i class="fas fa-graduation-cap"></i></div><h3 class="text-xl font-semibold text-gray-800 mb-2">Formação Principal</h3><p class="text-gray-600 text-sm leading-relaxed">Engenharia Química (FURG), MBA em Gestão de Projetos PMI (UNOPAR).</p></div>
-                    </div>
-                </div>
-            </section>
         </div>
         <div id="page-faq" class="page">
             <section id="faq-section" class="scroll-target py-24 px-4 md:px-6 lg:px-8 bg-bg-main">
                 <div class="container mx-auto max-w-4xl">
-                    <div class="text-center mb-12 md:mb-16"><h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-title mt-4">Perguntas Frequentes (FAQ)</h1></div>
+                    <div class="text-center mb-12 md:mb-16">
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-title mt-4">Perguntas Frequentes (FAQ)</h1>
+                    </div>
                     <div class="mb-12">
                         <h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Geral</h2>
                         <div class="faq-group space-y-4">
-                            <details class="faq-item standard-card-style overflow-hidden" open><summary class="text-lg font-semibold text-gray-800 p-5">O que é o curso MBA lite?</summary><div class="faq-content p-5 pt-0"><p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p></div></details>
-                            <details class="faq-item standard-card-style overflow-hidden"><summary class="text-lg font-semibold text-gray-800 p-5">Para quem este curso é recomendado?</summary><div class="faq-content p-5 pt-0"><p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p></div></details>
+                            <details class="faq-item standard-card-style overflow-hidden" open>
+                                <summary class="text-lg font-semibold text-gray-800 p-5">O que é o curso MBA lite?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Para quem este curso é recomendado?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Qual a duração total estimada do curso?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Precisarei de alguma ferramenta ou software específico?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Preciso ter experiência prévia em gestão para fazer o curso?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Embora alguma experiência possa ser útil, o curso foi desenhado para ser abrangente. Ele beneficia tanto gestores experientes que buscam atualização e novas ferramentas, quanto profissionais que estão em transição para posições de liderança ou que desejam adquirir uma base sólida em gestão moderna.</p>
+                                </div>
+                            </details>
                         </div>
+                    </div>
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Conteúdo do Curso</h2>
+                        <div class="faq-group space-y-4">
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Quais são os principais módulos abordados no MBA lite?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O curso é estruturado em 6 módulos principais, cobrindo áreas essenciais da gestão: Gestão de Pessoas, Gestão de Riscos, Gestão da Qualidade, Gestão de Projetos (incluindo abordagens Tradicional e Ágil), Ferramentas de Gestão de Projetos e Gestão de Projetos com Inteligência Artificial.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">O curso aborda tanto metodologias tradicionais quanto ágeis de gestão de projetos?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Sim. O módulo de Gestão de Projetos explora tanto abordagens preditivas (tradicionais), alinhadas com conceitos do PMBOK, quanto metodologias ágeis populares e eficazes como Scrum e Kanban, oferecendo uma visão completa do gerenciamento moderno.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Quais ferramentas práticas de gestão serão ensinadas?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O curso tem um forte foco prático. Teremos módulos dedicados ao uso de diversas ferramentas de gestão de projetos (como ClickUp, Jira, Trello) e de Inteligência Artificial Generativa (como ChatGPT, Gemini) aplicadas em diversas fases. Além disso, serão apresentadas e discutidas ferramentas importantes de gestão de riscos (como FMEA, HAZOP, Matriz PxI) e da qualidade (como PDCA, Pareto, Ishikawa, 5S).</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">O módulo de Gestão de Pessoas cobre legislação trabalhista brasileira?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Sim, o abrangente módulo de Gestão de Pessoas inclui uma seção dedicada à Legislação Trabalhista e Relações Sindicais, abordando os aspectos mais relevantes para gestores no contexto brasileiro, incluindo a CLT.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Como a Inteligência Artificial (IA Generativa) é aplicada na gestão de projetos neste curso?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O módulo dedicado à IA demonstra como utilizar IAs Generativas (como ChatGPT, Gemini, etc.) como assistentes inteligentes para diversas tarefas, incluindo brainstorming de ideias, auxílio na definição de escopo e objetivos SMART, análise SWOT, criação e resumo de documentação, análise de dados do projeto, simulação de cenários e suporte à tomada de decisão.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">O curso ensina a usar ferramentas de gestão de projetos como ClickUp, Jira, Trello?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Sim, o módulo 'Ferramentas de Gestão de Projetos' aborda os conceitos fundamentais aplicáveis a diversas plataformas populares como ClickUp, Jira, Trello, Monday, etc. Começamos com o básico da interface e estrutura comuns a essas ferramentas e avançamos para funcionalidades essenciais de planejamento, execução e monitoramento.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-6 pb-2 border-b border-gray-300">Plataforma e Acesso</h2>
+                        <div class="faq-group space-y-4">
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Como o curso é entregue?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">O MBA lite é um curso 100% online, composto por aulas em vídeo gravadas e disponibilizado através da plataforma Udemy. Isso permite que você assista às aulas no seu próprio ritmo, quando e onde for mais conveniente.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Receberei um certificado ao concluir o curso?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Como posso tirar dúvidas durante o curso?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">A plataforma Udemy oferece uma seção dedicada a Perguntas e Respostas (Q&A) dentro de cada curso. Você pode postar suas dúvidas sobre o conteúdo a qualquer momento, e o autor ou outros alunos da comunidade poderão respondê-las.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">O curso oferece acesso vitalício?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Como me inscrevo no curso pela Udemy?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">A inscrição é feita diretamente na plataforma Udemy. Você pode procurar pelo nome do curso "MBA lite" na barra de busca da Udemy ou acessar através do link direto que será compartilhado aqui no site assim que o curso for lançado. Uma vez na página do curso, basta seguir as instruções de inscrição e pagamento da plataforma.</p>
+                                </div>
+                            </details>
+                            <details class="faq-item standard-card-style overflow-hidden">
+                                <summary class="text-lg font-semibold text-gray-800 p-5">Posso assistir às aulas no meu celular ou tablet?</summary>
+                                <div class="faq-content p-5 pt-0">
+                                    <p class="text-gray-600 leading-relaxed">Com certeza! A Udemy possui aplicativos móveis gratuitos para dispositivos iOS e Android. Com o aplicativo, você pode assistir às aulas online, baixar aulas para assistir offline e acompanhar seu progresso de qualquer lugar.</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="faq-cta text-center mt-16">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Ainda tem dúvidas?</h3>
+                        <p class="text-lg text-text-muted mb-8">Visite a página inicial para mais detalhes ou inscreva-se agora mesmo!</p>
+                        <a href="/" class="inline-block px-8 py-3 bg-primary-main text-white font-semibold rounded-md shadow-md hover:bg-primary-dark">Quero ser um(a) gestor(a) de alta performance!</a>
                     </div>
                 </div>
             </section>
