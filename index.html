@@ -9,10 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* --- ESTILOS CSS PERSONALIZADOS PARA PÁGINA ÚNICA --- */
         :root {
             --header-height: 60px;
             --scroll-offset: calc(var(--header-height) + 20px);
@@ -27,18 +25,14 @@
             --color-border: #e5e7eb;
             --color-border-dark: #d1d5db;
         }
-
-        /* --- RESET E ESTILOS GLOBAIS --- */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--color-bg-main);
@@ -48,28 +42,22 @@
             -moz-osx-font-smoothing: grayscale;
             line-height: 1.6;
         }
-        
         main {
             display: block;
         }
-        
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
-
         a {
             color: inherit;
             text-decoration: none;
             transition: color 0.2s;
         }
-        
         ul {
             list-style: none;
         }
-
-        /* --- LAYOUT & HELPERS --- */
         .container {
             width: 100%;
             margin-left: auto;
@@ -80,10 +68,7 @@
         @media (min-width: 640px) { .container { max-width: 640px; } }
         @media (min-width: 768px) { .container { max-width: 768px; } }
         @media (min-width: 1024px) { .container { max-width: 1024px; } }
-
         .hidden { display: none !important; }
-
-        /* --- CABEÇALHO --- */
         #main-header {
             height: var(--header-height);
             position: fixed;
@@ -94,26 +79,22 @@
             background-color: var(--color-bg-surface);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        
         #main-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             height: 100%;
         }
-
         #main-header .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-text-title);
         }
-
         #main-nav {
             display: none;
             align-items: center;
         }
         @media (min-width: 1024px) { #main-nav { display: flex; } }
-
         #main-nav a.nav-link {
             font-weight: 600;
             color: var(--color-text-body);
@@ -131,7 +112,6 @@
              font-size: 0.875rem;
              line-height: 1.25rem;
         }
-        
         #menu-btn {
             display: block;
             background: none;
@@ -141,8 +121,20 @@
             color: var(--color-text-body);
         }
          @media (min-width: 1024px) { #menu-btn { display: none; } }
-
-        /* --- MENU MÓVEL --- */
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--color-text-body);
+            border-radius: 3px;
+        }
         #mobile-menu {
             position: fixed;
             top: 0;
@@ -162,26 +154,23 @@
         #mobile-menu:not(.hidden-menu) {
             transform: translateX(0);
         }
-        
         #mobile-menu .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
-        
         #mobile-menu .header #mobile-menu-title {
             font-size: 1.25rem;
             font-weight: 600;
         }
-        
         #mobile-menu .header #close-menu-btn {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
+            font-weight: 300;
         }
-        
         #mobile-menu nav a {
             display: block;
             padding: 0.625rem 0.75rem;
@@ -201,7 +190,6 @@
              letter-spacing: 0.05em;
              border: 2px solid var(--color-primary);
          }
-
         #menu-overlay {
             position: fixed;
             inset: 0;
@@ -213,8 +201,6 @@
             opacity: 0;
             pointer-events: none;
         }
-        
-        /* --- SECÇÕES E CONTEÚDO --- */
         section {
             padding: 5rem 1rem;
             border-bottom: 1px solid var(--color-border);
@@ -222,7 +208,6 @@
         section:last-child {
             border-bottom: none;
         }
-
         .section-header {
             text-align: center;
             max-width: 48rem;
@@ -243,28 +228,17 @@
             margin-bottom: 1.5rem;
         }
         @media (min-width: 768px) { .section-header .title { font-size: 2.5rem; } }
-
         .section-header .description {
             font-size: 1.125rem;
             line-height: 1.625;
             color: var(--color-text-muted);
         }
-        
         .grid-container {
             display: grid;
             gap: 2rem;
         }
         @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
         @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
-        
-        .card {
-            background-color: var(--color-bg-surface);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
-        }
-
-        /* --- HERO --- */
         #hero {
             display: flex;
             align-items: center;
@@ -272,7 +246,6 @@
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-
         #hero .container {
             display: flex;
             flex-direction: column;
@@ -288,11 +261,9 @@
             #hero .text-content { text-align: left; width: 58.333%; order: 2; }
             #hero .image-content { width: 41.667%; margin: 0; order: 1; }
          }
-        
         #hero h1 { font-size: 2.25rem; font-weight: 700; color: var(--color-text-title); margin-bottom: 1.5rem; line-height: 1.25; }
         #hero p { font-size: 1.125rem; color: var(--color-text-body); margin-bottom: 2.5rem; line-height: 1.625; max-width: 48rem; }
         @media (min-width: 768px) { #hero h1 { font-size: 3rem; } #hero p { font-size: 1.25rem; } }
-        
         .enroll-button {
              padding: 0.75rem 2.5rem;
              background-color: var(--color-primary);
@@ -305,18 +276,12 @@
         .enroll-button:hover {
             background-color: var(--color-primary-dark);
         }
-
-        /* --- MÓDULOS --- */
         .module-card {
             background: #fff;
             padding: 2rem;
             border: 1px solid var(--color-border);
             border-radius: 0.75rem;
-        }
-        .module-card .icon {
-            font-size: 1.75rem;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
+            text-align: center;
         }
         .module-card h3 {
             font-size: 1.25rem;
@@ -327,9 +292,7 @@
         .module-card p {
             color: var(--color-text-body);
         }
-
-        /* --- AUTOR E PUBLICAÇÕES --- */
-         #autor .container {
+        #autor .container {
              display: flex;
              flex-direction: column;
              gap: 4rem;
@@ -357,7 +320,6 @@
              border-radius: 0.5rem;
              box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
          }
-        
          #autor .skills-grid {
              display: grid;
              gap: 1.5rem;
@@ -365,18 +327,14 @@
          }
          @media (min-width: 640px) { #autor .skills-grid { grid-template-columns: repeat(2, 1fr); } }
          @media (min-width: 1024px) { #autor .skills-grid { grid-template-columns: repeat(3, 1fr); } }
-        
         .skill-card {
             text-align: center;
             padding: 1.5rem;
             background: #fff;
             border-radius: 0.5rem;
         }
-         .skill-card .icon { font-size: 2rem; margin-bottom: 1rem; color: var(--color-primary); }
          .skill-card h4 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.5rem; }
          .skill-card p { font-size: 0.875rem; color: var(--color-text-muted); }
-        
-        /* --- FAQ --- */
         #faq .faq-item {
             border: 1px solid var(--color-border);
             border-radius: 0.5rem;
@@ -403,8 +361,6 @@
         #faq .faq-item .faq-content {
             padding: 0 1.25rem 1.25rem;
         }
-
-        /* --- RODAPÉ --- */
         footer {
             background-color: var(--color-bg-surface);
             padding: 2.5rem 1.25rem;
@@ -419,12 +375,14 @@
             margin-bottom: 1.5rem;
         }
         footer .social-icons a {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: var(--color-text-muted);
+            text-decoration: underline;
+        }
+        footer .social-icons a:hover {
+            color: var(--color-primary);
         }
         footer p { font-size: 0.875rem; margin-bottom: 0.25rem; }
-        
-        /* --- BOTÃO VOLTAR AO TOPO --- */
         #scroll-to-top {
             position: fixed;
             bottom: 30px;
@@ -443,16 +401,16 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s;
+            font-size: 1.5rem;
         }
         #scroll-to-top.visible { opacity: 1; visibility: visible; }
     </style>
-    <!-- Schema.org -->
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"MBA lite","description":"Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.","provider":{"@type":"Person","name":"Dan Coelho","url":"https://mbalite.com.br/#autor","sameAs":"https://www.linkedin.com/in/danubiocoelho/"},"courseCode":"MBALITE"}</script>
 </head>
 <body>
 	<header id="main-header">
 		<div class="container">
-			<a href="/" class="logo">MBA lite</a>
+			<a href="#hero" class="logo">MBA lite</a>
 			<nav id="main-nav">
               <a href="#hero" class="nav-link">Início</a>
               <a href="#modulos" class="nav-link">Módulos</a>
@@ -461,7 +419,7 @@
               <a href="#enroll" class="enroll-button">Inscreva-se</a>
             </nav>
 			<button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-				<i class="fas fa-bars" aria-hidden="true"></i>
+				<div class="hamburger"><span></span><span></span><span></span></div>
 			</button>
 		</div>
 	</header>
@@ -469,9 +427,7 @@
     <div id="mobile-menu" class="hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
 		<div class="header">
 			<span id="mobile-menu-title">Menu</span>
-			<button id="close-menu-btn" aria-label="Fechar menu">
-				<i class="fas fa-times" aria-hidden="true"></i>
-			</button>
+			<button id="close-menu-btn" aria-label="Fechar menu">&times;</button>
 		</div>
 		<nav aria-label="Navegação móvel">
 			<a href="#hero" class="mobile-menu-link">Início</a>
@@ -509,32 +465,26 @@
                 </div>
                 <div class="grid-container">
                     <div class="module-card">
-                        <div class="icon"><i class="fas fa-users fa-fw"></i></div>
                         <h3>Gestão de Pessoas</h3>
                         <p>Aprenda a transformar o RH em um parceiro estratégico, abordando recrutamento, desenvolvimento de lideranças, cultura organizacional, People Analytics e a relevância de cultivar um mindset de crescimento.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon"><i class="fas fa-exclamation-triangle fa-fw"></i></div>
                         <h3>Gestão de Riscos</h3>
                         <p>Domine frameworks como ISO 31000 e COSO, e ferramentas como FMEA e HAZOP para identificar, analisar e mitigar riscos, protegendo e otimizando os resultados da sua organização.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon"><i class="fas fa-star fa-fw"></i></div>
                         <h3>Gestão da Qualidade</h3>
                         <p>Aplique o ciclo PDCA, Seis Sigma, Lean e os requisitos da ISO 9001 para melhoria contínua, otimização de processos e garantia de valor em todas as entregas.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon"><i class="fas fa-tasks fa-fw"></i></div>
                         <h3>Gestão de Projetos</h3>
                         <p>Explore a abordagem tradicional com PMBOK e mergulhe nos princípios ágeis com Scrum e Kanban para gerir e entregar projetos complexos com sucesso.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon"><i class="fas fa-toolbox fa-fw"></i></div>
                         <h3>Ferramentas de Gestão</h3>
                         <p>Domine as funcionalidades essenciais de plataformas como ClickUp, Jira e Trello para planejar, executar e monitorar projetos de forma eficiente e colaborativa.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon"><i class="fas fa-robot fa-fw"></i></div>
                         <h3>Gestão com IA</h3>
                         <p>Descubra como usar IAs Generativas (ChatGPT, Gemini) para brainstorming, análise SWOT, definição de escopo, simulação de cenários e apoio à tomada de decisão.</p>
                     </div>
@@ -552,13 +502,12 @@
                          <p class="description" style="text-align: left; color: var(--color-text-body);">Minha jornada profissional começou na Engenharia Química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes. Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
                      </div>
                 </div>
-
                 <div class="publications-section" style="margin-top: 5rem;">
                      <div class="text-content" style="order: 2;">
                          <h3 class="subtitle" style="text-align: left;">PUBLICAÇÃO EM DESTAQUE</h3>
                          <h2 class="title" style="text-align: left;">Gestão de Pessoas para Alta Performance</h2>
                          <p class="description" style="text-align: left; color: var(--color-text-body); margin-bottom: 2rem;">Um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais. Explore pilares como atração de talentos, liderança inspiradora e cultura organizacional.</p>
-                         <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;"><i class="fab fa-amazon" style="margin-right: 0.5rem;"></i> Comprar na Amazon</a>
+                         <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
                      </div>
                      <div class="image-content" style="order: 1;">
                         <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro" class="book-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
@@ -592,45 +541,40 @@
                     <p class="description">Preencha o formulário abaixo para iniciar sua jornada de transformação profissional.</p>
                 </div>
                 <div class="form-wrapper">
-                    <style>.formkit-form[data-uid="d0849e0001"] *{box-sizing:border-box;}.formkit-form[data-uid="d0849e0001"]{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.formkit-form[data-uid="d0849e0001"] legend{border:none;font-size:inherit;margin-bottom:10px;padding:0;position:relative;display:table;}.formkit-form[data-uid="d0849e0001"] fieldset{border:0;padding:0.01em 0 0 0;margin:0;min-width:0;}.formkit-form[data-uid="d0849e0001"] body:not(:-moz-handler-blocked) fieldset{display:table-cell;}.formkit-form[data-uid="d0849e0001"] h1,.formkit-form[data-uid="d0849e0001"] h2,.formkit-form[data-uid="d0849e0001"] h3,.formkit-form[data-uid="d0849e0001"] h4,.formkit-form[data-uid="d0849e0001"] h5,.formkit-form[data-uid="d0849e0001"] h6{color:inherit;font-size:inherit;font-weight:inherit;}.formkit-form[data-uid="d0849e0001"] h2{font-size:1.5em;margin:1em 0;}.formkit-form[data-uid="d0849e0001"] h3{font-size:1.17em;margin:1em 0;}.formkit-form[data-uid="d0849e0001"] p{color:inherit;font-size:inherit;font-weight:inherit;}.formkit-form[data-uid="d0849e0001"] ol:not([template-default]),.formkit-form[data-uid="d0849e0001"] ul:not([template-default]),.formkit-form[data-uid="d0849e0001"] blockquote:not([template-default]){text-align:left;}.formkit-form[data-uid="d0849e0001"] p:not([template-default]),.formkit-form[data-uid="d0849e0001"] hr:not([template-default]),.formkit-form[data-uid="d0849e0001"] blockquote:not([template-default]),.formkit-form[data-uid="d0849e0001"] ol:not([template-default]),.formkit-form[data-uid="d0849e0001"] ul:not([template-default]){color:inherit;font-style:initial;}.formkit-form[data-uid="d0849e0001"] .ordered-list,.formkit-form[data-uid="d0849e0001"] .unordered-list{list-style-position:outside !important;padding-left:1em;}.formkit-form[data-uid="d0849e0001"] .list-item{padding-left:0;}.formkit-form[data-uid="d0849e0001"][data-format="modal"]{display:none;}.formkit-form[data-uid="d0849e0001"][data-format="slide in"]{display:none;}.formkit-form[data-uid="d0849e0001"][data-format="sticky bar"]{display:none;}.formkit-sticky-bar .formkit-form[data-uid="d0849e0001"][data-format="sticky bar"]{display:block;}.formkit-form[data-uid="d0849e0001"] .formkit-input,.formkit-form[data-uid="d0849e0001"] .formkit-select,.formkit-form[data-uid="d0849e0001"] .formkit-checkboxes{width:100%;}.formkit-form[data-uid="d0849e0001"] .formkit-button,.formkit-form[data-uid="d0849e0001"] .formkit-submit{border:0;border-radius:5px;color:#ffffff;cursor:pointer;display:inline-block;text-align:center;font-size:15px;font-weight:500;cursor:pointer;margin-bottom:15px;overflow:hidden;padding:0;position:relative;vertical-align:middle;}.formkit-form[data-uid="d0849e0001"] .formkit-button:hover,.formkit-form[data-uid="d0849e0001"] .formkit-submit:hover,.formkit-form[data-uid="d0849e0001"] .formkit-button:focus,.formkit-form[data-uid="d0849e0001"] .formkit-submit:focus{outline:none;}.formkit-form[data-uid="d0849e0001"] .formkit-button:hover > span,.formkit-form[data-uid="d0849e0001"] .formkit-submit:hover > span,.formkit-form[data-uid="d0849e0001"] .formkit-button:focus > span,.formkit-form[data-uid="d0849e0001"] .formkit-submit:focus > span{background-color:rgba(0,0,0,0.1);}.formkit-form[data-uid="d0849e0001"] .formkit-button > span,.formkit-form[data-uid="d0849e0001"] .formkit-submit > span{display:block;-webkit-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out;padding:12px 24px;}.formkit-form[data-uid="d0849e0001"] .formkit-input{background:#ffffff;font-size:15px;padding:12px;border:1px solid #e3e3e3;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;line-height:1.4;margin:0;-webkit-transition:border-color ease-out 300ms;transition:border-color ease-out 300ms;}.formkit-form[data-uid="d0849e0001"] .formkit-input:focus{outline:none;border-color:#1677be;-webkit-transition:border-color ease 300ms;transition:border-color ease 300ms;}.formkit-form[data-uid="d0849e0001"] .formkit-input::-webkit-input-placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] .formkit-input::-moz-placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] .formkit-input:-ms-input-placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] .formkit-input::placeholder{color:inherit;opacity:0.8;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"]{position:relative;display:inline-block;width:100%;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"]::before{content:"";top:calc(50% - 2.5px);right:10px;position:absolute;pointer-events:none;border-color:#4f4f4f transparent transparent transparent;border-style:solid;border-width:6px 6px 0 6px;height:0;width:0;z-index:999;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"] select{height:auto;width:100%;cursor:pointer;color:#333333;line-height:1.4;margin-bottom:0;padding:0 6px;-webkit-appearance:none;-moz-appearance:none;appearance:none;font-size:15px;padding:12px;padding-right:25px;border:1px solid #e3e3e3;background:#ffffff;}.formkit-form[data-uid="d0849e0001"] [data-group="dropdown"] select:focus{outline:none;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"]{text-align:left;margin:0;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"]{margin-bottom:10px;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] *{cursor:pointer;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"]:last-of-type{margin-bottom:0;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]{display:none;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"] + label::after{content:none;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]:checked + label::after{border-color:#ffffff;content:"";}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] input[type="checkbox"]:checked + label::before{background:#10bf7a;border-color:#10bf7a;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label{position:relative;display:inline-block;padding-left:28px;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::before,.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::after{position:absolute;content:"";display:inline-block;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::before{height:16px;width:16px;border:1px solid #e3e3e3;background:#ffffff;left:0px;top:3px;}.formkit-form[data-uid="d0849e0001"] [data-group="checkboxes"] [data-group="checkbox"] label::after{height:4px;width:8px;border-left:2px solid #4d4d4d;border-bottom:2px solid #4d4d4d;-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);left:4px;top:8px;}.formkit-form[data-uid="d0849e0001"] .formkit-alert{background:#f9fafb;border:1px solid #e3e3e3;border-radius:5px;-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;list-style:none;margin:25px auto;padding:12px;text-align:center;width:100%;}.formkit-form[data-uid="d0849e0001"] .formkit-alert:empty{display:none;}.formkit-form[data-uid="d0849e0001"] .formkit-alert-success{background:#d3fbeb;border-color:#10bf7a;color:#0c905c;}.formkit-form[data-uid="d0849e0001"] .formkit-alert-error{background:#fde8e2;border-color:#f2643b;color:#ea4110;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:0px;width:0px;margin:0 auto;position:absolute;top:0;left:0;right:0;width:0px;overflow:hidden;text-align:center;-webkit-transition:all 300ms ease-in-out;transition:all 300ms ease-in-out;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner > div{margin:auto;width:12px;height:12px;background-color:#fff;opacity:0.3;border-radius:100%;display:inline-block;-webkit-animation:formkit-bouncedelay-formkit-form-data-uid-d0849e0001- 1.4s infinite ease-in-out both;animation:formkit-bouncedelay-formkit-form-data-uid-d0849e0001- 1.4s infinite ease-in-out both;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner > div:nth-child(1){-webkit-animation-delay:-0.32s;animation-delay:-0.32s;}.formkit-form[data-uid="d0849e0001"] .formkit-spinner > div:nth-child(2){-webkit-animation-delay:-0.16s;animation-delay:-0.16s;}.formkit-form[data-uid="d0849e0001"] .formkit-submit[data-active] .formkit-spinner{opacity:1;height:100%;width:50px;}.formkit-form[data-uid="d0849e0001"] .formkit-submit[data-active] .formkit-spinner ~ span{opacity:0;}.formkit-form[data-uid="d0849e0001"] .formkit-powered-by[data-active="false"]{opacity:0.35;}@-webkit-keyframes formkit-bouncedelay-formkit-form-data-uid-d0849e0001-{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}@keyframes formkit-bouncedelay-formkit-form-data-uid-d0849e0001-{0%,80%,100%{-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}40%{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}}.formkit-form[data-uid="d0849e0001"] blockquote{padding:10px 20px;margin:0 0 20px;border-left:5px solid #e1e1e1;}.formkit-form[data-uid="d0849e0001"] .seva-custom-content{padding:15px;font-size:16px;color:#fff;mix-blend-mode:difference;}.formkit-form[data-uid="d0849e0001"] .formkit-modal.guard{max-width:420px;width:100%;} .formkit-form[data-uid="d0849e0001"]{border:1px solid #e3e3e3;max-width:700px;position:relative;overflow:hidden;}.formkit-form[data-uid="d0849e0001"] .formkit-background{width:100%;height:100%;position:absolute;top:0;left:0;background-size:cover;background-position:center;opacity:0.3;}.formkit-form[data-uid="d0849e0001"] [data-style="minimal"]{padding:20px;width:100%;position:relative;}.formkit-form[data-uid="d0849e0001"] .formkit-header{margin:0 0 27px 0;text-align:center;}.formkit-form[data-uid="d0849e0001"] .formkit-subheader{margin:18px 0;text-align:center;}.formkit-form[data-uid="d0849e0001"] .formkit-guarantee{font-size:13px;margin:10px 0 15px 0;text-align:center;}.formkit-form[data-uid="d0849e0001"] .formkit-guarantee > p{margin:0;}.formkit-form[data-uid="d0849e0001"] .formkit-powered-by-convertkit-container{margin-bottom:0;}.formkit-form[data-uid="d0849e0001"] .formkit-fields{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:25px auto 0 auto;}.formkit-form[data-uid="d0849e0001"] .formkit-field{min-width:220px;}.formkit-form[data-uid="d0849e0001"] .formkit-field,.formkit-form[data-uid="d0849e0001"] .formkit-submit{margin:0 0 15px 0;-webkit-flex:1 0 100%;-ms-flex:1 0 100%;flex:1 0 100%;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] [data-style="minimal"]{padding:40px;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"]{margin-left:-5px;margin-right:-5px;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-field,.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-submit{margin:0 5px 15px 5px;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-field{-webkit-flex:100 1 auto;-ms-flex:100 1 auto;flex:100 1 auto;}.formkit-form[data-uid="d0849e0001"][min-width~="600"] .formkit-fields[data-stacked="false"] .formkit-submit{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;} .formkit-form[data-uid="d0849e0001"]{border:0;}</style>
-                        <form action="https://app.kit.com/forms/7865976/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7865976" data-uid="d0849e0001" data-format="inline" data-version="5" min-width="400">
-                            <div style="opacity:1" class="formkit-background"></div>
-                            <div data-style="minimal">
-                                <div class="formkit-header" style="color:#111827;font-size:20px;font-weight:700" data-element="header"><h2>Inicie sua Jornada de Transformação</h2></div>
-                                <div class="formkit-subheader" style="color:#454545;font-size:16px" data-element="subheader"><p>O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Inscreva-se para receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p></div>
-                                <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-                                <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
-                                    <div class="formkit-field"><input class="formkit-input" aria-label="Nome" style="color:#6b7280;border-color:#d3d3d3;border-radius:5px;font-weight:400" name="fields[first_name]" placeholder="Nome" type="text"></div>
-                                    <div class="formkit-field"><input class="formkit-input" name="email_address" style="color:#6b7280;border-color:#d3d3d3;border-radius:5px;font-weight:400" aria-label="Seu melhor e-mail" placeholder="Seu melhor e-mail" required type="email"></div>
-                                    <button data-element="submit" class="formkit-submit formkit-submit" style="color:#ffffff;background-color:#0582ff;border-radius:4px;font-weight:700"><div class="formkit-spinner"><div></div><div></div><div></div></div><span>Inscreva-se</span></button>
-                                </div>
-                                <div class="formkit-guarantee" style="color:#454545;font-size:13px;font-weight:400" data-element="guarantee"><p>*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p></div>
+                    <style>.formkit-form[data-uid="d0849e0001"] *{box-sizing:border-box;}.formkit-form[data-uid="d0849e0001"]{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}.formkit-form[data-uid="d0849e0001"] h2{font-size:1.25rem; font-weight: 600; margin-bottom: 0.5rem;}.formkit-form[data-uid="d0849e0001"] p{margin-bottom: 1.5rem;}.formkit-form[data-uid="d0849e0001"] .formkit-input{width:100%;font-size:1rem;padding:0.75rem;border:1px solid var(--color-border);border-radius:0.375rem;margin-bottom:1rem;}.formkit-form[data-uid="d0849e0001"] .formkit-submit{width:100%;padding:0.75rem;border:none;background-color:var(--color-primary);color:var(--color-text-on-primary);border-radius:0.375rem;font-size:1rem;font-weight:600;cursor:pointer;}.formkit-form[data-uid="d0849e0001"] .formkit-guarantee{font-size:0.875rem;text-align:center;margin-top:1rem;color:var(--color-text-muted);}</style>
+                    <form action="https://app.kit.com/forms/7865976/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="7865976" data-uid="d0849e0001">
+                        <div data-style="minimal">
+                            <div data-element="header"><h2>Inicie sua Jornada de Transformação</h2></div>
+                            <div data-element="subheader"><p>O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Inscreva-se para receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p></div>
+                            <div data-element="fields">
+                                <input class="formkit-input" aria-label="Nome" name="fields[first_name]" placeholder="Nome" type="text">
+                                <input class="formkit-input" name="email_address" aria-label="Seu melhor e-mail" placeholder="Seu melhor e-mail" required type="email">
+                                <button data-element="submit" class="formkit-submit"><span>Inscreva-se</span></button>
                             </div>
-						</form>
-                    </div>
+                            <div data-element="guarantee"><p>*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p></div>
+                        </div>
+					</form>
                 </div>
-            </section>
+            </div>
+        </section>
 	</main>
 	
     <footer>
 		<div class="container">
 			<div class="social-icons">
-				<a href="mailto:dan@mbalite.com.br" title="Email"><i class="fas fa-envelope"></i></a>
-				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+				<a href="mailto:dan@mbalite.com.br" title="Email">Email</a>
+				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn">LinkedIn</a>
 			</div>
 			<p>©<span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
-			<p class="legal">Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
-			<p class="location">Brasília - DF, Brasil</p>
+			<p>Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
+			<p>Brasília - DF, Brasil</p>
 		</div>
 	</footer>
 
-	<button id="scroll-to-top" title="Voltar ao topo">
-		<i class="fas fa-arrow-up"></i>
-	</button>
+	<button id="scroll-to-top" title="Voltar ao topo">^</button>
     
     <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 	<script>
-        // --- SCRIPT.JS PARA PÁGINA ÚNICA ---
         document.addEventListener('DOMContentLoaded', function() {
             const menuBtn = document.getElementById('menu-btn');
             const closeMenuBtn = document.getElementById('close-menu-btn');
@@ -643,7 +587,6 @@
 
             if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-            // --- Lógica do Menu Móvel ---
             const toggleMenu = (open) => {
                 if (!mobileMenu || !menuOverlay || !menuBtn) return;
                 mobileMenu.classList.toggle('hidden-menu', !open);
@@ -656,22 +599,20 @@
             if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => toggleMenu(false));
             if (menuOverlay) menuOverlay.addEventListener('click', () => toggleMenu(false));
 
-            // --- Lógica de Scroll ---
             const handleScroll = () => {
-                // Efeito do cabeçalho
                 if (mainHeader) {
                     mainHeader.classList.toggle('scrolled', window.scrollY > 50);
                 }
-                // Botão de voltar ao topo
                 if (scrollToTopBtn) {
                     scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
                 }
                 
-                // Atualizar link ativo na navegação
                 let currentSectionId = '';
                 const sections = document.querySelectorAll('main > section');
+                const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
+                
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - (var(--header-height, 60) + 21);
+                    const sectionTop = section.offsetTop - headerOffset - 21;
                     if (window.scrollY >= sectionTop) {
                         currentSectionId = '#' + section.id;
                     }
@@ -685,7 +626,6 @@
             window.addEventListener('scroll', handleScroll);
             if (scrollToTopBtn) scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
             
-            // Lidar com cliques nos links de navegação para scroll suave
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -704,14 +644,12 @@
                              });
                         }
                     }
-                    // Fecha o menu móvel após o clique
                     if(mobileMenu && !mobileMenu.classList.contains('hidden-menu')) {
                        toggleMenu(false);
                     }
                 });
             });
 
-            // Executar uma vez no carregamento
             handleScroll();
         });
 	</script>
