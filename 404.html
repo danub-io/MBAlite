@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-
     <style>
         :root {
             --header-height: 60px;
@@ -410,66 +409,73 @@
             font-size: 1.5rem;
         }
         #scroll-to-top.visible { opacity: 1; visibility: visible; }
+        #autor .author-bio,
+        #autor .publications-section .text-content {
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            #autor .author-bio,
+            #autor .publications-section .text-content {
+                text-align: left;
+            }
+        }
     </style>
-   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Course",
-  "name": "MBA lite",
-  "description": "Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.",
-  "provider": {
-    "@type": "Person",
-    "name": "Dan Coelho",
-    "url": "https://mbalite.com.br/",
-    "sameAs": "https://www.linkedin.com/in/danubiocoelho/"
-  },
-  "courseCode": "MBA lite",
-  "hasCourseInstance": {
-    "@type": "CourseInstance",
-    "courseMode": "online",
-    "courseWorkload": "PT500H"
-  },
-  "offers": {
-    "@type": "Offer",
-    "category": "Education",
-    "availability": "https://schema.org/PreOrder"
-  }
-}
-</script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "MBA lite",
+      "description": "Domine a Gestão Estratégica com o MBA lite - Um programa intensivo e prático, focado nas competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis.",
+      "provider": {
+        "@type": "Person",
+        "name": "Dan Coelho",
+        "url": "https://mbalite.com.br/#autor",
+        "sameAs": "https://www.linkedin.com/in/danubiocoelho/"
+      },
+      "courseCode": "MBA lite",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT500H"
+      },
+      "offers": {
+        "@type": "Offer",
+        "category": "Education",
+        "availability": "https://schema.org/PreOrder"
+      }
+    }
+    </script>
 </head>
 <body>
-	<header id="main-header">
-		<div class="container">
-			<a href="#hero" class="logo">MBA lite</a>
-			<nav id="main-nav">
+    <header id="main-header">
+        <div class="container">
+            <a href="#hero" class="logo">MBA lite</a>
+            <nav id="main-nav">
               <a href="#hero" class="nav-link">Início</a>
               <a href="#modulos" class="nav-link">Módulos</a>
               <a href="#autor" class="nav-link">Autor</a>
               <a href="#faq" class="nav-link">FAQ</a>
               <a href="#enroll" class="enroll-button">Inscreva-se</a>
             </nav>
-			<button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-				<div class="hamburger"><span></span><span></span><span></span></div>
-			</button>
-		</div>
-	</header>
-	
+            <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </button>
+        </div>
+    </header>
     <div id="mobile-menu" class="hidden-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
-		<div class="header">
-			<span id="mobile-menu-title">Menu</span>
-			<button id="close-menu-btn" aria-label="Fechar menu">&times;</button>
-		</div>
-		<nav aria-label="Navegação móvel">
-			<a href="#hero" class="mobile-menu-link">Início</a>
-			<a href="#modulos" class="mobile-menu-link">Módulos</a>
-			<a href="#autor" class="mobile-menu-link">Autor</a>
-			<a href="#faq" class="mobile-menu-link">FAQ</a>
-			<a href="#enroll" class="enroll-button mobile-menu-link">Inscreva-se</a>
-		</nav>
-	</div>
-
-	<div id="menu-overlay" class="hidden" aria-hidden="true"></div>
-	
+        <div class="header">
+            <span id="mobile-menu-title">Menu</span>
+            <button id="close-menu-btn" aria-label="Fechar menu">&times;</button>
+        </div>
+        <nav aria-label="Navegação móvel">
+            <a href="#hero" class="mobile-menu-link">Início</a>
+            <a href="#modulos" class="mobile-menu-link">Módulos</a>
+            <a href="#autor" class="mobile-menu-link">Autor</a>
+            <a href="#faq" class="mobile-menu-link">FAQ</a>
+            <a href="#enroll" class="enroll-button mobile-menu-link">Inscreva-se</a>
+        </nav>
+    </div>
+    <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
     <main id="main-content">
         <section id="hero">
             <div class="container">
@@ -482,7 +488,6 @@
                 </div>
             </div>
         </section>
-
         <section id="modulos" class="bg-bg-surface">
             <div class="container">
                 <div class="section-header">
@@ -518,31 +523,29 @@
                 </div>
             </div>
         </section>
-        
         <section id="autor" class="bg-bg-main">
             <div class="container">
                 <div class="author-intro">
                      <img src="/img/profile-pic.webp" alt="Foto de Dan Coelho" class="author-photo" width="200" height="200" onerror="this.onerror=null; this.src='https://placehold.co/200x200/e0e7ff/4f46e5?text=DC';">
                      <div class="author-bio">
-    <h2 class="title" style="text-align: left;">Dan Coelho</h2>
-    <h3 class="subtitle" style="text-align: center;">AUTOR</h3>
-    <p class="description" style="text-align: left; color: var(--color-text-body);">...</p>
-</div>
+                         <h2 class="title">Dan Coelho</h2>
+                         <h3 class="subtitle">O AUTOR</h3>
+                         <p class="description">Minha jornada profissional começou na Engenharia Química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes. Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
+                     </div>
                 </div>
                 <div class="publications-section" style="margin-top: 5rem;">
                      <div class="text-content" style="order: 2;">
-    <h2 class="title" style="text-align: left;">Gestão de Pessoas para Alta Performance</h2>
-    <h3 class="subtitle" style="text-align: center;">PUBLICAÇÃO EM DESTAQUE</h3>
-    <p class="description" style="text-align: left; color: var(--color-text-body); margin-bottom: 2rem;">...</p>
-    <a href="..." class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
-</div>
+                         <h2 class="title">Gestão de Pessoas para Alta Performance</h2>
+                         <h3 class="subtitle">PUBLICAÇÃO EM DESTAQUE</h3>
+                         <p class="description" style="margin-bottom: 2rem;">Um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais. Explore pilares como atração de talentos, liderança inspiradora e cultura organizacional.</p>
+                         <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
+                     </div>
                      <div class="image-content" style="order: 1;">
                         <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro" class="book-cover" width="200" height="300" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
                     </div>
                 </div>
             </div>
         </section>
-        
         <section id="faq" class="bg-bg-surface">
             <div class="container" style="max-width: 56rem;">
                 <div class="section-header">
@@ -559,42 +562,37 @@
                 </div>
             </div>
         </section>
-
         <section id="enroll" class="bg-bg-main">
-    <div class="container" style="max-width: 42rem;">
-        <div class="section-header">
-            <h2 class="title">Garanta Sua Vaga no MBA lite</h2>
-            <h3 class="subtitle">INSCRIÇÃO</h3>
-            <p class="description">O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Clique no botão abaixo para se inscrever e receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p>
-        </div>
-        <div class="form-wrapper" style="text-align: center;">
-            <a href="https://forms.gle/TDysdS18UShHqMMv5" target="_blank" rel="noopener noreferrer" class="enroll-button" style="width: 100%; max-width: 250px; display: inline-block; text-align: center; padding: 0.75rem; font-size: 1.125rem;">Inscreva-se</a>
-            <p style="font-size: 0.875rem; text-align: center; margin-top: 1rem; color: var(--color-text-muted);">*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p>
-        </div>
-    </div>
-</section>
-	</main>
-	
+            <div class="container" style="max-width: 42rem;">
+                <div class="section-header">
+                    <h2 class="title">Garanta Sua Vaga no MBA lite</h2>
+                    <h3 class="subtitle">INSCRIÇÃO</h3>
+                    <p class="description">O MBA Lite está em fase final de desenvolvimento! Prepare-se para uma experiência de aprendizado concisa e impactante. Clique no botão abaixo para se inscrever e receber atualizações sobre o conteúdo do curso e as datas de lançamento.</p>
+                </div>
+                <div class="form-wrapper" style="text-align: center;">
+                    <a href="https://forms.gle/TDysdS18UShHqMMv5" target="_blank" rel="noopener noreferrer" class="enroll-button" style="width: 100%; max-width: 250px; display: inline-block; text-align: center; padding: 0.75rem; font-size: 1.125rem;">Inscreva-se</a>
+                    <p style="font-size: 0.875rem; text-align: center; margin-top: 1rem; color: var(--color-text-muted);">*Respeitamos a sua privacidade. Cancele a inscrição a qualquer momento.</p>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
-		<div class="container">
-			<div class="social-icons">
-				<a href="mailto:dan@mbalite.com.br" title="Email">
+        <div class="container">
+            <div class="social-icons">
+                <a href="mailto:dan@mbalite.com.br" title="Email">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </a>
-				<a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/danubiocoelho/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-			</div>
-			<p>©<span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
-			<p>Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
-			<p>Brasília - DF, Brasil</p>
-		</div>
-	</footer>
-
-	<button id="scroll-to-top" title="Voltar ao topo">^</button>
-    
-    <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-	<script>
+            </div>
+            <p>©<span id="current-year"></span> MBA lite Program. Todos os direitos reservados.</p>
+            <p>Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
+            <p>Brasília - DF, Brasil</p>
+        </div>
+    </footer>
+    <button id="scroll-to-top" title="Voltar ao topo">^</button>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuBtn = document.getElementById('menu-btn');
             const closeMenuBtn = document.getElementById('close-menu-btn');
@@ -604,9 +602,7 @@
             const scrollToTopBtn = document.getElementById('scroll-to-top');
             const yearSpan = document.getElementById('current-year');
             const navLinks = document.querySelectorAll('#main-nav a, #mobile-menu a');
-
             if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
             const toggleMenu = (open) => {
                 if (!mobileMenu || !menuOverlay || !menuBtn) return;
                 mobileMenu.classList.toggle('hidden-menu', !open);
@@ -614,11 +610,9 @@
                 document.body.style.overflow = open ? 'hidden' : '';
                 menuBtn.setAttribute('aria-expanded', String(open));
             };
-
             if (menuBtn) menuBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(true); });
             if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => toggleMenu(false));
             if (menuOverlay) menuOverlay.addEventListener('click', () => toggleMenu(false));
-
             const handleScroll = () => {
                 if (mainHeader) {
                     mainHeader.classList.toggle('scrolled', window.scrollY > 50);
@@ -626,26 +620,21 @@
                 if (scrollToTopBtn) {
                     scrollToTopBtn.classList.toggle('visible', window.scrollY > 300);
                 }
-                
                 let currentSectionId = '';
                 const sections = document.querySelectorAll('main > section');
                 const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
-                
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - headerOffset - 21;
                     if (window.scrollY >= sectionTop) {
                         currentSectionId = '#' + section.id;
                     }
                 });
-                
                 navLinks.forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === currentSectionId);
                 });
             };
-
             window.addEventListener('scroll', handleScroll);
             if (scrollToTopBtn) scrollToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-            
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
@@ -657,7 +646,6 @@
                              const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 60;
                              const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                              const offsetPosition = elementPosition - headerOffset;
-                             
                              window.scrollTo({
                                  top: offsetPosition,
                                  behavior: 'smooth'
@@ -669,10 +657,8 @@
                     }
                 });
             });
-
             handleScroll();
         });
-
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js').then(registration => {
@@ -682,6 +668,6 @@
                 });
             });
         }
-	</script>
+    </script>
 </body>
 </html>
