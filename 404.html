@@ -424,26 +424,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            position: relative; /* Necessário para a sobreposição */
-            color: white; /* Muda a cor do texto para branco, para melhor contraste */
         }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura com 50% de opacidade */
-            z-index: 1;
-        }
-
-        #hero .container {
-            position: relative; /* Garante que o conteúdo fique acima da sobreposição */
-            z-index: 2;
-        }
-        
     </style>
     <script type="application/ld+json">
     {
@@ -554,14 +535,14 @@
                      <img src="/img/profile-pic.webp" alt="Foto de Dan Coelho" class="author-photo" width="200" height="200" onerror="this.onerror=null; this.src='https://placehold.co/200x200/e0e7ff/4f46e5?text=DC';">
                      <div class="author-bio">
                          <h2 class="title">Dan Coelho</h2>
-                         <h3 class="subtitle" style="text-align: left; color: var(--color-primary); font-weight: 700; font-size: 0.875rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase;">AUTOR</h3>
+                         <h3 class="subtitle" style="color: var(--color-primary); font-weight: 700; font-size: 0.875rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase;">AUTOR</h3>
                          <p class="description">Minha jornada profissional começou na Engenharia Química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes. Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
                      </div>
                 </div>
                 <div class="publications-section" style="margin-top: 5rem;">
                      <div class="text-content" style="order: 2;">
                          <h2 class="title">Gestão de Pessoas para Alta Performance</h2>
-                         <h3 class="subtitle" style="text-align: left; color: var(--color-primary); font-weight: 700; font-size: 0.875rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase;">PUBLICAÇÃO EM DESTAQUE</h3>
+                         <h3 class="subtitle" style="color: var(--color-primary); font-weight: 700; font-size: 0.875rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; text-transform: uppercase;">PUBLICAÇÃO EM DESTAQUE</h3>
                          <p class="description" style="margin-bottom: 2rem;">Um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais. Explore pilares como atração de talentos, liderança inspiradora e cultura organizacional.</p>
                          <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
                      </div>
