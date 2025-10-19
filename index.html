@@ -559,6 +559,45 @@ footer p {
         #autor .publications-section .text-content {
             text-align: center;
         }
+        .publications-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        @media (min-width: 768px) {
+            .publications-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+        .publication-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+        }
+        .publication-card .book-cover {
+            max-width: 200px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+        }
+        .publication-card .book-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-text-title);
+        }
+        .publication-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-body);
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) {
+            .publication-card {
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
         @media (min-width: 768px) {
             #autor .author-bio,
             #autor .publications-section .text-content {
@@ -689,14 +728,27 @@ footer p {
                         <p class="description">Minha jornada profissional começou na Engenharia Química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes. Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
                     </div>
                 </div>
-                <div class="publications-section">
-                    <div class="text-content">
-                        <h3 class="title">Publicação em Destaque</h3>
-                        <p class="description" style="margin-bottom: 2rem;">"Gestão de Pessoas para Alta Performance" é um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais.</p>
-                        <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
+                <div class="publications-wrapper">
+                    <div class="section-header" style="text-align: center; margin-top: 4rem; margin-bottom: 3rem;">
+                        <h2 class="title">Publicações em Destaque</h2>
                     </div>
-                    <div class="image-content">
-                        <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/400x600/f3f4f6/6b7280?text=Capa';">
+                    <div class="publications-grid">
+                        <div class="publication-card">
+                            <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Capa';">
+                            <div class="publication-details">
+                                <h4 class="book-title">Gestão de Pessoas para Alta Performance</h4>
+                                <p>"Gestão de Pessoas para Alta Performance" é um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais.</p>
+                                <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
+                            </div>
+                        </div>
+                        <div class="publication-card">
+                            <img src="/img/ebooks/gestao-da-qualidade-alta-performance.webp" alt="Capa do Livro Gestão da Qualidade para Alta Performance" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Capa';">
+                            <div class="publication-details">
+                                <h4 class="book-title">Gestão da Qualidade para Alta Performance</h4>
+                                <p>Cansado de "apagar incêndios" na sua rotina profissional? "Gestão da Qualidade para Alta Performance" é o manual definitivo para transformar o caos em ordem e a reação em estratégia. Este guia prático oferece a caixa de ferramentas completa para eliminar as causas-raiz dos problemas que drenam energia e lucro, aplicando metodologias como PDCA, Ishikawa, 5 Porquês, Pareto, Lean, Seis Sigma e ISO 9001 . Repleto de exemplos reais, prepare-se para se tornar um arquiteto da excelência, construindo sistemas robustos que previnem falhas e entregam resultados de elite consistentemente.</p>
+                                <a href="https://www.amazon.com.br/dp/B0FSYXB5J4" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
