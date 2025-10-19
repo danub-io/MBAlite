@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="/img/hero-background.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     <style>
 :root {
     --header-height: 70px;
@@ -278,6 +278,9 @@
             font-size: 1.125rem;
             line-height: 1.625;
             color: var(--color-text-muted);
+        }
+        h1, .section-header .title, .module-card h3, #autor .author-bio .title, .publication-card .book-title {
+            font-family: 'DM Serif Display', serif;
         }
         .grid-container {
             display: grid;
@@ -552,7 +555,10 @@ footer p {
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s;
-            font-size: 1.5rem;
+        }
+        #scroll-to-top svg {
+            width: 24px;
+            height: 24px;
         }
         #scroll-to-top.visible { opacity: 1; visibility: visible; }
         #autor .author-bio,
@@ -737,16 +743,16 @@ footer p {
                             <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Capa';">
                             <div class="publication-details">
                                 <h4 class="book-title">Gestão de Pessoas para Alta Performance</h4>
-                                <p>"Gestão de Pessoas para Alta Performance" é um guia prático para líderes e profissionais de RH que buscam dominar a arte de gerenciar pessoas, construindo equipes engajadas e resultados excepcionais.</p>
-                                <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
+                                <p>Um guia essencial para líderes e profissionais de RH que desejam transformar a gestão de pessoas. Aprenda a construir equipes de alta performance, engajar talentos e alinhar a cultura organizacional aos objetivos estratégicos para impulsionar resultados sustentáveis e um ambiente de trabalho inspirador.</p>
+                                <a href="https.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
                             </div>
                         </div>
                         <div class="publication-card">
                             <img src="/img/ebooks/gestao-da-qualidade-alta-performance.webp" alt="Capa do Livro Gestão da Qualidade para Alta Performance" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Capa';">
                             <div class="publication-details">
                                 <h4 class="book-title">Gestão da Qualidade para Alta Performance</h4>
-                                <p>Cansado de "apagar incêndios" na sua rotina profissional? "Gestão da Qualidade para Alta Performance" é o manual definitivo para transformar o caos em ordem e a reação em estratégia. Este guia prático oferece a caixa de ferramentas completa para eliminar as causas-raiz dos problemas que drenam energia e lucro, aplicando metodologias como PDCA, Ishikawa, 5 Porquês, Pareto, Lean, Seis Sigma e ISO 9001 . Repleto de exemplos reais, prepare-se para se tornar um arquiteto da excelência, construindo sistemas robustos que previnem falhas e entregam resultados de elite consistentemente.</p>
-                                <a href="https://www.amazon.com.br/dp/B0FSYXB5J4" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
+                                <p>Um manual definitivo para transformar o caos em ordem. Este guia prático oferece as ferramentas essenciais para eliminar as causas-raiz de problemas, aplicando métodos como PDCA, Lean e Seis Sigma. Torne-se um arquiteto da excelência, construindo sistemas robustos que previnem falhas e entregam resultados de elite.</p>
+                                <a href="https.amazon.com.br/dp/B0FSYXB5J4" target="_blank" rel="noopener noreferrer" class="enroll-button" style="background-color: #f59e0b; display: inline-block;">Comprar na Amazon</a>
                             </div>
                         </div>
                     </div>
@@ -832,7 +838,11 @@ footer p {
             <p>Uma iniciativa de Dan Coelho para capacitar os líderes do futuro.</p>
         </div>
     </footer>
-    <button id="scroll-to-top" title="Voltar ao topo">^</button>
+    <button id="scroll-to-top" title="Voltar ao topo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuBtn = document.getElementById('menu-btn');
