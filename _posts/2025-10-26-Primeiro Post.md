@@ -1,9 +1,7 @@
 ---
 layout: post
-title: Meu Primeiro Post Sobre Gestão
+title: Meu Primeiro Post No Blog
 ---
-
-# Bem-vindo ao meu primeiro post!
 
 Este é um parágrafo escrito em **Markdown**. É muito mais simples que HTML.
 
