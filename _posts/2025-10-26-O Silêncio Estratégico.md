@@ -33,6 +33,7 @@ A resposta poderia ser: "Porque a equipe de engenharia está sobrecarregada desd
 Aí reside a verdadeira causa-raiz. Não foi um erro operacional (o atraso da engenharia), mas uma decisão estratégica mal calibrada — um corte de custos sem análise de capacidade — que criou uma pressão insustentável no sistema.
 A questão central é: por que a equipe parou no terceiro "Porquê"?
 Porque apontar para a engenharia é desconfortável, mas aceitável. É um problema horizontal, entre departamentos. Apontar para o corte de headcount é perigoso. É uma crítica vertical, direta à gestão sênior.
+
 O que faltou naquela sala não foi conhecimento técnico sobre a ferramenta. O que faltou foi um ambiente onde a franqueza é segura. Faltou a confiança fundamental de que os membros da equipe podem falar abertamente sobre erros, fazer perguntas difíceis ou expor falhas sistêmicas, sem que isso resulte em punição, humilhação ou constrangimento.
 
 Não se trata de ser "legal" ou evitar conflitos. Trata-se de criar um ambiente robusto onde a verdade sobre o processo possa ser dita, sem que isso se transforme num ataque pessoal.
