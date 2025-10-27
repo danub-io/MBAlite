@@ -17,9 +17,9 @@ A intenção é nobre; a ferramenta, poderosa. A sala se prepara para o exercíc
 
 O *“vilão”* foi encontrado: o departamento de engenharia. A *“ação corretiva”* é definida rapidamente: uma *“reunião de alinhamento”* ou, talvez, *“um novo treinamento sobre prazos internos”*. O problema real, no entanto, foi varrido para debaixo do tapete. O que teria acontecido se a investigação continuasse? Se alguém tivesse tido a coragem de perguntar o quarto *“Porquê”*?
 
-4 - *“Por que a engenharia demorou para liberar a especificação?”* A resposta poderia ser: *“Porque a equipe de engenharia está sobrecarregada desde que dois membros foram demitidos e não foram substituídos.”*
+**4 -** *“Por que a engenharia demorou para liberar a especificação?”* A resposta poderia ser: *“Porque a equipe de engenharia está sobrecarregada desde que dois membros foram demitidos e não foram substituídos.”*
 
-5 - E então, o quinto e fatal *“Porquê”*: *“Por que os membros não foram substituídos?” “Porque a diretoria cortou o headcount do setor para bater a meta de redução de custos do trimestre.”*
+**5 -** E então, o quinto e fatal *“Porquê”*: *“Por que os membros não foram substituídos?” “Porque a diretoria cortou o headcount do setor para bater a meta de redução de custos do trimestre.”*
 
 Aí reside a verdadeira causa-raiz. Não foi um erro operacional (o atraso da engenharia), mas uma decisão estratégica mal calibrada — um corte de custos sem análise de capacidade — que criou uma pressão insustentável no sistema. A questão central é: por que a equipe parou no terceiro “*Porquê”*? Porque apontar para a engenharia é desconfortável, mas aceitável. É um problema horizontal, entre departamentos. 
 
