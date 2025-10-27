@@ -9,7 +9,7 @@ Em resposta, um líder convoca a equipe e saca uma ferramenta clássica do arsen
 "Pessoal, vamos aplicar os 5 Porquês para encontrar a causa-raiz disso."
 
 A intenção é nobre; a ferramenta, poderosa. A sala se prepara para o exercício analítico.
-""
+``
 
 1 - "Por que o orçamento estourou?", pergunta o líder.
 "Porque o custo da matéria-prima X foi 30% maior que o previsto." A resposta é factual, limpa.
