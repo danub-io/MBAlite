@@ -8,22 +8,28 @@
     <link rel="icon" type="image/png" href="/img/fav.png" onerror="this.onerror=null;this.href='https.placehold.co/32x32/0582ff/ffffff?text=M';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="/img/hero-background.webp" as="image" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Merriweather:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Merriweather:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NC9W8DTKB8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NC9W8DTKB8');
+</script>
     <style>
 :root {
     --header-height: 70px;
     --scroll-offset: calc(var(--header-height) + 20px);
-    --color-primary: #4f46e5;
-    --color-primary-dark: #4338ca;
+    --color-primary: #37352f;
+    --color-primary-dark: #191919;
     --color-text-on-primary: #ffffff;
-    --color-text-title: #1f2937;
-    --color-text-body: #4b5563;
-    --color-text-muted: #57606e;
-    --color-bg-main: #f9fafb;
-    --color-bg-surface: #ffffff;
-    --color-border: #e5e7eb;
+    --color-text-title: #191919;
+    --color-text-body: #37352f;
+    --color-text-muted: #9B9A97;
+    --color-bg-main: #FFFFFF;
+    --color-bg-surface: #F7F7F5;
+    --color-border: #EAEAEA;
     --color-border-dark: #d1d5db;
 }
         *, *::before, *::after {
@@ -35,13 +41,13 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Merriweather', serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
             background-color: var(--color-bg-main);
             color: var(--color-text-body);
             padding-top: var(--header-height);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         main {
             display: block;
@@ -97,9 +103,9 @@
 
 #main-header .logo {
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--color-text-title);
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
 }
 
 #main-nav {
@@ -114,51 +120,32 @@
 }
 
 #main-nav a.nav-link {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--color-text-body);
     padding: 0.5rem 1rem;
-    position: relative;
     transition: color 0.3s;
-}
-
-#main-nav a.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--color-primary);
-    transition: width 0.3s;
 }
 
 #main-nav a.nav-link:hover,
 #main-nav a.nav-link.active {
-    color: var(--color-primary);
-}
-
-#main-nav a.nav-link:hover::after,
-#main-nav a.nav-link.active::after {
-    width: 100%;
+    background-color: var(--color-bg-surface);
+    border-radius: 0.375rem;
 }
 
 #main-nav a.enroll-button {
     margin-left: 1rem;
-    padding: 0.6rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     background-color: var(--color-primary);
     color: white;
-    border-radius: 999px;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 0.375rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.3s;
 }
 
 #main-nav a.enroll-button:hover {
     background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
 }
         #menu-btn {
             display: block;
@@ -269,19 +256,19 @@
             letter-spacing: 0.05em;
         }
         .section-header .title {
-            font-size: 2.25rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--color-text-title);
             margin-bottom: 1.5rem;
         }
-        @media (min-width: 768px) { .section-header .title { font-size: 2.5rem; } }
+        @media (min-width: 768px) { .section-header .title { font-size: 3rem; } }
         .section-header .description {
             font-size: 1.125rem;
-            line-height: 1.625;
+            line-height: 1.75;
             color: var(--color-text-muted);
         }
         h1, .section-header .title, .module-card h3, #autor .author-bio .title, .publication-card .book-title {
-            font-family: 'Lora', serif;
+            font-family: inherit;
         }
         .grid-container {
             display: grid;
@@ -292,28 +279,12 @@
 #hero {
     display: flex;
     align-items: center;
-    min-height: calc(100vh - var(--header-height));
     padding-top: 4rem;
     padding-bottom: 4rem;
-    background: url('/img/hero-background.webp') no-repeat center center/cover;
-    color: white;
-    position: relative;
-}
-
-#hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    background-color: var(--color-bg-main);
 }
 
 #hero .container {
-    position: relative;
-    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -326,58 +297,50 @@
 }
 
 #hero h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    color: white;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-text-title);
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 #hero p {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text-body);
     margin-bottom: 2.5rem;
     line-height: 1.625;
 }
 
 @media (min-width: 768px) {
     #hero h1 {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     #hero p {
         font-size: 1.5rem;
     }
 }
         .enroll-button {
-             padding: 0.75rem 2.5rem;
+             padding: 0.75rem 1.5rem;
              background-color: var(--color-primary);
              color: white !important;
              border-radius: 0.375rem;
-             font-size: 1.125rem;
-             font-weight: 600;
+             font-size: 1rem;
+             font-weight: 500;
              display: inline-block;
+             transition: background-color 0.3s;
         }
         .enroll-button:hover {
             background-color: var(--color-primary-dark);
         }
 .module-card {
-    background: #fff;
+    background: var(--color-bg-surface);
     padding: 1.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
+    border-radius: 0.375rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.module-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
 
 .module-card .icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--color-primary);
     margin-bottom: 1.5rem;
 }
@@ -421,17 +384,14 @@
 #autor .author-photo, #autor .book-cover {
     flex-shrink: 0;
     max-width: 200px;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-radius: 0.375rem;
 }
 
 #autor .author-photo {
     border-radius: 50%;
-    border: 5px solid white;
 }
          #autor .book-cover {
-             border-radius: 0.5rem;
-             box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+             border-radius: 0.375rem;
          }
          #autor .skills-grid {
              display: grid;
@@ -509,11 +469,10 @@
     font-weight: 700;
 }
 footer {
-    background-color: var(--color-text-title);
     padding: 4rem 1.25rem;
     margin-top: auto;
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-muted);
 }
 
 footer .social-icons {
@@ -525,13 +484,13 @@ footer .social-icons {
 
 footer .social-icons a {
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-muted);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 footer .social-icons a:hover {
-    color: white;
+    color: var(--color-text-body);
 }
 
 footer p {
@@ -544,9 +503,9 @@ footer p {
             right: 30px;
             background-color: var(--color-primary);
             color: var(--color-text-on-primary);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 0.375rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -568,7 +527,7 @@ footer p {
         }
         .publications-grid {
             display: grid;
-            gap: 2rem;
+            gap: 4rem;
             margin-top: 2rem;
         }
         @media (min-width: 768px) {
@@ -603,8 +562,10 @@ footer p {
             background-color: #f59e0b;
             color: #1f2937 !important;
             padding: 0.5rem 1rem;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .publication-card .enroll-button:hover {
             background-color: #d97706;
@@ -658,6 +619,7 @@ footer p {
               <a href="#modulos" class="nav-link">Módulos</a>
               <a href="#autor" class="nav-link">Autor</a>
               <a href="#faq" class="nav-link">FAQ</a>
+              <a href="/blog.html" class="nav-link">Blog</a>
               <a href="#enroll" class="enroll-button">Inscreva-se</a>
             </nav>
             <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -675,6 +637,7 @@ footer p {
             <a href="#modulos" class="mobile-menu-link">Módulos</a>
             <a href="#autor" class="mobile-menu-link">Autor</a>
             <a href="#faq" class="mobile-menu-link">FAQ</a>
+            <a href="/blog.html" class="mobile-menu-link">Blog</a>
             <a href="#enroll" class="enroll-button mobile-menu-link">Inscreva-se</a>
         </nav>
     </div>
@@ -700,32 +663,32 @@ footer p {
                 </div>
                 <div class="grid-container">
                     <div class="module-card">
-                        <div class="icon">👥</div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
                         <h3>Gestão de Pessoas</h3>
                         <p>Aprenda a transformar o RH em um parceiro estratégico, abordando recrutamento, desenvolvimento de lideranças, cultura organizacional, People Analytics e a relevância de cultivar um mindset de crescimento.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon">🛡️</div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
                         <h3>Gestão de Riscos</h3>
                         <p>Domine frameworks como ISO 31000 e COSO, e ferramentas como FMEA e HAZOP para identificar, analisar e mitigar riscos, protegendo e otimizando os resultados da sua organização.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon">🏆</div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
                         <h3>Gestão da Qualidade</h3>
                         <p>Aplique o ciclo PDCA, Seis Sigma, Lean e os requisitos da ISO 9001 para melhoria contínua, otimização de processos e garantia de valor em todas as entregas.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon">🚀</div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gantt-chart"><path d="M8 6h10M6 12h9M11 18h7"/></svg></div>
                         <h3>Gestão de Projetos</h3>
                         <p>Explore a abordagem tradicional com PMBOK e mergulhe nos princípios ágeis com Scrum e Kanban para gerir e entregar projetos complexos com sucesso.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon">📊</div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
                         <h3>Ferramentas de Gestão</h3>
                         <p>Domine as funcionalidades essenciais de plataformas como ClickUp, Jira e Trello para planejar, executar e monitorar projetos de forma eficiente e colaborativa.</p>
                     </div>
                     <div class="module-card">
-                        <div class="icon">🤖</div>
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg></div>
                         <h3>Gestão com IA</h3>
                         <p>Descubra como usar IAs Generativas (ChatGPT, Gemini) para brainstorming, análise SWOT, definição de escopo, simulação de cenários e apoio à tomada de decisão.</p>
                     </div>
@@ -829,7 +792,7 @@ footer p {
                     <li class="benefit-item">Notícias e insights sobre gestão</li>
                 </ul>
                 <div class="form-wrapper" style="text-align: center; margin-top: 3rem;">
-                    <a href="https://forms.gle/TDysdS18UShHqMMv5" target="_blank" rel="noopener noreferrer" class="enroll-button" style="width: 100%; max-width: 300px; display: inline-block; text-align: center; padding: 1rem; font-size: 1.25rem;">Quero ser Notificado</a>
+                    <a href="https://forms.gle/TDysdS18UShHqMMv5" target="_blank" rel="noopener noreferrer" class="enroll-button" style="width: 100%; max-width: 300px; display: inline-block; text-align: center; padding: 1rem; font-size: 1rem; border-radius: 0.5rem;">Quero ser Notificado</a>
                     <p style="font-size: 0.875rem; text-align: center; margin-top: 1rem; color: var(--color-text-muted);">*Vagas limitadas para a primeira turma. Cancele a inscrição a qualquer momento.</p>
                 </div>
             </div>
