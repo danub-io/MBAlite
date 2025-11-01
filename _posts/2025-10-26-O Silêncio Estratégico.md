@@ -12,15 +12,20 @@ A intenção é nobre; a ferramenta, poderosa. A sala se prepara para o exercíc
 
 **1 -** *“Por que o orçamento estourou?”*, pergunta o líder. “*Porque o custo da matéria-prima X foi 30% maior que o previsto.”* A resposta é factual, limpa.
 
+
 **2 -** *“E por que esse custo foi maior?”* *“Porque o pedido de compra foi feito em cima da hora. Tivemos que pagar o preço de urgência do fornecedor.”* A lógica ainda é puramente técnica, segura.
+
 
 **3 -** “*Certo. E por que o pedido foi feito em cima da hora?”* Um silêncio constrangedor preenche a sala. Os olhares se desviam, a linguagem corporal muda. Finalmente, alguém quebra a tensão: *“Porque o departamento de engenharia demorou para liberar a especificação final.”* Pronto. A investigação para ali.
 
 O *“vilão”* foi encontrado: o departamento de engenharia. A *“ação corretiva”* é definida rapidamente: uma *“reunião de alinhamento”* ou, talvez, *“um novo treinamento sobre prazos internos”*. O problema real, no entanto, foi varrido para debaixo do tapete. O que teria acontecido se a investigação continuasse? Se alguém tivesse tido a coragem de perguntar o quarto *“Porquê”*?
 
+
 **4 -** *“Por que a engenharia demorou para liberar a especificação?”* A resposta poderia ser: *“Porque a equipe de engenharia está sobrecarregada desde que dois membros foram demitidos e não foram substituídos.”*
 
+
 **5 -** E então, o quinto e fatal *“Porquê”*: *“Por que os membros não foram substituídos?” “Porque a diretoria cortou o headcount do setor para bater a meta de redução de custos do trimestre.”*
+
 
 Aí reside a verdadeira causa-raiz. Não foi um erro operacional (o atraso da engenharia), mas uma decisão estratégica mal calibrada — um corte de custos sem análise de capacidade — que criou uma pressão insustentável no sistema. A questão central é: por que a equipe parou no terceiro “*Porquê”*? Porque apontar para a engenharia é desconfortável, mas aceitável. É um problema horizontal, entre departamentos. 
 
