@@ -7,21 +7,26 @@ A crise se instala. O orçamento do projeto principal estourou, e a notícia cai
 
 *“Pessoal, vamos aplicar os 5 Porquês para encontrar a causa-raiz disso.”*
 
-A intenção é nobre; a ferramenta, poderosa. A sala se prepara para o exercício analítico.
-<!--more-->
-
+A intenção é nobre; a ferramenta, poderosa. A sala se prepara para o exercício analítico.<!--more-->
+<br>
+<br>
 **1 -** *“Por que o orçamento estourou?”*, pergunta o líder. “*Porque o custo da matéria-prima X foi 30% maior que o previsto.”* A resposta é factual, limpa.
-
+<br>
+<br>
 **2 -** *“E por que esse custo foi maior?”* *“Porque o pedido de compra foi feito em cima da hora. Tivemos que pagar o preço de urgência do fornecedor.”* A lógica ainda é puramente técnica, segura.
-
+<br>
+<br>
 **3 -** “*Certo. E por que o pedido foi feito em cima da hora?”* Um silêncio constrangedor preenche a sala. Os olhares se desviam, a linguagem corporal muda. Finalmente, alguém quebra a tensão: *“Porque o departamento de engenharia demorou para liberar a especificação final.”* Pronto. A investigação para ali.
 
 O *“vilão”* foi encontrado: o departamento de engenharia. A *“ação corretiva”* é definida rapidamente: uma *“reunião de alinhamento”* ou, talvez, *“um novo treinamento sobre prazos internos”*. O problema real, no entanto, foi varrido para debaixo do tapete. O que teria acontecido se a investigação continuasse? Se alguém tivesse tido a coragem de perguntar o quarto *“Porquê”*?
-
+<br>
+<br>
 **4 -** *“Por que a engenharia demorou para liberar a especificação?”* A resposta poderia ser: *“Porque a equipe de engenharia está sobrecarregada desde que dois membros foram demitidos e não foram substituídos.”*
-
+<br>
+<br>
 **5 -** E então, o quinto e fatal *“Porquê”*: *“Por que os membros não foram substituídos?” “Porque a diretoria cortou o headcount do setor para bater a meta de redução de custos do trimestre.”*
-
+<br>
+<br>
 Aí reside a verdadeira causa-raiz. Não foi um erro operacional (o atraso da engenharia), mas uma decisão estratégica mal calibrada — um corte de custos sem análise de capacidade — que criou uma pressão insustentável no sistema. A questão central é: por que a equipe parou no terceiro “*Porquê”*? Porque apontar para a engenharia é desconfortável, mas aceitável. É um problema horizontal, entre departamentos. 
 
 Apontar para o corte de headcount é perigoso. É uma crítica vertical, direta à gestão sênior. O que faltou naquela sala não foi conhecimento técnico sobre a ferramenta. O que faltou foi um ambiente onde a franqueza é segura. Faltou a confiança fundamental de que os membros da equipe podem falar abertamente sobre erros, fazer perguntas difíceis ou expor falhas sistêmicas, sem que isso resulte em punição, humilhação ou constrangimento.
