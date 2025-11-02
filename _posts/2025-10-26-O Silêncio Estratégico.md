@@ -11,17 +11,11 @@ _“Pessoal, vamos aplicar os 5 Porquês para encontrar a causa-raiz disso.”_
 
 A intenção é nobre; a ferramenta, poderosa. A sala se prepara para o exercício analítico.\<!--more-->
 
-**1 -** _“Por que o orçamento estourou?”_, pergunta o líder. “_Porque o custo da matéria-prima X foi 30% maior que o previsto.”_ A resposta é factual, limpa.
-
-**2 -** _“E por que esse custo foi maior?”_ _“Porque o pedido de compra foi feito em cima da hora. Tivemos que pagar o preço de urgência do fornecedor.”_ A lógica ainda é puramente técnica, segura.
-
-**3 -** “_Certo. E por que o pedido foi feito em cima da hora?”_ Um silêncio constrangedor preenche a sala. Os olhares se desviam, a linguagem corporal muda. Finalmente, alguém quebra a tensão: _“Porque o departamento de engenharia demorou para liberar a especificação final.”_ Pronto. A investigação para ali.
-
-O _“vilão”_ foi encontrado: o departamento de engenharia. A _“ação corretiva”_ é definida rapidamente: uma _“reunião de alinhamento”_ ou, talvez, _“um novo treinamento sobre prazos internos”_. O problema real, no entanto, foi varrido para debaixo do tapete. O que teria acontecido se a investigação continuasse? Se alguém tivesse tido a coragem de perguntar o quarto _“Porquê”_?
-
-**4 -** _“Por que a engenharia demorou para liberar a especificação?”_ A resposta poderia ser: _“Porque a equipe de engenharia está sobrecarregada desde que dois membros foram demitidos e não foram substituídos.”_
-
-**5 -** E então, o quinto e fatal _“Porquê”_: _“Por que os membros não foram substituídos?” “Porque a diretoria cortou o headcount do setor para bater a meta de redução de custos do trimestre.”_
+1.  _“Por que o orçamento estourou?”_, pergunta o líder. “_Porque o custo da matéria-prima X foi 30% maior que o previsto.”_ A resposta é factual, limpa.
+2.  _“E por que esse custo foi maior?”_ _“Porque o pedido de compra foi feito em cima da hora. Tivemos que pagar o preço de urgência do fornecedor.”_ A lógica ainda é puramente técnica, segura.
+3.  “_Certo. E por que o pedido foi feito em cima da hora?”_ Um silêncio constrangedor preenche a sala. Os olhares se desviam, a linguagem corporal muda. Finalmente, alguém quebra a tensão: _“Porque o departamento de engenharia demorou para liberar a especificação final.”_ Pronto. A investigação para ali. O _“vilão”_ foi encontrado: o departamento de engenharia. A _“ação corretiva”_ é definida rapidamente: uma _“reunião de alinhamento”_ ou, talvez, _“um novo treinamento sobre prazos internos”_. O problema real, no entanto, foi varrido para debaixo do tapete. O que teria acontecido se a investigação continuasse? Se alguém tivesse tido a coragem de perguntar o quarto _“Porquê”_?
+4.  _“Por que a engenharia demorou para liberar a especificação?”_ A resposta poderia ser: _“Porque a equipe de engenharia está sobrecarregada desde que dois membros foram demitidos e não foram substituídos.”_
+5.  E então, o quinto e fatal _“Porquê”_: _“Por que os membros não foram substituídos?” “Porque a diretoria cortou o headcount do setor para bater a meta de redução de custos do trimestre.”_
 
 Aí reside a verdadeira causa-raiz. Não foi um erro operacional (o atraso da engenharia), mas uma decisão estratégica mal calibrada — um corte de custos sem análise de capacidade — que criou uma pressão insustentável no sistema. A questão central é: por que a equipe parou no terceiro “_Porquê”_? Porque apontar para a engenharia é desconfortável, mas aceitável. É um problema horizontal, entre departamentos.
 
