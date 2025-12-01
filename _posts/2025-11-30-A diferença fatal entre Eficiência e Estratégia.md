@@ -6,6 +6,7 @@ title: A diferença fatal entre Eficiência e Estratégia
 ---
 
 ![Ilustração do Cemitério de Gigantes Corporativos](/img/post_img/1.jpg)
+<br>
 
 A história corporativa é um cemitério de gigantes que não falharam por falta de recursos ou inteligência, mas por um **excesso de certeza em modelos que já estavam mortos**.
 
