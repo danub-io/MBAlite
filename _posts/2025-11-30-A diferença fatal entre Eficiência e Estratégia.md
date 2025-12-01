@@ -5,6 +5,8 @@ title: A diferença fatal entre Eficiência e Estratégia
 
 ---
 
+![Ilustração do Cemitério de Gigantes Corporativos](img/post_img/1.jpg)
+
 A história corporativa é um cemitério de gigantes que não falharam por falta de recursos ou inteligência, mas por um **excesso de certeza em modelos que já estavam mortos**.
 
 A **Kodak** não faliu por ignorância tecnológica (ela inventou a câmera digital!), mas porque sua liderança estava tão convicta de que o filme fotográfico era intocável que suprimiu a inovação. Da mesma forma, <!--more-->a **Blockbuster** não desapareceu por falta de dados, mas pela arrogância de acreditar que o streaming era um nicho irrelevante.
