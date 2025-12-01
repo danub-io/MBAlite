@@ -5,6 +5,8 @@ title: O Silêncio Estratégico
 
 ---
 
+![Ilustração mesa redonda](https://media.licdn.com/dms/image/v2/D4D12AQFoS8vYm3CVdw/article-cover_image-shrink_600_2000/B4DZooA23wGkAQ-/0/1761607908740?e=1766016000&v=beta&t=Y_8l9z9hmo2RpvtwJ33xQvLWTqEqEaV-jQ8ystOXbAI)
+
 A crise se instala. O orçamento do projeto principal estourou, e a notícia cai como uma bomba na reunião de diretoria, ameaçando a rentabilidade do trimestre. A pressão na sala é esmagadora. Em resposta, um líder convoca a equipe e saca uma ferramenta clássica do arsenal da gestão:
 
 *“Pessoal, vamos aplicar os 5 Porquês para encontrar a causa-raiz disso.”*
