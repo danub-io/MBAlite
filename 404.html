@@ -274,15 +274,10 @@
         }
         @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; } }
         @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
-
-        /* --- CSS DO HERO ATUALIZADO --- */
-
 #hero {
     display: flex;
     align-items: center;
-    /* Espaço para o cabeçalho fixo + respiro visual */
-    padding-top: calc(var(--header-height) + 4rem); 
-    padding-bottom: 6rem;
+    margin-top: 14rem;
     background-color: var(--color-bg-main);
 }
 
@@ -296,25 +291,11 @@
 #hero .text-content {
     text-align: center;
     max-width: 60rem;
-    /* Garante que a imagem e o texto fiquem centralizados no eixo vertical */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-}
-
-/* Estilos da Imagem das Capas */
-.hero-books-image {
-    max-width: 100%;      /* Responsividade: nunca ultrapassa a largura da tela */
-    height: auto;         /* Mantém a proporção correta */
-    width: 550px;         /* Tamanho ideal para desktop */
-    margin-bottom: 2rem;  /* Espaço entre a imagem e o título */
-    border-radius: 8px;   /* Leve arredondamento nos cantos (opcional) */
-    /* Nenhuma sombra aplicada conforme solicitado */
 }
 
 #hero h1 {
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 600;
     color: var(--color-text-title);
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -325,26 +306,6 @@
     color: var(--color-text-body);
     margin-bottom: 2.5rem;
     line-height: 1.625;
-    max-width: 48rem;
-}
-
-/* --- AJUSTES PARA MOBILE E TABLET --- */
-
-@media (max-width: 767px) {
-    #hero {
-        padding-top: calc(var(--header-height) + 2rem);
-        padding-bottom: 4rem;
-    }
-    
-    .hero-books-image {
-        width: 100%;      /* Ocupa a largura disponível */
-        max-width: 320px; /* Limita o tamanho em celulares para não empurrar o texto muito para baixo */
-        margin-bottom: 1.5rem;
-    }
-
-    #hero h1 {
-        font-size: 2rem;
-    }
 }
 
 @media (min-width: 768px) {
@@ -354,8 +315,6 @@
     #hero p {
         font-size: 1.5rem;
     }
-}
-
 }
         .enroll-button {
              padding: 0.75rem 1.5rem;
@@ -683,26 +642,17 @@ footer p {
     </div>
     <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
     <main id="main-content">
-
         <section id="hero">
-    <div class="container">
-        <div class="text-content">
-            <img src="/img/hero.webp" 
-                 alt="Livros: Gestão de Pessoas, Gestão da Qualidade e O Principal Mandamento" 
-                 class="hero-books-image" 
-                 width="550" 
-                 height="400" 
-                 loading="eager">
-            
-            <h1>Eleve sua Carreira em Gestão ao Próximo Nível</h1>
-            <p>Domine as competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis com o MBA lite.</p>
-            <div>
-                <a href="#enroll" class="enroll-button">Quero me Inscrever</a>
+            <div class="container">
+                <div class="text-content">
+                    <h1>Eleve sua Carreira em Gestão ao Próximo Nível</h1>
+                    <p>Domine as competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis com o MBA lite.</p>
+                    <div>
+                        <a href="#enroll" class="enroll-button">Quero me Inscrever</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-
+        </section>
         <section id="modulos" class="bg-bg-surface">
             <div class="container">
                 <div class="section-header">
