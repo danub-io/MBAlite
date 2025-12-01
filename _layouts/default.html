@@ -8,8 +8,7 @@
     <link rel="icon" type="image/png" href="/img/fav.png" onerror="this.onerror=null;this.href='https.placehold.co/32x32/0582ff/ffffff?text=M';">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="/img/hero-background.webp" as="image" fetchpriority="high">
-   <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NC9W8DTKB8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -27,7 +26,7 @@
     --color-text-on-primary: #ffffff;
     --color-text-title: #191919;
     --color-text-body: #37352f;
-    --color-text-muted: #555;
+    --color-text-muted: #555555;
     --color-bg-main: #FFFFFF;
     --color-bg-surface: #F7F7F5;
     --color-border: #EAEAEA;
@@ -237,7 +236,8 @@
             pointer-events: none;
         }
         section {
-            padding: 5rem 1rem;
+            padding: 0 1rem;
+            margin-bottom: 10rem;
         }
         .section-header {
             text-align: center;
@@ -253,8 +253,8 @@
             letter-spacing: 0.05em;
         }
         .section-header .title {
-            font-size: 2.25rem;
-            font-weight: 800;
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--color-text-title);
             margin-bottom: 1.5rem;
         }
@@ -277,8 +277,7 @@
 #hero {
     display: flex;
     align-items: center;
-    padding-top: 14rem;
-    padding-bottom: 10rem;
+    margin-top: 14rem;
     background-color: var(--color-bg-main);
 }
 
@@ -467,7 +466,7 @@
     font-weight: 700;
 }
 footer {
-    padding: 4rem 1.25rem;
+    padding: 0 1.25rem 4rem;
     margin-top: auto;
     text-align: center;
     color: var(--color-text-muted);
@@ -525,7 +524,7 @@ footer p {
         }
         .publications-grid {
             display: grid;
-            gap: 2rem;
+            gap: 8rem;
             margin-top: 2rem;
         }
         @media (min-width: 768px) {
@@ -560,8 +559,10 @@ footer p {
             background-color: #f59e0b;
             color: #1f2937 !important;
             padding: 0.5rem 1rem;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .publication-card .enroll-button:hover {
             background-color: #d97706;
@@ -578,12 +579,7 @@ footer p {
                 text-align: left;
             }
         }
-/* Adiciona recuo na primeira linha dos parágrafos dentro dos posts */
-.post-body p {
-    font-size: 1.125rem;
-    text-indent: 1.5em; /* Recuo na primeira linha */
-    margin-bottom: 0.15em; /* Espaço abaixo do parágrafo */
-}
+
     </style>
     <script type="application/ld+json">
     {
@@ -614,15 +610,15 @@ footer p {
 <body>
     <header id="main-header">
         <div class="container">
-            <a href="/" class="logo">MBA lite</a>
+            <a href="#" class="logo">MBA lite</a>
             <nav id="main-nav">
-              <a href="/" class="nav-link">Início</a>
-              <a href="/#modulos" class="nav-link">Módulos</a>
-              <a href="/#publicacoes" class="nav-link">Publicações</a>
-              <a href="/#autor" class="nav-link">Sobre</a>
-              <a href="/#faq" class="nav-link">FAQ</a>
+              <a href="#" class="nav-link">Início</a>
+              <a href="#modulos" class="nav-link">Módulos</a>
+              <a href="#publicacoes" class="nav-link">Publicações</a>
+              <a href="#autor" class="nav-link">Sobre</a>
+              <a href="#faq" class="nav-link">FAQ</a>
               <a href="/blog.html" class="nav-link">Blog</a>
-              <a href="/#enroll" class="enroll-button">Inscreva-se</a>
+              <a href="#enroll" class="enroll-button">Inscreva-se</a>
             </nav>
             <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
                 <div class="hamburger"><span></span><span></span><span></span></div>
@@ -635,19 +631,172 @@ footer p {
             <button id="close-menu-btn" aria-label="Fechar menu">&times;</button>
         </div>
         <nav aria-label="Navegação móvel">
-            <a href="/" class="mobile-menu-link">Início</a>
-            <a href="/#modulos" class="mobile-menu-link">Módulos</a>
-            <a href="/#publicacoes" class="mobile-menu-link">Publicações</a>
-            <a href="/#autor" class="mobile-menu-link">Sobre</a>
-            <a href="/#faq" class="mobile-menu-link">FAQ</a>
+            <a href="#" class="mobile-menu-link">Início</a>
+            <a href="#modulos" class="mobile-menu-link">Módulos</a>
+            <a href="#publicacoes" class="mobile-menu-link">Publicações</a>
+            <a href="#autor" class="mobile-menu-link">Sobre</a>
+            <a href="#faq" class="mobile-menu-link">FAQ</a>
             <a href="/blog.html" class="mobile-menu-link">Blog</a>
-            <a href="/#enroll" class="enroll-button mobile-menu-link">Inscreva-se</a>
+            <a href="#enroll" class="enroll-button mobile-menu-link">Inscreva-se</a>
         </nav>
     </div>
     <div id="menu-overlay" class="hidden" aria-hidden="true"></div>
-    
-{{ content }}
-
+    <main id="main-content">
+        <section id="hero">
+            <div class="container">
+                <div class="text-content">
+                    <h1>Eleve sua Carreira em Gestão ao Próximo Nível</h1>
+                    <p>Domine as competências essenciais para liderar equipes, gerenciar projetos complexos e impulsionar resultados sustentáveis com o MBA lite.</p>
+                    <div>
+                        <a href="#enroll" class="enroll-button">Quero me Inscrever</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="modulos" class="bg-bg-surface">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="title">Currículo Essencial para Líderes</h2>
+                    <h3 class="subtitle">CONTEÚDO</h3>
+                    <p class="description">Explore módulos abrangentes que cobrem desde a gestão de pessoas e riscos até as mais recentes ferramentas e aplicações de IA em projetos.</p>
+                </div>
+                <div class="grid-container">
+                    <div class="module-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                        <h3>Gestão de Pessoas</h3>
+                        <p>Aprenda a transformar o RH em um parceiro estratégico, abordando recrutamento, desenvolvimento de lideranças, cultura organizacional, People Analytics e a relevância de cultivar um mindset de crescimento.</p>
+                    </div>
+                    <div class="module-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        <h3>Gestão de Riscos</h3>
+                        <p>Domine frameworks como ISO 31000 e COSO, e ferramentas como FMEA e HAZOP para identificar, analisar e mitigar riscos, protegendo e otimizando os resultados da sua organização.</p>
+                    </div>
+                    <div class="module-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></div>
+                        <h3>Gestão da Qualidade</h3>
+                        <p>Aplique o ciclo PDCA, Seis Sigma, Lean e os requisitos da ISO 9001 para melhoria contínua, otimização de processos e garantia de valor em todas as entregas.</p>
+                    </div>
+                    <div class="module-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gantt-chart"><path d="M8 6h10M6 12h9M11 18h7"/></svg></div>
+                        <h3>Gestão de Projetos</h3>
+                        <p>Explore a abordagem tradicional com PMBOK e mergulhe nos princípios ágeis com Scrum e Kanban para gerir e entregar projetos complexos com sucesso.</p>
+                    </div>
+                    <div class="module-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+                        <h3>Ferramentas de Gestão</h3>
+                        <p>Domine as funcionalidades essenciais de plataformas como ClickUp, Jira e Trello para planejar, executar e monitorar projetos de forma eficiente e colaborativa.</p>
+                    </div>
+                    <div class="module-card">
+                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg></div>
+                        <h3>Gestão com IA</h3>
+                        <p>Descubra como usar IAs Generativas (ChatGPT, Gemini) para brainstorming, análise SWOT, definição de escopo, simulação de cenários e apoio à tomada de decisão.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="autor" class="bg-bg-main">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="title">Conheça o Autor</h2>
+                    <h3 class="subtitle">QUEM ESTÁ POR TRÁS DO MBA LITE</h3>
+                </div>
+                <div class="author-intro">
+                    <img src="/img/profile-pic.webp" alt="Foto de Dan Coelho" class="author-photo" width="200" height="200" loading="lazy" onerror="this.onerror=null; this.src='https.placehold.co/200x200/e0e7ff/4f46e5?text=DC';">
+                    <div class="author-bio">
+                        <h3 class="title">Dan Coelho</h3>
+                        <p class="description">Minha jornada profissional começou na Engenharia Química, mas logo percebi que os sistemas mais desafiadores e gratificantes de otimizar eram formados por pessoas. Essa percepção me levou à gestão de projetos, onde apliquei minha base analítica para identificar gargalos não só em produção, mas nos fluxos de trabalho e colaboração das equipes. Meu objetivo é ajudar profissionais e organizações a desvendar seu potencial, otimizar processos e alcançar resultados extraordinários, sempre com um olhar estratégico e humano.</p>
+                    </div>
+                </div>
+                <div id="publicacoes" class="publications-wrapper">
+                    <div class="section-header" style="text-align: center; margin-top: 4rem; margin-bottom: 3rem;">
+                        <h2 class="title">Publicações em Destaque</h2>
+                    </div>
+                    <div class="publications-grid">
+                        <div class="publication-card">
+                            <img src="/img/ebooks/gestao-de-pessoas-alta-performance.webp" alt="Capa do Livro Gestão de Pessoas para Alta Performance" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Capa';">
+                            <div class="publication-details">
+                                <h4 class="book-title">Gestão de Pessoas para Alta Performance</h4>
+                                <p>Um guia essencial para líderes e profissionais de RH que desejam transformar a gestão de pessoas. Aprenda a construir equipes de alta performance, engajar talentos e alinhar a cultura organizacional aos objetivos estratégicos para impulsionar resultados sustentáveis e um ambiente de trabalho inspirador.</p>
+                                <a href="https://www.amazon.com.br/dp/B0F47QBL8R" target="_blank" rel="noopener noreferrer" class="enroll-button">Comprar na Amazon</a>
+                            </div>
+                        </div>
+                        <div class="publication-card">
+                            <img src="/img/ebooks/gestao-da-qualidade-alta-performance.webp" alt="Capa do Livro Gestão da Qualidade para Alta Performance" class="book-cover" width="200" height="300" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/200x300/f3f4f6/6b7280?text=Capa';">
+                            <div class="publication-details">
+                                <h4 class="book-title">Gestão da Qualidade para Alta Performance</h4>
+                                <p>Um manual definitivo para transformar o caos em ordem. Este guia prático oferece as ferramentas essenciais para eliminar as causas-raiz de problemas, aplicando métodos como PDCA, Lean e Seis Sigma. Torne-se um arquiteto da excelência, construindo sistemas robustos que previnem falhas e entregam resultados de elite.</p>
+                                <a href="https://www.amazon.com.br/dp/B0FSYXB5J4" target="_blank" rel="noopener noreferrer" class="enroll-button">Comprar na Amazon</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="bg-bg-surface">
+            <div class="container" style="max-width: 56rem;">
+                <div class="section-header">
+                    <h2 class="title">Perguntas Frequentes</h2>
+                    <h3 class="subtitle">AINDA TEM DÚVIDAS?</h3>
+                </div>
+                <div class="faq-group">
+                    <details class="faq-item" open>
+                        <summary>O que é o curso MBA lite?</summary>
+                        <div class="faq-content">
+                            <p>O MBA lite é um programa de treinamento intensivo focado em fornecer conhecimentos e ferramentas essenciais em gestão estratégica, gestão de pessoas, riscos, qualidade e projetos, incluindo o uso de Ferramentas de Gestão de Projetos (como ClickUp, Jira, Trello, etc.) e Inteligência Artificial Generativa (como ChatGPT, Gemini, etc.), para capacitar líderes e profissionais a impulsionar resultados.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Para quem este curso é recomendado?</summary>
+                        <div class="faq-content">
+                            <p>O curso é ideal para líderes, gestores, profissionais em transição para cargos de gestão, empreendedores, analistas, especialistas e consultores que buscam aprimorar suas competências estratégicas e operacionais em gestão moderna.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Qual a duração total estimada do curso?</summary>
+                        <div class="faq-content">
+                            <p>A duração total do curso é de aproximadamente 500 horas de conteúdo em vídeo. Por ser online e disponível na Udemy, você pode estudar no seu próprio ritmo e acessar o conteúdo conforme sua disponibilidade.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Precisarei de alguma ferramenta ou software específico?</summary>
+                        <div class="faq-content">
+                            <p>O curso aborda diversas ferramentas, como ClickUp, Jira, Trello, ChatGPT, Google Gemini, etc. Para acompanhar as aulas práticas, recomenda-se criar contas gratuitas nessas plataformas quando aplicável (muitas oferecem planos gratuitos), que são geralmente suficientes para realizar os exercícios e aplicar os conceitos aprendidos.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>O curso oferece acesso vitalício?</summary>
+                        <div class="faq-content">
+                            <p>Sim, conforme a política padrão da Udemy, ao adquirir o curso você terá acesso vitalício a todo o conteúdo das aulas em vídeo, bem como a quaisquer atualizações futuras que o autor venha a adicionar.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Receberei um certificado ao concluir o curso?</summary>
+                        <div class="faq-content">
+                            <p>Sim. Após concluir todas as aulas e atividades requeridas pelo curso na plataforma Udemy, você terá direito a um certificado de conclusão digital emitido pela própria Udemy, atestando sua participação e aprendizado.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section id="enroll" class="bg-bg-main">
+            <div class="container" style="max-width: 56rem;">
+                <div class="section-header">
+                    <h2 class="title">Pronto para Acelerar sua Carreira?</h2>
+                    <h3 class="subtitle">INSCRIÇÃO</h3>
+                    <p class="description">Junte-se a centenas de profissionais que já estão se preparando para o próximo nível em gestão. Inscreva-se para receber atualizações exclusivas e seja o primeiro a saber sobre o lançamento do MBA lite.</p>
+                </div>
+                <ul class="benefit-list">
+                    <li class="benefit-item">Acesso antecipado ao conteúdo do curso</li>
+                    <li class="benefit-item">Descontos especiais de lançamento</li>
+                    <li class="benefit-item">Notícias e insights sobre gestão</li>
+                </ul>
+                <div class="form-wrapper" style="text-align: center; margin-top: 3rem;">
+                    <a href="https://forms.gle/TDysdS18UShHqMMv5" target="_blank" rel="noopener noreferrer" class="enroll-button" style="width: 100%; max-width: 300px; display: inline-block; text-align: center; padding: 1rem; font-size: 1rem; border-radius: 0.5rem;">Quero ser Notificado</a>
+                    <p style="font-size: 0.875rem; text-align: center; margin-top: 1rem; color: var(--color-text-muted);">*Vagas limitadas para a primeira turma. Cancele a inscrição a qualquer momento.</p>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer>
         <div class="container">
             <div class="social-icons">
@@ -712,7 +861,10 @@ footer p {
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (href.startsWith('#')) {
+                    if (href === '#') {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else if (href.startsWith('#')) {
                         e.preventDefault();
                         const targetId = href.substring(1);
                         const targetElement = document.getElementById(targetId);
